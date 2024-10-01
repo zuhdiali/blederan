@@ -30,7 +30,8 @@ https://templatemo.com/tm-580-woox-travel
   </head>
 
 <body>
-    
+
+  @include('navbar')
 
   <!-- ***** Main Banner Area Start ***** -->
   <section id="section-1">
