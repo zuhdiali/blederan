@@ -29,7 +29,7 @@ https://templatemo.com/tm-580-woox-travel
   </head>
 
 <body>
-@include('navbar')
+  @include('navbar')
 
   <!-- ***** Main Banner Area Start ***** -->
   <div class="about-main-content">

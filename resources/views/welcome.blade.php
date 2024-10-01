@@ -31,7 +31,7 @@ https://templatemo.com/tm-580-woox-travel
 
 <body>
     
-
+  @include('navbar')
   <!-- ***** Main Banner Area Start ***** -->
   <section id="section-1">
     <div class="content-slider">

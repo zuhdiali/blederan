@@ -23,4 +23,9 @@ class HomeController extends Controller
     {
         return view('dashboard');
     }
+
+    public function about()
+    {
+        return view('about');
+    }
 }
