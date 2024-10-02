@@ -104,7 +104,7 @@ ul {
 p {
   font-size: 15px;
   line-height: 30px;
-  color: #afafaf;
+  color: #726e6e;
 }
 
 img {
@@ -777,7 +777,7 @@ Banner Style
 }
 #section-1 .more-info h4 span {
   font-size: 15px;
-  color: #afafaf;
+  color: #666666;
   font-weight: 400;
 }
 #section-1 .main-button {
@@ -964,7 +964,7 @@ Visit Country Style
 
 .visit-country .item .right-content span {
   font-size: 15px;
-  color: #afafaf;
+  color: #666666;
   display: block;
 }
 
@@ -994,7 +994,7 @@ Visit Country Style
 .visit-country .item .right-content ul li {
   display: inline-block;
   width: 32%;
-  color: #afafaf;
+  color: #666666;
   font-size: 14px;
 }
 
@@ -1333,7 +1333,7 @@ About Page Style
 .weekly-offers .item .thumb .text h4 span,
 .weekly-offers .item .thumb .text h6 span {
   font-size: 15px;
-  color: #afafaf;
+  color: #666666;
   font-weight: 400;
 }
 
@@ -1344,7 +1344,7 @@ About Page Style
 }
 
 .weekly-offers .item .thumb .text ul li {
-  color: #afafaf;
+  color: #666666;
   font-size: 14px;
   margin-bottom: 10px;
 }
@@ -1966,7 +1966,7 @@ Deals Page Style
 
 .amazing-deals .item span.list {
   font-size: 15px;
-  color: #afafaf;
+  color: #666666;
   font-weight: 500;
 }
 
@@ -2141,7 +2141,7 @@ Reservation Page Style
 
 .reservation-form #reservation-form label {
   font-size: 15px;
-  color: #afafaf;
+  color: #666666;
 }
 
 .reservation-form #reservation-form input,

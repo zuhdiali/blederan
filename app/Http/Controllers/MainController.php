@@ -10,8 +10,23 @@ class MainController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-    public function about()
+    public function produk()
     {
-        return view('about');
+        return view('produk');
+    }
+
+    public function artikel()
+    {
+        return view('artikel');
+    }
+
+    public function data()
+    {
+        return view('data');
+    }
+
+    public function layoutArtikel()
+    {
+        return view('layout_artikel');
     }
 }

@@ -1,36 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <title>WoOx Travel - About Us</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-woox-travel.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<!--
-
-TemplateMo 580 Woox Travel
-
-https://templatemo.com/tm-580-woox-travel
-
--->
-  </head>
-
-<body>
-  @include('navbar')
-
+@section('content')
+  
   <!-- ***** Main Banner Area Start ***** -->
   <div class="about-main-content">
     <div class="container">
@@ -38,12 +9,12 @@ https://templatemo.com/tm-580-woox-travel
         <div class="col-lg-12">
           <div class="content">
             <div class="blur-bg"></div>
-            <h4>EXPLORE OUR COUNTRY</h4>
+            <h4>COBA PRODUK KAMI</h4>
             <div class="line-dec"></div>
-            <h2>Welcome To Caribbean</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt uttersi labore et dolore magna aliqua is ipsum suspendisse ultrices gravida</p>
+            <h2>Produk di Desa Blederan</h2>
+            <p>Desa Blederan menyediakan berbagai macam produk yang dapat dibeli. Produk-produk tersebut meliputi produk pertanian langsung maupun yang merupakan hasil olahan. Tak hanya itu, Desa Blederan juga menyediakan produk-produk berkualitas lainnya.</p>
             <div class="main-button">
-              <a href="reservation.html">Discover More</a>
+              <a href="#">Tombol Dummy, bisa dihapus</a>
             </div>
           </div>
         </div>
@@ -58,56 +29,56 @@ https://templatemo.com/tm-580-woox-travel
         <div class="slider-content">
           <div class="row">
             <div class="col-lg-12">
-              <h2>Caribbean’s <em>Cities &amp; Towns</em></h2>
+              <h2>Produk <em>Hortikultura</em></h2>
             </div>
             <div class="col-lg-12">
               <div class="owl-cites-town owl-carousel">
                 <div class="item">
                   <div class="thumb">
                     <img src="assets/images/cities-01.jpg" alt="">
-                    <h4>Havana</h4>
+                    <h4>Padi</h4>
                   </div>
                 </div>
                 <div class="item">
                   <div class="thumb">
                     <img src="assets/images/cities-02.jpg" alt="">
-                    <h4>Kingston</h4>
+                    <h4>Jagung</h4>
                   </div>
                 </div>
                 <div class="item">
                   <div class="thumb">
                     <img src="assets/images/cities-03.jpg" alt="">
-                    <h4>George Town</h4>
+                    <h4>Durian</h4>
                   </div>
                 </div>
                 <div class="item">
                   <div class="thumb">
                     <img src="assets/images/cities-04.jpg" alt="">
-                    <h4>Santo Domingo</h4>
+                    <h4>Teh</h4>
                   </div>
                 </div>
                 <div class="item">
                   <div class="thumb">
                     <img src="assets/images/cities-01.jpg" alt="">
-                    <h4>Havana</h4>
+                    <h4>Tembakau</h4>
                   </div>
                 </div>
                 <div class="item">
                   <div class="thumb">
                     <img src="assets/images/cities-02.jpg" alt="">
-                    <h4>Kingston</h4>
+                    <h4>Kopi</h4>
                   </div>
                 </div>
                 <div class="item">
                   <div class="thumb">
                     <img src="assets/images/cities-03.jpg" alt="">
-                    <h4>George Town</h4>
+                    <h4>Singkong</h4>
                   </div>
                 </div>
                 <div class="item">
                   <div class="thumb">
                     <img src="assets/images/cities-04.jpg" alt="">
-                    <h4>Santo Domingo</h4>
+                    <h4>Alpukat</h4>
                   </div>
                 </div>
               </div>
@@ -123,8 +94,8 @@ https://templatemo.com/tm-580-woox-travel
       <div class="row">
         <div class="col-lg-6 offset-lg-3">
           <div class="section-heading text-center">
-            <h2>Best Weekly Offers In Each City</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            <h2>Produk Lainnya</h2>
+            <p>Selain produk hortikultura, Desa Blederan juga menyediakan berbagai produk lain.</p>
           </div>
         </div>
       </div>
@@ -137,17 +108,17 @@ https://templatemo.com/tm-580-woox-travel
               <div class="thumb">
                 <img src="assets/images/offers-01.jpg" alt="">
                 <div class="text">
-                  <h4>Havana<br><span><i class="fa fa-users"></i> 234 Check Ins</span></h4>
-                  <h6>$420<br><span>/person</span></h6>
+                  <h4>Keripik Singkong<br><span><i class="fa fa-users"></i> Bu Yun</span></h4>
+                  <h6>Rp15.000<br><span>/pack</span></h6>
                   <div class="line-dec"></div>
                   <ul>
-                    <li>Deal Includes:</li>
-                    <li><i class="fa fa-taxi"></i> 5 Days Trip > Hotel Included</li>
-                    <li><i class="fa fa-plane"></i> Airplane Bill Included</li>
-                    <li><i class="fa fa-building"></i> Daily Places Visit</li>
+                    <li>Deskripsi:</li>
+                    <li><i class="fa fa-taxi"></i> Bahan asli</li>
+                    <li><i class="fa fa-plane"></i> Rasa Balado / Gurih</li>
+                    <li><i class="fa fa-building"></i> Siap COD</li>
                   </ul>
                   <div class="main-button">
-                    <a href="reservation.html">Make a Reservation</a>
+                    <a href="#">Hubungi Penjual</a>
                   </div>
                 </div>
               </div>
@@ -156,17 +127,17 @@ https://templatemo.com/tm-580-woox-travel
               <div class="thumb">
                 <img src="assets/images/offers-02.jpg" alt="">
                 <div class="text">
-                  <h4>Kingston<br><span><i class="fa fa-users"></i> 234 Check Ins</span></h4>
-                  <h6>$420<br><span>/person</span></h6>
+                  <h4>Jagung Manis<br><span><i class="fa fa-users"></i> Pak Kadir</span></h4>
+                  <h6>Rp5.000<br><span>/cup</span></h6>
                   <div class="line-dec"></div>
                   <ul>
-                    <li>Deal Includes:</li>
-                    <li><i class="fa fa-taxi"></i> 5 Days Trip > Hotel Included</li>
-                    <li><i class="fa fa-plane"></i> Airplane Bill Included</li>
-                    <li><i class="fa fa-building"></i> Daily Places Visit</li>
+                    <li>Deskripsi:</li>
+                    <li><i class="fa fa-taxi"></i> Bahan Asli </li>
+                    <li><i class="fa fa-plane"></i> Rasa Original </li>
+                    <li><i class="fa fa-building"></i> Siap COD </li>
                   </ul>
                   <div class="main-button">
-                    <a href="reservation.html">Make a Reservation</a>
+                    <a href="#">Hubungi Penjual</a>
                   </div>
                 </div>
               </div>
@@ -175,17 +146,17 @@ https://templatemo.com/tm-580-woox-travel
               <div class="thumb">
                 <img src="assets/images/offers-03.jpg" alt="">
                 <div class="text">
-                  <h4>George Town<br><span><i class="fa fa-users"></i> 234 Check Ins</span></h4>
-                  <h6>$420<br><span>/person</span></h6>
+                  <h4>Tahu Walik<br><span><i class="fa fa-users"></i> Pak Usman </span></h4>
+                  <h6>Rp10.000<br><span>/box</span></h6>
                   <div class="line-dec"></div>
                   <ul>
-                    <li>Deal Includes:</li>
-                    <li><i class="fa fa-taxi"></i> 5 Days Trip > Hotel Included</li>
-                    <li><i class="fa fa-plane"></i> Airplane Bill Included</li>
-                    <li><i class="fa fa-building"></i> Daily Places Visit</li>
+                    <li>Deskripsi:</li>
+                    <li><i class="fa fa-taxi"></i> 1 box isi 10 </li>
+                    <li><i class="fa fa-plane"></i> Rasa Gurih / Pedas </li>
+                    <li><i class="fa fa-building"></i> Siap COD </li>
                   </ul>
                   <div class="main-button">
-                    <a href="reservation.html">Make a Reservation</a>
+                    <a href="#">Hubungi Penjual</a>
                   </div>
                 </div>
               </div>
@@ -194,17 +165,17 @@ https://templatemo.com/tm-580-woox-travel
               <div class="thumb">
                 <img src="assets/images/offers-01.jpg" alt="">
                 <div class="text">
-                  <h4>Havana<br><span><i class="fa fa-users"></i> 234 Check Ins</span></h4>
-                  <h6>$420<br><span>/person</span></h6>
+                  <h4>Pisang Krispi<br><span><i class="fa fa-users"></i> Bu Monik </span></h4>
+                  <h6>Rp15.000<br><span>/box</span></h6>
                   <div class="line-dec"></div>
                   <ul>
-                    <li>Deal Includes:</li>
-                    <li><i class="fa fa-taxi"></i> 5 Days Trip > Hotel Included</li>
-                    <li><i class="fa fa-plane"></i> Airplane Bill Included</li>
-                    <li><i class="fa fa-building"></i> Daily Places Visit</li>
+                    <li>Deskripsi:</li>
+                    <li><i class="fa fa-taxi"></i> 1 box isi 5</li>
+                    <li><i class="fa fa-plane"></i> Berbagai varian rasa</li>
+                    <li><i class="fa fa-building"></i> Siap COD </li>
                   </ul>
                   <div class="main-button">
-                    <a href="reservation.html">Make a Reservation</a>
+                    <a href="#">Hubungi Penjual</a>
                   </div>
                 </div>
               </div>
@@ -213,17 +184,17 @@ https://templatemo.com/tm-580-woox-travel
               <div class="thumb">
                 <img src="assets/images/offers-02.jpg" alt="">
                 <div class="text">
-                  <h4>Kingston<br><span><i class="fa fa-users"></i> 234 Check Ins</span></h4>
-                  <h6>$420<br><span>/person</span></h6>
+                  <h4>Bubur Ayam<br><span><i class="fa fa-users"></i> Pak Umar </span></h4>
+                  <h6> Rp 22.000<br><span>/porsi</span></h6>
                   <div class="line-dec"></div>
                   <ul>
-                    <li>Deal Includes:</li>
-                    <li><i class="fa fa-taxi"></i> 5 Days Trip > Hotel Included</li>
-                    <li><i class="fa fa-plane"></i> Airplane Bill Included</li>
-                    <li><i class="fa fa-building"></i> Daily Places Visit</li>
+                    <li>Deskripsi:</li>
+                    <li><i class="fa fa-taxi"></i> Bisa pesan antar</li>
+                    <li><i class="fa fa-plane"></i> Menerima cathering</li>
+                    <li><i class="fa fa-building"></i> Menerima pembayaran QRIS</li>
                   </ul>
                   <div class="main-button">
-                    <a href="reservation.html">Make a Reservation</a>
+                    <a href="#">Hubungi Penjual</a>
                   </div>
                 </div>
               </div>
@@ -232,17 +203,17 @@ https://templatemo.com/tm-580-woox-travel
               <div class="thumb">
                 <img src="assets/images/offers-03.jpg" alt="">
                 <div class="text">
-                  <h4>George Town<br><span><i class="fa fa-users"></i> 234 Check Ins</span></h4>
-                  <h6>$420<br><span>/person</span></h6>
+                  <h4>Kopi Gunung <br><span><i class="fa fa-users"></i> Pak Luki</span></h4>
+                  <h6> Rp25.000<br><span>/pack</span></h6>
                   <div class="line-dec"></div>
                   <ul>
-                    <li>Deal Includes:</li>
-                    <li><i class="fa fa-taxi"></i> 5 Days Trip > Hotel Included</li>
-                    <li><i class="fa fa-plane"></i> Airplane Bill Included</li>
-                    <li><i class="fa fa-building"></i> Daily Places Visit</li>
+                    <li>Deskripsi:</li>
+                    <li><i class="fa fa-taxi"></i> 1 pack = 250gram</li>
+                    <li><i class="fa fa-plane"></i> Beli 10 pack gratis 1</li>
+                    <li><i class="fa fa-building"></i> Siap pesan antar</li>
                   </ul>
                   <div class="main-button">
-                    <a href="reservation.html">Make a Reservation</a>
+                    <a href="#">Hubungi Penjual</a>
                   </div>
                 </div>
               </div>
@@ -253,7 +224,7 @@ https://templatemo.com/tm-580-woox-travel
     </div>
   </div>
 
-  <div class="more-about">
+  {{-- <div class="more-about">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 align-self-center">
@@ -383,55 +354,5 @@ https://templatemo.com/tm-580-woox-travel
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="call-to-action">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-          <h2>Are You Looking To Travel ?</h2>
-          <h4>Make A Reservation By Clicking The Button</h4>
-        </div>
-        <div class="col-lg-4">
-          <div class="border-button">
-            <a href="reservation.html">Book Yours Now</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <p>Copyright © 2036 <a href="#">WoOx Travel</a> Company. All rights reserved. 
-          <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a> Distribution: <a href="https://themewagon.com target="_blank" >ThemeWagon</a></p>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-  <script src="assets/js/isotope.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/wow.js"></script>
-  <script src="assets/js/tabs.js"></script>
-  <script src="assets/js/popup.js"></script>
-  <script src="assets/js/custom.js"></script>
-
-  <script>
-    $(".option").click(function(){
-      $(".option").removeClass("active");
-      $(this).addClass("active"); 
-    });
-  </script>
-
-  </body>
-
-</html>
+  </div>--}}
+@endsection

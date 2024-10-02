@@ -15,6 +15,9 @@ use App\Http\Controllers\MainController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
-Route::get('/about', [MainController::class, 'about'])->name('about');
+Route::get('/produk', [MainController::class, 'produk'])->name('produk');
+Route::get('/artikel', [MainController::class, 'artikel'])->name('artikel');
+Route::get('/data', [MainController::class, 'data'])->name('data');
+Route::get('/layout-artikel', [MainController::class, 'layoutArtikel'])->name('layout-artikel');
