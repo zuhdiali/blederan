@@ -29,4 +29,24 @@ class MainController extends Controller
     {
         return view('layout_artikel');
     }
+
+    public function desaCantik()
+    {
+        return view('artikels.20241003_desa_cantik');
+    }
+
+    public function kampungSayur()
+    {
+        return view('artikels.20241003_kampung_sayur');
+    }
+
+    public function santunan()
+    {
+        return view('artikels.20241003_santunan');
+    }
+
+    public function penghargaan()
+    {
+        return view('artikels.20241003_penghargaan');
+    }
 }

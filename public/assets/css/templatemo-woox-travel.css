@@ -992,19 +992,19 @@ Visit Country Style
 }
 
 .visit-country .item .right-content ul li {
-  display: inline-block;
-  width: 32%;
+  /* display: inline-block; */
+  /* width: 100%; */
   color: #666666;
   font-size: 14px;
 }
 
-.visit-country .item .right-content ul li:nth-child(2) {
+/* .visit-country .item .right-content ul li:nth-child(2) {
   text-align: center;
 }
 
 .visit-country .item .right-content ul li:last-child {
   text-align: right;
-}
+} */
 
 .visit-country .item .right-content ul li i {
   margin-right: 5px;
@@ -1137,7 +1137,7 @@ About Page Style
 
 .about-main-content {
   margin-top: 70px;
-  background-image: url(../images/about-content-bg.jpg);
+  background-image: url(/assets/images/blederan1.jpeg);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1148,7 +1148,7 @@ About Page Style
 .blur-bg {
 	width: 100%;
   height: 100%;
-  background: url(../images/about-content-bg.jpg) no-repeat center center fixed;
+  background: url(/assets/images/blederan1.jpeg) no-repeat center center fixed;
   background-size: cover;
   filter: blur(8px) brightness(80%);
   position: absolute;
@@ -1298,21 +1298,23 @@ About Page Style
 .weekly-offers .item {
   margin: 0px 15px;
   position: relative;
-  min-height: 420px;
+  min-height: 600px;
 }
 
 .weekly-offers .item .thumb img {
-  padding-right: 160px;
+  /* padding-right: 160px; */
   border-radius: 23px;
 }
-
+.weekly-offers .item .thumb {
+  overflow: visible;
+}
 .weekly-offers .item .thumb .text {
   position: absolute;
   background-color: #fff;
   border-radius: 23px;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  /* right: 0; */
+  top: 40%;
+  transform: translateY(-10%);
   box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
   padding: 30px;
 }
@@ -2238,9 +2240,9 @@ body {
   #section-1 .content-slider nav .controls label { 
     width: 7% !important;
   }
-  .visit-country .item .right-content ul li {
+  /* .visit-country .item .right-content ul li {
     width: 30%;
-  }
+  } */
   .visit-country .item .right-content h4 {
     margin-top: 20px;
   }
@@ -2263,9 +2265,9 @@ body {
   #section-1 .content-slider nav .controls label {
     width: 15%;
   }
-  .visit-country .item .right-content ul li {
+  /* .visit-country .item .right-content ul li {
     width: 30% !important;
-  }
+  } */
   .visit-country .item .right-content {
     position: relative;
   }

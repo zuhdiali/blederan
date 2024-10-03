@@ -9,13 +9,13 @@
         <div class="col-lg-12">
           <div class="content">
             <div class="blur-bg"></div>
-            <h4>Selamat Datang di</h4>
+            <h4>COBA PRODUK KAMI</h4>
             <div class="line-dec"></div>
-            <h2>Desa Blederan</h2>
-            <p>Kampung Sayur Organik</p>
-            {{-- <div class="main-button">
+            <h2>Produk di Desa Blederan</h2>
+            <p>Desa Blederan menyediakan berbagai macam produk yang dapat dibeli. Produk-produk tersebut meliputi produk pertanian langsung maupun yang merupakan hasil olahan. Tak hanya itu, Desa Blederan juga menyediakan produk-produk berkualitas lainnya.</p>
+            <div class="main-button">
               <a href="#">Tombol Dummy, bisa dihapus</a>
-            </div> --}}
+            </div>
           </div>
         </div>
       </div>
@@ -266,91 +266,115 @@
           <div class="owl-weekly-offers owl-carousel">
             <div class="item">
               <div class="thumb">
-                <img src="/assets/images/blederan2.jpg" alt="">
-                <div class="text w-100">
-                  <h4>SD Pagerkukuh Wonosobo<br></h4>
+                <img src="assets/images/offers-01.jpg" alt="">
+                <div class="text">
+                  <h4>Keripik Singkong<br><span><i class="fa fa-users"></i> Bu Yun</span></h4>
+                  <h6>Rp15.000<br><span>/pack</span></h6>
                   <div class="line-dec"></div>
                   <ul>
-                    <li>Deskripsi Kunjungan:</li>
-                    <li><i class="fa fa-calendar"></i> Tanggal: 21 September 2024</li>
-                    <li><i class="fa fa-users"></i> Jumlah: 40 siswa </li>
-                    <li><i class="fa fa-note-sticky"></i> Kegiatan: Belajar tentang budidaya sayuran, main ke kandang kambing, dan melihat kolam ikan </li>
+                    <li>Deskripsi:</li>
+                    <li><i class="fa fa-taxi"></i> Bahan asli</li>
+                    <li><i class="fa fa-plane"></i> Rasa Balado / Gurih</li>
+                    <li><i class="fa fa-building"></i> Siap COD</li>
                   </ul>
+                  <div class="main-button">
+                    <a href="#">Hubungi Penjual</a>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="item">
               <div class="thumb">
-                <img src="assets/images/blederan3.jpg" alt="">
-                <div class="text w-100">
-                  <h4>SD Hafizh Quran MAF<br></h4>
+                <img src="assets/images/offers-02.jpg" alt="">
+                <div class="text">
+                  <h4>Jagung Manis<br><span><i class="fa fa-users"></i> Pak Kadir</span></h4>
+                  <h6>Rp5.000<br><span>/cup</span></h6>
                   <div class="line-dec"></div>
                   <ul>
-                    <li>Deskripsi Kunjungan:</li>
-                    <li><i class="fa fa-calendar"></i> Tanggal: 6 September 2024</li>
-                    <li><i class="fa fa-users"></i> Jumlah: 30 orang </li>
-                    <li><i class="fa fa-note-sticky"></i> Kegiatan: Outing Class </li>
+                    <li>Deskripsi:</li>
+                    <li><i class="fa fa-taxi"></i> Bahan Asli </li>
+                    <li><i class="fa fa-plane"></i> Rasa Original </li>
+                    <li><i class="fa fa-building"></i> Siap COD </li>
                   </ul>
+                  <div class="main-button">
+                    <a href="#">Hubungi Penjual</a>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="item">
               <div class="thumb">
-                <img src="assets/images/blederan4.jpg" alt="">
-                <div class="text w-100">
-                  <h4>BPS & Diskominfo<br></h4>
+                <img src="assets/images/offers-03.jpg" alt="">
+                <div class="text">
+                  <h4>Tahu Walik<br><span><i class="fa fa-users"></i> Pak Usman </span></h4>
+                  <h6>Rp10.000<br><span>/box</span></h6>
                   <div class="line-dec"></div>
                   <ul>
-                    <li>Deskripsi Kunjungan:</li>
-                    <li><i class="fa fa-calendar"></i> Tanggal: 1 Agustus 2024</li>
-                    <li><i class="fa fa-users"></i> Jumlah: 32 orang </li>
-                    <li><i class="fa fa-note-sticky"></i> Kegiatan: Pengenalan & Pembinaan Desa Cinta Statistik </li>
+                    <li>Deskripsi:</li>
+                    <li><i class="fa fa-taxi"></i> 1 box isi 10 </li>
+                    <li><i class="fa fa-plane"></i> Rasa Gurih / Pedas </li>
+                    <li><i class="fa fa-building"></i> Siap COD </li>
                   </ul>
+                  <div class="main-button">
+                    <a href="#">Hubungi Penjual</a>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="item">
               <div class="thumb">
-                <img src="assets/images/blederan5.jpg" alt="">
-                <div class="text w-100">
-                  <h4>BPD Desa Bulurejo<br></h4>
+                <img src="assets/images/offers-01.jpg" alt="">
+                <div class="text">
+                  <h4>Pisang Krispi<br><span><i class="fa fa-users"></i> Bu Monik </span></h4>
+                  <h6>Rp15.000<br><span>/box</span></h6>
                   <div class="line-dec"></div>
                   <ul>
-                    <li>Deskripsi Kunjungan:</li>
-                    <li><i class="fa fa-calendar"></i> Tanggal: 30 Juli 2024</li>
-                    <li><i class="fa fa-users"></i> Jumlah: 16 orang </li>
-                    <li><i class="fa fa-note-sticky"></i> Kegiatan: Kunjungan Kerja </li>
+                    <li>Deskripsi:</li>
+                    <li><i class="fa fa-taxi"></i> 1 box isi 5</li>
+                    <li><i class="fa fa-plane"></i> Berbagai varian rasa</li>
+                    <li><i class="fa fa-building"></i> Siap COD </li>
                   </ul>
+                  <div class="main-button">
+                    <a href="#">Hubungi Penjual</a>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="item">
               <div class="thumb">
-                <img src="assets/images/blederan6.jpg" alt="">
-                <div class="text w-100">
-                  <h4>Kab. Banyumas<br></h4>
+                <img src="assets/images/offers-02.jpg" alt="">
+                <div class="text">
+                  <h4>Bubur Ayam<br><span><i class="fa fa-users"></i> Pak Umar </span></h4>
+                  <h6> Rp 22.000<br><span>/porsi</span></h6>
                   <div class="line-dec"></div>
                   <ul>
-                    <li>Deskripsi Kunjungan:</li>
-                    <li><i class="fa fa-calendar"></i> Tanggal: 28 Juli 2024</li>
-                    <li><i class="fa fa-users"></i> Jumlah: 16 orang </li>
-                    <li><i class="fa fa-note-sticky"></i> Kegiatan: Kunjungan Belajar</li>
+                    <li>Deskripsi:</li>
+                    <li><i class="fa fa-taxi"></i> Bisa pesan antar</li>
+                    <li><i class="fa fa-plane"></i> Menerima cathering</li>
+                    <li><i class="fa fa-building"></i> Menerima pembayaran QRIS</li>
                   </ul>
+                  <div class="main-button">
+                    <a href="#">Hubungi Penjual</a>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="item">
               <div class="thumb">
-                <img src="assets/images/blederan7.jpg" alt="">
-                <div class="text w-100">
-                  <h4>DLH Bandung<br></h4>
+                <img src="assets/images/offers-03.jpg" alt="">
+                <div class="text">
+                  <h4>Kopi Gunung <br><span><i class="fa fa-users"></i> Pak Luki</span></h4>
+                  <h6> Rp25.000<br><span>/pack</span></h6>
                   <div class="line-dec"></div>
                   <ul>
-                    <li>Deskripsi Kunjungan:</li>
-                    <li><i class="fa fa-calendar"></i> Tanggal: 17 Juli 2024</li>
-                    <li><i class="fa fa-users"></i> Jumlah: 50 orang </li>
-                    <li><i class="fa fa-note-sticky"></i> Kegiatan: Study Tour </li>
+                    <li>Deskripsi:</li>
+                    <li><i class="fa fa-taxi"></i> 1 pack = 250gram</li>
+                    <li><i class="fa fa-plane"></i> Beli 10 pack gratis 1</li>
+                    <li><i class="fa fa-building"></i> Siap pesan antar</li>
                   </ul>
+                  <div class="main-button">
+                    <a href="#">Hubungi Penjual</a>
+                  </div>
                 </div>
               </div>
             </div>

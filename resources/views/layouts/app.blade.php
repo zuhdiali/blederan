@@ -59,7 +59,7 @@ https://templatemo.com/tm-580-woox-travel
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="{{ route('welcome') }}" class="{{ Request::path() ==  '/' ? 'active' : ''  }}">Beranda</a></li>
-                        <li><a href="{{ route('produk') }}" class="{{ Request::path() ==  'produk' ? 'active' : ''  }}">Produk</a></li>
+                        {{-- <li><a href="{{ route('produk') }}" class="{{ Request::path() ==  'produk' ? 'active' : ''  }}">Produk</a></li> --}}
                         <li><a href="{{ route('artikel') }}" class="{{ Request::path() ==  'artikel' ? 'active' : ''  }}">Artikel</a></li>
                         <li><a href="{{ route('data') }}" class="{{ Request::path() ==  'data' ? 'active' : ''  }}">Data</a></li>
                         {{-- <li><a href="reservation.html">Book Yours</a></li> --}}
@@ -76,17 +76,52 @@ https://templatemo.com/tm-580-woox-travel
   <!-- ***** Header Area End ***** -->
   
   @yield('content')
+
+  <!-- ***** Footer Area Start ***** -->
   <div class="call-to-action">
     <div class="container">
       <div class="row">
         <div class="col-lg-8">
-          <h2>Are You Looking To Travel ?</h2>
-          <h4>Make A Reservation By Clicking The Button</h4>
+          <h2>Ikuti Media Sosial Kami</h2>
+          <div class="d-flex flex-row">
+            <div class="p-2">
+              <h4>
+                <a href="https://www.facebook.com/pesona.blederan" target="_blank" class="text-white"><i class="fab fa-facebook"></i></a>
+              </h4>
+            </div>
+            <div class="p-2">
+              <h4>
+                <a href="https://www.instagram.com/desa_blederan?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-white"><i class="fab fa-instagram"></i></a>
+              </h4>
+            </div>
+            <div class="p-2">
+              <h4>
+                <a href="https://x.com/DBlederan" target="_blank" class="text-white"><i class="fab fa-twitter"></i></a>
+              </h4>
+            </div>
+          </div>
+          {{-- <div class="row justify-content-md-center">
+            <div class="col">
+              <h4>
+                <a href="https://facebook.com/templatemo" target="_blank" class="text-white"><i class="fab fa-facebook"></i></a>
+              </h4>
+            </div>
+            <div class="col">
+              <h4>
+                <a href="https://facebook.com/templatemo" target="_blank" class="text-white"><i class="fab fa-facebook"></i></a>
+              </h4>
+            </div>
+            <div class="col">
+              <h4>
+                <a href="https://facebook.com/templatemo" target="_blank" class="text-white"><i class="fab fa-facebook"></i></a>
+              </h4>
+            </div>
+          </div> --}}
         </div>
         <div class="col-lg-4">
-          <div class="border-button">
+          {{-- <div class="border-button">
             <a href="reservation.html">Book Yours Now</a>
-          </div>
+          </div> --}}
         </div>
       </div>
     </div>
@@ -96,12 +131,13 @@ https://templatemo.com/tm-580-woox-travel
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <p>Copyright © 2036 <a href="#">WoOx Travel</a> Company. All rights reserved. 
-            <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a> Distribution: <a href="https://themewagon.com target="_blank" >ThemeWagon</a></p>
+            <p>Copyright © 2024 <a href="https://wonosobokab.bps.go.id/id" target="_blank" title="Badan Pusat Statistik Wonosobo">BPS Wonosobo</a>.
+            <br>Pengembang: <a href="https://wa.me/6282328839199" target="_blank" title="Hubungi WhatsApp">Zuhdi Ali Hisyam</a>. Desain: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a></p>
           </div>
         </div>
       </div>
-    </footer>
+  </footer>
+  <!-- ***** Footer Area End ***** -->
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
@@ -115,98 +151,10 @@ https://templatemo.com/tm-580-woox-travel
   <script src="assets/js/popup.js"></script>
   <script src="assets/js/custom.js"></script>
 
-  <script>
-    function bannerSwitcher() {
-      next = $('.sec-1-input').filter(':checked').next('.sec-1-input');
-      if (next.length) next.prop('checked', true);
-      else $('.sec-1-input').first().prop('checked', true);
-    }
-
-    var bannerTimer = setInterval(bannerSwitcher, 5000);
-
-    $('nav .controls label').click(function() {
-      clearInterval(bannerTimer);
-      bannerTimer = setInterval(bannerSwitcher, 5000)
-    });
-  </script>
-
-  <script>
-  var chartsLine = document.querySelectorAll(".chart-line");
+  <script src="assets/js/chart-area-demo.js"></script>
+  <script src="assets/js/chart-bar-demo.js"></script>
+  <script src="assets/js/chart-pie-demo.js"></script>
   
-  chartsLine.forEach(function(chart) {
-    if (!chart.getAttribute('data-chart-initialized')) {
-        var ctx = chart.getContext("2d");
-  
-        var gradient = ctx.createLinearGradient(0, 0, 0, 225);
-        gradient.addColorStop(0, "rgba(215, 227, 244, 1)");
-        gradient.addColorStop(1, "rgba(215, 227, 244, 0)");
-        // Line chart
-        new Chart(ctx, {
-            type: "line",
-            data: {
-                labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                datasets: [{
-                    label: "Sales ($)",
-                    fill: true,
-                    backgroundColor: gradient,
-                    borderColor: window.theme.primary,
-                    data: [
-                        2115,
-                        1562,
-                        1584,
-                        1892,
-                        1587,
-                        1923,
-                        2566,
-                        2448,
-                        2805,
-                        3438,
-                        2917,
-                        3327
-                    ]
-                }]
-            },
-            options: {
-                maintainAspectRatio: false,
-                legend: {
-                    display: false
-                },
-                tooltips: {
-                    intersect: false
-                },
-                hover: {
-                    intersect: true
-                },
-                plugins: {
-                    filler: {
-                        propagate: false
-                    }
-                },
-                scales: {
-                    xAxes: [{
-                        reverse: true,
-                        gridLines: {
-                            color: "rgba(0,0,0,0.0)"
-                        }
-                    }],
-                    yAxes: [{
-                        ticks: {
-                            stepSize: 1000
-                        },
-                        display: true,
-                        borderDash: [3, 3],
-                        gridLines: {
-                            color: "rgba(0,0,0,0.0)"
-                        }
-                    }]
-                }
-            }
-        });
-        chart.setAttribute("data-chart-initialized", "true");
-    }
-  });
-  </script>
-
   </body>
 
 </html>

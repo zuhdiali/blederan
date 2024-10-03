@@ -9,13 +9,13 @@
         <div class="col-lg-12">
           <div class="content">
             <div class="blur-bg"></div>
-            <h4>COBA PRODUK KAMI</h4>
+            <h4>Selamat Datang di</h4>
             <div class="line-dec"></div>
-            <h2>Produk di Desa Blederan</h2>
-            <p>Desa Blederan menyediakan berbagai macam produk yang dapat dibeli. Produk-produk tersebut meliputi produk pertanian langsung maupun yang merupakan hasil olahan. Tak hanya itu, Desa Blederan juga menyediakan produk-produk berkualitas lainnya.</p>
-            <div class="main-button">
+            <h2>Desa Blederan</h2>
+            <p>Desa Sayur</p>
+            {{-- <div class="main-button">
               <a href="#">Tombol Dummy, bisa dihapus</a>
-            </div>
+            </div> --}}
           </div>
         </div>
       </div>
@@ -29,7 +29,7 @@
         <div class="slider-content">
           <div class="row">
             <div class="col-lg-12">
-              <h2>Produk <em>Hortikultura</em></h2>
+              <h2>Produk <em>Minggu Ini</em></h2>
             </div>
             <div class="col-lg-12">
               <div class="owl-cites-town owl-carousel">
@@ -38,48 +38,208 @@
                     <img src="assets/images/cities-01.jpg" alt="">
                     <h4>Padi</h4>
                   </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-usd"></i> Harga:
+                        </div>
+                        <div class="col text-right"><p class="text-right">  Rp 16.000 </p></div>
+                      </div>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-box"></i> Stok:
+                        </div>
+                        <div class="col">
+                          <p class="text-right">  1600 </p> 
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
                 <div class="item">
                   <div class="thumb">
                     <img src="assets/images/cities-02.jpg" alt="">
                     <h4>Jagung</h4>
                   </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-usd"></i> Harga:
+                        </div>
+                        <div class="col text-right"><p class="text-right">  Rp 16.000 </p></div>
+                      </div>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-box"></i> Stok:
+                        </div>
+                        <div class="col">
+                          <p class="text-right">  1600 </p> 
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
                 <div class="item">
                   <div class="thumb">
                     <img src="assets/images/cities-03.jpg" alt="">
                     <h4>Durian</h4>
                   </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-usd"></i> Harga:
+                        </div>
+                        <div class="col text-right"><p class="text-right">  Rp 16.000 </p></div>
+                      </div>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-box"></i> Stok:
+                        </div>
+                        <div class="col">
+                          <p class="text-right">  1600 </p> 
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
                 <div class="item">
                   <div class="thumb">
                     <img src="assets/images/cities-04.jpg" alt="">
                     <h4>Teh</h4>
                   </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-usd"></i> Harga:
+                        </div>
+                        <div class="col text-right"><p class="text-right">  Rp 16.000 </p></div>
+                      </div>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-box"></i> Stok:
+                        </div>
+                        <div class="col">
+                          <p class="text-right">  1600 </p> 
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
                 <div class="item">
                   <div class="thumb">
                     <img src="assets/images/cities-01.jpg" alt="">
                     <h4>Tembakau</h4>
                   </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-usd"></i> Harga:
+                        </div>
+                        <div class="col text-right"><p class="text-right">  Rp 16.000 </p></div>
+                      </div>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-box"></i> Stok:
+                        </div>
+                        <div class="col">
+                          <p class="text-right">  1600 </p> 
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
                 <div class="item">
                   <div class="thumb">
                     <img src="assets/images/cities-02.jpg" alt="">
                     <h4>Kopi</h4>
                   </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-usd"></i> Harga:
+                        </div>
+                        <div class="col text-right"><p class="text-right">  Rp 16.000 </p></div>
+                      </div>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-box"></i> Stok:
+                        </div>
+                        <div class="col">
+                          <p class="text-right">  1600 </p> 
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
                 <div class="item">
                   <div class="thumb">
                     <img src="assets/images/cities-03.jpg" alt="">
                     <h4>Singkong</h4>
                   </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-usd"></i> Harga:
+                        </div>
+                        <div class="col text-right"><p class="text-right">  Rp 16.000 </p></div>
+                      </div>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-box"></i> Stok:
+                        </div>
+                        <div class="col">
+                          <p class="text-right">  1600 </p> 
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
                 <div class="item">
                   <div class="thumb">
                     <img src="assets/images/cities-04.jpg" alt="">
                     <h4>Alpukat</h4>
                   </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-usd"></i> Harga:
+                        </div>
+                        <div class="col text-right"><p class="text-right">  Rp 16.000 </p></div>
+                      </div>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-box"></i> Stok:
+                        </div>
+                        <div class="col">
+                          <p class="text-right">  1600 </p> 
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -94,8 +254,8 @@
       <div class="row">
         <div class="col-lg-6 offset-lg-3">
           <div class="section-heading text-center">
-            <h2>Produk Lainnya</h2>
-            <p>Selain produk hortikultura, Desa Blederan juga menyediakan berbagai produk lain.</p>
+            <h2>Kunjungan ke Desa Blederan</h2>
+            <p>Desa Blederan sering menerima kunjungan dari berbagai pihak.</p>
           </div>
         </div>
       </div>
@@ -108,18 +268,13 @@
               <div class="thumb">
                 <img src="assets/images/offers-01.jpg" alt="">
                 <div class="text">
-                  <h4>Keripik Singkong<br><span><i class="fa fa-users"></i> Bu Yun</span></h4>
-                  <h6>Rp15.000<br><span>/pack</span></h6>
+                  <h4>Mahasiswa UNSIQ<br></h4>
                   <div class="line-dec"></div>
                   <ul>
-                    <li>Deskripsi:</li>
-                    <li><i class="fa fa-taxi"></i> Bahan asli</li>
-                    <li><i class="fa fa-plane"></i> Rasa Balado / Gurih</li>
-                    <li><i class="fa fa-building"></i> Siap COD</li>
+                    <li>Deskripsi Kunjungan:</li>
+                    <li><i class="fa fa-calendar"></i> Tanggal: 2 Oktober 2024</li>
+                    <li><i class="fa fa-users"></i> Jumlah: 16 orang </li>
                   </ul>
-                  <div class="main-button">
-                    <a href="#">Hubungi Penjual</a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -127,18 +282,13 @@
               <div class="thumb">
                 <img src="assets/images/offers-02.jpg" alt="">
                 <div class="text">
-                  <h4>Jagung Manis<br><span><i class="fa fa-users"></i> Pak Kadir</span></h4>
-                  <h6>Rp5.000<br><span>/cup</span></h6>
+                  <h4>BAPPEDA<br></h4>
                   <div class="line-dec"></div>
                   <ul>
-                    <li>Deskripsi:</li>
-                    <li><i class="fa fa-taxi"></i> Bahan Asli </li>
-                    <li><i class="fa fa-plane"></i> Rasa Original </li>
-                    <li><i class="fa fa-building"></i> Siap COD </li>
+                    <li>Deskripsi Kunjungan:</li>
+                    <li><i class="fa fa-calendar"></i> Tanggal: 2 Oktober 2024</li>
+                    <li><i class="fa fa-users"></i> Jumlah: 16 orang </li>
                   </ul>
-                  <div class="main-button">
-                    <a href="#">Hubungi Penjual</a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -146,18 +296,13 @@
               <div class="thumb">
                 <img src="assets/images/offers-03.jpg" alt="">
                 <div class="text">
-                  <h4>Tahu Walik<br><span><i class="fa fa-users"></i> Pak Usman </span></h4>
-                  <h6>Rp10.000<br><span>/box</span></h6>
+                  <h4>Perangkat Desa Pakuncen<br></h4>
                   <div class="line-dec"></div>
                   <ul>
-                    <li>Deskripsi:</li>
-                    <li><i class="fa fa-taxi"></i> 1 box isi 10 </li>
-                    <li><i class="fa fa-plane"></i> Rasa Gurih / Pedas </li>
-                    <li><i class="fa fa-building"></i> Siap COD </li>
+                    <li>Deskripsi Kunjungan:</li>
+                    <li><i class="fa fa-calendar"></i> Tanggal: 2 Oktober 2024</li>
+                    <li><i class="fa fa-users"></i> Jumlah: 16 orang </li>
                   </ul>
-                  <div class="main-button">
-                    <a href="#">Hubungi Penjual</a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -165,18 +310,13 @@
               <div class="thumb">
                 <img src="assets/images/offers-01.jpg" alt="">
                 <div class="text">
-                  <h4>Pisang Krispi<br><span><i class="fa fa-users"></i> Bu Monik </span></h4>
-                  <h6>Rp15.000<br><span>/box</span></h6>
+                  <h4>KKN Mahasiswa UGM<br></h4>
                   <div class="line-dec"></div>
                   <ul>
-                    <li>Deskripsi:</li>
-                    <li><i class="fa fa-taxi"></i> 1 box isi 5</li>
-                    <li><i class="fa fa-plane"></i> Berbagai varian rasa</li>
-                    <li><i class="fa fa-building"></i> Siap COD </li>
+                    <li>Deskripsi Kunjungan:</li>
+                    <li><i class="fa fa-calendar"></i> Tanggal: 2 Oktober 2024</li>
+                    <li><i class="fa fa-users"></i> Jumlah: 16 orang </li>
                   </ul>
-                  <div class="main-button">
-                    <a href="#">Hubungi Penjual</a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -184,18 +324,13 @@
               <div class="thumb">
                 <img src="assets/images/offers-02.jpg" alt="">
                 <div class="text">
-                  <h4>Bubur Ayam<br><span><i class="fa fa-users"></i> Pak Umar </span></h4>
-                  <h6> Rp 22.000<br><span>/porsi</span></h6>
+                  <h4>BPS Wonosobo<br></h4>
                   <div class="line-dec"></div>
                   <ul>
-                    <li>Deskripsi:</li>
-                    <li><i class="fa fa-taxi"></i> Bisa pesan antar</li>
-                    <li><i class="fa fa-plane"></i> Menerima cathering</li>
-                    <li><i class="fa fa-building"></i> Menerima pembayaran QRIS</li>
+                    <li>Deskripsi Kunjungan:</li>
+                    <li><i class="fa fa-calendar"></i> Tanggal: 2 Oktober 2024</li>
+                    <li><i class="fa fa-users"></i> Jumlah: 16 orang </li>
                   </ul>
-                  <div class="main-button">
-                    <a href="#">Hubungi Penjual</a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -203,18 +338,13 @@
               <div class="thumb">
                 <img src="assets/images/offers-03.jpg" alt="">
                 <div class="text">
-                  <h4>Kopi Gunung <br><span><i class="fa fa-users"></i> Pak Luki</span></h4>
-                  <h6> Rp25.000<br><span>/pack</span></h6>
+                  <h4>KKN Mahasiswa UNY<br></h4>
                   <div class="line-dec"></div>
                   <ul>
-                    <li>Deskripsi:</li>
-                    <li><i class="fa fa-taxi"></i> 1 pack = 250gram</li>
-                    <li><i class="fa fa-plane"></i> Beli 10 pack gratis 1</li>
-                    <li><i class="fa fa-building"></i> Siap pesan antar</li>
+                    <li>Deskripsi Kunjungan:</li>
+                    <li><i class="fa fa-calendar"></i> Tanggal: 2 Oktober 2024</li>
+                    <li><i class="fa fa-users"></i> Jumlah: 16 orang </li>
                   </ul>
-                  <div class="main-button">
-                    <a href="#">Hubungi Penjual</a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -223,6 +353,7 @@
       </div>
     </div>
   </div>
+
 
   {{-- <div class="more-about">
     <div class="container">
