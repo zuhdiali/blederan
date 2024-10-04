@@ -35,7 +35,7 @@
               <div class="owl-cites-town owl-carousel">
                 <div class="item">
                   <div class="thumb">
-                    <img src="assets/images/cities-01.jpg" alt="">
+                    <img src="assets/images/padi.jpg" alt="">
                     <h4>Padi</h4>
                   </div>
                   <ul class="list-group list-group-flush">
@@ -61,7 +61,33 @@
                 </div>
                 <div class="item">
                   <div class="thumb">
-                    <img src="assets/images/cities-02.jpg" alt="">
+                    <img src="assets/images/selada.jpg" alt="">
+                    <h4>Selada</h4>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-usd"></i> Harga:
+                        </div>
+                        <div class="col text-right"><p class="text-right">  Rp 16.000 </p></div>
+                      </div>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-box"></i> Stok:
+                        </div>
+                        <div class="col">
+                          <p class="text-right">  1600 </p> 
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="item">
+                  <div class="thumb">
+                    <img src="assets/images/jagung.jpg" alt="">
                     <h4>Jagung</h4>
                   </div>
                   <ul class="list-group list-group-flush">
@@ -87,8 +113,8 @@
                 </div>
                 <div class="item">
                   <div class="thumb">
-                    <img src="assets/images/cities-03.jpg" alt="">
-                    <h4>Durian</h4>
+                    <img src="assets/images/sawi.jpg" alt="">
+                    <h4>Sawi</h4>
                   </div>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item list-group-item-light">
@@ -113,112 +139,8 @@
                 </div>
                 <div class="item">
                   <div class="thumb">
-                    <img src="assets/images/cities-04.jpg" alt="">
-                    <h4>Teh</h4>
-                  </div>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-light">
-                      <div class="row">
-                        <div class="col">
-                          <i class="fa fa-usd"></i> Harga:
-                        </div>
-                        <div class="col text-right"><p class="text-right">  Rp 16.000 </p></div>
-                      </div>
-                    </li>
-                    <li class="list-group-item list-group-item-light">
-                      <div class="row">
-                        <div class="col">
-                          <i class="fa fa-box"></i> Stok:
-                        </div>
-                        <div class="col">
-                          <p class="text-right">  1600 </p> 
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <div class="item">
-                  <div class="thumb">
-                    <img src="assets/images/cities-01.jpg" alt="">
-                    <h4>Tembakau</h4>
-                  </div>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-light">
-                      <div class="row">
-                        <div class="col">
-                          <i class="fa fa-usd"></i> Harga:
-                        </div>
-                        <div class="col text-right"><p class="text-right">  Rp 16.000 </p></div>
-                      </div>
-                    </li>
-                    <li class="list-group-item list-group-item-light">
-                      <div class="row">
-                        <div class="col">
-                          <i class="fa fa-box"></i> Stok:
-                        </div>
-                        <div class="col">
-                          <p class="text-right">  1600 </p> 
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <div class="item">
-                  <div class="thumb">
-                    <img src="assets/images/cities-02.jpg" alt="">
-                    <h4>Kopi</h4>
-                  </div>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-light">
-                      <div class="row">
-                        <div class="col">
-                          <i class="fa fa-usd"></i> Harga:
-                        </div>
-                        <div class="col text-right"><p class="text-right">  Rp 16.000 </p></div>
-                      </div>
-                    </li>
-                    <li class="list-group-item list-group-item-light">
-                      <div class="row">
-                        <div class="col">
-                          <i class="fa fa-box"></i> Stok:
-                        </div>
-                        <div class="col">
-                          <p class="text-right">  1600 </p> 
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <div class="item">
-                  <div class="thumb">
-                    <img src="assets/images/cities-03.jpg" alt="">
-                    <h4>Singkong</h4>
-                  </div>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-light">
-                      <div class="row">
-                        <div class="col">
-                          <i class="fa fa-usd"></i> Harga:
-                        </div>
-                        <div class="col text-right"><p class="text-right">  Rp 16.000 </p></div>
-                      </div>
-                    </li>
-                    <li class="list-group-item list-group-item-light">
-                      <div class="row">
-                        <div class="col">
-                          <i class="fa fa-box"></i> Stok:
-                        </div>
-                        <div class="col">
-                          <p class="text-right">  1600 </p> 
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <div class="item">
-                  <div class="thumb">
-                    <img src="assets/images/cities-04.jpg" alt="">
-                    <h4>Alpukat</h4>
+                    <img src="assets/images/Kol.jpg" alt="">
+                    <h4>Kol</h4>
                   </div>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item list-group-item-light">
@@ -359,7 +281,6 @@
       </div>
     </div>
   </div>
-
 
   {{-- <div class="more-about">
     <div class="container">

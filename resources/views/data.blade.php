@@ -13,9 +13,9 @@
         <div id="top-banner-1" class="banner">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption">
-              <h2>Take a Glimpse Into The Beautiful Country Of:</h2>
-              <h1>Caribbean</h1>
-              <div class="border-button"><a href="about.html">Go There</a></div>
+              <h2>Desa Blederan:</h2>
+              <h1>Data Kependudukan</h1>
+              <div class="border-button"><a href="#accordionButtonOne">Lihat Selengkapnya</a></div>
             </div>
             <div class="container">
               <div class="row">
@@ -34,11 +34,11 @@
                         <i class="fa fa-home"></i>
                         <h4><span>AVG Price:</span><br>$946.000</h4>
                       </div>
-                      <div class="col-lg-3 col-sm-6 col-6">
+                      {{-- <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
                           <a href="about.html">Explore More</a>
                         </div>
-                      </div>
+                      </div> --}}
                     </div>
                   </div>
                 </div>
@@ -49,9 +49,9 @@
         <div id="top-banner-2" class="banner">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption">
-              <h2>Take a Glimpse Into The Beautiful Country Of:</h2>
-              <h1>Switzerland</h1>
-              <div class="border-button"><a href="about.html">Go There</a></div>
+              <h2>Desa Blederan:</h2>
+              <h1>Data Perumahan</h1>
+              <div class="border-button"><a href="#accordionButtonTwo">Lihat Selengkapnya</a></div>
             </div>
             <div class="container">
               <div class="row">
@@ -70,11 +70,11 @@
                         <i class="fa fa-home"></i>
                         <h4><span>AVG Price:</span><br>$1.100.200</h4>
                       </div>
-                      <div class="col-lg-3 col-sm-6 col-6">
+                      {{-- <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
                           <a href="about.html">Explore More</a>
                         </div>
-                      </div>
+                      </div> --}}
                     </div>
                   </div>
                 </div>
@@ -85,9 +85,9 @@
         <div id="top-banner-3" class="banner">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption">
-              <h2>Take a Glimpse Into The Beautiful Country Of:</h2>
-              <h1>France</h1>
-              <div class="border-button"><a href="about.html">Go There</a></div>
+              <h2>Desa Blederan:</h2>
+              <h1>Data Pertanian</h1>
+              <div class="border-button"><a href="#accordionButtonThree">Lihat Selengkapnya</a></div>
             </div>
             <div class="container">
               <div class="row">
@@ -106,11 +106,11 @@
                         <i class="fa fa-home"></i>
                         <h4><span>AVG Price:</span><br>$425.600</h4>
                       </div>
-                      <div class="col-lg-3 col-sm-6 col-6">
+                      {{-- <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
                           <a href="about.html">Explore More</a>
                         </div>
-                      </div>
+                      </div> --}}
                     </div>
                   </div>
                 </div>
@@ -121,9 +121,9 @@
         <div id="top-banner-4" class="banner">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption">
-              <h2>Take a Glimpse Into The Beautiful Country Of:</h2>
-              <h1>Thailand</h1>
-              <div class="border-button"><a href="about.html">Go There</a></div>
+              <h2>Desa Blederan:</h2>
+              <h1>Data Kunjungan</h1>
+              <div class="border-button"><a href="#accordionButtonFour">Lihat Selengkapnya</a></div>
             </div>
             <div class="container">
               <div class="row">
@@ -142,11 +142,11 @@
                         <i class="fa fa-home"></i>
                         <h4><span>AVG Price:</span><br>$165.450</h4>
                       </div>
-                      <div class="col-lg-3 col-sm-6 col-6">
+                      {{-- <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
                           <a href="about.html">Explore More</a>
                         </div>
-                      </div>
+                      </div> --}}
                     </div>
                   </div>
                 </div>
@@ -170,112 +170,393 @@
   
   <div class="container mt-5">
     <h1>Data Terkini</h1>
-    <p>Terakhir update</p>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
-    </table>
+    <p>Terakhir update: 3 Oktober 2024</p>
+   
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button id="accordionButtonOne" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
+            Data Kependudukan
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+          <div class="accordion-body overflow-scroll">
+            <br>
+            <hr>
+            <h5 class="mb-3">Judul Tabel </h5>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+            <br>
+            <hr>
+            <h5>Judul Tabel</h5>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button id="accordionButtonTwo" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+            Data Perumahan
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+          <div class="accordion-body overflow-scroll">
+            <br>
+            <hr>
+            <h5 class="mb-3">Judul Tabel </h5>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+            <br>
+            <hr>
+            <h5>Judul Tabel</h5>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button id="accordionButtonThree" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+            Data Pertanian
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+          <div class="accordion-body overflow-scroll">
+            <br>
+            <hr>
+            <h5 class="mb-3">Judul Tabel </h5>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+            <br>
+            <hr>
+            <h5>Judul Tabel</h5>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button id="accordionButtonFour" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+            Data Kunjungan
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse">
+          <div class="accordion-body overflow-scroll">
+            <br>
+            <hr>
+            <h5 class="mb-3">Judul Tabel </h5>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+            <br>
+            <hr>
+            <h5>Judul Tabel</h5>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Main Content -->
+  <div id="content ">
+
+      <!-- Begin Page Content -->
+      <div class="container my-5">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800">Charts</h1>
+          <p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme.
+              The charts below have been customized - for further customization options, please visit the <a
+                  target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js
+                  documentation</a>.</p>
+
+          <!-- Content Row -->
+          <div class="row">
+
+              <div class="col-xl-8 col-lg-7">
+
+                  <!-- Area Chart -->
+                  <div class="card shadow mb-4">
+                      <div class="card-header py-3">
+                          <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
+                      </div>
+                      <div class="card-body">
+                          <div class="chart-area">
+                              <canvas id="myAreaChart"></canvas>
+                          </div>
+                          <hr>
+                          Styling for the area chart can be found in the
+                          <code>/js/demo/chart-area-demo.js</code> file.
+                      </div>
+                  </div>
+
+                  <!-- Bar Chart -->
+                  <div class="card shadow mb-4">
+                      <div class="card-header py-3">
+                          <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+                      </div>
+                      <div class="card-body">
+                          <div class="chart-bar">
+                              <canvas id="myBarChart"></canvas>
+                          </div>
+                          <hr>
+                          Styling for the bar chart can be found in the
+                          <code>/js/demo/chart-bar-demo.js</code> file.
+                      </div>
+                  </div>
+
+              </div>
+
+              <!-- Donut Chart -->
+              <div class="col-xl-4 col-lg-5">
+                  <div class="card shadow mb-4">
+                      <!-- Card Header - Dropdown -->
+                      <div class="card-header py-3">
+                          <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
+                      </div>
+                      <!-- Card Body -->
+                      <div class="card-body">
+                          <div class="chart-pie pt-4">
+                            <canvas id="countries" ></canvas>
+                          </div>
+                          <hr>
+                          Styling for the donut chart can be found in the
+                          <code>/js/demo/chart-pie-demo.js</code> file.
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+      <!-- /.container-fluid -->
+
   </div>
-              <!-- Main Content -->
-              <div id="content">
-
-                <!-- Begin Page Content -->
-                <div class="container">
-
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Charts</h1>
-                    <p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme.
-                        The charts below have been customized - for further customization options, please visit the <a
-                            target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js
-                            documentation</a>.</p>
-
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <div class="col-xl-8 col-lg-7">
-
-                            <!-- Area Chart -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div>
-                                    <hr>
-                                    Styling for the area chart can be found in the
-                                    <code>/js/demo/chart-area-demo.js</code> file.
-                                </div>
-                            </div>
-
-                            <!-- Bar Chart -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart-bar">
-                                        <canvas id="myBarChart"></canvas>
-                                    </div>
-                                    <hr>
-                                    Styling for the bar chart can be found in the
-                                    <code>/js/demo/chart-bar-demo.js</code> file.
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <!-- Donut Chart -->
-                        <div class="col-xl-4 col-lg-5">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-pie pt-4">
-                                        <canvas id="myPieChart"></canvas>
-                                    </div>
-                                    <hr>
-                                    Styling for the donut chart can be found in the
-                                    <code>/js/demo/chart-pie-demo.js</code> file.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- /.container-fluid -->
-
-            </div>
 
     {{-- <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -766,10 +1047,64 @@
               </table>
           </div>
       </div>
-  </div>
-<script>// Call the dataTables jQuery plugin
-  $(document).ready(function() {
-    $('#dataTable').DataTable();
-  });
-  </script> --}}
+    </div>
+    <script>// Call the dataTables jQuery plugin
+      $(document).ready(function() {
+        $('#dataTable').DataTable();
+      });
+      </script> --}}
+
+      <h1>Chart.js Sample</h1>
+
+      
+    <script>
+      var pieData = [
+          {
+              value: 20,
+              color:"#878BB6"
+          },
+          {
+              value : 40,
+              color : "#4ACAB4"
+          },
+          {
+              value : 10,
+              color : "#FF8153"
+          },
+          {
+              value : 30,
+              color : "#FFEA88"
+          }
+      ];
+      // Get the context of the canvas element we want to select
+      var countries= document.getElementById("countries").getContext("2d");
+      new Chart(countries).Pie(pieData);
+      
+      var myBarChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ["January", "February", "March", "April", "May", "June"],
+        datasets: [{
+          label: "Revenue",
+          backgroundColor: "#4e73df",
+          hoverBackgroundColor: "#2e59d9",
+          borderColor: "#4e73df",
+          data: [4215, 5312, 6251, 7841, 9821, 14984],
+        }],
+      },
+      options: {
+        maintainAspectRatio: false,
+        layout: {
+          padding: {
+            left: 10,
+            right: 25,
+            top: 25,
+            bottom: 0
+          }
+        },
+        
+      }
+    })
+    </script>
+
   @endsection

@@ -19,13 +19,10 @@
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<!--
+    
+    <link rel="icon" type="image/x-icon" href="/assets/images/logo_only.png">
 
-TemplateMo 580 Woox Travel
-
-https://templatemo.com/tm-580-woox-travel
-
--->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js" type="text/javascript"></script>
 
   </head>
 
@@ -53,7 +50,7 @@ https://templatemo.com/tm-580-woox-travel
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="index.html" class="logo">
-                        <img src="assets/images/logo.png" alt="">
+                        <img src="assets/images/logo_blederan.png" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -131,7 +128,7 @@ https://templatemo.com/tm-580-woox-travel
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <p>Copyright © 2024 <a href="https://wonosobokab.bps.go.id/id" target="_blank" title="Badan Pusat Statistik Wonosobo">BPS Wonosobo</a>.
+            <p>Copyright © 2024 Desa Blederan.
             <br>Pengembang: <a href="https://wa.me/6282328839199" target="_blank" title="Hubungi WhatsApp">Zuhdi Ali Hisyam</a>. Desain: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a></p>
           </div>
         </div>
@@ -151,9 +148,9 @@ https://templatemo.com/tm-580-woox-travel
   <script src="assets/js/popup.js"></script>
   <script src="assets/js/custom.js"></script>
 
-  <script src="assets/js/chart-area-demo.js"></script>
+  {{-- <script src="assets/js/chart-area-demo.js"></script>
   <script src="assets/js/chart-bar-demo.js"></script>
-  <script src="assets/js/chart-pie-demo.js"></script>
+  <script src="assets/js/chart-pie-demo.js"></script> --}}
   
   </body>
 
