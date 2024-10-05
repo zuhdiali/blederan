@@ -482,6 +482,7 @@
         </div>
       </div>
     </div>
+  </div>
 
   <!-- Main Content -->
   <div id="content ">
@@ -1054,7 +1055,6 @@
       });
       </script> --}}
 
-      <h1>Chart.js Sample</h1>
 
       
     <script>
@@ -1107,4 +1107,4 @@
     })
     </script>
 
-  @endsection
+@endsection

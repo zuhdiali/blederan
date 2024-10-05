@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+
 class MainController extends Controller
 {
     /**
@@ -48,5 +53,11 @@ class MainController extends Controller
     public function penghargaan()
     {
         return view('artikels.20241003_penghargaan');
+    }
+
+    public function test()
+    {
+        // $user = DB::table('admins')->get();
+        return view('test');
     }
 }

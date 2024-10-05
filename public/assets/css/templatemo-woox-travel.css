@@ -1664,12 +1664,12 @@ body #user-button:hover .u-icons, body #user-button:focus-within .u-icons {
   height: 300% !important;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   body:not(.light) {
     background: #232223;
     color: white;
   }
-}
+} */
 body .credit {
   position: absolute;
   bottom: 20px;
@@ -2327,5 +2327,11 @@ body {
   }
   .weekly-offers .container-fluid {
     padding: 0px;
+  }
+}
+
+@media (min-width:768px) {
+  .w-md-50 {
+      width: 50% !important;
   }
 }

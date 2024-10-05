@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,10 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+// ******* Halaman Utama *********
 Route::get('/produk', [MainController::class, 'produk'])->name('produk');
 Route::get('/artikel', [MainController::class, 'artikel'])->name('artikel');
 Route::get('/data', [MainController::class, 'data'])->name('data');
+Route::get('/test', [MainController::class, 'test'])->name('test');
 Route::get('/layout-artikel', [MainController::class, 'layoutArtikel'])->name('layout-artikel');
+// ******* Halaman Utama *********
 
 // ******* Artikel Statis *********
 Route::get('/desa-cantik', [MainController::class, 'desaCantik'])->name('desa-cantik');
@@ -28,3 +32,11 @@ Route::get('/kampung-sayur', [MainController::class, 'kampungSayur'])->name('kam
 Route::get('/penghargaan', [MainController::class, 'penghargaan'])->name('penghargaan');
 Route::get('/santunan', [MainController::class, 'santunan'])->name('santunan');
 // ******* Artikel Statis *********
+
+// ******* User *********
+Route::get('/login', [AdminController::class, 'login'])->name('login');
+Route::post('/login', [AdminController::class, 'loginPost'])->name('login.post');
+Route::get('/daftar', [AdminController::class, 'daftar'])->name('daftar')->middleware('auth');
+Route::post('/daftar', [AdminController::class, 'daftarPost'])->name('daftar.post');
+Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
+// ******* User *********

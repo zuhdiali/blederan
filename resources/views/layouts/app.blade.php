@@ -13,15 +13,21 @@
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+     <!-- MDB -->
+    {{-- <link rel="stylesheet" href="css/bootstrap-login-form.min.css" /> --}}
+
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/templatemo-woox-travel.css">
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/custom.scss">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     
+    <!--Icon Web-->
     <link rel="icon" type="image/x-icon" href="/assets/images/logo_only.png">
 
+    <!-- ChartJS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js" type="text/javascript"></script>
 
   </head>
@@ -50,7 +56,7 @@
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="index.html" class="logo">
-                        <img src="assets/images/logo_blederan.png" alt="">
+                        <img src="{{ asset('images/logo_blederan.png') }}" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -60,19 +66,39 @@
                         <li><a href="{{ route('artikel') }}" class="{{ Request::path() ==  'artikel' ? 'active' : ''  }}">Artikel</a></li>
                         <li><a href="{{ route('data') }}" class="{{ Request::path() ==  'data' ? 'active' : ''  }}">Data</a></li>
                         {{-- <li><a href="reservation.html">Book Yours</a></li> --}}
+                        <li>  
+                          @if(Auth::check())
+                            <a href="{{ route('logout') }}" class="btn btn-danger">Logout</a>
+                          @else
+                            <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
+                          {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                          Login
+                          </button> --}}
+                          @endif
+                          {{-- <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                          role="button">Link</a> --}}
+                        </li>
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
                     <!-- ***** Menu End ***** -->
                 </nav>
+                @if(session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session()->get('success') }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
             </div>
         </div>
     </div>
   </header>
   <!-- ***** Header Area End ***** -->
-  
+
+  {{-- <div class="min-vh-80"> --}}
   @yield('content')
+  {{-- </div> --}}
 
   <!-- ***** Footer Area Start ***** -->
   <div class="call-to-action">
@@ -80,7 +106,7 @@
       <div class="row">
         <div class="col-lg-8">
           <h2>Ikuti Media Sosial Kami</h2>
-          <div class="d-flex flex-row">
+          <div class="d-flex justify-content-center justify-content-lg-start">
             <div class="p-2">
               <h4>
                 <a href="https://www.facebook.com/pesona.blederan" target="_blank" class="text-white"><i class="fab fa-facebook"></i></a>

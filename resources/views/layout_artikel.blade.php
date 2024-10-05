@@ -155,9 +155,10 @@
             </div>
             </div>
         </div>
-
-      <img src="assets/images/about-content-bg.jpg" class="img-fluid pb-5" alt="image">
-
+      
+      <div class="w-100 w-md-50 d-flex justify-content-center">
+        <img src="assets/images/about-content-bg.jpg" class="img-fluid w-100 w-md-70 pb-5" alt="image">
+      </div>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus id tenetur laboriosam dignissimos eligendi repudiandae molestiae eos atque quo ut at delectus minus, iure ullam cumque dicta beatae repellat corrupti similique iste. Minus qui quos ab ad consequatur adipisci vel dolorem consectetur itaque neque animi facere et, earum aut quibusdam distinctio fugit impedit omnis, veritatis cupiditate reiciendis exercitationem sint incidunt? Corrupti suscipit cupiditate facilis! Aspernatur quis assumenda iure ex inventore fugit, delectus quas itaque illo omnis est deserunt pariatur tempore dolorem nulla nesciunt sint ad temporibus officiis. Itaque voluptas corporis odio dolores. Ad omnis sequi id magni aperiam iusto at?</p>
       <br>
       <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa accusantium dolorem nemo mollitia commodi ab non necessitatibus. Tenetur porro delectus quidem iste sunt adipisci maxime incidunt laudantium unde, aut ad eum ullam iure in sequi magni! Quibusdam quasi delectus nesciunt eveniet id magnam, reiciendis maiores. Vitae enim impedit natus quasi? Unde voluptatem magni velit. Dolorum expedita praesentium magni voluptas cum placeat eum quae aliquam! Ad aperiam voluptatibus obcaecati minima ratione possimus optio quam, officia doloremque quaerat at saepe dolor alias itaque accusantium, dolorum ipsa, delectus sequi id amet ipsum! Illum dolore ex vitae placeat praesentium officiis sequi repudiandae nulla sit.</p>
