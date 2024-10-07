@@ -23,6 +23,7 @@ Route::get('/produk', [MainController::class, 'produk'])->name('produk');
 Route::get('/artikel', [MainController::class, 'artikel'])->name('artikel');
 Route::get('/data', [MainController::class, 'data'])->name('data');
 Route::get('/test', [MainController::class, 'test'])->name('test');
+Route::get('/test2', [MainController::class, 'test2'])->name('test2');
 Route::get('/layout-artikel', [MainController::class, 'layoutArtikel'])->name('layout-artikel');
 // ******* Halaman Utama *********
 

@@ -491,123 +491,6 @@
         </h2>
         <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
           <div class="accordion-body overflow-scroll">
-
-            <!-- TABLE -->
-            <br>
-            <hr>
-            <h5 class="mb-3">Tabel 18 Jumlah Penduduk Wanita Umur 10-49 Tahun yang Berstatus Kawin Menurut Penggunaan Alat KB di Desa/Kelurahan BLEDERAN Tahun 2024 </h5>
-            <table class="table table-striped-columns">
-                <thead>
-                    <tr>
-                    <th scope="col" class="text-center">Penggunaan Alat KB</th>
-                    <th scope="col" class="text-center">Jumlah</th>
-                    <th scope="col" class="text-center">Persentase</th>
-                    </tr>
-                    <tr>
-                    <td class="text-center">(1)</td>
-                    <td class="text-center">(2)</td>
-                    <td class="text-center">(3)</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="text-end">MOW/Tubektomi</td>
-                        <td class="text-end">10</td>
-                        <td class="text-end">3,88 %</td>
-                    </tr>
-                    <tr>
-                        <td class="text-end">MOP/Vasektomi</td>
-                        <td class="text-end">9</td>
-                        <td class="text-end">3,49%</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">AKDR/IUD/SPIRAL</td>
-                        <td class="text-end">9</td>
-                        <td class="text-end">13,57%</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Suntikan KB</td>
-                        <td class="text-end">124</td>
-                        <td class="text-end">48,06%</td>
-                    </tr>
-                    <tr>
-                        <td scope="r<tow">Susuk KB/Norplan/implonon/alwalit</td>
-                        <td class="text-end">53</td>
-                        <td class="text-end">20,54%</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">pil KB</td>
-                        <td class="text-end">10</td>
-                        <td class="text-end">3,88%</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Kondom/Karet KB</td>
-                        <td class="text-end">9</td>
-                        <td class="text-end">3,49%</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Intraveg/tisue/Kondom Wanita</td>
-                        <td class="text-end">0</td>
-                        <td class="text-end">0,00%</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Cara Tradisional</th>
-                        <th class="text-end">8</th>
-                        <th class="text-end">3,10%</th>
-                    </tr>
-                    <tr>
-                        <th scope="row">Blederan</th>
-                        <th class="text-end">258</th>
-                        <th class="text-end">100,00%</th>
-                    </tr>
-                </tbody>
-            </table>
-            <!-- TABLE -->
-            
-            <!-- ***** TABEL ***** -->
-            <br>
-            <hr>
-            <h5>Tabel 19 Jumlah Penduduk Menurut Jenis Cacat di Desa/Kelurahan BLEDERAN Tahun 2024</h5>
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Tuna daksa/cacat tubuh</th>
-                  <td>20</td>
-                  <td>68,97%</td>
-                </tr>
-                <tr>
-                  <th scope="row">Tuna netra/buta</th>
-                  <td>3</td>
-                  <td>10,34%</td>
-                </tr>
-                <tr>
-                  <th scope="row">Tuna netra/buta</th>
-                  <td>3</td>
-                  <td>10,34%</td>
-                </tr>
-                <th class="text-end">258</th>
-              </tbody>
-            </table>
-            <!-- ***** TABEL ***** -->
-
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button id="accordionButtonFour" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
-            Data Pendidikan
-          </button>
-        </h2>
-        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse">
-          <div class="accordion-body overflow-scroll">
             <br>
             <hr>
             <h5 class="mb-3">Judul Tabel </h5>
@@ -679,6 +562,118 @@
             <!-- ***** TABEL ***** -->
 
           </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button id="accordionButtonFour" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+            Data Pendidikan
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse">
+          <div class="accordion-body overflow-scroll">
+            <br>
+            <hr>
+            <h5 class="mb-3">Tabel 22 Jumlah Penduduk Usia 5 Tahun ke Atas Menurut Partisipasi Sekolah di Desa/Kelurahan BLEDERAN Tahun 2024</h5>
+            <table class="table table-striped-columns">
+                <thead>
+                    <tr>
+                    <th scope="col" class="text-center">Partisipasi Sekolah</th>
+                    <th scope="col" class="text-center">Jumlah</th>
+                    <th scope="col" class="text-center">Persentase</th>
+                    </tr>
+                    <tr>
+                    <td class="text-center">(1)</td>
+                    <td class="text-center">(2)</td>
+                    <td class="text-center">(3)</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">Tidak/belum pernah sekolah</td>
+                        <td class="text-end">93</td>
+                        <td class="text-end">3,68%</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Masih sekolah</td>
+                        <td class="text-end">612</td>
+                        <td class="text-end">24,19%</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Tidak bersekolah lagi</td>
+                        <td class="text-end">1825</td>
+                        <td class="text-end">72,13%</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Blederan</th>
+                        <th class="text-end">2530</th>
+                        <th class="text-end">100,00%</th>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!-- ***** TABEL ***** -->
+            <br>
+            <hr>
+            <h5>Tabel 23 Jumlah Penduduk Usia 5 Tahun ke Atas Menurut Ijazah Tertinggi yang Dimiliki di Desa/Kelurahan BLEDERAN Tahun 2024</h5>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col" class="text-center">Ijazah Tertinggi Yang Dimiliki</th>
+                  <th scope="col" class="text-center">Jumlah</th>
+                  <th scope="col" class="text-center">Persentase</th>
+                </tr>
+                <tr>
+                  <td class="text-center">(1)</td>
+                  <td class="text-center">(2)</td>
+                  <td class="text-center">(3)</td>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                    <td scope="row">Tidak punya ijazah</td>
+                    <td class="text-end">368</td>
+                    <td class="text-end">15,29%</td>
+                </tr>
+                <tr>
+                  <td scope="row">SD/sederajat</td>
+                  <td class="text-end">1006</td>
+                  <td class="text-end">41,79%</td>
+              </tr>
+              <tr>
+                <td scope="row">SMP/sederajat</td>
+                <td class="text-end">451</td>
+                <td class="text-end">18,74%</td>
+            </tr>
+            <tr>
+              <td scope="row">SMA/sederajat</td>
+              <td class="text-end">434</td>
+              <td class="text-end">18,03%</td>
+          </tr>
+          <tr>
+            <td scope="row">D1/D2/D3</td>
+            <td class="text-end">26</td>
+            <td class="text-end">1,08%</td>
+        </tr>
+        <tr>
+          <td scope="row">D4/S1</td>
+          <td class="text-end">117</td>
+          <td class="text-end">4,86%</td>
+      </tr>
+      <tr>
+        <td scope="row">S2/S3</td>
+        <td class="text-end">5</td>
+        <td class="text-end">0,21%</td>
+    </tr>
+    <tr>
+      <th scope="row">Blederan</th>
+      <th class="text-end">2407</th>
+      <th class="text-end">100,00%</th>
+  </tr>
+              </tbody>
+            </table>
+            <!-- ***** TABEL ***** -->
+
         </div>
       </div>
     </div>

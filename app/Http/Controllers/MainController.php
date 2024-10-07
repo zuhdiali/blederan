@@ -60,4 +60,10 @@ class MainController extends Controller
         // $user = DB::table('admins')->get();
         return view('test');
     }
+
+    public function test2()
+    {
+        // $user = DB::table('admins')->get();
+        return view('test2');
+    }
 }
