@@ -27,7 +27,37 @@ class MainController extends Controller
 
     public function data()
     {
-        return view('data');
+        $kependudukan = DB::table('tabulasis')->where('kategori','=',1)->get();
+        $perumahan = DB::table('tabulasis')->where('kategori','=',2)->get();
+        $kesehatan = DB::table('tabulasis')->where('kategori','=',3)->get();
+        $pendidikan = DB::table('tabulasis')->where('kategori','=',4)->get();
+        $pekerjaan = DB::table('tabulasis')->where('kategori','=',5)->get();
+
+        return view('data', [
+            'kependudukan' => $kependudukan,
+            'perumahan' => $perumahan,
+            'kesehatan' => $kesehatan,
+            'pendidikan' => $pendidikan,
+            'pekerjaan' => $pekerjaan
+        ]);
+    }
+
+    public function data2()
+    {
+        $kependudukan = DB::table('tabulasis')->where('kategori','=',1)->get();
+        $perumahan = DB::table('tabulasis')->where('kategori','=',2)->get();
+        // dd($perumahan);
+        $kesehatan = DB::table('tabulasis')->where('kategori','=',3)->get();
+        $pendidikan = DB::table('tabulasis')->where('kategori','=',4)->get();
+        $pekerjaan = DB::table('tabulasis')->where('kategori','=',5)->get();
+
+        return view('data2', [
+            'kependudukan' => $kependudukan,
+            'perumahan' => $perumahan,
+            'kesehatan' => $kesehatan,
+            'pendidikan' => $pendidikan,
+            'pekerjaan' => $pekerjaan
+        ]);
     }
 
     public function layoutArtikel()

@@ -55,19 +55,19 @@
                     <div class="row">
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-home"></i>
-                        <h4><span>Bangunan Tempat Tinggal Milik Sendiri:</span><br>83,02 %</h4>
+                        <h4><span>Tempat Tinggal Milik Sendiri:</span><br>83,02 %</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-globe"></i>
-                        <h4><span>Rumah Dengan Lantai Terluas Berupa Keramik:</span><br>50,12 %</h4>
+                        <h4><span>Rumah Lantai Terluas Keramik:</span><br>50,12 %</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-home"></i>
-                        <h4><span>Rumah Dengan Dinding Terluas Tembok</span><br>88,60 %</h4>
+                        <h4><span>Rumah Dinding Terluas Tembok</span><br>88,60 %</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-home"></i>
-                        <h4><span>Rumah Dengan Fasilitas BAB Sendiri</span><br>81,53 %</h4>
+                        <h4><span>Rumah Fasilitas BAB Sendiri</span><br>81,53 %</h4>
                       </div>
                     </div>
                   </div>
@@ -88,23 +88,14 @@
                 <div class="col-lg-12">
                   <div class="more-info">
                     <div class="row">
-                      <div class="col-lg-3 col-sm-6 col-6">
+                      <div class="col-lg-6 col-sm-6 col-6">
+                        <i class="fa fa-users"></i>
+                        <h4><span>Wanita 10-49 Tahun Menggunakan Alat KB:</span><br>258 orang</h4>
+                      </div>
+                      <div class="col-lg-6 col-sm-6 col-6">
                         <i class="fa fa-user"></i>
-                        <h4><span>Populasi:</span><br>3.109</h4>
+                        <h4><span>Jumlah Penduduk Cacat:</span><br>29 orang</h4>
                       </div>
-                      <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-globe"></i>
-                        <h4><span>Suku Mayoritas (Jawa):</span><br>3.095 orang (99,55 %)</h4>
-                      </div>
-                      <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-home"></i>
-                        <h4><span>Agama Mayoritas (Islam)</span><br>3.102 orang (99,77 %)</h4>
-                      </div>
-                      {{-- <div class="col-lg-3 col-sm-6 col-6">
-                        <div class="main-button">
-                          <a href="about.html">Explore More</a>
-                        </div>
-                      </div> --}}
                     </div>
                   </div>
                 </div>
@@ -125,22 +116,21 @@
                   <div class="more-info">
                     <div class="row">
                       <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-user"></i>
-                        <h4><span>Population:</span><br>69.86 M</h4>
+                        <i class="fa fa-school"></i>
+                        <h4><span>Penduduk Tidak Bersekolah Lagi</span><br>1.825 orang</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-globe"></i>
-                        <h4><span>Territory:</span><br>513.120 KM<em>2</em></h4>
+                        <i class="fa fa-school"></i>
+                        <h4><span>Penduduk Belum Pernah Sekolah:</span><br>93 orang</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-home"></i>
-                        <h4><span>AVG Price:</span><br>$165.450</h4>
+                        <i class="fa fa-school"></i>
+                        <h4><span>Ijazah Tertinggi SD:</span><br>1.006 orang</h4>
                       </div>
-                      {{-- <div class="col-lg-3 col-sm-6 col-6">
-                        <div class="main-button">
-                          <a href="about.html">Explore More</a>
-                        </div>
-                      </div> --}}
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i class="fa fa-school"></i>
+                        <h4><span>Ijazah Tertinggi SMP:</span><br>451 orang</h4>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -175,224 +165,36 @@
         </h2>
         <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
           <div class="accordion-body overflow-scroll">
+            @foreach ($kependudukan as $data)
+                <?php $array = json_decode($data->data); ?>
+                <?php $kolom = $array[0]; ?>
 
-            <!-- ***** TABEL ***** -->
-            <br>
-            <hr>
-            <h5>Jumlah Penduduk Menurut Kelompok Umur di Desa/Kelurahan BLEDERAN Tahun 2024</h5>
-            <table class="table table-striped-columns">
-              <thead>
-                <tr>
-                  <th scope="col" rowspan="2" class="text-center">Kelompok Umur</th>
-                  <th scope="col" colspan="2" class="text-center">Jenis Kelamin</th>
-                  <th scope="col" rowspan="2" class="text-center">Jumlah</th>
-                </tr>
-                <tr>
-                    <th scope="col" class="text-center">Laki-laki</th>
-                    <th scope="col" class="text-center">Perempuan</th>
-                </tr>
-                <tr>
-                    <td class="text-center">(1)</td>
-                    <td class="text-center">(2)</td>
-                    <td class="text-center">(3)</td>
-                    <td class="text-center">(4)</td>
+                <!-- ***** TABEL ***** -->
+                <br>
+                <hr>
+                <h5>{{$data->judul_tabel}}</h5>
+                <table class="table table-striped-columns">
+                  <thead>
+                    <tr>
+                    @foreach ($kolom as $key => $val)
+                    <th scope="col" rowspan="2" class="text-center">{{$key}} </th>
+                    @endforeach
                   </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td scope="row" class="text-center">0-4 Tahun</td>
-                  <td class="text-end">41</td>
-                  <td class="text-end">30</td>
-                  <td class="text-end">71</td>
-                </tr>
-                <tr>
-                    <td scope="row" class="text-center">5-9 Tahun</td>
-                    <td class="text-end">143</td>
-                    <td class="text-end">115</td>
-                    <td class="text-end">258</td>
-                </tr>
-                <tr>
-                    <td scope="row" class="text-center">10-14 Tahun</td>
-                    <td class="text-end">155</td>
-                    <td class="text-end">143</td>
-                    <td class="text-end">298</td>
-                </tr>
-                <tr>
-                    <td scope="row" class="text-center">15-19 Tahun</td>
-                    <td class="text-end">139</td>
-                    <td class="text-end">108</td>
-                    <td class="text-end">248</td>
-                </tr>
-                <tr>
-                    <td scope="row" class="text-center">20-24 Tahun</td>
-                    <td class="text-end">138</td>
-                    <td class="text-end">112</td>
-                    <td class="text-end">250</td>
-                </tr>
-                <tr>
-                    <td scope="row" class="text-center">25-29 Tahun</td>
-                    <td class="text-end">128</td>
-                    <td class="text-end">125</td>
-                    <td class="text-end">256</td>
-                </tr>
-                <tr>
-                    <td scope="row" class="text-center">30-34 Tahun</td>
-                    <td class="text-end">119</td>
-                    <td class="text-end">129</td>
-                    <td class="text-end">248</td>
-                </tr>
-                <tr>
-                    <td scope="row" class="text-center">35-39 Tahun</td>
-                    <td class="text-end">136</td>
-                    <td class="text-end">118</td>
-                    <td class="text-end">256</td>
-                </tr>
-                <tr>
-                    <td scope="row" class="text-center">40-44 Tahun</td>
-                    <td class="text-end">130</td>
-                    <td class="text-end">119</td>
-                    <td class="text-end">249</td>
-                </tr>
-                <tr>
-                    <td scope="row" class="text-center">45-49 Tahun</td>
-                    <td class="text-end">116</td>
-                    <td class="text-end">109</td>
-                    <td class="text-end">225</td>
-                </tr>
-                <tr>
-                    <td scope="row" class="text-center">50-54 Tahun</td>
-                    <td class="text-end">107</td>
-                    <td class="text-end">92</td>
-                    <td class="text-end">199</td>
-                </tr>
-                <tr>
-                    <td scope="row" class="text-center">55-59 Tahun</td>
-                    <td class="text-end">91</td>
-                    <td class="text-end">97</td>
-                    <td class="text-end">188</td>
-                </tr>
-                <tr>
-                    <td scope="row" class="text-center">60-64 Tahun</td>
-                    <td class="text-end">76</td>
-                    <td class="text-end">59</td>
-                    <td class="text-end">135</td>
-                </tr>
-                <tr>
-                    <td scope="row" class="text-center">65-69 Tahun</td>
-                    <td class="text-end">51</td>
-                    <td class="text-end">42</td>
-                    <td class="text-end">93</td>
-                </tr>
-                <tr>
-                    <td scope="row" class="text-center">70-74 Tahun</td>
-                    <td class="text-end">40</td>
-                    <td class="text-end">16</td>
-                    <td class="text-end">57</td>
-                </tr>
-                <tr>
-                    <td scope="row" class="text-center">75+ Tahun</td>
-                    <td class="text-end">41</td>
-                    <td class="text-end">36</td>
-                    <td class="text-end">77</td>
-                </tr>
-                <tr>
-                    <td scope="row" class="text-center">Blederan</td>
-                    <td class="text-end">1.651</td>
-                    <td class="text-end">1.450</td>
-                    <td class="text-end">3.109</td>
-                </tr>
-              </tbody>
-            </table>
-            <!-- ***** TABEL ***** -->
-            
-            <!-- ***** TABEL ***** -->
-            <br>
-            <hr>
-            <h5>Jumlah Penduduk Menurut Suku di Desa/Kelurahan BLEDERAN Tahun 2024</h5>
-            <table class="table table-striped-columns">
-                <thead>
+                  <hr>
+                  </thead>
+                  <tbody>
+                    @foreach ($array as $item)
                     <tr>
-                    <th scope="col" class="text-center">Suku</th>
-                    <th scope="col" class="text-center">Jumlah</th>
+                      @foreach ($item as  $val)
+                      <td class="text-center">{{$val}}</td>
+                      @endforeach
                     </tr>
-                    <tr>
-                    <td class="text-center">(1)</td>
-                    <td class="text-center">(2)</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td scope="row">Arab</td>
-                        <td class="text-end">1</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">India</td>
-                        <td class="text-end">2</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Jawa</td>
-                        <td class="text-end">3.095</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Madura</td>
-                        <td class="text-end">8</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Melayu</td>
-                        <td class="text-end">1</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Minang</td>
-                        <td class="text-end">1</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Sunda</td>
-                        <td class="text-end">1</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Blederan</th>
-                        <th class="text-end">3.109</th>
-                    </tr>
-                </tbody>
-            </table>
-            <!-- ***** TABEL ***** -->
+                        
 
-            <!-- ***** TABEL ***** -->
-            <br>
-            <hr>
-            <h5>Jumlah Penduduk Menurut Agama di Desa/Kelurahan BLEDERAN Tahun 2024</h5>
-            <table class="table table-striped-columns">
-                <thead>
-                    <tr>
-                    <th scope="col" class="text-center">Agama</th>
-                    <th scope="col" class="text-center">Jumlah</th>
-                    </tr>
-                    <tr>
-                    <td class="text-center">(1)</td>
-                    <td class="text-center">(2)</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td scope="row">Islam</td>
-                        <td class="text-end">3.102</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Kristen</td>
-                        <td class="text-end">2</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Katolik</td>
-                        <td class="text-end">5</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Blederan</th>
-                        <th class="text-end">3.109</th>
-                    </tr>
-                </tbody>
-            </table>
-            <!-- ***** TABEL ***** -->
-
+                    @endforeach
+                  </tbody>
+                </table>
+            @endforeach
           </div>
         </div>
       </div>
@@ -404,95 +206,37 @@
         </h2>
         <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
           <div class="accordion-body overflow-scroll">
+            @foreach ($perumahan as $data)
+                <?php $array = json_decode($data->data); 
+                ?>
+                <?php $kolom = $array[0]; ?>
 
-            <!-- ***** TABEL ***** -->
-            <br>
-            <hr>
-            <h5 class="mb-3">Tabel 2 Status Penguasaan Bangunan Tempat Tinggal yang Ditempati di Desa/Kelurahan BLEDERAN Tahun 2024</h5>
-            <table class="table table-striped-columns">
-              <thead>
-                <tr>
-                  <th scope="col" class="text-center">Status</th>
-                  <th scope="col" class="text-center">Jumlah</th>
-                  <th scope="col" class="text-center">Persentase</th>
-                </tr>
-                <tr>
-                  <td class="text-center">(1)</td>
-                  <td class="text-center">(2)</td>
-                  <td class="text-center">(3)</td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td scope="row">Milik Sendiri</td>
-                  <td class="text-end">665</td>
-                  <td class="text-end">83,02 %</td>
-                </tr>
-                <tr>
-                  <td scope="row">Kontrak/Sewa</td>
-                  <td class="text-end">6</td>
-                  <td class="text-end">0,75 %</td>
-                </tr>
-                <tr>
-                  <td scope="row">Bebas Sewa</td>
-                  <td class="text-end">130</td>
-                  <td class="text-end">16,23 %</td>
-                </tr>
-                <tr>
-                  <td scope="row">Dinas</td>
-                  <td class="text-end">0</td>
-                  <td class="text-end">0 %</td>
-                </tr>
-                <tr>
-                  <td scope="row">Lainnya</td>
-                  <td class="text-end">0</td>
-                  <td class="text-end">0 %</td>
-                </tr>
-                <tr>
-                  <th scope="row">Blederan</th>
-                  <th class="text-end">801</th>
-                  <th class="text-end">100 %</th>
-                </tr>
-              </tbody>
-            </table>
-            <!-- ***** TABEL ***** -->
-            
-            <!-- ***** TABEL ***** -->
-            <br>
-            <hr>
-            <h5>Judul Tabel</h5>
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </table>
-            <!-- ***** TABEL ***** -->
+                <!-- ***** TABEL ***** -->
+                <br>
+                <hr>
+                <h5>{{$data->judul_tabel}}</h5>
+                <table class="table table-striped-columns">
+                  <thead>
+                    <tr>
+                    @foreach ($kolom as $key => $val)
+                    <th scope="col" rowspan="2" class="text-center">{{$key}} </th>
+                    @endforeach
+                  </tr>
+                  <hr>
+                  </thead>
+                  <tbody>
+                    @foreach ($array as $item)
+                    <tr>
+                      @foreach ($item as  $val)
+                      <td class="text-center">{{$val}}</td>
+                      @endforeach
+                    </tr>
+                        
 
+                    @endforeach
+                  </tbody>
+                </table>
+            @endforeach
           </div>
         </div>
       </div>
@@ -504,76 +248,37 @@
         </h2>
         <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
           <div class="accordion-body overflow-scroll">
-            <br>
-            <hr>
-            <h5 class="mb-3">Judul Tabel </h5>
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </table>
-            
-            <!-- ***** TABEL ***** -->
-            <br>
-            <hr>
-            <h5>Judul Tabel</h5>
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </table>
-            <!-- ***** TABEL ***** -->
+            @foreach ($kesehatan as $data)
+                <?php $array = json_decode($data->data); 
+                ?>
+                <?php $kolom = $array[0]; ?>
 
+                <!-- ***** TABEL ***** -->
+                <br>
+                <hr>
+                <h5>{{$data->judul_tabel}}</h5>
+                <table class="table table-striped-columns">
+                  <thead>
+                    <tr>
+                    @foreach ($kolom as $key => $val)
+                    <th scope="col" rowspan="2" class="text-center">{{$key}} </th>
+                    @endforeach
+                  </tr>
+                  <hr>
+                  </thead>
+                  <tbody>
+                    @foreach ($array as $item)
+                    <tr>
+                      @foreach ($item as  $val)
+                      <td class="text-center">{{$val}}</td>
+                      @endforeach
+                    </tr>
+                        
+
+                    @endforeach
+                  </tbody>
+                </table>
+            @endforeach
           </div>
         </div>
       </div>
@@ -585,75 +290,84 @@
         </h2>
         <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse">
           <div class="accordion-body overflow-scroll">
-            <br>
-            <hr>
-            <h5 class="mb-3">Judul Tabel </h5>
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </table>
-            
-            <!-- ***** TABEL ***** -->
-            <br>
-            <hr>
-            <h5>Judul Tabel</h5>
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </table>
-            <!-- ***** TABEL ***** -->
+            @foreach ($pendidikan as $data)
+                <?php $array = json_decode($data->data); 
+                ?>
+                <?php $kolom = $array[0]; ?>
+
+                <!-- ***** TABEL ***** -->
+                <br>
+                <hr>
+                <h5>{{$data->judul_tabel}}</h5>
+                <table class="table table-striped-columns">
+                  <thead>
+                    <tr>
+                    @foreach ($kolom as $key => $val)
+                    <th scope="col" rowspan="2" class="text-center">{{$key}} </th>
+                    @endforeach
+                  </tr>
+                  <hr>
+                  </thead>
+                  <tbody>
+                    @foreach ($array as $item)
+                    <tr>
+                      @foreach ($item as  $val)
+                      <td class="text-center">{{$val}}</td>
+                      @endforeach
+                    </tr>
+                        
+
+                    @endforeach
+                  </tbody>
+                </table>
+            @endforeach
+
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button id="accordionButtonFive" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
+            Data Pekerjaan
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse">
+          <div class="accordion-body overflow-scroll">
+            @foreach ($pekerjaan as $data)
+                <?php $array = json_decode($data->data); 
+                ?>
+                <?php $kolom = $array[0]; ?>
+
+                <!-- ***** TABEL ***** -->
+                <br>
+                <hr>
+                <h5>{{$data->judul_tabel}}</h5>
+                <table class="table table-striped-columns">
+                  <thead>
+                    <tr>
+                    @foreach ($kolom as $key => $val)
+                    <th scope="col" rowspan="2" class="text-center">{{$key}} </th>
+                    @endforeach
+                  </tr>
+                  <hr>
+                  </thead>
+                  <tbody>
+                    @foreach ($array as $item)
+                    <tr>
+                      @foreach ($item as  $val)
+                      @if ($key === array_key_first($array))
+                        <td>{{$val}}</td>
+                      @else
+                        <td class="text-end">{{$val}}</td>
+                      @endif
+                      @endforeach
+                    </tr>
+                        
+
+                    @endforeach
+                  </tbody>
+                </table>
+            @endforeach
 
           </div>
         </div>
