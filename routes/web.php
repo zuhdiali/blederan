@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\AkomodasiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +24,7 @@ Route::get('/', function () {
 // ******* Halaman Utama *********
 Route::get('/produk', [MainController::class, 'produk'])->name('produk');
 Route::get('/artikel', [MainController::class, 'artikel'])->name('artikel');
-Route::get('/data', [MainController::class, 'data'])->name('data');
+// Route::get('/data', [MainController::class, 'data'])->name('data');
 Route::get('/data2', [MainController::class, 'data2'])->name('data2');
 Route::get('/test', [MainController::class, 'test'])->name('test');
 Route::get('/test2', [MainController::class, 'test2'])->name('test2');
@@ -42,3 +45,10 @@ Route::get('/daftar', [AdminController::class, 'daftar'])->name('daftar')->middl
 Route::post('/daftar', [AdminController::class, 'daftarPost'])->name('daftar.post');
 Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 // ******* User *********
+
+// ******* Halaman Admin *********
+Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+Route::get('/manajemen-pengguna', [UserController::class, 'index'])->name('manajemen-pengguna');
+Route::get('/produk', [ProdukController::class, 'index'])->name('produk');
+Route::get('/akomodasi', [AkomodasiController::class, 'index'])->name('akomodasi');
+// ******* Halaman Admin *********

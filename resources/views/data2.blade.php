@@ -176,17 +176,29 @@
                 <table class="table table-striped-columns">
                   <thead>
                     <tr>
+                    <?php $array_kolom = [] ?>
                     @foreach ($kolom as $key => $val)
                     <th scope="col" rowspan="2" class="text-center">{{$key}} </th>
+                    <?php array_push($array_kolom, $key) ?>
                     @endforeach
                   </tr>
+                    
                   <hr>
                   </thead>
                   <tbody>
+                    <tr>
+                      @for($i = 0; $i < count($array_kolom); $i++)
+                        <td class="text-center">({{($i)+1}})</td>
+                      @endfor
+                    </tr>
                     @foreach ($array as $item)
                     <tr>
-                      @foreach ($item as  $val)
-                      <td class="text-center">{{$val}}</td>
+                      @foreach ($item as $key => $val)
+                      @if ($key === $array_kolom[0])
+                        <td>{{$val}}</td>
+                      @else
+                        <td class="text-end">{{$val}}</td>
+                      @endif
                       @endforeach
                     </tr>
                         
@@ -218,17 +230,29 @@
                 <table class="table table-striped-columns">
                   <thead>
                     <tr>
+                    <?php $array_kolom = [] ?>
                     @foreach ($kolom as $key => $val)
                     <th scope="col" rowspan="2" class="text-center">{{$key}} </th>
+                    <?php array_push($array_kolom, $key) ?>
                     @endforeach
-                  </tr>
+                    </tr>
+                    
                   <hr>
                   </thead>
                   <tbody>
+                    <tr>
+                      @for($i = 0; $i < count($array_kolom); $i++)
+                        <td class="text-center">({{($i)+1}})</td>
+                      @endfor
+                    </tr>
                     @foreach ($array as $item)
                     <tr>
-                      @foreach ($item as  $val)
-                      <td class="text-center">{{$val}}</td>
+                      @foreach ($item as $key => $val)
+                      @if ($key === $array_kolom[0])
+                        <td>{{$val}}</td>
+                      @else
+                        <td class="text-end">{{$val}}</td>
+                      @endif
                       @endforeach
                     </tr>
                         
@@ -260,17 +284,29 @@
                 <table class="table table-striped-columns">
                   <thead>
                     <tr>
+                    <?php $array_kolom = [] ?>
                     @foreach ($kolom as $key => $val)
                     <th scope="col" rowspan="2" class="text-center">{{$key}} </th>
+                    <?php array_push($array_kolom, $key) ?>
                     @endforeach
                   </tr>
+                  
                   <hr>
                   </thead>
                   <tbody>
+                    <tr>
+                      @for($i = 0; $i < count($array_kolom); $i++)
+                        <td class="text-center">({{($i)+1}})</td>
+                      @endfor
+                    </tr>
                     @foreach ($array as $item)
                     <tr>
-                      @foreach ($item as  $val)
-                      <td class="text-center">{{$val}}</td>
+                      @foreach ($item as $key => $val)
+                      @if ($key === $array_kolom[0])
+                        <td>{{$val}}</td>
+                      @else
+                        <td class="text-end">{{$val}}</td>
+                      @endif
                       @endforeach
                     </tr>
                         
@@ -302,17 +338,29 @@
                 <table class="table table-striped-columns">
                   <thead>
                     <tr>
+                    <?php $array_kolom = [] ?>
                     @foreach ($kolom as $key => $val)
                     <th scope="col" rowspan="2" class="text-center">{{$key}} </th>
+                    <?php array_push($array_kolom, $key) ?>
                     @endforeach
                   </tr>
+                 
                   <hr>
                   </thead>
                   <tbody>
+                    <tr>
+                      @for($i = 0; $i < count($array_kolom); $i++)
+                        <td class="text-center">({{($i)+1}})</td>
+                      @endfor
+                    </tr>
                     @foreach ($array as $item)
                     <tr>
-                      @foreach ($item as  $val)
-                      <td class="text-center">{{$val}}</td>
+                      @foreach ($item as $key => $val)
+                      @if ($key === $array_kolom[0])
+                        <td>{{$val}}</td>
+                      @else
+                        <td class="text-end">{{$val}}</td>
+                      @endif
                       @endforeach
                     </tr>
                         
@@ -345,17 +393,26 @@
                 <table class="table table-striped-columns">
                   <thead>
                     <tr>
+                    <?php $array_kolom = [] ?>
                     @foreach ($kolom as $key => $val)
                     <th scope="col" rowspan="2" class="text-center">{{$key}} </th>
+                    <?php array_push($array_kolom, $key) ?>
                     @endforeach
                   </tr>
+                  
                   <hr>
                   </thead>
                   <tbody>
-                    @foreach ($array as $item)
                     <tr>
-                      @foreach ($item as  $val)
-                      @if ($key === array_key_first($array))
+                      @for($i = 0; $i < count($array_kolom); $i++)
+                        <td class="text-center">({{($i)+1}})</td>
+                      @endfor
+                    </tr>
+                    @foreach ($array as $item)
+                    {{-- {{dd($item['PekerjaanMenurutLapanganUsaha'])}} --}}
+                    <tr>
+                      @foreach ($item as $key => $val)
+                      @if ($key === $array_kolom[0])
                         <td>{{$val}}</td>
                       @else
                         <td class="text-end">{{$val}}</td>
@@ -376,7 +433,7 @@
   </div>
 
   <!-- Main Content -->
-  <div id="content ">
+  {{-- <div id="content ">
 
       <!-- Begin Page Content -->
       <div class="container my-5">
@@ -448,7 +505,7 @@
       </div>
       <!-- /.container-fluid -->
 
-  </div>
+  </div> --}}
 
     {{-- <!-- DataTales Example -->
     <div class="card shadow mb-4">

@@ -64,7 +64,7 @@
                         <li><a href="{{ route('welcome') }}" class="{{ Request::path() ==  '/' ? 'active' : ''  }}">Beranda</a></li>
                         {{-- <li><a href="{{ route('produk') }}" class="{{ Request::path() ==  'produk' ? 'active' : ''  }}">Produk</a></li> --}}
                         <li><a href="{{ route('artikel') }}" class="{{ Request::path() ==  'artikel' ? 'active' : ''  }}">Artikel</a></li>
-                        <li><a href="{{ route('data') }}" class="{{ Request::path() ==  'data' ? 'active' : ''  }}">Data</a></li>
+                        <li><a href="{{ route('data2') }}" class="{{ Request::path() ==  'data' ? 'active' : ''  }}">Data</a></li>
                         {{-- <li><a href="reservation.html">Book Yours</a></li> --}}
                         <li>  
                           @if(Auth::check())

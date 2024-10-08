@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
+    public function index()
+    {
+        return view('admin.dashboard');
+    }
+
+    public function forms()
+    {
+        return view('admin.forms');
+    }
+
     public function login()
     {
         return view('auth.login');
