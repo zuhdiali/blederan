@@ -11,21 +11,21 @@
     <title>Desa Blederan</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
      <!-- MDB -->
     {{-- <link rel="stylesheet" href="css/bootstrap-login-form.min.css" /> --}}
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-woox-travel.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="assets/css/custom.scss">
+    <link rel="stylesheet" href="{{asset('css/fontawesome.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/templatemo-woox-travel.css')}}">
+    <link rel="stylesheet" href="{{asset('css/owl.css')}}">
+    <link rel="stylesheet" href="{{asset('css/animate.css')}}">
+    <link rel="stylesheet" href="{{asset('css/custom.scss')}}">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     
     <!--Icon Web-->
-    <link rel="icon" type="image/x-icon" href="/assets/images/logo_only.png">
+    <link rel="icon" type="image/x-icon" href="{{asset('images/logo_only.png')}}" >
 
     <!-- ChartJS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js" type="text/javascript"></script>
@@ -55,7 +55,7 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
+                    <a href="{{route('welcome')}}" class="logo">
                         <img src="{{ asset('images/logo_blederan.png') }}" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
@@ -66,18 +66,25 @@
                         <li><a href="{{ route('artikel') }}" class="{{ Request::path() ==  'artikel' ? 'active' : ''  }}">Artikel</a></li>
                         <li><a href="{{ route('data2') }}" class="{{ Request::path() ==  'data' ? 'active' : ''  }}">Data</a></li>
                         {{-- <li><a href="reservation.html">Book Yours</a></li> --}}
-                        <li>  
+                        
                           @if(Auth::check())
+                          <li>
+                            <a href="{{ route('admin-dashboard') }}" class="btn btn-danger">Dashboard</a>
+                          </li>  
+                          <li>  
                             <a href="{{ route('logout') }}" class="btn btn-danger">Logout</a>
+                          </li>
                           @else
+                          <li>  
                             <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
+                          </li>
                           {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                           Login
                           </button> --}}
                           @endif
                           {{-- <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
                           role="button">Link</a> --}}
-                        </li>
+                        
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -164,15 +171,15 @@
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="{{asset('js/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset('js/bootstrap.min.js')}}"></script>
 
-  <script src="assets/js/isotope.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/wow.js"></script>
-  <script src="assets/js/tabs.js"></script>
-  <script src="assets/js/popup.js"></script>
-  <script src="assets/js/custom.js"></script>
+  <script src="{{asset('js/isotope.min.js')}}"></script>
+  <script src="{{asset('js/owl-carousel.js')}}"></script>
+  
+  <script src="{{asset('js/tabs.js')}}"></script>
+  <script src="{{asset('js/popup.js')}}"></script>
+  <script src="{{asset('js/custom.js')}}"></script>
 
   {{-- <script src="assets/js/chart-area-demo.js"></script>
   <script src="assets/js/chart-bar-demo.js"></script>

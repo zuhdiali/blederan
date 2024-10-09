@@ -30,6 +30,7 @@
               @if ($errors->has('password'))
               <span class="text-danger">{{ $errors->first('password') }}</span>
               @endif
+              <br>
               <button type="submit" class="btn btn-primary">Login</button>
             </form>
 

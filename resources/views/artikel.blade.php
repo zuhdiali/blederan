@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
   <!-- ***** Main Banner Area Start ***** -->
   <section id="section-1">
     <div class="content-slider">
@@ -21,23 +22,14 @@
                 <div class="col-lg-12">
                   <div class="more-info">
                     <div class="row">
-                      <div class="col-lg-3 col-sm-6 col-6">
+                      <div class="col-sm-6 col-6">
                         <i class="fa fa-user"></i>
                         <h4><span>Penulis:</span><br>Novi Hardianto</h4>
                       </div>
-                      <div class="col-lg-3 col-sm-6 col-6">
+                      <div class="col-sm-6 col-6">
                         <i class="fa fa-calendar"></i>
                         <h4><span>Tanggal:</span><br>3 Oktober 2024</h4>
                       </div>
-                      <div class="col-lg-3 col-sm-6 col-6">
-                        {{-- <i class="fa fa-home"></i>
-                        <h4><span>Disukai:</span><br>$946.000</h4> --}}
-                      </div>
-                      {{-- <div class="col-lg-3 col-sm-6 col-6">
-                        <div class="main-button">
-                          <a href="about.html">Explore More</a>
-                        </div>
-                      </div> --}}
                     </div>
                   </div>
                 </div>
@@ -57,23 +49,14 @@
                     <div class="col-lg-12">
                       <div class="more-info">
                         <div class="row">
-                          <div class="col-lg-3 col-sm-6 col-6">
+                          <div class="col-sm-6 col-6">
                             <i class="fa fa-user"></i>
                             <h4><span>Penulis:</span><br>Fahmi Saputra</h4>
                           </div>
-                          <div class="col-lg-3 col-sm-6 col-6">
+                          <div class="col-sm-6 col-6">
                             <i class="fa fa-calendar"></i>
                             <h4><span>Tanggal:</span><br>3 Oktober 2024</h4>
                           </div>
-                          <div class="col-lg-3 col-sm-6 col-6">
-                            {{-- <i class="fa fa-home"></i>
-                            <h4><span>Disukai:</span><br>$946.000</h4> --}}
-                          </div>
-                          {{-- <div class="col-lg-3 col-sm-6 col-6">
-                            <div class="main-button">
-                              <a href="about.html">Explore More</a>
-                            </div>
-                          </div> --}}
                         </div>
                       </div>
                     </div>
@@ -93,23 +76,14 @@
                     <div class="col-lg-12">
                       <div class="more-info">
                         <div class="row">
-                          <div class="col-lg-3 col-sm-6 col-6">
+                          <div class=" col-sm-6 col-6">
                             <i class="fa fa-user"></i>
                             <h4><span>Penulis:</span><br>Rizki Arifin</h4>
                           </div>
-                          <div class="col-lg-3 col-sm-6 col-6">
+                          <div class=" col-sm-6 col-6">
                             <i class="fa fa-calendar"></i>
                             <h4><span>Tanggal:</span><br>3 Oktober 2024</h4>
                           </div>
-                          <div class="col-lg-3 col-sm-6 col-6">
-                            {{-- <i class="fa fa-home"></i>
-                            <h4><span>Disukai:</span><br>$946.000</h4> --}}
-                          </div>
-                          {{-- <div class="col-lg-3 col-sm-6 col-6">
-                            <div class="main-button">
-                              <a href="about.html">Explore More</a>
-                            </div>
-                          </div> --}}
                         </div>
                       </div>
                     </div>
@@ -129,23 +103,14 @@
                     <div class="col-lg-12">
                       <div class="more-info">
                         <div class="row">
-                          <div class="col-lg-3 col-sm-6 col-6">
+                          <div class="col-sm-6 col-6">
                             <i class="fa fa-user"></i>
                             <h4><span>Penulis:</span><br>Zuhdi Ali Hisyam</h4>
                           </div>
-                          <div class="col-lg-3 col-sm-6 col-6">
+                          <div class="col-sm-6 col-6">
                             <i class="fa fa-calendar"></i>
                             <h4><span>Tanggal:</span><br>3 Oktober 2024</h4>
                           </div>
-                          <div class="col-lg-3 col-sm-6 col-6">
-                            {{-- <i class="fa fa-home"></i>
-                            <h4><span>Disukai:</span><br>$946.000</h4> --}}
-                          </div>
-                          {{-- <div class="col-lg-3 col-sm-6 col-6">
-                            <div class="main-button">
-                              <a href="about.html">Explore More</a>
-                            </div>
-                          </div> --}}
                         </div>
                       </div>
                     </div>
@@ -165,7 +130,7 @@
   </section>
   <!-- ***** Main Banner Area End ***** -->
   
-  <div class="visit-country">
+  
     <div class="container">
       <div class="row">
         <div class="col-lg-5">
@@ -291,7 +256,20 @@
         </div>
       </div>
     </div>
-  </div>
 
+  <script>
+    function bannerSwitcher() {
+      next = $('.sec-1-input').filter(':checked').next('.sec-1-input');
+      if (next.length) next.prop('checked', true);
+      else $('.sec-1-input').first().prop('checked', true);
+    }
 
-  @endsection
+    var bannerTimer = setInterval(bannerSwitcher, 5000);
+
+    $('nav .controls label').click(function() {
+      clearInterval(bannerTimer);
+      bannerTimer = setInterval(bannerSwitcher, 5000)
+    });
+  </script>
+
+@endsection

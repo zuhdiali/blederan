@@ -9,12 +9,12 @@
     />
     <link
       rel="icon"
-      href="assets/img/kaiadmin/favicon.ico"
+      href="{{asset('images/kaiadmin/favicon.ico')}}"
       type="image/x-icon"
     />
 
     <!-- Fonts and icons -->
-    <script src="assets/js/plugin/webfont/webfont.min.js"></script>
+    <script src="{{asset('js/plugin/webfont/webfont.min.js')}}"></script>
     <script>
       WebFont.load({
         google: { families: ["Public Sans:300,400,500,600,700"] },
@@ -25,7 +25,7 @@
             "Font Awesome 5 Brands",
             "simple-line-icons",
           ],
-          urls: ["assets/css/fonts.min.css"],
+          urls: ["{{asset('css/fonts.min.css')}}"],
         },
         active: function () {
           sessionStorage.fonts = true;
@@ -34,12 +34,12 @@
     </script>
 
     <!-- CSS Files -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/plugins.min.css" />
-    <link rel="stylesheet" href="assets/css/kaiadmin.min.css" />
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/plugins.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/kaiadmin.min.css')}}" />
 
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="assets/css/demo.css" />
+    {{-- <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link rel="stylesheet" href="assets/css/demo.css" /> --}}
   </head>
   <body>
     <div class="wrapper">
@@ -48,9 +48,9 @@
         <div class="sidebar-logo">
           <!-- Logo Header -->
           <div class="logo-header" data-background-color="dark">
-            <a href="index.html" class="logo">
+            <a href="{{route('admin-dashboard')}}" class="logo">
               <img
-                src="assets/img/kaiadmin/logo_light.svg"
+                src="{{asset('images/kaiadmin/logo_light.svg')}}"
                 alt="navbar brand"
                 class="navbar-brand"
                 height="20"
@@ -73,30 +73,36 @@
         <div class="sidebar-wrapper scrollbar scrollbar-inner">
           <div class="sidebar-content">
             <ul class="nav nav-secondary">
-                <li class="nav-item {{ Request::path() ==  'dashboard' ? 'active' : ''  }}">
-                    <a href="{{route('dashboard')}}">
+                <li class="nav-item {{ Request::path() ==  'admin-dashboard' ? 'active' : ''  }}">
+                    <a href="{{route('admin-dashboard')}}">
                         <i class="fas fa-home"></i>
                         <p>Beranda</p>
                     </a>
                 </li>
-                <li class="nav-item {{ Request::path() ==  'manajemen-pengguna' ? 'active' : ''  }}">
-                    <a href="{{route('manajemen-pengguna')}}">
+                <li class="nav-item {{ Request::path() ==  'admin-manajemen-pengguna' ? 'active' : ''  }}">
+                    <a href="{{route('admin-manajemen-pengguna')}}">
                         <i class="fas fa-users"></i>
                         <p>Manajemen Pengguna</p>
                     </a>
                 </li>
-                <li class="nav-item {{ Request::path() ==  'produk' ? 'active' : ''  }}">
-                    <a href="{{route('produk')}}">
+                <li class="nav-item {{ Request::path() ==  'admin-produk' ? 'active' : ''  }}">
+                    <a href="{{route('admin-produk')}}">
                         <i class="fas fa-box"></i>
                         <p>Produk</p>
                     </a>
                 </li>
-                <li class="nav-item {{ Request::path() ==  'akomodasi' ? 'active' : ''  }}">
-                  <a href="{{route('akomodasi')}}">
+                <li class="nav-item {{ Request::path() ==  'admin-akomodasi' ? 'active' : ''  }}">
+                  <a href="{{route('admin-akomodasi')}}">
                       <i class="fas fa-home"></i>
                       <p>Akomodasi</p>
                   </a>
                 </li>
+                {{-- <li class="nav-item {{ Request::path() ==  'admin-kunjungan' ? 'active' : ''  }}">
+                  <a href="{{route('admin-kunjungan')}}">
+                      <i class="fas fa-home"></i>
+                      <p>Akomodasi</p>
+                  </a>
+                </li> --}}
               <li class="nav-item">
                 <a
                   data-bs-toggle="collapse"
@@ -358,7 +364,7 @@
             <div class="logo-header" data-background-color="dark">
               <a href="index.html" class="logo">
                 <img
-                  src="assets/img/kaiadmin/logo_light.svg"
+                  src="assets/images/kaiadmin/logo_light.svg"
                   alt="navbar brand"
                   class="navbar-brand"
                   height="20"
@@ -456,7 +462,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="assets/img/jm_denis.jpg"
+                                src="assets/images/jm_denis.jpg"
                                 alt="Img Profile"
                               />
                             </div>
@@ -469,7 +475,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="assets/img/chadengle.jpg"
+                                src="assets/images/chadengle.jpg"
                                 alt="Img Profile"
                               />
                             </div>
@@ -482,7 +488,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="assets/img/mlane.jpg"
+                                src="assets/images/mlane.jpg"
                                 alt="Img Profile"
                               />
                             </div>
@@ -497,7 +503,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="assets/img/talha.jpg"
+                                src="{{asset('images/talha.jpg')}}"
                                 alt="Img Profile"
                               />
                             </div>
@@ -565,7 +571,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="assets/img/profile2.jpg"
+                                src="assets/images/profile2.jpg"
                                 alt="Img Profile"
                               />
                             </div>
@@ -683,7 +689,7 @@
                   >
                     <div class="avatar-sm">
                       <img
-                        src="assets/img/profile.jpg"
+                        src="assets/images/profile.jpg"
                         alt="..."
                         class="avatar-img rounded-circle"
                       />
@@ -699,7 +705,7 @@
                         <div class="user-box">
                           <div class="avatar-lg">
                             <img
-                              src="assets/img/profile.jpg"
+                              src="assets/images/profile.jpg"
                               alt="image profile"
                               class="avatar-img rounded"
                             />
@@ -733,6 +739,18 @@
           </nav>
           <!-- End Navbar -->
         </div>
+
+        @if (session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>{{ session('success') }}</strong>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+        @endif
 
         @yield('content')
 
@@ -961,41 +979,41 @@
       <!-- End Custom template -->
     </div>
     <!--   Core JS Files   -->
-    <script src="assets/js/core/jquery-3.7.1.min.js"></script>
-    <script src="assets/js/core/popper.min.js"></script>
-    <script src="assets/js/core/bootstrap.min.js"></script>
+    <script src="{{asset('js/core/jquery-3.7.1.min.js')}}"></script>
+    <script src="{{asset('js/core/popper.min.js')}}"></script>
+    <script src="{{asset('js/core/bootstrap.min.js')}}"></script>
 
     <!-- jQuery Scrollbar -->
-    <script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="{{asset('js/plugin/jquery-scrollbar/jquery.scrollbar.min.js')}}"></script>
 
     <!-- Chart JS -->
-    <script src="assets/js/plugin/chart.js/chart.min.js"></script>
+    <script src="{{asset('js/plugin/chart.js/chart.min.js')}}"></script>
 
     <!-- jQuery Sparkline -->
-    <script src="assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+    <script src="{{asset('js/plugin/jquery.sparkline/jquery.sparkline.min.js')}}"></script>
 
     <!-- Chart Circle -->
-    <script src="assets/js/plugin/chart-circle/circles.min.js"></script>
+    <script src="{{asset('js/plugin/chart-circle/circles.min.js')}}"></script>
 
     <!-- Datatables -->
-    <script src="assets/js/plugin/datatables/datatables.min.js"></script>
+    <script src="{{asset('js/plugin/datatables/datatables.min.js')}}"></script>
 
     <!-- Bootstrap Notify -->
-    <script src="assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+    <script src="{{asset('js/plugin/bootstrap-notify/bootstrap-notify.min.js')}}"></script>
 
     <!-- jQuery Vector Maps -->
-    <script src="assets/js/plugin/jsvectormap/jsvectormap.min.js"></script>
-    <script src="assets/js/plugin/jsvectormap/world.js"></script>
+    <script src="{{asset('js/plugin/jsvectormap/jsvectormap.min.js')}}"></script>
+    <script src="{{asset('js/plugin/jsvectormap/world.js')}}"></script>
 
     <!-- Sweet Alert -->
-    <script src="assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+    <script src="{{asset('js/plugin/sweetalert/sweetalert.min.js')}}"></script>
 
     <!-- Kaiadmin JS -->
-    <script src="assets/js/kaiadmin.min.js"></script>
+    <script src="{{asset('js/kaiadmin.min.js')}}"></script>
 
     <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-    <script src="assets/js/setting-demo.js"></script>
-    <script src="assets/js/demo.js"></script>
+    <script src="{{asset('js/setting-demo.js')}}"></script>
+    <script src="{{asset('js/demo.js')}}"></script>
     <script>
       $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
         type: "line",

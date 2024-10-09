@@ -46,9 +46,17 @@ Route::post('/daftar', [AdminController::class, 'daftarPost'])->name('daftar.pos
 Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 // ******* User *********
 
+// ******* Halaman Produk *********
+Route::get('/admin-produk', [ProdukController::class, 'index'])->name('admin-produk');
+Route::get('/admin-tambah-produk', [ProdukController::class, 'create'])->name('admin-tambah-produk');
+Route::post('/admin-simpan-produk', [ProdukController::class, 'store'])->name('admin-simpan-produk');
+Route::get('/admin-edit-produk/{id}', [ProdukController::class, 'edit'])->name('admin-edit-produk');
+Route::post('/admin-update-produk/{id}', [ProdukController::class, 'update'])->name('admin-update-produk');
+Route::get('/admin-hapus-produk/{id}', [ProdukController::class, 'destroy'])->name('admin-hapus-produk');
+// ******* Halaman Produk *********
+
 // ******* Halaman Admin *********
-Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
-Route::get('/manajemen-pengguna', [UserController::class, 'index'])->name('manajemen-pengguna');
-Route::get('/produk', [ProdukController::class, 'index'])->name('produk');
-Route::get('/akomodasi', [AkomodasiController::class, 'index'])->name('akomodasi');
+Route::get('/admin-dashboard', [AdminController::class, 'index'])->name('admin-dashboard');
+Route::get('/admin-manajemen-pengguna', [UserController::class, 'index'])->name('admin-manajemen-pengguna');
+Route::get('/admin-akomodasi', [AkomodasiController::class, 'index'])->name('admin-akomodasi');
 // ******* Halaman Admin *********

@@ -225,7 +225,7 @@
                           <td>
                             <div class="flag">
                               <img
-                                src="assets/img/flags/id.png"
+                                src="assets/images/flags/id.png"
                                 alt="indonesia"
                               />
                             </div>
@@ -238,7 +238,7 @@
                           <td>
                             <div class="flag">
                               <img
-                                src="assets/img/flags/us.png"
+                                src="assets/images/flags/us.png"
                                 alt="united states"
                               />
                             </div>
@@ -251,7 +251,7 @@
                           <td>
                             <div class="flag">
                               <img
-                                src="assets/img/flags/au.png"
+                                src="assets/images/flags/au.png"
                                 alt="australia"
                               />
                             </div>
@@ -264,7 +264,7 @@
                           <td>
                             <div class="flag">
                               <img
-                                src="assets/img/flags/ru.png"
+                                src="assets/images/flags/ru.png"
                                 alt="russia"
                               />
                             </div>
@@ -277,7 +277,7 @@
                           <td>
                             <div class="flag">
                               <img
-                                src="assets/img/flags/cn.png"
+                                src="assets/images/flags/cn.png"
                                 alt="china"
                               />
                             </div>
@@ -290,7 +290,7 @@
                           <td>
                             <div class="flag">
                               <img
-                                src="assets/img/flags/br.png"
+                                src="assets/images/flags/br.png"
                                 alt="brazil"
                               />
                             </div>
@@ -352,7 +352,7 @@
                 <div class="item-list">
                   <div class="avatar">
                     <img
-                      src="assets/img/jm_denis.jpg"
+                      src="assets/images/jm_denis.jpg"
                       alt="..."
                       class="avatar-img rounded-circle"
                     />
@@ -389,7 +389,7 @@
                 <div class="item-list">
                   <div class="avatar">
                     <img
-                      src="assets/img/talha.jpg"
+                      src="assets/images/talha.jpg"
                       alt="..."
                       class="avatar-img rounded-circle"
                     />
@@ -408,7 +408,7 @@
                 <div class="item-list">
                   <div class="avatar">
                     <img
-                      src="assets/img/chadengle.jpg"
+                      src="assets/images/chadengle.jpg"
                       alt="..."
                       class="avatar-img rounded-circle"
                     />

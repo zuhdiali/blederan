@@ -13,7 +13,7 @@ class AkomodasiController extends Controller
     public function index()
     {   
         $users = DB::table('users')->get();
-        return view('admin.akomodasi');
+        return view('admin.akomodasi.index');
     }
 
     public function loginPost(Request $request)

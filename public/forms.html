@@ -9,7 +9,7 @@
     />
     <link
       rel="icon"
-      href="../assets/img/kaiadmin/favicon.ico"
+      href="../assets/images/kaiadmin/favicon.ico"
       type="image/x-icon"
     />
 
@@ -50,7 +50,7 @@
           <div class="logo-header" data-background-color="dark">
             <a href="../index.html" class="logo">
               <img
-                src="../assets/img/kaiadmin/logo_light.svg"
+                src="../assets/images/kaiadmin/logo_light.svg"
                 alt="navbar brand"
                 class="navbar-brand"
                 height="20"
@@ -334,7 +334,7 @@
             <div class="logo-header" data-background-color="dark">
               <a href="../index.html" class="logo">
                 <img
-                  src="../assets/img/kaiadmin/logo_light.svg"
+                  src="../assets/images/kaiadmin/logo_light.svg"
                   alt="navbar brand"
                   class="navbar-brand"
                 />
@@ -431,7 +431,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="../assets/img/jm_denis.jpg"
+                                src="../assets/images/jm_denis.jpg"
                                 alt="Img Profile"
                               />
                             </div>
@@ -444,7 +444,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="../assets/img/chadengle.jpg"
+                                src="../assets/images/chadengle.jpg"
                                 alt="Img Profile"
                               />
                             </div>
@@ -457,7 +457,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="../assets/img/mlane.jpg"
+                                src="../assets/images/mlane.jpg"
                                 alt="Img Profile"
                               />
                             </div>
@@ -472,7 +472,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="../assets/img/talha.jpg"
+                                src="../assets/images/talha.jpg"
                                 alt="Img Profile"
                               />
                             </div>
@@ -540,7 +540,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="../assets/img/profile2.jpg"
+                                src="../assets/images/profile2.jpg"
                                 alt="Img Profile"
                               />
                             </div>
@@ -658,7 +658,7 @@
                   >
                     <div class="avatar-sm">
                       <img
-                        src="../assets/img/profile.jpg"
+                        src="../assets/images/profile.jpg"
                         alt="..."
                         class="avatar-img rounded-circle"
                       />
@@ -674,7 +674,7 @@
                         <div class="user-box">
                           <div class="avatar-lg">
                             <img
-                              src="../assets/img/profile.jpg"
+                              src="../assets/images/profile.jpg"
                               alt="image profile"
                               class="avatar-img rounded"
                             />
@@ -1062,7 +1062,7 @@
                                 />
                                 <figure class="imagecheck-figure">
                                   <img
-                                    src="../assets/img/examples/product1.jpg"
+                                    src="../assets/images/examples/product1.jpg"
                                     alt="title"
                                     class="imagecheck-image"
                                   />
@@ -1080,7 +1080,7 @@
                                 />
                                 <figure class="imagecheck-figure">
                                   <img
-                                    src="../assets/img/examples/product4.jpg"
+                                    src="../assets/images/examples/product4.jpg"
                                     alt="title"
                                     class="imagecheck-image"
                                   />
@@ -1097,7 +1097,7 @@
                                 />
                                 <figure class="imagecheck-figure">
                                   <img
-                                    src="../assets/img/examples/product3.jpg"
+                                    src="../assets/images/examples/product3.jpg"
                                     alt="title"
                                     class="imagecheck-image"
                                   />

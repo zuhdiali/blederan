@@ -13,7 +13,7 @@ class UserController extends Controller
     public function index()
     {   
         $users = DB::table('users')->get();
-        return view('admin.manajemen_pengguna', ['users'  => $users]);
+        return view('admin.manajemen_pengguna.index', ['users'  => $users]);
     }
 
     public function loginPost(Request $request)

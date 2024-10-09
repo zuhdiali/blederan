@@ -30,7 +30,7 @@ const modalShowcase = `
 					<div class="col-md-6 col-lg-4">
 						<div class="card-documentation h-100">
 							<div class="d-flex align-items-center flex-column justify-content-center text-center">
-								<img src="assets/img/kaiadmin/logo_documentation.png" height="60" alt="Read Documentation">
+								<img src="assets/images/kaiadmin/logo_documentation.png" height="60" alt="Read Documentation">
 								<div class="docs-info ms-3 mb-4">
 									<h6 class="fw-bold mb-0 op-8 mt-1">Need help?</h6>
 									<p class="fw-bold mb-0 op-5">Please check our docs</p>
@@ -48,7 +48,7 @@ const modalShowcase = `
 								</h3>
 
 								<div class="overflow-hidden">
-									<img src="assets/img/kaiadmin/demo1.png" class="w-100 rounded-1 shadow-sm preview-img" data-loaded="true">
+									<img src="assets/images/kaiadmin/demo1.png" class="w-100 rounded-1 shadow-sm preview-img" data-loaded="true">
 								</div>
 							</a>
 						</div>
@@ -61,7 +61,7 @@ const modalShowcase = `
 								</h3>
 
 								<div class="overflow-hidden">
-									<img src="assets/img/kaiadmin/demo2.png" class="w-100 rounded-1 shadow-sm preview-img" data-loaded="true">
+									<img src="assets/images/kaiadmin/demo2.png" class="w-100 rounded-1 shadow-sm preview-img" data-loaded="true">
 								</div>
 							</a>
 						</div>
@@ -74,7 +74,7 @@ const modalShowcase = `
 								</h3>
 
 								<div class="overflow-hidden">
-									<img src="assets/img/kaiadmin/demo3.png" class="w-100 rounded-1 shadow-sm preview-img" data-loaded="true">
+									<img src="assets/images/kaiadmin/demo3.png" class="w-100 rounded-1 shadow-sm preview-img" data-loaded="true">
 								</div>
 							</a>
 						</div>
@@ -87,7 +87,7 @@ const modalShowcase = `
 								</h3>
 
 								<div class="overflow-hidden">
-									<img src="assets/img/kaiadmin/demo4.png" class="w-100 rounded-1 shadow-sm preview-img" data-loaded="true">
+									<img src="assets/images/kaiadmin/demo4.png" class="w-100 rounded-1 shadow-sm preview-img" data-loaded="true">
 								</div>
 							</a>
 						</div>
@@ -100,7 +100,7 @@ const modalShowcase = `
 								</h3>
 
 								<div class="overflow-hidden">
-									<img src="assets/img/kaiadmin/demo5.png" class="w-100 rounded-1 shadow-sm preview-img" data-loaded="true">
+									<img src="assets/images/kaiadmin/demo5.png" class="w-100 rounded-1 shadow-sm preview-img" data-loaded="true">
 								</div>
 							</a>
 						</div>
@@ -113,7 +113,7 @@ const modalShowcase = `
 								</h3>
 
 								<div class="overflow-hidden">
-									<img src="assets/img/kaiadmin/demo6.png" class="w-100 rounded-1 shadow-sm preview-img" data-loaded="true">
+									<img src="assets/images/kaiadmin/demo6.png" class="w-100 rounded-1 shadow-sm preview-img" data-loaded="true">
 								</div>
 							</a>
 						</div>
@@ -126,7 +126,7 @@ const modalShowcase = `
 								</h3>
 
 								<div class="overflow-hidden">
-									<img src="assets/img/kaiadmin/demo7.png" class="w-100 rounded-1 shadow-sm preview-img" data-loaded="true">
+									<img src="assets/images/kaiadmin/demo7.png" class="w-100 rounded-1 shadow-sm preview-img" data-loaded="true">
 								</div>
 							</a>
 						</div>
@@ -139,7 +139,7 @@ const modalShowcase = `
 								</h3>
 
 								<div class="overflow-hidden">
-									<img src="assets/img/kaiadmin/demo8.png" class="w-100 rounded-1 shadow-sm preview-img" data-loaded="true">
+									<img src="assets/images/kaiadmin/demo8.png" class="w-100 rounded-1 shadow-sm preview-img" data-loaded="true">
 								</div>
 							</a>
 						</div>
@@ -152,7 +152,7 @@ const modalShowcase = `
 								</h3>
 
 								<div class="overflow-hidden">
-									<img src="assets/img/kaiadmin/demo9.png" class="w-100 rounded-1 shadow-sm preview-img" data-loaded="true">
+									<img src="assets/images/kaiadmin/demo9.png" class="w-100 rounded-1 shadow-sm preview-img" data-loaded="true">
 								</div>
 							</a>
 						</div>
