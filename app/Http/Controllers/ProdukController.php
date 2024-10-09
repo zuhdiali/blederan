@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Produk;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -11,52 +12,65 @@ use Illuminate\Support\Facades\Auth;
 class ProdukController extends Controller
 {
     public function index()
-    {   
-        $users = DB::table('users')->get();
-        return view('admin.produk');
-    }
-
-    public function loginPost(Request $request)
     {
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect()->intended('/')->with("success", "Berhasil login! Selamat datang " . Auth::user()->name . "!");
-        }
-
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->withInput();
+        $produks = Produk::get();
+        return view('admin.produk.index', compact('produks'));
     }
 
-    public function daftar()
+    public function create()
     {
-        return view('auth.daftar');
+        return view('admin.produk.create');
     }
 
-    public function daftarPost(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            // 'password' => 'required|string|min:8|confirmed',
-            'password' => 'required',
+            'nama_produk' => 'required',
+            'harga' => 'required',
+            'satuan' => 'required',
+            'stok' => 'required',
+            'url_gambar' => 'required',
+            'nama_penjual' => 'required',
+            'kontak_penjual' => 'required',
+            'deskripsi' => 'required'
         ]);
 
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        if ($user->save()) {
-            // Auth::login($user);
-            return back()->with("success", "Akun berhasil didaftarkan!");
-        }
-        return redirect(route('daftar'))->with("error", "Gagal mendaftar")->withInput();
+        Produk::create($request->all());
+
+        return redirect()->route('admin.produk.index')
+            ->with('success', 'Produk created successfully.');
     }
 
-    public function logout()
+    public function edit(Produk $produk)
     {
-        Auth::logout();
-        return redirect(route('welcome'))->with("success", "Berhasil logout!");
+        return view('admin.produk.edit', compact('produk'));
+    }
+
+    public function update(Request $request, int $id)
+    {
+        $request->validate([
+            'nama_produk' => 'required',
+            'harga' => 'required',
+            'satuan' => 'required',
+            'stok' => 'required',
+            'url_gambar' => 'required',
+            'nama_penjual' => 'required',
+            'kontak_penjual' => 'required',
+            'deskripsi' => 'required'
+        ]);
+
+        $produk = Produk::find($id);
+        $produk->update($request->all());
+
+        return redirect()->route('admin.produk.index')
+            ->with('success', 'Produk updated successfully');
+    }
+
+    public function destroy(Produk $produk)
+    {
+        $produk->delete();
+
+        return redirect()->route('admin.produk.index')
+            ->with('success', 'Produk deleted successfully');
     }
 }
