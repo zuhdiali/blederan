@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Models\User;
+use App\Models\Akomodasi;
 use Illuminate\Support\Facades\DB;
+
+use App\Models\Produk;
 
 class MainController extends Controller
 {
@@ -14,6 +14,12 @@ class MainController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    public function index()
+    {
+        $produks = Produk::get();
+        $akomodasis = Akomodasi::get();
+        return view('welcome', compact('produks', 'akomodasis'));
+    }
 
     public function produk()
     {

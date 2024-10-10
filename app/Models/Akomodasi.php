@@ -12,10 +12,10 @@ class Akomodasi extends Model
     protected $table = 'akomodasis';
 
     protected $fillable = [
-        'nama_akomodasis',
+        'nama_akomodasi',
         'harga',
         'stok',
-        'url_gambar',
+        'gambar_akomodasi',
         'nama_pemilik',
         'kontak_pemilik',
         'deskripsi'

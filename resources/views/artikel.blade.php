@@ -130,7 +130,7 @@
   </section>
   <!-- ***** Main Banner Area End ***** -->
   
-  
+  <div class="visit-country">
     <div class="container">
       <div class="row">
         <div class="col-lg-5">
@@ -256,6 +256,8 @@
         </div>
       </div>
     </div>
+  </div>
+
 
   <script>
     function bannerSwitcher() {

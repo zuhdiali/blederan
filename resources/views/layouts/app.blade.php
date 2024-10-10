@@ -69,7 +69,7 @@
                         
                           @if(Auth::check())
                           <li>
-                            <a href="{{ route('admin-dashboard') }}" class="btn btn-danger">Dashboard</a>
+                            <a href="{{ route('admin-dashboard') }}" class="btn btn-primary">Dashboard</a>
                           </li>  
                           <li>  
                             <a href="{{ route('logout') }}" class="btn btn-danger">Logout</a>

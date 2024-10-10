@@ -23,6 +23,7 @@
   </div>
   <!-- ***** Main Banner Area End ***** -->
   
+
   <div class="cities-town">
     <div class="container">
       <div class="row">
@@ -33,7 +34,52 @@
             </div>
             <div class="col-lg-12">
               <div class="owl-cites-town owl-carousel">
+                @foreach ($produks as $produk)
                 <div class="item">
+                  <div class="thumb">
+                    <img src="{{ asset('uploads/produk/' . $produk->gambar_produk) }}" alt="{{ $produk->nama_produk }}">
+                    <h4>{{ $produk->nama_produk }}</h4>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-usd"></i> Harga:
+                        </div>
+                        <div class="col">
+                          <p class="text-end"> Rp {{ number_format($produk->harga, 0, ',', '.') }} </p>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-box"></i> Stok:
+                        </div>
+                        <div class="col">
+                          <p class="text-end">  {{ $produk->stok }} </p>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col-5">
+                          <i class="fa fa-user"></i> Pemilik:
+                        </div>
+                        <div class="col-7">
+                          <p >  {{ $produk->nama_penjual }} </p>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="main-button d-flex justify-content-center mt-2">
+                    <a href="https://wa.me/62{{substr($produk->kontak_penjual,1)}}" > <i class="fa-solid fa-phone"></i>  Hubungi Penjual</a>
+                  </div>
+                </div>
+                @endforeach
+                
+
+                {{-- <div class="item">
                   <div class="thumb">
                     <img src="assets/images/padi.jpg" alt="">
                     <h4>Padi</h4>
@@ -162,7 +208,7 @@
                       </div>
                     </li>
                   </ul>
-                </div>
+                </div> --}}
               </div>
             </div>
           </div>
@@ -171,6 +217,204 @@
     </div>
   </div>
 
+  {{-- Ini <section> jangan dihapus, soalnya buat margin --}}
+  <section>
+  </section>
+  {{-- Ini <section> jangan dihapus, soalnya buat margin --}}
+
+  <div class="cities-town">
+    <div class="container">
+      <div class="row">
+        <div class="slider-content">
+          <div class="row">
+            <div class="col-lg-12">
+              <h2>Jasa <em>Akomodasi</em></h2>
+            </div>
+            <div class="col-lg-12">
+              <div class="owl-cites-town owl-carousel">
+                @foreach ($akomodasis as $akomodasi)
+                <div class="item">
+                  <div class="thumb">
+                    <img src="{{ asset('uploads/akomodasi/' . $akomodasi->gambar_akomodasi) }}" alt="{{ $akomodasi->nama_akomodasi }}">
+                    <h4>{{ $akomodasi->nama_akomodasi }}</h4>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-usd"></i> Harga:
+                        </div>
+                        <div class="col">
+                          <p class="text-end"> Rp {{ number_format($akomodasi->harga, 0, ',', '.') }} </p>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col-8">
+                          <i class="fa fa-box"></i> Ruang Tersisa:
+                        </div>
+                        <div class="col-4">
+                          <p class="text-end">  {{ $akomodasi->stok }} </p>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col-5">
+                          <i class="fa fa-user"></i> Pemilik:
+                        </div>
+                        <div class="col-7">
+                          <p >  {{ $akomodasi->nama_pemilik }} </p>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="main-button d-flex justify-content-center mt-2">
+                    <a href="https://wa.me/62{{substr($produk->kontak_penjual,1)}}"  > <i class="fa-solid fa-phone"></i>  Hubungi Penjual</a>
+                  </div>
+                </div>
+                @endforeach
+                
+
+                {{-- <div class="item">
+                  <div class="thumb">
+                    <img src="assets/images/padi.jpg" alt="">
+                    <h4>Padi</h4>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-usd"></i> Harga:
+                        </div>
+                        <div class="col text-right"><p class="text-right">  Rp 16.000 </p></div>
+                      </div>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-box"></i> Stok:
+                        </div>
+                        <div class="col">
+                          <p class="text-right">  1600 </p> 
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="item">
+                  <div class="thumb">
+                    <img src="assets/images/selada.jpg" alt="">
+                    <h4>Selada</h4>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-usd"></i> Harga:
+                        </div>
+                        <div class="col text-right"><p class="text-right">  Rp 16.000 </p></div>
+                      </div>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-box"></i> Stok:
+                        </div>
+                        <div class="col">
+                          <p class="text-right">  1600 </p> 
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="item">
+                  <div class="thumb">
+                    <img src="assets/images/jagung.jpg" alt="">
+                    <h4>Jagung</h4>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-usd"></i> Harga:
+                        </div>
+                        <div class="col text-right"><p class="text-right">  Rp 16.000 </p></div>
+                      </div>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-box"></i> Stok:
+                        </div>
+                        <div class="col">
+                          <p class="text-right">  1600 </p> 
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="item">
+                  <div class="thumb">
+                    <img src="assets/images/sawi.jpg" alt="">
+                    <h4>Sawi</h4>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-usd"></i> Harga:
+                        </div>
+                        <div class="col text-right"><p class="text-right">  Rp 16.000 </p></div>
+                      </div>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-box"></i> Stok:
+                        </div>
+                        <div class="col">
+                          <p class="text-right">  1600 </p> 
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="item">
+                  <div class="thumb">
+                    <img src="assets/images/Kol.jpg" alt="">
+                    <h4>Kol</h4>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-usd"></i> Harga:
+                        </div>
+                        <div class="col text-right"><p class="text-right">  Rp 16.000 </p></div>
+                      </div>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row">
+                        <div class="col">
+                          <i class="fa fa-box"></i> Stok:
+                        </div>
+                        <div class="col">
+                          <p class="text-right">  1600 </p> 
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div> --}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <div class="weekly-offers">
     <div class="container">
       <div class="row">

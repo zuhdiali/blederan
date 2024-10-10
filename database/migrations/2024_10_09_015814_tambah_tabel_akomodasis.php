@@ -16,7 +16,7 @@ return new class extends Migration
                $table->string('nama_akomodasi');
                $table->bigInteger('harga');
                $table->integer('stok');
-               $table->string('gambar_produk')->nullable();
+               $table->string('gambar_akomodasi')->nullable();
                $table->string('nama_pemilik', 50)->nullable();
                $table->string('kontak_pemilik', 50)->nullable();
                $table->text('deskripsi')->nullable();

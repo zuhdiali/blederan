@@ -15,7 +15,7 @@
             <div class="main-caption">
               <h2>Desa Blederan:</h2>
               <h1>Data Kependudukan</h1>
-              <div class="border-button"><a href="#accordionButtonOne">Lihat Selengkapnya</a></div>
+              <div class="border-button"><a id="lihatSelengkapnya1" href="#accordionButtonOne">Lihat Selengkapnya</a></div>
             </div>
             <div class="container">
               <div class="row">
@@ -46,7 +46,7 @@
             <div class="main-caption">
               <h2>Desa Blederan:</h2>
               <h1>Data Perumahan</h1>
-              <div class="border-button"><a href="#accordionButtonTwo">Lihat Selengkapnya</a></div>
+              <div class="border-button"><a id="lihatSelengkapnya2" href="#accordionButtonTwo">Lihat Selengkapnya</a></div>
             </div>
             <div class="container">
               <div class="row">
@@ -81,7 +81,7 @@
             <div class="main-caption">
               <h2>Desa Blederan:</h2>
               <h1>Data Kesehatan</h1>
-              <div class="border-button"><a href="#accordionButtonThree">Lihat Selengkapnya</a></div>
+              <div class="border-button"><a id="lihatSelengkapnya3" href="#accordionButtonThree">Lihat Selengkapnya</a></div>
             </div>
             <div class="container">
               <div class="row">
@@ -108,7 +108,7 @@
             <div class="main-caption">
               <h2>Desa Blederan:</h2>
               <h1>Data Pendidikan</h1>
-              <div class="border-button"><a href="#accordionButtonFour">Lihat Selengkapnya</a></div>
+              <div class="border-button"><a id="lihatSelengkapnya4" href="#accordionButtonFour">Lihat Selengkapnya</a></div>
             </div>
             <div class="container">
               <div class="row">
@@ -154,12 +154,12 @@
   
   <div class="container mt-5">
     <h1>Data Terkini</h1>
-    <p>Terakhir update: 3 Oktober 2024</p>
+    <p>Klik menu berikut untuk melihat data lebih rinci.</p>
    
     <div class="accordion" id="accordionPanelsStayOpenExample">
       <div class="accordion-item">
         <h2 class="accordion-header">
-          <button id="accordionButtonOne" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
+          <button id="accordionButtonOne" class="accordion-button collapsed btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
             Data Kependudukan
           </button>
         </h2>
@@ -173,7 +173,7 @@
                 <br>
                 <hr>
                 <h5>{{$data->judul_tabel}}</h5>
-                <table class="table table-striped-columns">
+                <table class="table table-striped-columns table-light">
                   <thead>
                     <tr>
                     <?php $array_kolom = [] ?>
@@ -227,7 +227,7 @@
                 <br>
                 <hr>
                 <h5>{{$data->judul_tabel}}</h5>
-                <table class="table table-striped-columns">
+                <table class="table table-striped-columns table-light">
                   <thead>
                     <tr>
                     <?php $array_kolom = [] ?>
@@ -281,7 +281,7 @@
                 <br>
                 <hr>
                 <h5>{{$data->judul_tabel}}</h5>
-                <table class="table table-striped-columns">
+                <table class="table table-striped-columns table-light">
                   <thead>
                     <tr>
                     <?php $array_kolom = [] ?>
@@ -335,7 +335,7 @@
                 <br>
                 <hr>
                 <h5>{{$data->judul_tabel}}</h5>
-                <table class="table table-striped-columns">
+                <table class="table table-striped-columns table-light">
                   <thead>
                     <tr>
                     <?php $array_kolom = [] ?>
@@ -390,7 +390,7 @@
                 <br>
                 <hr>
                 <h5>{{$data->judul_tabel}}</h5>
-                <table class="table table-striped-columns">
+                <table class="table table-striped-columns table-light">
                   <thead>
                     <tr>
                     <?php $array_kolom = [] ?>
@@ -444,6 +444,22 @@
       clearInterval(bannerTimer);
       bannerTimer = setInterval(bannerSwitcher, 5000)
     });
+
+    // $(document).ready(function() {
+    //   $('#lihatSelengkapnya1').click(function() {
+    //     $('#panelsStayOpen-collapseOne').addClass("show");
+    //   });
+    //   $('#lihatSelengkapnya2').click(function() {
+    //     $('#panelsStayOpen-collapseTwo').addClass("show");
+    //   });
+    //   $('#lihatSelengkapnya3').click(function() {
+    //     $('#panelsStayOpen-collapseThree').addClass("show");
+    //   });
+    //   $('#lihatSelengkapnya4').click(function() {
+    //     $('#panelsStayOpen-collapseFour').addClass("show");
+    //   });
+    // });
+    
   </script>
 
   <script>

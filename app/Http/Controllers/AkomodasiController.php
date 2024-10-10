@@ -21,12 +21,12 @@ class AkomodasiController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
+        
         $request->validate([
-            'nama_produk' => 'required',
+            'nama_akomodasi' => 'required',
             'harga' => 'required',
             'stok' => 'required',
-            'gambar_produk' => 'nullable|mimes:png,jpg,jpeg,webp',
+            'gambar_akomodasi' => 'nullable|mimes:png,jpg,jpeg,webp',
             'nama_pemilik' => 'required',
             'kontak_pemilik' => 'required'
         ]);
@@ -34,55 +34,44 @@ class AkomodasiController extends Controller
         $filename = NULL;
         $path = NULL;
 
-        if ($request->has('gambar_produk')) {
+        if ($request->has('gambar_akomodasi')) {
 
-            $file = $request->file('gambar_produk');
+            $file = $request->file('gambar_akomodasi');
             $extension = $file->getClientOriginalExtension();
 
             $filename = time() . '.' . $extension;
 
-            $path = 'uploads/produk/';
+            $path = 'uploads/akomodasi/';
             $file->move($path, $filename);
         }
-
+        
         Akomodasi::create([
-            'nama_produk' => $request->nama_produk,
+            'nama_akomodasi' => $request->nama_akomodasi,
             'harga' => $request->harga,
             'satuan' => $request->satuan,
             'stok' => $request->stok,
-            'gambar_produk' => $filename,
+            'gambar_akomodasi' => $filename,
             'nama_pemilik' => $request->nama_pemilik,
             'kontak_pemilik' => $request->kontak_pemilik,
             'deskripsi' => $request->deskripsi
         ]);
-
-        // if ($request->hasFile('gambar_produk')) {
-        //     $file = $request->file('gambar_produk');
-        //     $filename = time() . '.' . $file->getClientOriginalExtension();
-        //     $file->move('uploads/', $filename);
-        //     // $request->merge(['gambar_produk' => $filename]);
-        // }
-        // // dd($request->all());
-        // Akomodasi::create($request->all());
-
-        return redirect()->route('admin-produk')
+        return redirect()->route('admin-akomodasi')
             ->with('success', 'Akomodasi berhasil ditambahkan.');
     }
 
     public function edit($id)
     {
-        $produk = Akomodasi::find($id);
-        return view('admin.akomodasi.edit', compact('produk'));
+        $akomodasi = Akomodasi::find($id);
+        return view('admin.akomodasi.edit', compact('akomodasi'));
     }
 
     public function update(Request $request, int $id)
     {
         $request->validate([
-            'nama_produk' => 'required',
+            'nama_akomodasi' => 'required',
             'harga' => 'required',
-            'satuan' => 'required',
             'stok' => 'required',
-            'gambar_produk' => 'nullable|mimes:png,jpg,jpeg,webp',
+            'gambar_akomodasi' => 'nullable|mimes:png,jpg,jpeg,webp',
             'nama_pemilik' => 'required',
             'kontak_pemilik' => 'required'
         ]);
@@ -90,38 +79,36 @@ class AkomodasiController extends Controller
         $filename = NULL;
         $path = NULL;
 
-        $produk = Akomodasi::find($id);
-        if ($request->has('gambar_produk')) {
+        $akomodasi = Akomodasi::find($id);
+        if ($request->has('gambar_akomodasi')) {
 
-            $file = $request->file('gambar_produk');
+            $file = $request->file('gambar_akomodasi');
             $extension = $file->getClientOriginalExtension();
 
             $filename = time() . '.' . $extension;
-            $produk->gambar_produk = $filename;
-            $path = 'uploads/produk/';
+            $akomodasi->gambar_akomodasi = $filename;
+            $path = 'uploads/akomodasi/';
             $file->move($path, $filename);
         }
 
-        $produk->nama_produk = $request->nama_produk;
-        $produk->harga = $request->harga;
-        $produk->satuan = $request->satuan;
-        $produk->stok = $request->stok;
-        // $produk->gambar_produk = $filename;
-        $produk->nama_pemilik = $request->nama_pemilik;
-        $produk->kontak_pemilik = $request->kontak_pemilik;
-        $produk->deskripsi = $request->deskripsi;
-        $produk->save();
+        $akomodasi->nama_akomodasi = $request->nama_akomodasi;
+        $akomodasi->harga = $request->harga;
+        $akomodasi->stok = $request->stok;
+        $akomodasi->nama_pemilik = $request->nama_pemilik;
+        $akomodasi->kontak_pemilik = $request->kontak_pemilik;
+        $akomodasi->deskripsi = $request->deskripsi;
+        $akomodasi->save();
 
-        return redirect()->route('admin-produk')
+        return redirect()->route('admin-akomodasi')
             ->with('success', 'Akomodasi berhasil diubah.');
     }
 
     public function destroy($id)
     {
-        $produk = Akomodasi::find($id);
-        $produk->delete();
+        $akomodasi = Akomodasi::find($id);
+        $akomodasi->delete();
 
-        return redirect()->route('admin-produk')
+        return redirect()->route('admin-akomodasi')
             ->with('success', 'Akomodasi deleted successfully');
     }
 }

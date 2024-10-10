@@ -17,9 +17,7 @@ use App\Http\Controllers\AkomodasiController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', [MainController::class, 'index'])->name('welcome');
 
 // ******* Halaman Utama *********
 Route::get('/produk', [MainController::class, 'produk'])->name('produk');

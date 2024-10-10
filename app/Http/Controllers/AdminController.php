@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Produk;
+use App\Models\Akomodasi;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,7 +13,16 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard');
+        $users = User::get();
+        $produks = Produk::get();
+        $akomodasis = Akomodasi::get();
+
+        return view('admin.dashboard', [
+            'jumlah_pengguna' => count($users),
+            'jumlah_produk' => count($produks),
+            'jumlah_akomodasi' => count($akomodasis),
+            
+        ]);
     }
 
     public function forms()
