@@ -3,12 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
-use Validator;
 use App\Models\Produk;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
 
 class ProdukController extends Controller
 {
@@ -35,16 +30,16 @@ class ProdukController extends Controller
             'nama_penjual' => 'required',
             'kontak_penjual' => 'required'
         ]);
-        
+
         $filename = NULL;
         $path = NULL;
 
-        if($request->has('gambar_produk')){
+        if ($request->has('gambar_produk')) {
 
             $file = $request->file('gambar_produk');
             $extension = $file->getClientOriginalExtension();
 
-            $filename = time().'.'.$extension;
+            $filename = time() . '.' . $extension;
 
             $path = 'uploads/produk/';
             $file->move($path, $filename);
@@ -96,17 +91,17 @@ class ProdukController extends Controller
         $path = NULL;
 
         $produk = Produk::find($id);
-        if($request->has('gambar_produk')){
+        if ($request->has('gambar_produk')) {
 
             $file = $request->file('gambar_produk');
             $extension = $file->getClientOriginalExtension();
 
-            $filename = time().'.'.$extension;
+            $filename = time() . '.' . $extension;
             $produk->gambar_produk = $filename;
             $path = 'uploads/produk/';
             $file->move($path, $filename);
         }
-        
+
         $produk->nama_produk = $request->nama_produk;
         $produk->harga = $request->harga;
         $produk->satuan = $request->satuan;
@@ -118,7 +113,7 @@ class ProdukController extends Controller
         $produk->save();
 
         return redirect()->route('admin-produk')
-            ->with('success', 'Produk berhasil diubah.');  
+            ->with('success', 'Produk berhasil diubah.');
     }
 
     public function destroy($id)

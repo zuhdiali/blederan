@@ -7,7 +7,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <form action="{{url('admin-update-produk',$produk->id)}}" method="POST" enctype="multipart/form-data">
-                    @csrf <!-- {{ csrf_field() }} -->
+                        @csrf <!-- {{ csrf_field() }} -->
                         <div class="card-header">
                             <div class="card-title">Edit Produk</div>
                         </div>

@@ -155,11 +155,15 @@
                     <tr>
                       <td>
                         <div class="d-flex flex-column align-self-center">
-                          <div class="p-1"><a href="{{url('admin-edit-produk', $produk->id)}}" class="btn btn-primary">Edit</a></div>
+                          <div class="p-1">
+                            <a href="{{url('admin-edit-produk', $produk->id)}}" class="btn btn-primary" title="Edit">
+                              <i class="icon-pencil"></i>
+                            </a>
+                          </div>
                           <div class="p-1">
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                              Hapus
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" title="Hapus">
+                              <i class="icon-trash"></i>
                             </button>
                           </div>
                         </div>

@@ -55,6 +55,15 @@ Route::post('/admin-update-produk/{id}', [ProdukController::class, 'update'])->n
 Route::get('/admin-hapus-produk/{id}', [ProdukController::class, 'destroy'])->name('admin-hapus-produk');
 // ******* Halaman Produk *********
 
+// ******* Halaman Akomodasi *********
+Route::get('/admin-akomodasi', [AkomodasiController::class, 'index'])->name('admin-akomodasi');
+Route::get('/admin-tambah-akomodasi', [AkomodasiController::class, 'create'])->name('admin-tambah-akomodasi');
+Route::post('/admin-simpan-akomodasi', [AkomodasiController::class, 'store'])->name('admin-simpan-akomodasi');
+Route::get('/admin-edit-akomodasi/{id}', [AkomodasiController::class, 'edit'])->name('admin-edit-akomodasi');
+Route::post('/admin-update-akomodasi/{id}', [AkomodasiController::class, 'update'])->name('admin-update-akomodasi');
+Route::get('/admin-hapus-akomodasi/{id}', [AkomodasiController::class, 'destroy'])->name('admin-hapus-akomodasi');
+// ******* Halaman Akomodasi *********
+
 // ******* Halaman Admin *********
 Route::get('/admin-dashboard', [AdminController::class, 'index'])->name('admin-dashboard');
 Route::get('/admin-manajemen-pengguna', [UserController::class, 'index'])->name('admin-manajemen-pengguna');
