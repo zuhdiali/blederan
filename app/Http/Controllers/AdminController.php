@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Log;
+use GuzzleHttp\Exception\RequestException;
 use App\Models\User;
 use App\Models\Produk;
 use App\Models\Akomodasi;
+use App\Models\Tabulasi;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
@@ -79,4 +84,57 @@ class AdminController extends Controller
         Auth::logout();
         return redirect(route('welcome'))->with("success", "Berhasil logout!");
     }
+
+    public function getDataAPI()
+    {
+        try {
+            $response = Http::get('http://192.168.1.10/api/posts/33071100142024');
+            $array_response = json_decode($response->body(), true);
+            // dd($array_response['data']);
+            foreach ($array_response['data'] as $key => $value) {
+            $tabulasi = new Tabulasi;
+            $tabulasi->judul_tabel = $value['judul'];
+            $tabulasi->data = json_encode($value[0]);
+            
+            $tabulasi->tanggal = now();
+            switch ($value[1]['kategori']) {
+                case 'kependudukan':
+                $tabulasi->kategori = 1;
+                break;
+                case 'perumahan':
+                $tabulasi->kategori = 2;
+                break;
+                case 'kesehatan':
+                $tabulasi->kategori = 3;
+                break;
+                case 'pendidikan':
+                $tabulasi->kategori = 4;
+                break;
+                case 'pekerjaan':
+                $tabulasi->kategori = 5;
+                break;
+                default:
+                $tabulasi->kategori = 99;
+                break;
+            }
+            $tabulasi->metadata = json_encode($value[2]['metadata']);
+            $tabulasi->save();
+            }
+            return redirect(route('admin-dashboard'))->with('success', 'Data berhasil diperbarui!');
+        } catch (RequestException $e) {
+            Log::error('RequestException: ' . $e->getMessage());
+            return redirect(route('admin-dashboard'))->with('error', 'Gagal memperbarui data!');
+        } catch (\Exception $e) {
+            Log::error('Exception: ' . $e->getMessage());
+            return redirect(route('admin-dashboard'))->with('error', 'Terjadi kesalahan!');
+        }
+    }
+
+    public function testApi()
+    {
+        $produks = Produk::get();
+        return response()->json($produks);
+    }
+
+
 }

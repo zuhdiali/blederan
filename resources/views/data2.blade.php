@@ -166,8 +166,11 @@
         <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
           <div class="accordion-body overflow-scroll">
             @foreach ($kependudukan as $data)
-                <?php $array = json_decode($data->data); ?>
-                <?php $kolom = $array[0]; ?>
+                <?php 
+                  $array = json_decode($data->data); 
+                  $kolom = $array[0]; 
+                  $metadata = json_decode($data->metadata);
+                ?>
 
                 <!-- ***** TABEL ***** -->
                 <br>
@@ -178,7 +181,7 @@
                     <tr>
                     <?php $array_kolom = [] ?>
                     @foreach ($kolom as $key => $val)
-                    <th scope="col" rowspan="2" class="text-center">{{$key}} </th>
+                    <th scope="col" rowspan="2" class="text-center">{{str_replace("_"," ",$key)}} </th>
                     <?php array_push($array_kolom, $key) ?>
                     @endforeach
                   </tr>
@@ -193,9 +196,18 @@
                     </tr>
                     @foreach ($array as $item)
                     <tr>
+                      <?php $i = 0; ?>
                       @foreach ($item as $key => $val)
                       @if ($key === $array_kolom[0])
-                        <td>{{$val}}</td>
+                        <td>
+                          <?php 
+                          for ($i=0; $i < count($metadata); $i++) { 
+                            if ($metadata[$i]->value === $val) {
+                              echo $metadata[$i]->nama;
+                            }
+                          }
+                        ?>
+                        </td>
                       @else
                         <td class="text-end">{{$val}}</td>
                       @endif
@@ -221,7 +233,10 @@
             @foreach ($perumahan as $data)
                 <?php $array = json_decode($data->data); 
                 ?>
-                <?php $kolom = $array[0]; ?>
+                <?php $kolom = $array[0]; 
+                $metadata = json_decode($data->metadata);
+                // dd($metadata);
+                ?>
 
                 <!-- ***** TABEL ***** -->
                 <br>
@@ -232,7 +247,7 @@
                     <tr>
                     <?php $array_kolom = [] ?>
                     @foreach ($kolom as $key => $val)
-                    <th scope="col" rowspan="2" class="text-center">{{$key}} </th>
+                    <th scope="col" rowspan="2" class="text-center">{{str_replace("_"," ",$key)}} </th>
                     <?php array_push($array_kolom, $key) ?>
                     @endforeach
                     </tr>
@@ -246,10 +261,19 @@
                       @endfor
                     </tr>
                     @foreach ($array as $item)
+                    <?php ?>
                     <tr>
                       @foreach ($item as $key => $val)
                       @if ($key === $array_kolom[0])
-                        <td>{{$val}}</td>
+                        <td>
+                          <?php 
+                            for ($i=0; $i < count($metadata); $i++) { 
+                              if ($metadata[$i]->value === $val) {
+                                echo $metadata[$i]->nama;
+                              }
+                            }
+                          ?>
+                          </td>
                       @else
                         <td class="text-end">{{$val}}</td>
                       @endif
@@ -275,7 +299,9 @@
             @foreach ($kesehatan as $data)
                 <?php $array = json_decode($data->data); 
                 ?>
-                <?php $kolom = $array[0]; ?>
+                <?php $kolom = $array[0]; 
+                $metadata = json_decode($data->metadata);
+                ?>
 
                 <!-- ***** TABEL ***** -->
                 <br>
@@ -286,7 +312,7 @@
                     <tr>
                     <?php $array_kolom = [] ?>
                     @foreach ($kolom as $key => $val)
-                    <th scope="col" rowspan="2" class="text-center">{{$key}} </th>
+                    <th scope="col" rowspan="2" class="text-center">{{str_replace("_"," ",$key)}} </th>
                     <?php array_push($array_kolom, $key) ?>
                     @endforeach
                   </tr>
@@ -303,7 +329,15 @@
                     <tr>
                       @foreach ($item as $key => $val)
                       @if ($key === $array_kolom[0])
-                        <td>{{$val}}</td>
+                        <td>
+                          <?php 
+                            for ($i=0; $i < count($metadata); $i++) { 
+                              if ($metadata[$i]->value === $val) {
+                                echo $metadata[$i]->nama;
+                              }
+                            }
+                          ?>
+                        </td>
                       @else
                         <td class="text-end">{{$val}}</td>
                       @endif
@@ -328,6 +362,7 @@
           <div class="accordion-body overflow-scroll">
             @foreach ($pendidikan as $data)
                 <?php $array = json_decode($data->data); 
+                $metadata = json_decode($data->metadata);
                 ?>
                 <?php $kolom = $array[0]; ?>
 
@@ -340,7 +375,7 @@
                     <tr>
                     <?php $array_kolom = [] ?>
                     @foreach ($kolom as $key => $val)
-                    <th scope="col" rowspan="2" class="text-center">{{$key}} </th>
+                    <th scope="col" rowspan="2" class="text-center">{{str_replace("_"," ",$key)}} </th>
                     <?php array_push($array_kolom, $key) ?>
                     @endforeach
                   </tr>
@@ -357,7 +392,15 @@
                     <tr>
                       @foreach ($item as $key => $val)
                       @if ($key === $array_kolom[0])
-                        <td>{{$val}}</td>
+                        <td>
+                          <?php 
+                            for ($i=0; $i < count($metadata); $i++) { 
+                              if ($metadata[$i]->value === $val) {
+                                echo $metadata[$i]->nama;
+                              }
+                            }
+                          ?>
+                        </td>
                       @else
                         <td class="text-end">{{$val}}</td>
                       @endif
@@ -383,6 +426,7 @@
           <div class="accordion-body overflow-scroll">
             @foreach ($pekerjaan as $data)
                 <?php $array = json_decode($data->data); 
+                $metadata = json_decode($data->metadata);
                 ?>
                 <?php $kolom = $array[0]; ?>
 
@@ -395,7 +439,7 @@
                     <tr>
                     <?php $array_kolom = [] ?>
                     @foreach ($kolom as $key => $val)
-                    <th scope="col" rowspan="2" class="text-center">{{$key}} </th>
+                    <th scope="col" rowspan="2" class="text-center">{{str_replace("_"," ",$key)}} </th>
                     <?php array_push($array_kolom, $key) ?>
                     @endforeach
                   </tr>
@@ -413,7 +457,15 @@
                     <tr>
                       @foreach ($item as $key => $val)
                       @if ($key === $array_kolom[0])
-                        <td>{{$val}}</td>
+                        <td>
+                          <?php 
+                            for ($i=0; $i < count($metadata); $i++) { 
+                              if ($metadata[$i]->value === $val) {
+                                echo $metadata[$i]->nama;
+                              }
+                            }
+                          ?>
+                        </td>
                       @else
                         <td class="text-end">{{$val}}</td>
                       @endif

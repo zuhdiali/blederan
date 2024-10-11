@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('judul_tabel');
             $table->text('data');
+            $table->text('data');
             $table->timestamp('tanggal')->nullable();
             $table->tinyInteger('kategori')->nullable();
             $table->timestamps();

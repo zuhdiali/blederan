@@ -43,7 +43,6 @@
   </head>
   <body>
     <div class="wrapper">
-
       <!-- Sidebar -->
       <div class="sidebar" data-background-color="dark">
         <div class="sidebar-logo">
@@ -116,22 +115,9 @@
       </div>
       <!-- End Sidebar -->
       <div class="main-panel">
-
         <div class="main-header">
-                                                                {{-- @if (session('success')) --}}
-                                                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                                                  <strong>ABC</strong>
-                                                                  <button
-                                                                    type="button"
-                                                                    class="btn-close"
-                                                                    data-bs-dismiss="alert"
-                                                                    aria-label="Close"
-                                                                  ></button>
-                                                                </div>
-                                                                {{-- @endif --}}
           <div class="main-header-logo">
-
-      
+     
             <!-- Logo Header -->
             <div class="logo-header" data-background-color="dark">
               <a href="index.html" class="logo">
@@ -286,7 +272,9 @@
     <!-- Kaiadmin JS -->
     <script src="{{asset('js/kaiadmin.min.js')}}"></script>
 
-    
+    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
+    <script src="assets/js/setting-demo.js"></script>
+    <script src="assets/js/demo.js"></script>
     <script>
       $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
         type: "line",

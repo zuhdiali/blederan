@@ -1,0 +1,105 @@
+﻿id;var;value;nama
+1;b3r1a;1;Milik sendiri
+2;b3r1a;2;Kontrak/sewa
+3;b3r1a;3;Bebas sewa
+4;b3r1a;4;Dinas
+5;b3r1a;5;Lainnya
+6;b3r3;01;Marmer/granit
+7;b3r3;02;Keramik
+8;b3r3;03;Parket/vinil/permadani
+9;b3r3;04;Ubin/tegel/teraso
+10;b3r3;05;Kayu/papan kualitas tinggi
+11;b3r3;06;Semen/bata merah
+12;b3r3;07;Bambu
+13;b3r3;08;Kayu/papan kualitas rendah
+14;b3r3;09;Tanah
+15;b3r3;10;Lainnya
+16;b3r5a;01;Beton/genteng beton
+17;b3r5a;02;Genteng keramik
+18;b3r5a;03;Genteng metal
+19;b3r5a;04;Genteng tanah liat
+20;b3r5a;05;Asbes
+21;b3r5a;06;Seng
+22;b3r5a;07;Sirap
+23;b3r5a;08;Bambu
+24;b3r5a;09;Jerami/ijuk/daun daunan/rumbia
+25;b3r5a;10;Lainnya
+26;b3r4a;1;Tembok
+27;b3r4a;2;Plesteran anyaman bambu/kawat
+28;b3r4a;3;Kayu
+29;b3r4a;4;Anyaman bambu
+30;b3r4a;5;Batang kayu
+31;b3r4a;6;Bambu
+32;b3r4a;7;Lainnya
+33;b3r5a;01;Beton/genteng beton
+34;b3r5a;02;Genteng keramik
+35;b3r5a;03;Genteng metal
+36;b3r5a;04;Genteng tanah liat
+37;b3r5a;05;Asbes
+38;b3r5a;06;Seng
+39;b3r5a;07;Sirap
+40;b3r5a;08;Bambu
+41;b3r5a;09;Jerami/ijuk/daun daunan/rumbia
+42;b3r5a;10;Lainnya
+43;b3r11a;1;Sendiri
+44;b3r11a;2;Bersama
+45;b3r11a;3;Umum
+46;b3r11a;4;Tidak ada
+47;b3r11b;1;Leher angsa
+48;b3r11b;2;Plengsengan
+49;b3r11b;3;Cemplung/cubluk
+50;b3r11b;4;Tidak pakai
+51;b4k11;1;MOW/Tubektomi
+52;b4k11;2;MOP/Vasektomi
+53;b4k11;3;AKDR/IUD/Spiral
+54;b4k11;4;Suntikan KB
+55;b4k11;5;Susuk KB/Norplan/Implanon/Alwalit
+56;b4k11;6;Pil KB
+57;b4k11;7;Kondom/Karet KB
+58;b4k11;8;Intravag/Tisue/Kondom Wanita
+59;b4k11;9;Cara Tradisional
+60;b4k12;00;Tidak cacat
+61;b4k12;01;Tuna daksa/cacat tubuh
+62;b4k12;02;Tuna netra/buta
+63;b4k12;03;Tuna rungu
+64;b4k12;04;Tuna wicara
+65;b4k12;05;Tuna rungu & wicara
+66;b4k12;06;Tuna netra & cacat tubuh
+67;b4k12;07;Tuna netra, rungu, & wicara
+68;b4k12;08;Tuna rungu, wicara, & cacat tubuh
+69;b4k12;09;Tuna rungu, wicara, netra, & cacat tubuh
+70;b4k12;10;Cacat mental retardasi
+71;b4k12;11;Mantan penderita gangguan jiwa
+72;b4k12;12;Cacat fisik & mental
+73;b4k15;0;Tidak/belum pernah sekolah
+74;b4k15;1;Masih sekolah
+75;b4k15;2;Tidak bersekolah lagi
+76;b4k18;0;Tidak punya ijazah
+77;b4k18;1;SD/sederajat
+78;b4k18;2;SMP/sederajat
+79;b4k18;3;SMA/sederajat
+80;b4k18;4;D1/D2/D3
+81;b4k18;5;D4/S1
+82;b4k18;6;S2/S3
+83;b4k21;01;Pertanian tanaman padi & palawija
+84;b4k21;02;Hortikultura
+85;b4k21;03;Perkebunan
+86;b4k21;04;Perikanan tangkap
+87;b4k21;05;Perikanan budidaya
+88;b4k21;06;Peternakan
+89;b4k21;07;Kehutanan & pertanian lainnya
+90;b4k21;08;Pertambangan/penggalian
+91;b4k21;09;Industri pengolahan
+92;b4k21;10;Listrik & gas
+93;b4k21;11;Bangunan/kontruksi
+94;b4k21;12;Perdagangan
+95;b4k21;13;Hotel & rumah makan
+96;b4k21;14;Transportasi & pergudangan
+97;b4k21;15;Informasi & komunikasi
+98;b4k21;16;Keuangan & asuransi
+99;b4k21;17;Jasa pendidikan
+100;b4k21;18;Jasa kesehatan
+101;b4k21;19;Jasa kemasyarakatan, pemerintah, & perorangan
+102;b4k21;20;Pemulung
+103;b4k21;21;TKI
+104;b4k21;22;Lainnya

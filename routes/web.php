@@ -65,5 +65,5 @@ Route::get('/admin-hapus-akomodasi/{id}', [AkomodasiController::class, 'destroy'
 // ******* Halaman Admin *********
 Route::get('/admin-dashboard', [AdminController::class, 'index'])->name('admin-dashboard');
 Route::get('/admin-manajemen-pengguna', [UserController::class, 'index'])->name('admin-manajemen-pengguna');
-Route::get('/admin-akomodasi', [AkomodasiController::class, 'index'])->name('admin-akomodasi');
+Route::get('/admin-update-data', [AdminController::class, 'getDataAPI'])->name('update-data');
 // ******* Halaman Admin *********

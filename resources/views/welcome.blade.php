@@ -432,7 +432,7 @@
           <div class="owl-weekly-offers owl-carousel">
             <div class="item">
               <div class="thumb">
-                <img src="/assets/images/blederan2.jpg" alt="">
+                <img src="/images/blederan2.jpg" alt="">
                 <div class="text w-100">
                   <h4>SD Pagerkukuh Wonosobo<br></h4>
                   <div class="line-dec"></div>
@@ -447,7 +447,7 @@
             </div>
             <div class="item">
               <div class="thumb">
-                <img src="assets/images/blederan3.jpg" alt="">
+                <img src="/images/blederan3.jpg" alt="">
                 <div class="text w-100">
                   <h4>SD Hafizh Quran MAF<br></h4>
                   <div class="line-dec"></div>
@@ -462,7 +462,7 @@
             </div>
             <div class="item">
               <div class="thumb">
-                <img src="assets/images/blederan4.jpg" alt="">
+                <img src="/images/blederan4.jpg" alt="">
                 <div class="text w-100">
                   <h4>BPS & Diskominfo<br></h4>
                   <div class="line-dec"></div>
@@ -477,7 +477,7 @@
             </div>
             <div class="item">
               <div class="thumb">
-                <img src="assets/images/blederan5.jpg" alt="">
+                <img src="/images/blederan5.jpg" alt="">
                 <div class="text w-100">
                   <h4>BPD Desa Bulurejo<br></h4>
                   <div class="line-dec"></div>
@@ -492,7 +492,7 @@
             </div>
             <div class="item">
               <div class="thumb">
-                <img src="assets/images/blederan6.jpg" alt="">
+                <img src="/images/blederan6.jpg" alt="">
                 <div class="text w-100">
                   <h4>Kab. Banyumas<br></h4>
                   <div class="line-dec"></div>
@@ -507,7 +507,7 @@
             </div>
             <div class="item">
               <div class="thumb">
-                <img src="assets/images/blederan7.jpg" alt="">
+                <img src="/images/blederan7.jpg" alt="">
                 <div class="text w-100">
                   <h4>DLH Bandung<br></h4>
                   <div class="line-dec"></div>
@@ -531,7 +531,7 @@
       <div class="row">
         <div class="col-lg-6 align-self-center">
           <div class="left-image">
-            <img src="assets/images/about-left-image.jpg" alt="">
+            <img src="/images/about-left-image.jpg" alt="">
           </div>
         </div>
         <div class="col-lg-6">

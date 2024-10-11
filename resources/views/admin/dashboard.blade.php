@@ -2,6 +2,12 @@
 
 @section('content')
 <div class="container">
+  @if (session('success'))
+  <div class="alert alert-warning alert-dismissible fade show w-50 my-5" role="alert">
+    {{ session('success') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  @endif
   <div class="page-inner">
     <div
     class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4"
@@ -29,7 +35,9 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
-                <button type="button" class="btn btn-primary">Perbarui</button>
+                <form action="{{route('update-data')}}" method="get">
+                  <button type="submit" class="btn btn-primary">Perbarui</button>
+                </form>
               </div>
             </div>
           </div>

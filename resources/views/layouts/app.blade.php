@@ -18,7 +18,7 @@
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{{asset('css/fontawesome.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/templatemo-woox-travel.css')}}">
+    <link rel="stylesheet" href="{{asset('css/templatemo-woox-travel.css')}}">
     <link rel="stylesheet" href="{{asset('css/owl.css')}}">
     <link rel="stylesheet" href="{{asset('css/animate.css')}}">
     <link rel="stylesheet" href="{{asset('css/custom.scss')}}">

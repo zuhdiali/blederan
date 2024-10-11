@@ -149,7 +149,7 @@
                     <div class="row">
                       <div class="col-lg-4 col-sm-5">
                         <div class="image">
-                          <img src="assets/images/blederan7.jpg" alt="">
+                          <img src="images/blederan7.jpg" alt="">
                         </div>
                       </div>
                       <div class="col-lg-8 col-sm-7">
@@ -178,7 +178,7 @@
                     <div class="row">
                       <div class="col-lg-4 col-sm-5">
                         <div class="image">
-                          <img src="assets/images/20241003_penghargaan.jpg" alt="">
+                          <img src="images/20241003_penghargaan.jpg" alt="">
                         </div>
                       </div>
                       <div class="col-lg-8 col-sm-7">
@@ -207,7 +207,7 @@
                     <div class="row">
                       <div class="col-lg-4 col-sm-5">
                         <div class="image">
-                          <img src="assets/images/20241003_desa_cantik.jpeg" alt="">
+                          <img src="images/20241003_desa_cantik.jpeg" alt="">
                         </div>
                       </div>
                       <div class="col-lg-8 col-sm-7">
