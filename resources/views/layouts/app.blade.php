@@ -23,12 +23,16 @@
     <link rel="stylesheet" href="{{asset('css/animate.css')}}">
     <link rel="stylesheet" href="{{asset('css/custom.scss')}}">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
     
+  
     <!--Icon Web-->
     <link rel="icon" type="image/x-icon" href="{{asset('images/logo_only.png')}}" >
 
     <!-- ChartJS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js" type="text/javascript"></script>
+    
+    <script src="{{asset('js/popper.min.js')}}"></script>
 
   </head>
 
@@ -63,7 +67,38 @@
                     <ul class="nav">
                         <li><a href="{{ route('welcome') }}" class="{{ Request::path() ==  '/' ? 'active' : ''  }}">Beranda</a></li>
                         {{-- <li><a href="{{ route('produk') }}" class="{{ Request::path() ==  'produk' ? 'active' : ''  }}">Produk</a></li> --}}
-                        <li><a href="{{ route('artikel') }}" class="{{ Request::path() ==  'artikel' ? 'active' : ''  }}">Artikel</a></li>
+                        <li><a href="{{ route('kabar') }}" class="{{ Request::path() ==  'kabar' ? 'active' : ''  }}">Kabar</a></li>
+                        <li><a href="{{ route('publikasi') }}" class="{{ Request::path() ==  'publikasi' ? 'active' : ''  }}">Publikasi</a></li>
+                        <li>
+
+                          <div class="dropdown">
+                            <button class="btn dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Profil
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item text-black" href="{{route('sejarah')}}">Sejarah</a></li>
+                              <li><a class="dropdown-item text-black" href="{{route('peta')}}">Peta</a></li>
+                            </ul>
+                          </div>
+                          {{-- <div class="accordion" id="accordionPanelsStayOpenExample">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header">
+                                <button class="accordion-button collapsed btn-outline-info" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
+                                  Profil
+                                </button>
+                              </h2>
+                              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                  ABC
+                                  <br>
+                                  ABC
+                                </div>
+                              </div>
+                            </div>
+
+                          </div> --}}
+                        </li>
+                        
                         <li><a href="{{ route('data2') }}" class="{{ Request::path() ==  'data' ? 'active' : ''  }}">Data</a></li>
                         {{-- <li><a href="reservation.html">Book Yours</a></li> --}}
                         
@@ -82,9 +117,19 @@
                           Login
                           </button> --}}
                           @endif
-                          {{-- <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                          role="button">Link</a> --}}
-                        
+                          {{-- <li>
+                            <div class="dropdown">
+                              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                                Dropdown link
+                              </a>
+                            
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                              </div>
+                            </div>
+                          </li> --}}
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -173,7 +218,7 @@
   <!-- Bootstrap core JavaScript -->
   <script src="{{asset('js/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('js/bootstrap.min.js')}}"></script>
-
+  
   <script src="{{asset('js/isotope.min.js')}}"></script>
   <script src="{{asset('js/owl-carousel.js')}}"></script>
   
@@ -181,6 +226,32 @@
   <script src="{{asset('js/popup.js')}}"></script>
   <script src="{{asset('js/custom.js')}}"></script>
 
+  <script>
+    $(document).ready(function() {
+      // $('.dropdown').on('click', function() {
+      // if (!$(this).hasClass('show')) {
+      //   $(this).addClass('show');
+      //   $(this).find('.dropdown-menu').addClass('show');
+      // } else {
+      //   $(this).removeClass('show');
+      //   $(this).find('.dropdown-menu').removeClass('show');
+      // }
+      // });
+
+      if ($(window).width() < 991) {
+        // $('.dropdown').off('click').on('click', function(e) {
+        //   e.preventDefault();
+        //   if (!$(this).hasClass('show')) {
+        //     $(this).addClass('show');
+        //     $(this).find('.dropdown-menu').addClass('show');
+        //   } else {
+        //     $(this).removeClass('show');
+        //     $(this).find('.dropdown-menu').removeClass('show');
+        //   }
+        // });
+      }
+    });
+  </script>
   {{-- <script src="assets/js/chart-area-demo.js"></script>
   <script src="assets/js/chart-bar-demo.js"></script>
   <script src="assets/js/chart-pie-demo.js"></script> --}}

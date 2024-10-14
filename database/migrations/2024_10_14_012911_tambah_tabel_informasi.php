@@ -6,18 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
- /**
+    /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('tabulasis', function (Blueprint $table) {
+        Schema::create('informasis', function (Blueprint $table) {
             $table->id();
-            $table->string('judul_tabel');
-            $table->text('data');
-            $table->string('id_table');
-            $table->timestamp('tanggal')->nullable();
-            $table->tinyInteger('kategori')->nullable();
+            $table->string('nama_informasi');
+            $table->tinyInteger('jumlah');
+            $table->date('tanggal');
+            $table->string('kategori', 10);
+            $table->string('deskripsi');
+            $table->string('gambar');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('produks');
+        Schema::dropIfExists('informasis');
     }
 };

@@ -5,19 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tabulasi extends Model
+class Artikel extends Model
 {
     use HasFactory;
 
-    protected $table = 'tabulasis';
+    protected $table = 'artikels';
 
     protected $fillable = [
-        'id',
-        'judul_tabel',
-        'data',
-        'id_table',
+        'judul',
+        'penulis',
         'tanggal',
-        'kategori',
-        'metadata'
+        'text1',
+        'gambar1',
+        'text2',
+        'gambar2',
+        'text3',
+        'gambar3'
     ];
 }

@@ -420,7 +420,7 @@
       <div class="row">
         <div class="col-lg-6 offset-lg-3">
           <div class="section-heading text-center">
-            <h2>Kunjungan ke Desa Blederan</h2>
+            <h2>Kunjungan dan Eduwisata ke Desa Blederan</h2>
             <p>Desa Blederan sering menerima kunjungan dari berbagai pihak.</p>
           </div>
         </div>
@@ -430,22 +430,24 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="owl-weekly-offers owl-carousel">
+            @foreach ($eduwisatas as $eduwisata)
             <div class="item">
               <div class="thumb">
-                <img src="/images/blederan2.jpg" alt="">
+                <img src="{{asset('uploads/informasi/'.$eduwisata->gambar)}}" alt="">
                 <div class="text w-100">
-                  <h4>SD Pagerkukuh Wonosobo<br></h4>
+                  <h4>{{$eduwisata->nama_informasi}}<br></h4>
                   <div class="line-dec"></div>
                   <ul>
                     <li>Deskripsi Kunjungan:</li>
-                    <li><i class="fa fa-calendar"></i> Tanggal: 21 September 2024</li>
-                    <li><i class="fa fa-users"></i> Jumlah: 40 siswa </li>
-                    <li><i class="fa fa-note-sticky"></i> Kegiatan: Belajar tentang budidaya sayuran, main ke kandang kambing, dan melihat kolam ikan </li>
+                    <li><i class="fa fa-calendar"></i> Tanggal: {{ \Carbon\Carbon::parse($eduwisata->tanggal)->locale('id')->translatedFormat('d F Y') }}</li>
+                    <li><i class="fa fa-users"></i> Jumlah: {{$eduwisata->jumlah}} orang </li>
+                    <li><i class="fa fa-note-sticky"></i> Kegiatan: {{$eduwisata->deskripsi}}</li>
                   </ul>
                 </div>
               </div>
             </div>
-            <div class="item">
+            @endforeach
+            {{-- <div class="item">
               <div class="thumb">
                 <img src="/images/blederan3.jpg" alt="">
                 <div class="text w-100">
@@ -519,7 +521,7 @@
                   </ul>
                 </div>
               </div>
-            </div>
+            </div> --}}
           </div>
         </div>
       </div>

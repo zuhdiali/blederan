@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Akomodasi;
+use App\Models\Informasi;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Produk;
@@ -18,7 +19,8 @@ class MainController extends Controller
     {
         $produks = Produk::get();
         $akomodasis = Akomodasi::get();
-        return view('welcome', compact('produks', 'akomodasis'));
+        $eduwisatas = Informasi::where('kategori', 'eduwisata')->get();
+        return view('welcome', compact('produks', 'akomodasis', 'eduwisatas'));
     }
 
     public function produk()
@@ -26,9 +28,24 @@ class MainController extends Controller
         return view('produk');
     }
 
-    public function artikel()
+    public function kabar()
     {
-        return view('artikel');
+        return view('kabar');
+    }
+
+    public function sejarah()
+    {
+        return view('sejarah');
+    }
+
+    public function peta()
+    {
+        return view('peta');
+    }
+
+    public function publikasi()
+    {
+        return view('publikasi');
     }
 
     public function data()
@@ -50,13 +67,53 @@ class MainController extends Controller
 
     public function data2()
     {
-        $kependudukan = DB::table('tabulasis')->where('kategori','=',1)->get();
-        $perumahan = DB::table('tabulasis')->where('kategori','=',2)->get();
-        // dd($perumahan);
-        $kesehatan = DB::table('tabulasis')->where('kategori','=',3)->get();
-        $pendidikan = DB::table('tabulasis')->where('kategori','=',4)->get();
-        $pekerjaan = DB::table('tabulasis')->where('kategori','=',5)->get();
+        // $kependudukan = DB::table('tabulasis')->where('kategori','=',1)->get();
+        $kependudukan = DB::table('tabulasis as t1')
+                        ->join(DB::raw('(SELECT id_table, MAX(tanggal) AS max_tanggal FROM tabulasis GROUP BY id_table) as t2'), function($join) {
+                            $join->on('t1.id_table', '=', 't2.id_table')
+                                ->on('t1.tanggal', '=', 't2.max_tanggal');
+                        })
+                        ->where('t1.kategori', 1)
+                        ->select('t1.judul_tabel', 't1.data', 't1.metadata', 't1.tanggal', 't1.kategori', 't1.id_table')
+                        ->get();
+                        $perumahan = DB::table('tabulasis')->where('kategori','=',2)->get();
+        $perumahan = DB::table('tabulasis as t1')
+                        ->join(DB::raw('(SELECT id_table, MAX(tanggal) AS max_tanggal FROM tabulasis GROUP BY id_table) as t2'), function($join) {
+                            $join->on('t1.id_table', '=', 't2.id_table')
+                                ->on('t1.tanggal', '=', 't2.max_tanggal');
+                        })
+                        ->where('t1.kategori', 2)
+                        ->select('t1.judul_tabel', 't1.data', 't1.metadata', 't1.tanggal', 't1.kategori', 't1.id_table')
+                        ->get();
 
+        
+        $kesehatan = DB::table('tabulasis as t1')
+                    ->join(DB::raw('(SELECT id_table, MAX(tanggal) AS max_tanggal FROM tabulasis GROUP BY id_table) as t2'), function($join) {
+                        $join->on('t1.id_table', '=', 't2.id_table')
+                            ->on('t1.tanggal', '=', 't2.max_tanggal');
+                    })
+                    ->where('t1.kategori', 3)
+                    ->select('t1.judul_tabel', 't1.data', 't1.metadata', 't1.tanggal', 't1.kategori', 't1.id_table')
+                    ->get();
+
+        $pendidikan = DB::table('tabulasis as t1')
+                    ->join(DB::raw('(SELECT id_table, MAX(tanggal) AS max_tanggal FROM tabulasis GROUP BY id_table) as t2'), function($join) {
+                        $join->on('t1.id_table', '=', 't2.id_table')
+                            ->on('t1.tanggal', '=', 't2.max_tanggal');
+                    })
+                    ->where('t1.kategori', 4)
+                    ->select('t1.judul_tabel', 't1.data', 't1.metadata', 't1.tanggal', 't1.kategori', 't1.id_table')
+                    ->get();
+
+        $pekerjaan = DB::table('tabulasis as t1')
+                    ->join(DB::raw('(SELECT id_table, MAX(tanggal) AS max_tanggal FROM tabulasis GROUP BY id_table) as t2'), function($join) {
+                        $join->on('t1.id_table', '=', 't2.id_table')
+                            ->on('t1.tanggal', '=', 't2.max_tanggal');
+                    })
+                    ->where('t1.kategori', 5)
+                    ->select('t1.judul_tabel', 't1.data', 't1.metadata', 't1.tanggal', 't1.kategori', 't1.id_table')
+                    ->get();
+        // dd($pendidikan);
         return view('data2', [
             'kependudukan' => $kependudukan,
             'perumahan' => $perumahan,
@@ -64,6 +121,18 @@ class MainController extends Controller
             'pendidikan' => $pendidikan,
             'pekerjaan' => $pekerjaan
         ]);
+    }
+
+    public function downloadPublikasi()
+    {
+        $file= public_path(). "/uploads/publikasi/Profil Desa Lengkap.pdf";
+        // $file = glob(public_path('uploads/publikasi/Profil Desa Lengkap.pdf'));
+        $headers = [
+            'Content-Type' => 'application/pdf',
+         ];
+
+        return response()->download($file, 'filename.pdf', $headers);
+        // return view('download_publikasi', compact('files'));
     }
 
     public function layoutArtikel()

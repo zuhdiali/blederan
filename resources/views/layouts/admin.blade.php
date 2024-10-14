@@ -73,10 +73,16 @@
         <div class="sidebar-wrapper scrollbar scrollbar-inner">
           <div class="sidebar-content">
             <ul class="nav nav-secondary">
+                <li class="nav-item">
+                    <a href="{{route('welcome')}}">
+                        <i class="fas fa-arrow-left"></i>
+                        <p>Beranda</p>
+                    </a>
+                </li>
                 <li class="nav-item {{ Request::path() ==  'admin-dashboard' ? 'active' : ''  }}">
                     <a href="{{route('admin-dashboard')}}">
                         <i class="fas fa-home"></i>
-                        <p>Beranda</p>
+                        <p>Dashboard</p>
                     </a>
                 </li>
                 <li class="nav-section">
@@ -95,6 +101,24 @@
                   <a href="{{route('admin-akomodasi')}}">
                       <i class="fas fa-home"></i>
                       <p>Akomodasi</p>
+                  </a>
+                </li>
+                <li class="nav-section">
+                  <span class="sidebar-mini-icon">
+                    <i class="fa fa-ellipsis-h"></i>
+                  </span>
+                  <h4 class="text-section">Informasi Blederan</h4>
+                </li>
+                <li class="nav-item {{ Request::path() ==  'admin-kabar' ? 'active' : ''  }}">
+                  <a href="{{route('admin-kabar')}}">
+                      <i class="fas fa-globe"></i>
+                      <p>Kabar</p>
+                  </a>
+                </li>
+                <li class="nav-item {{ Request::path() ==  'admin-eduwisata' ? 'active' : ''  }}">
+                  <a href="{{route('admin-eduwisata')}}">
+                      <i class="fas fa-graduation-cap"></i>
+                      <p>Eduwisata</p>
                   </a>
                 </li>
                 <li class="nav-section">

@@ -102,6 +102,10 @@ class ProdukController extends Controller
             $file->move($path, $filename);
         }
 
+        if ($filename == NULL) {
+            $filename = 'default.jpg';
+        }
+
         $produk->nama_produk = $request->nama_produk;
         $produk->harga = $request->harga;
         $produk->satuan = $request->satuan;

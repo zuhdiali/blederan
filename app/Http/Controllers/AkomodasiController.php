@@ -44,6 +44,10 @@ class AkomodasiController extends Controller
             $path = 'uploads/akomodasi/';
             $file->move($path, $filename);
         }
+
+        if ($filename == NULL) {
+            $filename = 'default.jpg';
+        }
         
         Akomodasi::create([
             'nama_akomodasi' => $request->nama_akomodasi,

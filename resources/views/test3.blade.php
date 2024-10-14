@@ -1,21 +1,11 @@
-@foreach ($tabulasi as $data)
-    <?php $array = json_decode($data->data); ?>
-    <?php $kolom = $array[0]; ?>
-    
-      @foreach ($kolom as $key => $val)
-          "{{$key}}" 
-          <br>
-      @endforeach
-      <hr>
+<div class="dropdown ">
+  <a class="nav-link dropdown-toggle z-3"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Profil
+  </a>
 
-    
-    @foreach ($array as $item)
-      @foreach ($item as  $val)
-          {{$val}}
-          <br>
-      @endforeach
-      <hr>
-        
-
-    @endforeach
-@endforeach
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#"><p>Action</p></a></li>
+    <li><a class="dropdown-item" href="#"><p>Another action</p></a></li>
+    <li><a class="dropdown-item" href="#"><p>Something else here</p></a></li>
+  </ul>
+</div>

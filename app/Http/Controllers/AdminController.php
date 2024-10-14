@@ -21,12 +21,15 @@ class AdminController extends Controller
         $users = User::get();
         $produks = Produk::get();
         $akomodasis = Akomodasi::get();
+        $data_terakhir = Tabulasi::orderBy('tanggal', 'desc')->first();
+        $tgl_terakhir = $data_terakhir ? \Carbon\Carbon::parse($data_terakhir->tanggal)->locale('id')->translatedFormat('d F Y') : null;
+        // dd($tgl_terakhir);
 
         return view('admin.dashboard', [
             'jumlah_pengguna' => count($users),
             'jumlah_produk' => count($produks),
             'jumlah_akomodasi' => count($akomodasis),
-            
+            'tgl_terakhir' => $tgl_terakhir
         ]);
     }
 
@@ -88,37 +91,38 @@ class AdminController extends Controller
     public function getDataAPI()
     {
         try {
-            $response = Http::get('http://192.168.1.10/api/posts/33071100142024');
+            $response = Http::get(env('API_URL') . '/posts/33071100142024');
             $array_response = json_decode($response->body(), true);
             // dd($array_response['data']);
             foreach ($array_response['data'] as $key => $value) {
-            $tabulasi = new Tabulasi;
-            $tabulasi->judul_tabel = $value['judul'];
-            $tabulasi->data = json_encode($value[0]);
-            
-            $tabulasi->tanggal = now();
-            switch ($value[1]['kategori']) {
-                case 'kependudukan':
-                $tabulasi->kategori = 1;
-                break;
-                case 'perumahan':
-                $tabulasi->kategori = 2;
-                break;
-                case 'kesehatan':
-                $tabulasi->kategori = 3;
-                break;
-                case 'pendidikan':
-                $tabulasi->kategori = 4;
-                break;
-                case 'pekerjaan':
-                $tabulasi->kategori = 5;
-                break;
-                default:
-                $tabulasi->kategori = 99;
-                break;
-            }
-            $tabulasi->metadata = json_encode($value[2]['metadata']);
-            $tabulasi->save();
+                $tabulasi = new Tabulasi;
+                $tabulasi->judul_tabel = $value['judul'];
+                $tabulasi->data = json_encode($value[0]);
+                
+                $tabulasi->tanggal = now();
+                switch ($value[1]['kategori']) {
+                    case 'kependudukan':
+                    $tabulasi->kategori = 1;
+                    break;
+                    case 'perumahan':
+                    $tabulasi->kategori = 2;
+                    break;
+                    case 'kesehatan':
+                    $tabulasi->kategori = 3;
+                    break;
+                    case 'pendidikan':
+                    $tabulasi->kategori = 4;
+                    break;
+                    case 'pekerjaan':
+                    $tabulasi->kategori = 5;
+                    break;
+                    default:
+                    $tabulasi->kategori = 99;
+                    break;
+                }
+                $tabulasi->metadata = json_encode($value[2]['metadata']);
+                $tabulasi->id_table = $value[3];
+                $tabulasi->save();
             }
             return redirect(route('admin-dashboard'))->with('success', 'Data berhasil diperbarui!');
         } catch (RequestException $e) {

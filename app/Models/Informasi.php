@@ -5,19 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tabulasi extends Model
+class Informasi extends Model
 {
     use HasFactory;
 
-    protected $table = 'tabulasis';
+    protected $table = 'informasis';
 
     protected $fillable = [
-        'id',
-        'judul_tabel',
-        'data',
-        'id_table',
+        'nama_informasi',
+        'jumlah',
         'tanggal',
         'kategori',
-        'metadata'
+        'deskripsi',
+        'gambar'
     ];
 }
