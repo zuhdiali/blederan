@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 08, 2024 at 09:02 AM
+-- Generation Time: Oct 14, 2024 at 08:59 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -24,31 +24,54 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admins`
---
-
-CREATE TABLE `admins` (
-  `id` bigint UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `akomodasis`
 --
 
 CREATE TABLE `akomodasis` (
-  `id` int NOT NULL,
-  `nama_akomodasi` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `harga` int NOT NULL,
-  `stok` int DEFAULT NULL,
-  `url_gambar` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `nama_pemilik` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `kontak_pemilik` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `deskripsi` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` bigint UNSIGNED NOT NULL,
+  `nama_akomodasi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `harga` bigint NOT NULL,
+  `stok` int NOT NULL,
+  `gambar_akomodasi` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nama_pemilik` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `kontak_pemilik` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deskripsi` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `akomodasis`
+--
+
+INSERT INTO `akomodasis` (`id`, `nama_akomodasi`, `harga`, `stok`, `gambar_akomodasi`, `nama_pemilik`, `kontak_pemilik`, `deskripsi`, `created_at`, `updated_at`) VALUES
+(1, 'Penginapan Mas Hisyam', 200000, 50, '1728530242.jpg', 'Zuhdi Ali Hisyam', '082328839199', 'Penginapan Mantab', '2024-10-09 20:11:04', '2024-10-09 23:29:49'),
+(2, 'Penginapan Mas Zuhdi', 200000, 50, '1728541892.jpg', 'Zuhdi Ali Hisyam', '082328839199', 'Penginapan Mantab', '2024-10-09 20:11:04', '2024-10-09 23:31:32'),
+(3, 'Penginapan Mas Ali', 200000, 50, '1728541760.jpg', 'Zuhdi Ali Hisyam', '082328839199', 'Penginapan Mantab', '2024-10-09 20:11:04', '2024-10-09 23:29:20'),
+(4, 'Penginapan Mas Hisyam', 200000, 50, '1728530242.jpg', 'Zuhdi Ali Hisyam', '082328839199', 'Penginapan Mantab', '2024-10-09 20:11:04', '2024-10-09 23:29:56'),
+(5, 'Penginapan Mas Zuhdi', 200000, 50, '1728541905.jpg', 'Zuhdi Ali Hisyam', '082328839199', 'Penginapan Mantab', '2024-10-09 20:11:04', '2024-10-09 23:31:45'),
+(6, 'Kos Mas Hisyam', 200000, 50, '1728530242.jpg', 'Zuhdi Ali Hisyam', '082328839199', 'Penginapan Mantab', '2024-10-09 20:11:04', '2024-10-09 23:30:33');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `artikels`
+--
+
+CREATE TABLE `artikels` (
+  `id` bigint UNSIGNED NOT NULL,
+  `judul` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `penulis` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tanggal` date NOT NULL,
+  `text1` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gambar1` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text2` text COLLATE utf8mb4_unicode_ci,
+  `gambar2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text3` text COLLATE utf8mb4_unicode_ci,
+  `gambar3` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -65,6 +88,38 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `informasis`
+--
+
+CREATE TABLE `informasis` (
+  `id` bigint UNSIGNED NOT NULL,
+  `nama_informasi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jumlah` tinyint NOT NULL,
+  `tanggal` date NOT NULL,
+  `kategori` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `deskripsi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gambar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `informasis`
+--
+
+INSERT INTO `informasis` (`id`, `nama_informasi`, `jumlah`, `tanggal`, `kategori`, `deskripsi`, `gambar`, `created_at`, `updated_at`) VALUES
+(1, 'BPS Kabupaten WOnosobo', 11, '2024-10-14', 'kabar', 'Pembinaan Desa Cantik', '1728880654.jpg', '2024-10-13 21:37:34', '2024-10-14 01:28:42'),
+(3, 'SD N Pagerkukuh', 40, '2024-09-21', 'eduwisata', 'Belajar tentang budidaya sayuran, main ke kandang kambing, dan melihat kolam ikan', '1728884922.jpg', '2024-10-13 22:48:42', '2024-10-14 01:19:33'),
+(4, 'SD Hafiz Quran MAF', 30, '2024-09-06', 'eduwisata', 'Outing Class', '1728885706.jpg', '2024-10-13 23:01:47', '2024-10-14 01:20:14'),
+(5, 'DLH Bandung', 50, '2024-07-17', 'eduwisata', 'Study Tour', '1728887337.jpg', '2024-10-13 23:28:57', '2024-10-13 23:28:57'),
+(6, 'BPS & Diskominfo', 32, '2024-08-01', 'eduwisata', 'Pengenalan & Pembinaan Desa Cinta Statistik', '1728887484.jpg', '2024-10-13 23:31:25', '2024-10-13 23:31:25'),
+(7, 'BPD Desa Bulurejo', 16, '2024-07-30', 'eduwisata', 'Kunjungan Kerja', '1728887606.jpg', '2024-10-13 23:33:26', '2024-10-13 23:33:26'),
+(8, 'Kab.Banyumas', 16, '2024-07-28', 'eduwisata', 'Kunjungan Belajar', '1728887688.jpg', '2024-10-13 23:34:48', '2024-10-13 23:34:48'),
+(9, 'BPS & Diskominfo', 32, '2024-08-01', 'kabar', 'Pengenalan & Pembinaan Desa Cinta Statistik', '1728894509.jpeg', '2024-10-14 01:28:29', '2024-10-14 01:28:29');
 
 -- --------------------------------------------------------
 
@@ -87,9 +142,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2024_10_05_051950_create_admins_table', 1),
-(6, '2024_10_07_041943_nambah_user_admin', 2),
-(7, '2024_10_08_002812_tambah_tabel_tabulasis', 2);
+(5, '2024_10_08_085845_tambah_tabel_produk', 1),
+(6, '2024_10_09_015531_tambah_tabel_tabulasis', 1),
+(7, '2024_10_09_015814_tambah_tabel_akomodasis', 1),
+(8, '2024_10_14_012905_tambah_tabel_kabar', 2),
+(10, '2024_10_14_012905_tambah_tabel_artikel', 3),
+(11, '2024_10_14_012911_tambah_tabel_informasi', 3);
 
 -- --------------------------------------------------------
 
@@ -129,16 +187,29 @@ CREATE TABLE `personal_access_tokens` (
 --
 
 CREATE TABLE `produks` (
-  `id` int NOT NULL,
-  `nama_produk` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `harga` int NOT NULL,
-  `satuan` varchar(50) NOT NULL,
-  `stok` int NOT NULL,
-  `url_gambar` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `nama_penjual` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `kontak_penjual` varchar(50) DEFAULT NULL,
-  `deskripsi` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` bigint UNSIGNED NOT NULL,
+  `nama_produk` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `harga` bigint NOT NULL,
+  `satuan` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `stok` bigint NOT NULL,
+  `gambar_produk` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nama_penjual` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `kontak_penjual` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deskripsi` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `produks`
+--
+
+INSERT INTO `produks` (`id`, `nama_produk`, `harga`, `satuan`, `stok`, `gambar_produk`, `nama_penjual`, `kontak_penjual`, `deskripsi`, `created_at`, `updated_at`) VALUES
+(4, 'Padi', 10000, 'gabah', 100, '1728446680.jpg', 'Zuhdi Ali Hisyamn', '082328839199', 'Padi Segar Berkualitas', '2024-10-08 21:04:40', '2024-10-08 21:04:40'),
+(5, 'Jagung', 10000, 'kg', 100, '1728446716.jpg', 'Zuhdi Ali Hisyam', '082328839199', NULL, '2024-10-08 21:05:16', '2024-10-08 21:05:16'),
+(6, 'Kol', 10000, 'kg', 100, '1728446814.jpg', 'Zuhdi Ali Hisyam', '082328839199', NULL, '2024-10-08 21:06:54', '2024-10-08 21:06:54'),
+(7, 'Selada', 10000, 'kg', 100, '1728446838.jpg', 'Zuhdi Ali Hisyam', '082328839199', NULL, '2024-10-08 21:07:18', '2024-10-08 21:07:18'),
+(8, 'Sawi', 10000, 'kg', 100, '1728446874.jpg', 'Zuhdi Ali Hisyam', '082328839199', NULL, '2024-10-08 21:07:54', '2024-10-08 21:07:54');
 
 -- --------------------------------------------------------
 
@@ -147,33 +218,44 @@ CREATE TABLE `produks` (
 --
 
 CREATE TABLE `tabulasis` (
-  `id` int NOT NULL,
-  `judul_tabel` varchar(255) NOT NULL,
-  `data` text NOT NULL,
-  `tanggal` datetime NOT NULL,
-  `kategori` tinyint NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` bigint UNSIGNED NOT NULL,
+  `judul_tabel` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `data` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `metadata` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_table` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tanggal` timestamp NULL DEFAULT NULL,
+  `kategori` tinyint DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `tabulasis`
 --
 
-INSERT INTO `tabulasis` (`id`, `judul_tabel`, `data`, `tanggal`, `kategori`) VALUES
-(1, 'Jumlah Penduduk Menurut Kelompok Umur di Desa/Kelurahan BLEDERAN Tahun 2024', '[{\"Kelompok Umur\":\"0-4 Tahun\",\"Laki-Laki\":41,\"Perempuan\":30,\"Jumlah\":71},{\"Kelompok Umur\":\"5-9 Tahun\",\"Laki-Laki\":143,\"Perempuan\":115,\"Jumlah\":258},{\"Kelompok Umur\":\"10-14 Tahun\",\"Laki-Laki\":155,\"Perempuan\":143,\"Jumlah\":298},{\"Kelompok Umur\":\"15-19 Tahun\",\"Laki-Laki\":139,\"Perempuan\":108,\"Jumlah\":248},{\"Kelompok Umur\":\"20-24 Tahun\",\"Laki-Laki\":138,\"Perempuan\":112,\"Jumlah\":250},{\"Kelompok Umur\":\"25-29 Tahun\",\"Laki-Laki\":128,\"Perempuan\":125,\"Jumlah\":256},{\"Kelompok Umur\":\"30-34 Tahun\",\"Laki-Laki\":119,\"Perempuan\":129,\"Jumlah\":248},{\"Kelompok Umur\":\"35-39 Tahun\",\"Laki-Laki\":136,\"Perempuan\":118,\"Jumlah\":256},{\"Kelompok Umur\":\"40-44 Tahun\",\"Laki-Laki\":130,\"Perempuan\":119,\"Jumlah\":249},{\"Kelompok Umur\":\"45-49 Tahun\",\"Laki-Laki\":116,\"Perempuan\":109,\"Jumlah\":225},{\"Kelompok Umur\":\"50-54 Tahun\",\"Laki-Laki\":107,\"Perempuan\":92,\"Jumlah\":200},{\"Kelompok Umur\":\"55-59 Tahun\",\"Laki-Laki\":91,\"Perempuan\":97,\"Jumlah\":188},{\"Kelompok Umur\":\"60-64 Tahun\",\"Laki-Laki\":76,\"Perempuan\":59,\"Jumlah\":135},{\"Kelompok Umur\":\"65-69 Tahun\",\"Laki-Laki\":51,\"Perempuan\":42,\"Jumlah\":93},{\"Kelompok Umur\":\"70-74 Tahun\",\"Laki-Laki\":40,\"Perempuan\":16,\"Jumlah\":57},{\"Kelompok Umur\":\"75+ Tahun\",\"Laki-Laki\":41,\"Perempuan\":36,\"Jumlah\":77},{\"Kelompok Umur\":\"Blederan\",\"Laki-Laki\":1651,\"Perempuan\":1450,\"Jumlah\":3109}]', '2024-10-07 04:25:57', 1),
-(8, 'Status Penguasaan Bangunan Tempat Tinggal yang Ditempati di Desa/Kelurahan BLEDERAN Tahun 2024', '[{\"Status\":\"Milik Sendiri\",\"Jumlah\":665,\"Persen\":\"83,02\"},{\"Status\":\"Kontrak/Sewa\",\"Jumlah\":6,\"Persen\":\"0,75\"},{\"Status\":\"Bebas Sewa\",\"Jumlah\":130,\"Persen\":\"16,23\"},{\"Status\":\"Dinas\",\"Jumlah\":0,\"Persen\":\"-\"},{\"Status\":\"Lainnya\",\"Jumlah\":0,\"Persen\":\"-\"},{\"Status\":\"Blederan\",\"Jumlah\":801,\"Persen\":100}]', '2024-10-07 07:02:16', 2),
-(9, 'Tabel 1 Jumlah Penduduk Menurut Suku di Desa/Kelurahan BLEDERAN Tahun 2024', '[\r\n    {\r\n        \"Suku\": \"\'(1)\",\r\n        \"Jumlah\": \"\'(2)\"\r\n    },\r\n    {\r\n        \"Suku\": \"Arab\",\r\n        \"Jumlah\": 1\r\n    },\r\n    {\r\n        \"Suku\": \"India\",\r\n        \"Jumlah\": 2\r\n    },\r\n    {\r\n        \"Suku\": \"Jawa\",\r\n        \"Jumlah\": 3095\r\n    },\r\n    {\r\n        \"Suku\": \"Madura\",\r\n        \"Jumlah\": 8\r\n    },\r\n    {\r\n        \"Suku\": \"Melayu\",\r\n        \"Jumlah\": 1\r\n    },\r\n    {\r\n        \"Suku\": \"Minang\",\r\n        \"Jumlah\": 1\r\n    },\r\n    {\r\n        \"Suku\": \"Sunda\",\r\n        \"Jumlah\": 1\r\n    },\r\n    {\r\n        \"Suku\": \"Blederan\",\r\n        \"Jumlah\": 3109\r\n    }\r\n]', '2024-10-07 07:30:32', 1),
-(10, 'Tabel 1 Jumlah Penduduk Menurut Agama di Desa/Kelurahan BLEDERAN Tahun 2024', '[\r\n    {\r\n        \"Agama\": -1,\r\n        \"Jumlah\": -2\r\n    },\r\n    {\r\n        \"Agama\": \"Islam\",\r\n        \"Jumlah\": 3102\r\n    },\r\n    {\r\n        \"Agama\": \"Kristen\",\r\n        \"Jumlah\": 2\r\n    },\r\n    {\r\n        \"Agama\": \"Katolik\",\r\n        \"Jumlah\": 5\r\n    },\r\n    {\r\n        \"Agama\": \"Blederan\",\r\n        \"Jumlah\": 3109\r\n    }\r\n]', '2024-10-07 07:29:43', 1),
-(11, 'Tabel 18 Jumlah Penduduk Wanita Umur 10-49 Tahun yang Berstatus Kawin Menurut Penggunaan Alat KB di Desa/Kelurahan BLEDERAN Tahun 2024', '[\r\n    {\r\n        \"PenggunaanAlatKB\": \"*(1)\",\r\n        \"Jumlah\": \"*(2)\",\r\n        \"Persentase\": \"*(3)\"\r\n    },\r\n    {\r\n        \"PenggunaanAlatKB\": \"MOW/Tubektomi\",\r\n        \"Jumlah\": 10,\r\n        \"Persentase\": \"3,88%\"\r\n    },\r\n    {\r\n        \"PenggunaanAlatKB\": \"MOP/Vasektomi\",\r\n        \"Jumlah\": 9,\r\n        \"Persentase\": \"3,49%\"\r\n    },\r\n    {\r\n        \"PenggunaanAlatKB\": \"AKDR/IUD/Spiral\",\r\n        \"Jumlah\": 35,\r\n        \"Persentase\": \"13,57%\"\r\n    },\r\n    {\r\n        \"PenggunaanAlatKB\": \"Suntikan KB\",\r\n        \"Jumlah\": 124,\r\n        \"Persentase\": \"48,06%\"\r\n    },\r\n    {\r\n        \"PenggunaanAlatKB\": \"Susuk KB/Norplan/Implanon/Alwalit\",\r\n        \"Jumlah\": 53,\r\n        \"Persentase\": \"20,54%\"\r\n    },\r\n    {\r\n        \"PenggunaanAlatKB\": \"Pil KB\",\r\n        \"Jumlah\": 10,\r\n        \"Persentase\": \"3,88%\"\r\n    },\r\n    {\r\n        \"PenggunaanAlatKB\": \"Kondom/Karet KB\",\r\n        \"Jumlah\": 9,\r\n        \"Persentase\": \"3,49%\"\r\n    },\r\n    {\r\n        \"PenggunaanAlatKB\": \"Intraveg/Tisue/Kondom Wanita\",\r\n        \"Jumlah\": 0,\r\n        \"Persentase\": \"0,00%\"\r\n    },\r\n    {\r\n        \"PenggunaanAlatKB\": \"Cara Tradisional\",\r\n        \"Jumlah\": 8,\r\n        \"Persentase\": \"3,10%\"\r\n    },\r\n    {\r\n        \"PenggunaanAlatKB\": \"Blederan\",\r\n        \"Jumlah\": 258,\r\n        \"Persentase\": \"100,00%\"\r\n    }\r\n]', '2024-10-07 07:36:57', 3),
-(12, 'Tabel 19 Jumlah Penduduk Menurut Jenis Cacat di Desa/Kelurahan BLEDERAN Tahun 2024', '[\r\n    {\r\n        \"JenisCacat\": \"*(1)\",\r\n        \"Jumlah\": \"*(2)\",\r\n        \"Persentase\": \"*(3)\"\r\n    },\r\n    {\r\n        \"JenisCacat\": \"Tuna daksa/cacat tubuh\",\r\n        \"Jumlah\": 20,\r\n        \"Persentase\": \"68,97%\"\r\n    },\r\n    {\r\n        \"JenisCacat\": \"Tuna netra/buta\",\r\n        \"Jumlah\": 3,\r\n        \"Persentase\": \"10,34%\"\r\n    },\r\n    {\r\n        \"JenisCacat\": \"Tuna rungu\",\r\n        \"Jumlah\": 0,\r\n        \"Persentase\": \"0,00%\"\r\n    },\r\n    {\r\n        \"JenisCacat\": \"Tuna wicara\",\r\n        \"Jumlah\": 1,\r\n        \"Persentase\": \"3,45%\"\r\n    },\r\n    {\r\n        \"JenisCacat\": \"Tuna rungu & wicara\",\r\n        \"Jumlah\": 0,\r\n        \"Persentase\": \"0,00%\"\r\n    },\r\n    {\r\n        \"JenisCacat\": \"Tuna netra & cacat tubuh\",\r\n        \"Jumlah\": 1,\r\n        \"Persentase\": \"3,45%\"\r\n    },\r\n    {\r\n        \"JenisCacat\": \"Tuna netra, rungu, & wicara\",\r\n        \"Jumlah\": 0,\r\n        \"Persentase\": \"0,00%\"\r\n    },\r\n    {\r\n        \"JenisCacat\": \"Tuna rungu, wicara, & cacat tubuh\",\r\n        \"Jumlah\": 1,\r\n        \"Persentase\": \"3,45%\"\r\n    },\r\n    {\r\n        \"JenisCacat\": \"Tuna rungu, wicara, netra, & cacat tubuh\",\r\n        \"Jumlah\": 0,\r\n        \"Persentase\": \"0,00%\"\r\n    },\r\n    {\r\n        \"JenisCacat\": \"Cacat mental retardasi\",\r\n        \"Jumlah\": 2,\r\n        \"Persentase\": \"6,90%\"\r\n    },\r\n    {\r\n        \"JenisCacat\": \"Mantan penderita gangguan jiwa\",\r\n        \"Jumlah\": 0,\r\n        \"Persentase\": \"0,00%\"\r\n    },\r\n    {\r\n        \"JenisCacat\": \"Cacat fisik & mental\",\r\n        \"Jumlah\": 1,\r\n        \"Persentase\": \"3,45%\"\r\n    },\r\n    {\r\n        \"JenisCacat\": \"Blederan\",\r\n        \"Jumlah\": 29,\r\n        \"Persentase\": \"100,00%\"\r\n    }\r\n]', '2024-10-07 07:41:11', 3),
-(13, 'Tabel 3 Jumlah Keluarga Menurut Luas Lantai di Desa/Kelurahan BLEDERAN Tahun 2024', '[\n    {\n        \"JenisDinding\": \"*(1)\",\n        \"Jumlah\": \"*(2)\",\n        \"Persen\": -2\n    },\n    {\n        \"JenisDinding\": \"Tembok\",\n        \"Jumlah\": 715,\n        \"Persen\": 88.6\n    },\n    {\n        \"JenisDinding\": \"Plesteran Anyaman Bambu/Kawat\",\n        \"Jumlah\": 4,\n        \"Persen\": 0.5\n    },\n    {\n        \"JenisDinding\": \"Kayu\",\n        \"Jumlah\": 87,\n        \"Persen\": 10.78\n    },\n    {\n        \"JenisDinding\": \"Anyaman Bambu\",\n        \"Jumlah\": 0,\n        \"Persen\": \" -   \"\n    },\n    {\n        \"JenisDinding\": \"Batang Kayu\",\n        \"Jumlah\": 0,\n        \"Persen\": \" -   \"\n    },\n    {\n        \"JenisDinding\": \"Bambu\",\n        \"Jumlah\": 0,\n        \"Persen\": \" -   \"\n    },\n    {\n        \"JenisDinding\": \"Lainnya\",\n        \"Jumlah\": 1,\n        \"Persen\": 0.12\n    },\n    {\n        \"JenisDinding\": \"Blederan\",\n        \"Jumlah\": 807,\n        \"Persen\": 100\n    }\n]', '2024-10-07 07:34:28', 2),
-(14, 'Tabel 5 Jumlah Keluarga Menurut Jenis Dinding Terluas di Desa/Kelurahan BLEDERAN Tahun 2024', '[\r\n    {\r\n        \"JenisDinding\": \"*(1)\",\r\n        \"Jumlah\": \"*(2)\",\r\n        \"Persen\": \"*(2)\"\r\n    },\r\n    {\r\n        \"JenisDinding\": \"Tembok\",\r\n        \"Jumlah\": 715,\r\n        \"Persen\": 88.6\r\n    },\r\n    {\r\n        \"JenisDinding\": \"Plesteran Anyaman Bambu/Kawat\",\r\n        \"Jumlah\": 4,\r\n        \"Persen\": 0.5\r\n    },\r\n    {\r\n        \"JenisDinding\": \"Kayu\",\r\n        \"Jumlah\": 87,\r\n        \"Persen\": 10.78\r\n    },\r\n    {\r\n        \"JenisDinding\": \"Anyaman Bambu\",\r\n        \"Jumlah\": 0,\r\n        \"Persen\": \" -   \"\r\n    },\r\n    {\r\n        \"JenisDinding\": \"Batang Kayu\",\r\n        \"Jumlah\": 0,\r\n        \"Persen\": \" -   \"\r\n    },\r\n    {\r\n        \"JenisDinding\": \"Bambu\",\r\n        \"Jumlah\": 0,\r\n        \"Persen\": \" -   \"\r\n    },\r\n    {\r\n        \"JenisDinding\": \"Lainnya\",\r\n        \"Jumlah\": 1,\r\n        \"Persen\": 0.12\r\n    },\r\n    {\r\n        \"JenisDinding\": \"Blederan\",\r\n        \"Jumlah\": 807,\r\n        \"Persen\": 100\r\n    }\r\n]', '2024-10-07 07:43:01', 2),
-(15, 'Tabel 22 Jumlah Penduduk Usia 5 Tahun ke Atas Menurut Partisipasi Sekolah di Desa/Kelurahan BLEDERAN Tahun 2024', '[{\r\n        \"PartisipasiSekolah\": \"*(1)\",\r\n        \"Jumlah\": \"*(2)\",\r\n        \"Persentase\": \"*(3)\"\r\n    },\r\n    {\r\n        \"PartisipasiSekolah\": \"Tidak/belum pernah sekolah\",\r\n        \"Jumlah\": 93,\r\n        \"Persentase\": \"3,68%\"\r\n    },\r\n    {\r\n        \"PartisipasiSekolah\": \"Masih sekolah\",\r\n        \"Jumlah\": 612,\r\n        \"Persentase\": \"24,19%\"\r\n    },\r\n    {\r\n        \"PartisipasiSekolah\": \"Tidak bersekolah lagi\",\r\n        \"Jumlah\": 1825,\r\n        \"Persentase\": \"72,13%\"\r\n    },\r\n    {\r\n        \"PartisipasiSekolah\": \"Blederan\",\r\n        \"Jumlah\": 2530,\r\n        \"Persentase\": \"100,00%\"\r\n    }\r\n]', '2024-10-07 07:42:53', 4),
-(16, 'Tabel 23 Jumlah Penduduk Usia 5 Tahun ke Atas Menurut Ijazah Tertinggi yang Dimiliki di Desa/Kelurahan BLEDERAN Tahun 2024', '[{\r\n        \"IjazahTertinggiyangDimiliki\": \"*(1)\",\r\n        \"Jumlah\": \"*(2)\",\r\n        \"Persentase\": \"*(3)\"\r\n    },\r\n    {\r\n        \"IjazahTertinggiyangDimiliki\": \"Tidak punya ijazah\",\r\n        \"Jumlah\": 368,\r\n        \"Persentase\": \"15,29%\"\r\n    },\r\n    {\r\n        \"IjazahTertinggiyangDimiliki\": \"SD/sederajat\",\r\n        \"Jumlah\": 1006,\r\n        \"Persentase\": \"41,79%\"\r\n    },\r\n    {\r\n        \"IjazahTertinggiyangDimiliki\": \"SMP/sederajat\",\r\n        \"Jumlah\": 451,\r\n        \"Persentase\": \"18,74%\"\r\n    },\r\n    {\r\n        \"IjazahTertinggiyangDimiliki\": \"SMA/sederajat\",\r\n        \"Jumlah\": 434,\r\n        \"Persentase\": \"18,03%\"\r\n    },\r\n    {\r\n        \"IjazahTertinggiyangDimiliki\": \"D1/D2/D3\",\r\n        \"Jumlah\": 26,\r\n        \"Persentase\": \"1,08%\"\r\n    },\r\n    {\r\n        \"IjazahTertinggiyangDimiliki\": \"D4/S1\",\r\n        \"Jumlah\": 117,\r\n        \"Persentase\": \"4,86%\"\r\n    },\r\n    {\r\n        \"IjazahTertinggiyangDimiliki\": \"S2/S3\",\r\n        \"Jumlah\": 5,\r\n        \"Persentase\": \"0,21%\"\r\n    },\r\n    {\r\n        \"IjazahTertinggiyangDimiliki\": \"Blederan\",\r\n        \"Jumlah\": 2407,\r\n        \"Persentase\": \"100,00%\"\r\n    }]', '2024-10-07 08:02:18', 4),
-(17, 'Tabel 4 Jumlah Keluarga Menurut Jenis Lantai Terluas di Desa/Kelurahan BLEDERAN Tahun 2024\r\n\r\n    \r\n\r\n  \r\n    \r\n', '[\r\n    {\r\n        \"JenisLantai\": \"*(1)\",\r\n        \"Jumlah\": \"*(2)\",\r\n        \"Persen\": \"*(3)\"\r\n    },\r\n    {\r\n        \"JenisLantai\": \"Marmer/Granit\",\r\n        \"Jumlah\": 8,\r\n        \"Persen\": 0.99\r\n    },\r\n    {\r\n        \"JenisLantai\": \"Keramik\",\r\n        \"Jumlah\": 404,\r\n        \"Persen\": 50.12\r\n    },\r\n    {\r\n        \"JenisLantai\": \"Parket/Vinil/Permadani\",\r\n        \"Jumlah\": 0,\r\n        \"Persen\": \" -   \"\r\n    },\r\n    {\r\n        \"JenisLantai\": \"Ubin/Tegel/Teraso\",\r\n        \"Jumlah\": 70,\r\n        \"Persen\": 8.68\r\n    },\r\n    {\r\n        \"JenisLantai\": \"Kayu/Papan Kualitas Tinggi\",\r\n        \"Jumlah\": 0,\r\n        \"Persen\": \" -   \"\r\n    },\r\n    {\r\n        \"JenisLantai\": \"Semen/Bata Merah\",\r\n        \"Jumlah\": 308,\r\n        \"Persen\": 38.21\r\n    },\r\n    {\r\n        \"JenisLantai\": \"Bambu\",\r\n        \"Jumlah\": 0,\r\n        \"Persen\": \" -   \"\r\n    },\r\n    {\r\n        \"JenisLantai\": \"Kayu/Papan Kualitas Rendah\",\r\n        \"Jumlah\": 0,\r\n        \"Persen\": \" -   \"\r\n    },\r\n    {\r\n        \"JenisLantai\": \"Tanah\",\r\n        \"Jumlah\": 12,\r\n        \"Persen\": 1.49\r\n    },\r\n    {\r\n        \"JenisLantai\": \"Lainnya\",\r\n        \"Jumlah\": 4,\r\n        \"Persen\": 0.5\r\n    },\r\n    {\r\n        \"JenisLantai\": \"Blederan\",\r\n        \"Jumlah\": 806,\r\n        \"Persen\": 100\r\n    }\r\n]', '2024-10-07 07:46:28', 2),
-(18, 'Tabel 24 Jumlah Penduduk Usia 5 Tahun ke Atas Menurut Lapangan Usaha di Desa/Kelurahan BLEDERAN Tahun 2024', '\r\n    [{\r\n        \"PekerjaanMenurutLapanganUsaha\": \"*(1)\",\r\n        \"Jumlah\": \"*(2)\"\r\n    },\r\n    {\r\n        \"PekerjaanMenurutLapanganUsaha\": \"Pertanian tanaman padi & palawija\",\r\n        \"Jumlah\": 73\r\n    },\r\n    {\r\n        \"PekerjaanMenurutLapanganUsaha\": \"Hortikultura\",\r\n        \"Jumlah\": 174\r\n    },\r\n    {\r\n        \"PekerjaanMenurutLapanganUsaha\": \"Perkebunan\",\r\n        \"Jumlah\": 5\r\n    },\r\n    {\r\n        \"PekerjaanMenurutLapanganUsaha\": \"Perikanan tangkap\",\r\n        \"Jumlah\": 6\r\n    },\r\n    {\r\n        \"PekerjaanMenurutLapanganUsaha\": \"Perikanan budidaya\",\r\n        \"Jumlah\": 1\r\n    },\r\n    {\r\n        \"PekerjaanMenurutLapanganUsaha\": \"Peternakan\",\r\n        \"Jumlah\": 13\r\n    },\r\n    {\r\n        \"PekerjaanMenurutLapanganUsaha\": \"Kehutanan & pertanian lainnya\",\r\n        \"Jumlah\": 0\r\n    },\r\n    {\r\n        \"PekerjaanMenurutLapanganUsaha\": \"Pertambangan/penggalian\",\r\n        \"Jumlah\": 12\r\n    },\r\n    {\r\n        \"PekerjaanMenurutLapanganUsaha\": \"Industri pengolahan\",\r\n        \"Jumlah\": 60\r\n    },\r\n    {\r\n        \"PekerjaanMenurutLapanganUsaha\": \"Listrik & gas\",\r\n        \"Jumlah\": 7\r\n    },\r\n    {\r\n        \"PekerjaanMenurutLapanganUsaha\": \"Bangunan/kontruksi\",\r\n        \"Jumlah\": 121\r\n    },\r\n    {\r\n        \"PekerjaanMenurutLapanganUsaha\": \"Perdagangan\",\r\n        \"Jumlah\": 321\r\n    },\r\n    {\r\n        \"PekerjaanMenurutLapanganUsaha\": \"Hotel & rumah makan\",\r\n        \"Jumlah\": 9\r\n    },\r\n    {\r\n        \"PekerjaanMenurutLapanganUsaha\": \"Transportasi & pergudangan\",\r\n        \"Jumlah\": 75\r\n    },\r\n    {\r\n        \"PekerjaanMenurutLapanganUsaha\": \"Informasi & komunikasi\",\r\n        \"Jumlah\": 11\r\n    },\r\n    {\r\n        \"PekerjaanMenurutLapanganUsaha\": \"Keuangan & asuransi\",\r\n        \"Jumlah\": 15\r\n    },\r\n    {\r\n        \"PekerjaanMenurutLapanganUsaha\": \"Jasa pendidikan\",\r\n        \"Jumlah\": 59\r\n    },\r\n    {\r\n        \"PekerjaanMenurutLapanganUsaha\": \"Jasa kesehatan\",\r\n        \"Jumlah\": 8\r\n    },\r\n    {\r\n        \"PekerjaanMenurutLapanganUsaha\": \"Jasa kemasyarakatan, pemerintah, & perorangan\",\r\n        \"Jumlah\": 33\r\n    },\r\n    {\r\n        \"PekerjaanMenurutLapanganUsaha\": \"Pemulung\",\r\n        \"Jumlah\": 3\r\n    },\r\n    {\r\n        \"PekerjaanMenurutLapanganUsaha\": \"TKI\",\r\n        \"Jumlah\": 3\r\n    },\r\n    {\r\n        \"PekerjaanMenurutLapanganUsaha\": \"Lainnya\",\r\n        \"Jumlah\": 170\r\n    },\r\n    {\r\n        \"PekerjaanMenurutLapanganUsaha\": \"Blederan\",\r\n        \"Jumlah\": 1179\r\n    }\r\n]', '2024-10-07 08:03:50', 5),
-(19, 'Tabel 6 Jumlah Keluarga Menurut Jenis Atap Terluas di Desa/Kelurahan BLEDERAN Tahun 2024', '[{\r\n        \"JenisAtap\": \"*(1)\",\r\n        \"Jumlah\": \"*(2)\",\r\n        \"Persen\": \"*(2)\"\r\n    },\r\n    {\r\n        \"JenisAtap\": \"Beton/Genteng Beton\",\r\n        \"Jumlah\": 4,\r\n        \"Persen\": 0.5\r\n    },\r\n    {\r\n        \"JenisAtap\": \"Genteng Keramik\",\r\n        \"Jumlah\": 1,\r\n        \"Persen\": 0.12\r\n    },\r\n    {\r\n        \"JenisAtap\": \"Genteng Metal\",\r\n        \"Jumlah\": 3,\r\n        \"Persen\": 0.37\r\n    },\r\n    {\r\n        \"JenisAtap\": \"Genteng Tanah Liat\",\r\n        \"Jumlah\": 5,\r\n        \"Persen\": 0.62\r\n    },\r\n    {\r\n        \"JenisAtap\": \"Asbes\",\r\n        \"Jumlah\": 6,\r\n        \"Persen\": 0.74\r\n    },\r\n    {\r\n        \"JenisAtap\": \"Seng\",\r\n        \"Jumlah\": 788,\r\n        \"Persen\": 97.65\r\n    },\r\n    {\r\n        \"JenisAtap\": \"Sirap\",\r\n        \"Jumlah\": 0,\r\n        \"Persen\": \" -   \"\r\n    },\r\n    {\r\n        \"JenisAtap\": \"Bambu\",\r\n        \"Jumlah\": 0,\r\n        \"Persen\": \" -   \"\r\n    },\r\n    {\r\n        \"JenisAtap\": \"Jerami/Ijuk/Daun Daunan/Rumbia\",\r\n        \"Jumlah\": 0,\r\n        \"Persen\": \" -   \"\r\n    },\r\n    {\r\n        \"JenisAtap\": \"Lainnya\",\r\n        \"Jumlah\": 0,\r\n        \"Persen\": \" -   \"\r\n    },\r\n    {\r\n        \"JenisAtap\": \"Blederan\",\r\n        \"Jumlah\": 807,\r\n        \"Persen\": 100\r\n    }\r\n]', '2024-10-07 08:04:33', 2),
-(20, 'Tabel 12 Jumlah Keluarga Menurut Penggunaan Fasilitas Tempat Buang Air Besar di Desa/Kelurahan BLEDERAN Tahun 2024', '[\n    {\n        \"FasilitasBAB\": \"Sendiri\",\n        \"Jumlah\": 735,\n        \"Persen\": 91.53\n    },\n    {\n        \"FasilitasBAB\": \"Bersama\",\n        \"Jumlah\": 43,\n        \"Persen\": 5.35\n    },\n    {\n        \"FasilitasBAB\": \"Umum\",\n        \"Jumlah\": 25,\n        \"Persen\": 3.11\n    },\n    {\n        \"FasilitasBAB\": \"Tidak Ada\",\n        \"Jumlah\": 0,\n        \"Persen\": \" -   \"\n    },\n    {\n        \"FasilitasBAB\": \"Blederan\",\n        \"Jumlah\": 803,\n        \"Persen\": 100\n    }\n]', '2024-10-07 08:12:21', 2),
-(21, 'Tabel 13 Jumlah Keluarga Menurut Jenis Kloset di Desa/Kelurahan BLEDERAN Tahun 2024', '[\r\n    {\r\n        \"JenisKloset\": \"*(1)\",\r\n        \"Jumlah\": \"*(2)\",\r\n        \"Persen\": \"*(2)\"\r\n    },\r\n    {\r\n        \"JenisKloset\": \"Leher Angsa\",\r\n        \"Jumlah\": 621,\r\n        \"Persen\": 78.51\r\n    },\r\n    {\r\n        \"JenisKloset\": \"Plengsengan\",\r\n        \"Jumlah\": 133,\r\n        \"Persen\": 16.81\r\n    },\r\n    {\r\n        \"JenisKloset\": \"Cemplung/Cubluk\",\r\n        \"Jumlah\": 33,\r\n        \"Persen\": 4.17\r\n    },\r\n    {\r\n        \"JenisKloset\": \"Tidak Pakai\",\r\n        \"Jumlah\": 4,\r\n        \"Persen\": 0.51\r\n    },\r\n    {\r\n        \"JenisKloset\": \"Blederan\",\r\n        \"Jumlah\": 791,\r\n        \"Persen\": 100\r\n    }\r\n]', '2024-10-07 08:14:31', 2);
+INSERT INTO `tabulasis` (`id`, `judul_tabel`, `data`, `metadata`, `id_table`, `tanggal`, `kategori`, `created_at`, `updated_at`) VALUES
+(1, 'Jumlah Penduduk Wanita Umur 10-49 Tahun yang Berstatus Kawin Menurut Penggunaan Alat KB di Desa/Kelurahan BLEDERAN 2024', '[{\"Penggunaan_Alat_KB\":\"1\",\"Jumlah\":10,\"Persentase\":\"3.88\"},{\"Penggunaan_Alat_KB\":\"2\",\"Jumlah\":9,\"Persentase\":\"3.49\"},{\"Penggunaan_Alat_KB\":\"3\",\"Jumlah\":35,\"Persentase\":\"13.57\"},{\"Penggunaan_Alat_KB\":\"4\",\"Jumlah\":124,\"Persentase\":\"48.06\"},{\"Penggunaan_Alat_KB\":\"5\",\"Jumlah\":53,\"Persentase\":\"20.54\"},{\"Penggunaan_Alat_KB\":\"6\",\"Jumlah\":10,\"Persentase\":\"3.88\"},{\"Penggunaan_Alat_KB\":\"7\",\"Jumlah\":9,\"Persentase\":\"3.49\"},{\"Penggunaan_Alat_KB\":\"9\",\"Jumlah\":8,\"Persentase\":\"3.10\"}]', '[{\"id\":51,\"var\":\"b4k11\",\"value\":\"1\",\"nama\":\"MOW\\/Tubektomi\"},{\"id\":52,\"var\":\"b4k11\",\"value\":\"2\",\"nama\":\"MOP\\/Vasektomi\"},{\"id\":53,\"var\":\"b4k11\",\"value\":\"3\",\"nama\":\"AKDR\\/IUD\\/Spiral\"},{\"id\":54,\"var\":\"b4k11\",\"value\":\"4\",\"nama\":\"Suntikan KB\"},{\"id\":55,\"var\":\"b4k11\",\"value\":\"5\",\"nama\":\"Susuk KB\\/Norplan\\/Implanon\\/Alwalit\"},{\"id\":56,\"var\":\"b4k11\",\"value\":\"6\",\"nama\":\"Pil KB\"},{\"id\":57,\"var\":\"b4k11\",\"value\":\"7\",\"nama\":\"Kondom\\/Karet KB\"},{\"id\":58,\"var\":\"b4k11\",\"value\":\"8\",\"nama\":\"Intravag\\/Tisue\\/Kondom Wanita\"},{\"id\":59,\"var\":\"b4k11\",\"value\":\"9\",\"nama\":\"Cara Tradisional\"}]', 'b4k11', '2024-10-13 18:38:14', 3, '2024-10-13 18:38:14', '2024-10-13 18:38:14'),
+(2, 'Jumlah Penduduk Menurut Jenis Cacat di Desa/Kelurahan BLEDERAN 2024', '[{\"Jenis_Cacat\":\"01\",\"Jumlah\":20,\"Persentase\":\"68.97\"},{\"Jenis_Cacat\":\"02\",\"Jumlah\":3,\"Persentase\":\"10.34\"},{\"Jenis_Cacat\":\"04\",\"Jumlah\":1,\"Persentase\":\"3.45\"},{\"Jenis_Cacat\":\"06\",\"Jumlah\":1,\"Persentase\":\"3.45\"},{\"Jenis_Cacat\":\"08\",\"Jumlah\":1,\"Persentase\":\"3.45\"},{\"Jenis_Cacat\":\"10\",\"Jumlah\":2,\"Persentase\":\"6.90\"},{\"Jenis_Cacat\":\"12\",\"Jumlah\":1,\"Persentase\":\"3.45\"}]', '[{\"id\":60,\"var\":\"b4k12\",\"value\":\"00\",\"nama\":\"Tidak cacat\"},{\"id\":61,\"var\":\"b4k12\",\"value\":\"01\",\"nama\":\"Tuna daksa\\/cacat tubuh\"},{\"id\":62,\"var\":\"b4k12\",\"value\":\"02\",\"nama\":\"Tuna netra\\/buta\"},{\"id\":63,\"var\":\"b4k12\",\"value\":\"03\",\"nama\":\"Tuna rungu\"},{\"id\":64,\"var\":\"b4k12\",\"value\":\"04\",\"nama\":\"Tuna wicara\"},{\"id\":65,\"var\":\"b4k12\",\"value\":\"05\",\"nama\":\"Tuna rungu & wicara\"},{\"id\":66,\"var\":\"b4k12\",\"value\":\"06\",\"nama\":\"Tuna netra & cacat tubuh\"},{\"id\":67,\"var\":\"b4k12\",\"value\":\"07\",\"nama\":\"Tuna netra, rungu, & wicara\"},{\"id\":68,\"var\":\"b4k12\",\"value\":\"08\",\"nama\":\"Tuna rungu, wicara, & cacat tubuh\"},{\"id\":69,\"var\":\"b4k12\",\"value\":\"09\",\"nama\":\"Tuna rungu, wicara, netra, & cacat tubuh\"},{\"id\":70,\"var\":\"b4k12\",\"value\":\"10\",\"nama\":\"Cacat mental retardasi\"},{\"id\":71,\"var\":\"b4k12\",\"value\":\"11\",\"nama\":\"Mantan penderita gangguan jiwa\"},{\"id\":72,\"var\":\"b4k12\",\"value\":\"12\",\"nama\":\"Cacat fisik & mental\"}]', 'b4k12', '2024-10-13 18:38:14', 3, '2024-10-13 18:38:14', '2024-10-13 18:38:14'),
+(3, 'Jumlah Penduduk Usia 5 Tahun ke Atas Menurut Partisipasi Sekolah di Desa/Kelurahan BLEDERAN 2024', '[{\"Partisipasi_Sekolah\":\"0\",\"Jumlah\":93,\"Persentase\":\"3.68\"},{\"Partisipasi_Sekolah\":\"1\",\"Jumlah\":612,\"Persentase\":\"24.19\"},{\"Partisipasi_Sekolah\":\"2\",\"Jumlah\":1825,\"Persentase\":\"72.13\"}]', '[{\"id\":73,\"var\":\"b4k15\",\"value\":\"0\",\"nama\":\"Tidak\\/belum pernah sekolah\"},{\"id\":74,\"var\":\"b4k15\",\"value\":\"1\",\"nama\":\"Masih sekolah\"},{\"id\":75,\"var\":\"b4k15\",\"value\":\"2\",\"nama\":\"Tidak bersekolah lagi\"}]', 'b4k15', '2024-10-13 18:38:14', 4, '2024-10-13 18:38:14', '2024-10-13 18:38:14'),
+(4, 'Jumlah Penduduk Usia 5 Tahun ke Atas Menurut Ijazah Tertinggi yang Dimiliki di Desa/Kelurahan BLEDERAN 2024', '[{\"Ijazah_Tertinggi_yang_Dimiliki\":\"0\",\"Jumlah\":368,\"Persentase\":\"15.29\"},{\"Ijazah_Tertinggi_yang_Dimiliki\":\"1\",\"Jumlah\":1006,\"Persentase\":\"41.79\"},{\"Ijazah_Tertinggi_yang_Dimiliki\":\"2\",\"Jumlah\":451,\"Persentase\":\"18.74\"},{\"Ijazah_Tertinggi_yang_Dimiliki\":\"3\",\"Jumlah\":434,\"Persentase\":\"18.03\"},{\"Ijazah_Tertinggi_yang_Dimiliki\":\"4\",\"Jumlah\":26,\"Persentase\":\"1.08\"},{\"Ijazah_Tertinggi_yang_Dimiliki\":\"5\",\"Jumlah\":117,\"Persentase\":\"4.86\"},{\"Ijazah_Tertinggi_yang_Dimiliki\":\"6\",\"Jumlah\":5,\"Persentase\":\"0.21\"}]', '[{\"id\":76,\"var\":\"b4k18\",\"value\":\"0\",\"nama\":\"Tidak punya ijazah\"},{\"id\":77,\"var\":\"b4k18\",\"value\":\"1\",\"nama\":\"SD\\/sederajat\"},{\"id\":78,\"var\":\"b4k18\",\"value\":\"2\",\"nama\":\"SMP\\/sederajat\"},{\"id\":79,\"var\":\"b4k18\",\"value\":\"3\",\"nama\":\"SMA\\/sederajat\"},{\"id\":80,\"var\":\"b4k18\",\"value\":\"4\",\"nama\":\"D1\\/D2\\/D3\"},{\"id\":81,\"var\":\"b4k18\",\"value\":\"5\",\"nama\":\"D4\\/S1\"},{\"id\":82,\"var\":\"b4k18\",\"value\":\"6\",\"nama\":\"S2\\/S3\"}]', 'b4k18', '2024-10-13 18:38:14', 4, '2024-10-13 18:38:14', '2024-10-13 18:38:14'),
+(5, 'Jumlah Penduduk Usia 5 Tahun ke Atas Menurut Lapangan Usaha di Desa/Kelurahan BLEDERAN 2024', '[{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"01\",\"Jumlah\":73},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"02\",\"Jumlah\":174},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"03\",\"Jumlah\":5},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"04\",\"Jumlah\":6},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"05\",\"Jumlah\":1},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"06\",\"Jumlah\":13},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"08\",\"Jumlah\":12},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"09\",\"Jumlah\":60},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"10\",\"Jumlah\":7},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"11\",\"Jumlah\":121},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"12\",\"Jumlah\":321},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"13\",\"Jumlah\":9},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"14\",\"Jumlah\":75},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"15\",\"Jumlah\":11},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"16\",\"Jumlah\":15},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"17\",\"Jumlah\":59},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"18\",\"Jumlah\":8},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"19\",\"Jumlah\":33},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"20\",\"Jumlah\":3},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"21\",\"Jumlah\":3},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"22\",\"Jumlah\":170}]', '[{\"id\":83,\"var\":\"b4k21\",\"value\":\"01\",\"nama\":\"Pertanian tanaman padi & palawija\"},{\"id\":84,\"var\":\"b4k21\",\"value\":\"02\",\"nama\":\"Hortikultura\"},{\"id\":85,\"var\":\"b4k21\",\"value\":\"03\",\"nama\":\"Perkebunan\"},{\"id\":86,\"var\":\"b4k21\",\"value\":\"04\",\"nama\":\"Perikanan tangkap\"},{\"id\":87,\"var\":\"b4k21\",\"value\":\"05\",\"nama\":\"Perikanan budidaya\"},{\"id\":88,\"var\":\"b4k21\",\"value\":\"06\",\"nama\":\"Peternakan\"},{\"id\":89,\"var\":\"b4k21\",\"value\":\"07\",\"nama\":\"Kehutanan & pertanian lainnya\"},{\"id\":90,\"var\":\"b4k21\",\"value\":\"08\",\"nama\":\"Pertambangan\\/penggalian\"},{\"id\":91,\"var\":\"b4k21\",\"value\":\"09\",\"nama\":\"Industri pengolahan\"},{\"id\":92,\"var\":\"b4k21\",\"value\":\"10\",\"nama\":\"Listrik & gas\"},{\"id\":93,\"var\":\"b4k21\",\"value\":\"11\",\"nama\":\"Bangunan\\/kontruksi\"},{\"id\":94,\"var\":\"b4k21\",\"value\":\"12\",\"nama\":\"Perdagangan\"},{\"id\":95,\"var\":\"b4k21\",\"value\":\"13\",\"nama\":\"Hotel & rumah makan\"},{\"id\":96,\"var\":\"b4k21\",\"value\":\"14\",\"nama\":\"Transportasi & pergudangan\"},{\"id\":97,\"var\":\"b4k21\",\"value\":\"15\",\"nama\":\"Informasi & komunikasi\"},{\"id\":98,\"var\":\"b4k21\",\"value\":\"16\",\"nama\":\"Keuangan & asuransi\"},{\"id\":99,\"var\":\"b4k21\",\"value\":\"17\",\"nama\":\"Jasa pendidikan\"},{\"id\":100,\"var\":\"b4k21\",\"value\":\"18\",\"nama\":\"Jasa kesehatan\"},{\"id\":101,\"var\":\"b4k21\",\"value\":\"19\",\"nama\":\"Jasa kemasyarakatan, pemerintah, & perorangan\"},{\"id\":102,\"var\":\"b4k21\",\"value\":\"20\",\"nama\":\"Pemulung\"},{\"id\":103,\"var\":\"b4k21\",\"value\":\"21\",\"nama\":\"TKI\"},{\"id\":104,\"var\":\"b4k21\",\"value\":\"22\",\"nama\":\"Lainnya\"}]', 'b4k21', '2024-10-13 18:38:14', 5, '2024-10-13 18:38:14', '2024-10-13 18:38:14'),
+(6, 'Status Penguasaan Bangunan Tempat Tinggal yang Ditempati di Desa/Kelurahan BLEDERAN 2024', '[{\"Status\":\"1\",\"Jumlah\":665,\"Persentase\":\"83.02\"},{\"Status\":\"2\",\"Jumlah\":6,\"Persentase\":\"0.75\"},{\"Status\":\"3\",\"Jumlah\":130,\"Persentase\":\"16.23\"}]', '[{\"id\":1,\"var\":\"b3r1a\",\"value\":\"1\",\"nama\":\"Milik sendiri\"},{\"id\":2,\"var\":\"b3r1a\",\"value\":\"2\",\"nama\":\"Kontrak\\/sewa\"},{\"id\":3,\"var\":\"b3r1a\",\"value\":\"3\",\"nama\":\"Bebas sewa\"},{\"id\":4,\"var\":\"b3r1a\",\"value\":\"4\",\"nama\":\"Dinas\"},{\"id\":5,\"var\":\"b3r1a\",\"value\":\"5\",\"nama\":\"Lainnya\"}]', 'b3r1a', '2024-10-13 18:38:14', 2, '2024-10-13 18:38:14', '2024-10-13 18:38:14'),
+(7, 'Jumlah Keluarga Menurut Luas Lantai di Desa/Kelurahan BLEDERAN 2024', '[{\"Jenis_Lantai\":\"01\",\"Jumlah\":8,\"Persentase\":\"0.99\"},{\"Jenis_Lantai\":\"02\",\"Jumlah\":404,\"Persentase\":\"50.12\"},{\"Jenis_Lantai\":\"04\",\"Jumlah\":70,\"Persentase\":\"8.68\"},{\"Jenis_Lantai\":\"06\",\"Jumlah\":308,\"Persentase\":\"38.21\"},{\"Jenis_Lantai\":\"09\",\"Jumlah\":12,\"Persentase\":\"1.49\"},{\"Jenis_Lantai\":\"10\",\"Jumlah\":4,\"Persentase\":\"0.50\"}]', '[{\"id\":6,\"var\":\"b3r3\",\"value\":\"01\",\"nama\":\"Marmer\\/granit\"},{\"id\":7,\"var\":\"b3r3\",\"value\":\"02\",\"nama\":\"Keramik\"},{\"id\":8,\"var\":\"b3r3\",\"value\":\"03\",\"nama\":\"Parket\\/vinil\\/permadani\"},{\"id\":9,\"var\":\"b3r3\",\"value\":\"04\",\"nama\":\"Ubin\\/tegel\\/teraso\"},{\"id\":10,\"var\":\"b3r3\",\"value\":\"05\",\"nama\":\"Kayu\\/papan kualitas tinggi\"},{\"id\":11,\"var\":\"b3r3\",\"value\":\"06\",\"nama\":\"Semen\\/bata merah\"},{\"id\":12,\"var\":\"b3r3\",\"value\":\"07\",\"nama\":\"Bambu\"},{\"id\":13,\"var\":\"b3r3\",\"value\":\"08\",\"nama\":\"Kayu\\/papan kualitas rendah\"},{\"id\":14,\"var\":\"b3r3\",\"value\":\"09\",\"nama\":\"Tanah\"},{\"id\":15,\"var\":\"b3r3\",\"value\":\"10\",\"nama\":\"Lainnya\"}]', 'b3r3', '2024-10-13 18:38:14', 2, '2024-10-13 18:38:14', '2024-10-13 18:38:14'),
+(8, 'Jumlah Keluarga Menurut Jenis Dinding Terluas di Desa/Kelurahan BLEDERAN 2024', '[{\"Jenis_Dinding\":\"1\",\"Jumlah\":715,\"Persentase\":\"88.60\"},{\"Jenis_Dinding\":\"2\",\"Jumlah\":4,\"Persentase\":\"0.50\"},{\"Jenis_Dinding\":\"3\",\"Jumlah\":87,\"Persentase\":\"10.78\"},{\"Jenis_Dinding\":\"7\",\"Jumlah\":1,\"Persentase\":\"0.12\"}]', '[{\"id\":26,\"var\":\"b3r4a\",\"value\":\"1\",\"nama\":\"Tembok\"},{\"id\":27,\"var\":\"b3r4a\",\"value\":\"2\",\"nama\":\"Plesteran anyaman bambu\\/kawat\"},{\"id\":28,\"var\":\"b3r4a\",\"value\":\"3\",\"nama\":\"Kayu\"},{\"id\":29,\"var\":\"b3r4a\",\"value\":\"4\",\"nama\":\"Anyaman bambu\"},{\"id\":30,\"var\":\"b3r4a\",\"value\":\"5\",\"nama\":\"Batang kayu\"},{\"id\":31,\"var\":\"b3r4a\",\"value\":\"6\",\"nama\":\"Bambu\"},{\"id\":32,\"var\":\"b3r4a\",\"value\":\"7\",\"nama\":\"Lainnya\"}]', 'b3r4a', '2024-10-13 18:38:14', 2, '2024-10-13 18:38:14', '2024-10-13 18:38:14'),
+(9, 'Jumlah Keluarga Menurut Jenis Atap Terluas di Desa/Kelurahan BLEDERAN 2024', '[{\"Jenis_Atap\":\"01\",\"Jumlah\":4,\"Persentase\":\"0.50\"},{\"Jenis_Atap\":\"02\",\"Jumlah\":1,\"Persentase\":\"0.12\"},{\"Jenis_Atap\":\"03\",\"Jumlah\":3,\"Persentase\":\"0.37\"},{\"Jenis_Atap\":\"04\",\"Jumlah\":5,\"Persentase\":\"0.62\"},{\"Jenis_Atap\":\"05\",\"Jumlah\":6,\"Persentase\":\"0.74\"},{\"Jenis_Atap\":\"06\",\"Jumlah\":787,\"Persentase\":\"97.52\"},{\"Jenis_Atap\":\"07\",\"Jumlah\":1,\"Persentase\":\"0.12\"}]', '[{\"id\":16,\"var\":\"b3r5a\",\"value\":\"01\",\"nama\":\"Beton\\/genteng beton\"},{\"id\":17,\"var\":\"b3r5a\",\"value\":\"02\",\"nama\":\"Genteng keramik\"},{\"id\":18,\"var\":\"b3r5a\",\"value\":\"03\",\"nama\":\"Genteng metal\"},{\"id\":19,\"var\":\"b3r5a\",\"value\":\"04\",\"nama\":\"Genteng tanah liat\"},{\"id\":20,\"var\":\"b3r5a\",\"value\":\"05\",\"nama\":\"Asbes\"},{\"id\":21,\"var\":\"b3r5a\",\"value\":\"06\",\"nama\":\"Seng\"},{\"id\":22,\"var\":\"b3r5a\",\"value\":\"07\",\"nama\":\"Sirap\"},{\"id\":23,\"var\":\"b3r5a\",\"value\":\"08\",\"nama\":\"Bambu\"},{\"id\":24,\"var\":\"b3r5a\",\"value\":\"09\",\"nama\":\"Jerami\\/ijuk\\/daun daunan\\/rumbia\"},{\"id\":25,\"var\":\"b3r5a\",\"value\":\"10\",\"nama\":\"Lainnya\"},{\"id\":33,\"var\":\"b3r5a\",\"value\":\"01\",\"nama\":\"Beton\\/genteng beton\"},{\"id\":34,\"var\":\"b3r5a\",\"value\":\"02\",\"nama\":\"Genteng keramik\"},{\"id\":35,\"var\":\"b3r5a\",\"value\":\"03\",\"nama\":\"Genteng metal\"},{\"id\":36,\"var\":\"b3r5a\",\"value\":\"04\",\"nama\":\"Genteng tanah liat\"},{\"id\":37,\"var\":\"b3r5a\",\"value\":\"05\",\"nama\":\"Asbes\"},{\"id\":38,\"var\":\"b3r5a\",\"value\":\"06\",\"nama\":\"Seng\"},{\"id\":39,\"var\":\"b3r5a\",\"value\":\"07\",\"nama\":\"Sirap\"},{\"id\":40,\"var\":\"b3r5a\",\"value\":\"08\",\"nama\":\"Bambu\"},{\"id\":41,\"var\":\"b3r5a\",\"value\":\"09\",\"nama\":\"Jerami\\/ijuk\\/daun daunan\\/rumbia\"},{\"id\":42,\"var\":\"b3r5a\",\"value\":\"10\",\"nama\":\"Lainnya\"}]', 'b3r5a', '2024-10-13 18:38:14', 2, '2024-10-13 18:38:14', '2024-10-13 18:38:14'),
+(10, 'Jumlah Keluarga Menurut Penggunaan Fasilitas Tempat Buang Air Besar di Desa/Kelurahan BLEDERAN 2024', '[{\"Fasilitas_BAB\":\"1\",\"Jumlah\":735,\"Persentase\":\"91.53\"},{\"Fasilitas_BAB\":\"2\",\"Jumlah\":43,\"Persentase\":\"5.35\"},{\"Fasilitas_BAB\":\"3\",\"Jumlah\":25,\"Persentase\":\"3.11\"}]', '[{\"id\":43,\"var\":\"b3r11a\",\"value\":\"1\",\"nama\":\"Sendiri\"},{\"id\":44,\"var\":\"b3r11a\",\"value\":\"2\",\"nama\":\"Bersama\"},{\"id\":45,\"var\":\"b3r11a\",\"value\":\"3\",\"nama\":\"Umum\"},{\"id\":46,\"var\":\"b3r11a\",\"value\":\"4\",\"nama\":\"Tidak ada\"}]', 'b3r11a', '2024-10-13 18:38:14', 2, '2024-10-13 18:38:14', '2024-10-13 18:38:14'),
+(11, 'Jumlah Keluarga Menurut Jenis Kloset di Desa/Kelurahan BLEDERAN 2024', '[{\"Jenis_Kloset\":\"1\",\"Jumlah\":621,\"Persentase\":\"78.51\"},{\"Jenis_Kloset\":\"2\",\"Jumlah\":133,\"Persentase\":\"16.81\"},{\"Jenis_Kloset\":\"3\",\"Jumlah\":33,\"Persentase\":\"4.17\"},{\"Jenis_Kloset\":\"4\",\"Jumlah\":4,\"Persentase\":\"0.51\"}]', '[{\"id\":47,\"var\":\"b3r11b\",\"value\":\"1\",\"nama\":\"Leher angsa\"},{\"id\":48,\"var\":\"b3r11b\",\"value\":\"2\",\"nama\":\"Plengsengan\"},{\"id\":49,\"var\":\"b3r11b\",\"value\":\"3\",\"nama\":\"Cemplung\\/cubluk\"},{\"id\":50,\"var\":\"b3r11b\",\"value\":\"4\",\"nama\":\"Tidak pakai\"}]', 'b3r11b', '2024-10-13 18:38:14', 2, '2024-10-13 18:38:14', '2024-10-13 18:38:14'),
+(12, 'Jumlah Penduduk Wanita Umur 10-49 Tahun yang Berstatus Kawin Menurut Penggunaan Alat KB di Desa/Kelurahan BLEDERAN 2024', '[{\"Penggunaan_Alat_KB\":\"1\",\"Jumlah\":10,\"Persentase\":\"3.88\"},{\"Penggunaan_Alat_KB\":\"2\",\"Jumlah\":9,\"Persentase\":\"3.49\"},{\"Penggunaan_Alat_KB\":\"3\",\"Jumlah\":35,\"Persentase\":\"13.57\"},{\"Penggunaan_Alat_KB\":\"4\",\"Jumlah\":124,\"Persentase\":\"48.06\"},{\"Penggunaan_Alat_KB\":\"5\",\"Jumlah\":53,\"Persentase\":\"20.54\"},{\"Penggunaan_Alat_KB\":\"6\",\"Jumlah\":10,\"Persentase\":\"3.88\"},{\"Penggunaan_Alat_KB\":\"7\",\"Jumlah\":9,\"Persentase\":\"3.49\"},{\"Penggunaan_Alat_KB\":\"9\",\"Jumlah\":8,\"Persentase\":\"3.10\"}]', '[{\"id\":51,\"var\":\"b4k11\",\"value\":\"1\",\"nama\":\"MOW\\/Tubektomi\"},{\"id\":52,\"var\":\"b4k11\",\"value\":\"2\",\"nama\":\"MOP\\/Vasektomi\"},{\"id\":53,\"var\":\"b4k11\",\"value\":\"3\",\"nama\":\"AKDR\\/IUD\\/Spiral\"},{\"id\":54,\"var\":\"b4k11\",\"value\":\"4\",\"nama\":\"Suntikan KB\"},{\"id\":55,\"var\":\"b4k11\",\"value\":\"5\",\"nama\":\"Susuk KB\\/Norplan\\/Implanon\\/Alwalit\"},{\"id\":56,\"var\":\"b4k11\",\"value\":\"6\",\"nama\":\"Pil KB\"},{\"id\":57,\"var\":\"b4k11\",\"value\":\"7\",\"nama\":\"Kondom\\/Karet KB\"},{\"id\":58,\"var\":\"b4k11\",\"value\":\"8\",\"nama\":\"Intravag\\/Tisue\\/Kondom Wanita\"},{\"id\":59,\"var\":\"b4k11\",\"value\":\"9\",\"nama\":\"Cara Tradisional\"}]', 'b4k11', '2024-10-13 18:39:31', 3, '2024-10-13 18:39:31', '2024-10-13 18:39:31'),
+(13, 'Jumlah Penduduk Menurut Jenis Cacat di Desa/Kelurahan BLEDERAN 2024', '[{\"Jenis_Cacat\":\"01\",\"Jumlah\":20,\"Persentase\":\"68.97\"},{\"Jenis_Cacat\":\"02\",\"Jumlah\":3,\"Persentase\":\"10.34\"},{\"Jenis_Cacat\":\"04\",\"Jumlah\":1,\"Persentase\":\"3.45\"},{\"Jenis_Cacat\":\"06\",\"Jumlah\":1,\"Persentase\":\"3.45\"},{\"Jenis_Cacat\":\"08\",\"Jumlah\":1,\"Persentase\":\"3.45\"},{\"Jenis_Cacat\":\"10\",\"Jumlah\":2,\"Persentase\":\"6.90\"},{\"Jenis_Cacat\":\"12\",\"Jumlah\":1,\"Persentase\":\"3.45\"}]', '[{\"id\":60,\"var\":\"b4k12\",\"value\":\"00\",\"nama\":\"Tidak cacat\"},{\"id\":61,\"var\":\"b4k12\",\"value\":\"01\",\"nama\":\"Tuna daksa\\/cacat tubuh\"},{\"id\":62,\"var\":\"b4k12\",\"value\":\"02\",\"nama\":\"Tuna netra\\/buta\"},{\"id\":63,\"var\":\"b4k12\",\"value\":\"03\",\"nama\":\"Tuna rungu\"},{\"id\":64,\"var\":\"b4k12\",\"value\":\"04\",\"nama\":\"Tuna wicara\"},{\"id\":65,\"var\":\"b4k12\",\"value\":\"05\",\"nama\":\"Tuna rungu & wicara\"},{\"id\":66,\"var\":\"b4k12\",\"value\":\"06\",\"nama\":\"Tuna netra & cacat tubuh\"},{\"id\":67,\"var\":\"b4k12\",\"value\":\"07\",\"nama\":\"Tuna netra, rungu, & wicara\"},{\"id\":68,\"var\":\"b4k12\",\"value\":\"08\",\"nama\":\"Tuna rungu, wicara, & cacat tubuh\"},{\"id\":69,\"var\":\"b4k12\",\"value\":\"09\",\"nama\":\"Tuna rungu, wicara, netra, & cacat tubuh\"},{\"id\":70,\"var\":\"b4k12\",\"value\":\"10\",\"nama\":\"Cacat mental retardasi\"},{\"id\":71,\"var\":\"b4k12\",\"value\":\"11\",\"nama\":\"Mantan penderita gangguan jiwa\"},{\"id\":72,\"var\":\"b4k12\",\"value\":\"12\",\"nama\":\"Cacat fisik & mental\"}]', 'b4k12', '2024-10-13 18:39:31', 3, '2024-10-13 18:39:31', '2024-10-13 18:39:31'),
+(14, 'Jumlah Penduduk Usia 5 Tahun ke Atas Menurut Partisipasi Sekolah di Desa/Kelurahan BLEDERAN 2024', '[{\"Partisipasi_Sekolah\":\"0\",\"Jumlah\":93,\"Persentase\":\"3.68\"},{\"Partisipasi_Sekolah\":\"1\",\"Jumlah\":612,\"Persentase\":\"24.19\"},{\"Partisipasi_Sekolah\":\"2\",\"Jumlah\":1825,\"Persentase\":\"72.13\"}]', '[{\"id\":73,\"var\":\"b4k15\",\"value\":\"0\",\"nama\":\"Tidak\\/belum pernah sekolah\"},{\"id\":74,\"var\":\"b4k15\",\"value\":\"1\",\"nama\":\"Masih sekolah\"},{\"id\":75,\"var\":\"b4k15\",\"value\":\"2\",\"nama\":\"Tidak bersekolah lagi\"}]', 'b4k15', '2024-10-13 18:39:31', 4, '2024-10-13 18:39:31', '2024-10-13 18:39:31'),
+(15, 'Jumlah Penduduk Usia 5 Tahun ke Atas Menurut Ijazah Tertinggi yang Dimiliki di Desa/Kelurahan BLEDERAN 2024', '[{\"Ijazah_Tertinggi_yang_Dimiliki\":\"0\",\"Jumlah\":368,\"Persentase\":\"15.29\"},{\"Ijazah_Tertinggi_yang_Dimiliki\":\"1\",\"Jumlah\":1006,\"Persentase\":\"41.79\"},{\"Ijazah_Tertinggi_yang_Dimiliki\":\"2\",\"Jumlah\":451,\"Persentase\":\"18.74\"},{\"Ijazah_Tertinggi_yang_Dimiliki\":\"3\",\"Jumlah\":434,\"Persentase\":\"18.03\"},{\"Ijazah_Tertinggi_yang_Dimiliki\":\"4\",\"Jumlah\":26,\"Persentase\":\"1.08\"},{\"Ijazah_Tertinggi_yang_Dimiliki\":\"5\",\"Jumlah\":117,\"Persentase\":\"4.86\"},{\"Ijazah_Tertinggi_yang_Dimiliki\":\"6\",\"Jumlah\":5,\"Persentase\":\"0.21\"}]', '[{\"id\":76,\"var\":\"b4k18\",\"value\":\"0\",\"nama\":\"Tidak punya ijazah\"},{\"id\":77,\"var\":\"b4k18\",\"value\":\"1\",\"nama\":\"SD\\/sederajat\"},{\"id\":78,\"var\":\"b4k18\",\"value\":\"2\",\"nama\":\"SMP\\/sederajat\"},{\"id\":79,\"var\":\"b4k18\",\"value\":\"3\",\"nama\":\"SMA\\/sederajat\"},{\"id\":80,\"var\":\"b4k18\",\"value\":\"4\",\"nama\":\"D1\\/D2\\/D3\"},{\"id\":81,\"var\":\"b4k18\",\"value\":\"5\",\"nama\":\"D4\\/S1\"},{\"id\":82,\"var\":\"b4k18\",\"value\":\"6\",\"nama\":\"S2\\/S3\"}]', 'b4k18', '2024-10-13 18:39:31', 4, '2024-10-13 18:39:31', '2024-10-13 18:39:31'),
+(16, 'Jumlah Penduduk Usia 5 Tahun ke Atas Menurut Lapangan Usaha di Desa/Kelurahan BLEDERAN 2024', '[{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"01\",\"Jumlah\":73},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"02\",\"Jumlah\":174},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"03\",\"Jumlah\":5},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"04\",\"Jumlah\":6},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"05\",\"Jumlah\":1},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"06\",\"Jumlah\":13},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"08\",\"Jumlah\":12},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"09\",\"Jumlah\":60},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"10\",\"Jumlah\":7},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"11\",\"Jumlah\":121},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"12\",\"Jumlah\":321},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"13\",\"Jumlah\":9},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"14\",\"Jumlah\":75},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"15\",\"Jumlah\":11},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"16\",\"Jumlah\":15},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"17\",\"Jumlah\":59},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"18\",\"Jumlah\":8},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"19\",\"Jumlah\":33},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"20\",\"Jumlah\":3},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"21\",\"Jumlah\":3},{\"Pekerjaan_Utama_Menurut_Lapangan_Usaha\":\"22\",\"Jumlah\":170}]', '[{\"id\":83,\"var\":\"b4k21\",\"value\":\"01\",\"nama\":\"Pertanian tanaman padi & palawija\"},{\"id\":84,\"var\":\"b4k21\",\"value\":\"02\",\"nama\":\"Hortikultura\"},{\"id\":85,\"var\":\"b4k21\",\"value\":\"03\",\"nama\":\"Perkebunan\"},{\"id\":86,\"var\":\"b4k21\",\"value\":\"04\",\"nama\":\"Perikanan tangkap\"},{\"id\":87,\"var\":\"b4k21\",\"value\":\"05\",\"nama\":\"Perikanan budidaya\"},{\"id\":88,\"var\":\"b4k21\",\"value\":\"06\",\"nama\":\"Peternakan\"},{\"id\":89,\"var\":\"b4k21\",\"value\":\"07\",\"nama\":\"Kehutanan & pertanian lainnya\"},{\"id\":90,\"var\":\"b4k21\",\"value\":\"08\",\"nama\":\"Pertambangan\\/penggalian\"},{\"id\":91,\"var\":\"b4k21\",\"value\":\"09\",\"nama\":\"Industri pengolahan\"},{\"id\":92,\"var\":\"b4k21\",\"value\":\"10\",\"nama\":\"Listrik & gas\"},{\"id\":93,\"var\":\"b4k21\",\"value\":\"11\",\"nama\":\"Bangunan\\/kontruksi\"},{\"id\":94,\"var\":\"b4k21\",\"value\":\"12\",\"nama\":\"Perdagangan\"},{\"id\":95,\"var\":\"b4k21\",\"value\":\"13\",\"nama\":\"Hotel & rumah makan\"},{\"id\":96,\"var\":\"b4k21\",\"value\":\"14\",\"nama\":\"Transportasi & pergudangan\"},{\"id\":97,\"var\":\"b4k21\",\"value\":\"15\",\"nama\":\"Informasi & komunikasi\"},{\"id\":98,\"var\":\"b4k21\",\"value\":\"16\",\"nama\":\"Keuangan & asuransi\"},{\"id\":99,\"var\":\"b4k21\",\"value\":\"17\",\"nama\":\"Jasa pendidikan\"},{\"id\":100,\"var\":\"b4k21\",\"value\":\"18\",\"nama\":\"Jasa kesehatan\"},{\"id\":101,\"var\":\"b4k21\",\"value\":\"19\",\"nama\":\"Jasa kemasyarakatan, pemerintah, & perorangan\"},{\"id\":102,\"var\":\"b4k21\",\"value\":\"20\",\"nama\":\"Pemulung\"},{\"id\":103,\"var\":\"b4k21\",\"value\":\"21\",\"nama\":\"TKI\"},{\"id\":104,\"var\":\"b4k21\",\"value\":\"22\",\"nama\":\"Lainnya\"}]', 'b4k21', '2024-10-13 18:39:31', 5, '2024-10-13 18:39:31', '2024-10-13 18:39:31'),
+(17, 'Status Penguasaan Bangunan Tempat Tinggal yang Ditempati di Desa/Kelurahan BLEDERAN 2024', '[{\"Status\":\"1\",\"Jumlah\":665,\"Persentase\":\"83.02\"},{\"Status\":\"2\",\"Jumlah\":6,\"Persentase\":\"0.75\"},{\"Status\":\"3\",\"Jumlah\":130,\"Persentase\":\"16.23\"}]', '[{\"id\":1,\"var\":\"b3r1a\",\"value\":\"1\",\"nama\":\"Milik sendiri\"},{\"id\":2,\"var\":\"b3r1a\",\"value\":\"2\",\"nama\":\"Kontrak\\/sewa\"},{\"id\":3,\"var\":\"b3r1a\",\"value\":\"3\",\"nama\":\"Bebas sewa\"},{\"id\":4,\"var\":\"b3r1a\",\"value\":\"4\",\"nama\":\"Dinas\"},{\"id\":5,\"var\":\"b3r1a\",\"value\":\"5\",\"nama\":\"Lainnya\"}]', 'b3r1a', '2024-10-13 18:39:31', 2, '2024-10-13 18:39:31', '2024-10-13 18:39:31'),
+(18, 'Jumlah Keluarga Menurut Luas Lantai di Desa/Kelurahan BLEDERAN 2024', '[{\"Jenis_Lantai\":\"01\",\"Jumlah\":8,\"Persentase\":\"0.99\"},{\"Jenis_Lantai\":\"02\",\"Jumlah\":404,\"Persentase\":\"50.12\"},{\"Jenis_Lantai\":\"04\",\"Jumlah\":70,\"Persentase\":\"8.68\"},{\"Jenis_Lantai\":\"06\",\"Jumlah\":308,\"Persentase\":\"38.21\"},{\"Jenis_Lantai\":\"09\",\"Jumlah\":12,\"Persentase\":\"1.49\"},{\"Jenis_Lantai\":\"10\",\"Jumlah\":4,\"Persentase\":\"0.50\"}]', '[{\"id\":6,\"var\":\"b3r3\",\"value\":\"01\",\"nama\":\"Marmer\\/granit\"},{\"id\":7,\"var\":\"b3r3\",\"value\":\"02\",\"nama\":\"Keramik\"},{\"id\":8,\"var\":\"b3r3\",\"value\":\"03\",\"nama\":\"Parket\\/vinil\\/permadani\"},{\"id\":9,\"var\":\"b3r3\",\"value\":\"04\",\"nama\":\"Ubin\\/tegel\\/teraso\"},{\"id\":10,\"var\":\"b3r3\",\"value\":\"05\",\"nama\":\"Kayu\\/papan kualitas tinggi\"},{\"id\":11,\"var\":\"b3r3\",\"value\":\"06\",\"nama\":\"Semen\\/bata merah\"},{\"id\":12,\"var\":\"b3r3\",\"value\":\"07\",\"nama\":\"Bambu\"},{\"id\":13,\"var\":\"b3r3\",\"value\":\"08\",\"nama\":\"Kayu\\/papan kualitas rendah\"},{\"id\":14,\"var\":\"b3r3\",\"value\":\"09\",\"nama\":\"Tanah\"},{\"id\":15,\"var\":\"b3r3\",\"value\":\"10\",\"nama\":\"Lainnya\"}]', 'b3r3', '2024-10-13 18:39:31', 2, '2024-10-13 18:39:31', '2024-10-13 18:39:31'),
+(19, 'Jumlah Keluarga Menurut Jenis Dinding Terluas di Desa/Kelurahan BLEDERAN 2024', '[{\"Jenis_Dinding\":\"1\",\"Jumlah\":715,\"Persentase\":\"88.60\"},{\"Jenis_Dinding\":\"2\",\"Jumlah\":4,\"Persentase\":\"0.50\"},{\"Jenis_Dinding\":\"3\",\"Jumlah\":87,\"Persentase\":\"10.78\"},{\"Jenis_Dinding\":\"7\",\"Jumlah\":1,\"Persentase\":\"0.12\"}]', '[{\"id\":26,\"var\":\"b3r4a\",\"value\":\"1\",\"nama\":\"Tembok\"},{\"id\":27,\"var\":\"b3r4a\",\"value\":\"2\",\"nama\":\"Plesteran anyaman bambu\\/kawat\"},{\"id\":28,\"var\":\"b3r4a\",\"value\":\"3\",\"nama\":\"Kayu\"},{\"id\":29,\"var\":\"b3r4a\",\"value\":\"4\",\"nama\":\"Anyaman bambu\"},{\"id\":30,\"var\":\"b3r4a\",\"value\":\"5\",\"nama\":\"Batang kayu\"},{\"id\":31,\"var\":\"b3r4a\",\"value\":\"6\",\"nama\":\"Bambu\"},{\"id\":32,\"var\":\"b3r4a\",\"value\":\"7\",\"nama\":\"Lainnya\"}]', 'b3r4a', '2024-10-13 18:39:31', 2, '2024-10-13 18:39:31', '2024-10-13 18:39:31'),
+(20, 'Jumlah Keluarga Menurut Jenis Atap Terluas di Desa/Kelurahan BLEDERAN 2024', '[{\"Jenis_Atap\":\"01\",\"Jumlah\":4,\"Persentase\":\"0.50\"},{\"Jenis_Atap\":\"02\",\"Jumlah\":1,\"Persentase\":\"0.12\"},{\"Jenis_Atap\":\"03\",\"Jumlah\":3,\"Persentase\":\"0.37\"},{\"Jenis_Atap\":\"04\",\"Jumlah\":5,\"Persentase\":\"0.62\"},{\"Jenis_Atap\":\"05\",\"Jumlah\":6,\"Persentase\":\"0.74\"},{\"Jenis_Atap\":\"06\",\"Jumlah\":787,\"Persentase\":\"97.52\"},{\"Jenis_Atap\":\"07\",\"Jumlah\":1,\"Persentase\":\"0.12\"}]', '[{\"id\":16,\"var\":\"b3r5a\",\"value\":\"01\",\"nama\":\"Beton\\/genteng beton\"},{\"id\":17,\"var\":\"b3r5a\",\"value\":\"02\",\"nama\":\"Genteng keramik\"},{\"id\":18,\"var\":\"b3r5a\",\"value\":\"03\",\"nama\":\"Genteng metal\"},{\"id\":19,\"var\":\"b3r5a\",\"value\":\"04\",\"nama\":\"Genteng tanah liat\"},{\"id\":20,\"var\":\"b3r5a\",\"value\":\"05\",\"nama\":\"Asbes\"},{\"id\":21,\"var\":\"b3r5a\",\"value\":\"06\",\"nama\":\"Seng\"},{\"id\":22,\"var\":\"b3r5a\",\"value\":\"07\",\"nama\":\"Sirap\"},{\"id\":23,\"var\":\"b3r5a\",\"value\":\"08\",\"nama\":\"Bambu\"},{\"id\":24,\"var\":\"b3r5a\",\"value\":\"09\",\"nama\":\"Jerami\\/ijuk\\/daun daunan\\/rumbia\"},{\"id\":25,\"var\":\"b3r5a\",\"value\":\"10\",\"nama\":\"Lainnya\"},{\"id\":33,\"var\":\"b3r5a\",\"value\":\"01\",\"nama\":\"Beton\\/genteng beton\"},{\"id\":34,\"var\":\"b3r5a\",\"value\":\"02\",\"nama\":\"Genteng keramik\"},{\"id\":35,\"var\":\"b3r5a\",\"value\":\"03\",\"nama\":\"Genteng metal\"},{\"id\":36,\"var\":\"b3r5a\",\"value\":\"04\",\"nama\":\"Genteng tanah liat\"},{\"id\":37,\"var\":\"b3r5a\",\"value\":\"05\",\"nama\":\"Asbes\"},{\"id\":38,\"var\":\"b3r5a\",\"value\":\"06\",\"nama\":\"Seng\"},{\"id\":39,\"var\":\"b3r5a\",\"value\":\"07\",\"nama\":\"Sirap\"},{\"id\":40,\"var\":\"b3r5a\",\"value\":\"08\",\"nama\":\"Bambu\"},{\"id\":41,\"var\":\"b3r5a\",\"value\":\"09\",\"nama\":\"Jerami\\/ijuk\\/daun daunan\\/rumbia\"},{\"id\":42,\"var\":\"b3r5a\",\"value\":\"10\",\"nama\":\"Lainnya\"}]', 'b3r5a', '2024-10-13 18:39:31', 2, '2024-10-13 18:39:31', '2024-10-13 18:39:31'),
+(21, 'Jumlah Keluarga Menurut Penggunaan Fasilitas Tempat Buang Air Besar di Desa/Kelurahan BLEDERAN 2024', '[{\"Fasilitas_BAB\":\"1\",\"Jumlah\":735,\"Persentase\":\"91.53\"},{\"Fasilitas_BAB\":\"2\",\"Jumlah\":43,\"Persentase\":\"5.35\"},{\"Fasilitas_BAB\":\"3\",\"Jumlah\":25,\"Persentase\":\"3.11\"}]', '[{\"id\":43,\"var\":\"b3r11a\",\"value\":\"1\",\"nama\":\"Sendiri\"},{\"id\":44,\"var\":\"b3r11a\",\"value\":\"2\",\"nama\":\"Bersama\"},{\"id\":45,\"var\":\"b3r11a\",\"value\":\"3\",\"nama\":\"Umum\"},{\"id\":46,\"var\":\"b3r11a\",\"value\":\"4\",\"nama\":\"Tidak ada\"}]', 'b3r11a', '2024-10-13 18:39:31', 2, '2024-10-13 18:39:31', '2024-10-13 18:39:31'),
+(22, 'Jumlah Keluarga Menurut Jenis Kloset di Desa/Kelurahan BLEDERAN 2024', '[{\"Jenis_Kloset\":\"1\",\"Jumlah\":621,\"Persentase\":\"78.51\"},{\"Jenis_Kloset\":\"2\",\"Jumlah\":133,\"Persentase\":\"16.81\"},{\"Jenis_Kloset\":\"3\",\"Jumlah\":33,\"Persentase\":\"4.17\"},{\"Jenis_Kloset\":\"4\",\"Jumlah\":4,\"Persentase\":\"0.51\"}]', '[{\"id\":47,\"var\":\"b3r11b\",\"value\":\"1\",\"nama\":\"Leher angsa\"},{\"id\":48,\"var\":\"b3r11b\",\"value\":\"2\",\"nama\":\"Plengsengan\"},{\"id\":49,\"var\":\"b3r11b\",\"value\":\"3\",\"nama\":\"Cemplung\\/cubluk\"},{\"id\":50,\"var\":\"b3r11b\",\"value\":\"4\",\"nama\":\"Tidak pakai\"}]', 'b3r11b', '2024-10-13 18:39:31', 2, '2024-10-13 18:39:31', '2024-10-13 18:39:31');
 
 -- --------------------------------------------------------
 
@@ -197,21 +279,14 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@admin.com', NULL, '$2y$12$6ekc3z.Bjm8BEgs6Y7GXS.ofik70Fp8I5qo/rrOVcbWAOTCow0nKe', NULL, '2024-10-06 21:14:03', '2024-10-06 21:14:03'),
-(2, 'Zuhdi Ali Hisyam', 'zuhdi@zuhdi.com', NULL, '$2y$12$3SwXpH/c.aor2A0Lnk4D/.chRnc/XYrdVEqoYEf0GFUbJ1bEGiouu', NULL, '2024-10-08 01:44:52', '2024-10-08 01:44:52'),
-(3, 'Fahmi Saputra', 'fahmi@fahmi.com', NULL, '$2y$12$NcKYTMiCPDKh3.SuohWBwuwtE5P/BuLU3wLxnrzj6qPJ9bZJyqHSy', NULL, '2024-10-08 01:45:12', '2024-10-08 01:45:12'),
-(4, 'Zuhdi Ali Hisyam', 'hisyam@hisyam.com', NULL, '$2y$12$JihDdw6CRqxB94L1QZbhYujk53LIuF7eLXeIX0nXlBSEcOCsDcqw.', NULL, '2024-10-08 01:45:25', '2024-10-08 01:45:25'),
-(5, 'Novi Hardianto', 'novi@novi.com', NULL, '$2y$12$vCydnD6SuEtEM3cUcr7CAOeFU86lEQWyHVl/DQnstlIAIb2UeN/V.', NULL, '2024-10-08 01:45:36', '2024-10-08 01:45:36');
+(1, 'Admin', 'admin@admin.com', NULL, '$2y$12$RygIqKHsMsXai1FVDmEspO3HSlIEolSyJVo1HD/2d7rHvtZgMV70S', NULL, NULL, NULL),
+(2, 'Zuhdi Ali Hisyam', 'hisyam@hisyam.com', NULL, '$2y$12$aE3uKVbAE4DiiQeTWDV6JunhQ333p.lcKhVf26BWEspUgJSjgf9ia', NULL, NULL, NULL),
+(3, 'Fahmi Saputra', 'fahmi@fahmi.com', NULL, '$2y$12$oVWvMrkH1CTlMSj2rZ6JQ.RjX9MLgLS.r87KKAsHPJBls3j4b28ci', NULL, NULL, NULL),
+(4, 'Novi Hardianto', 'novi@novi.com', NULL, '$2y$12$XEDS2ZNXnWrwJ0FeeGEv.eXA/x/Xen2ypg90gNxWwl5AqToaXG8A6', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `admins`
---
-ALTER TABLE `admins`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `akomodasis`
@@ -220,11 +295,23 @@ ALTER TABLE `akomodasis`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `artikels`
+--
+ALTER TABLE `artikels`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `informasis`
+--
+ALTER TABLE `informasis`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `migrations`
@@ -270,16 +357,16 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `admins`
---
-ALTER TABLE `admins`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `akomodasis`
 --
 ALTER TABLE `akomodasis`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `artikels`
+--
+ALTER TABLE `artikels`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -288,10 +375,16 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `informasis`
+--
+ALTER TABLE `informasis`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -303,19 +396,19 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `produks`
 --
 ALTER TABLE `produks`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tabulasis`
 --
 ALTER TABLE `tabulasis`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
