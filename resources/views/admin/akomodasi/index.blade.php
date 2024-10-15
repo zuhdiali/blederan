@@ -178,17 +178,17 @@
                           </div>
                           <div class="p-1">
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" title="Hapus">
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="{{'#exampleModal'.$akomodasi->id}}" title="Hapus">
                               <i class="icon-trash"></i>
                             </button>
                           </div>
                         </div>
                         <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="{{'exampleModal'.$akomodasi->id}}" tabindex="-1" aria-labelledby="{{'exampleModalLabel'.$akomodasi->id}}" aria-hidden="true">
                           <div class="modal-dialog">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Hapus Akomodasi</h1>
+                                <h1 class="modal-title fs-5" id="{{'exampleModalLabel'.$akomodasi->id}}">Hapus Akomodasi</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">

@@ -9,13 +9,13 @@ class InformasiController extends Controller
 {
     public function kabar()
     {
-        $kabars = Informasi::where('kategori', 'kabar')->get();
+        $kabars = Informasi::where('kategori', 'kabar')->orderBy('tanggal','desc')->get();
         return view('admin.informasi.kabar', compact('kabars'));
     }
 
     public function eduwisata()
     {
-        $eduwisatas = Informasi::where('kategori', 'eduwisata')->get();
+        $eduwisatas = Informasi::where('kategori', 'eduwisata')->orderBy('tanggal','desc')->get();
         return view('admin.informasi.eduwisata', compact('eduwisatas'));
     }
 
@@ -28,12 +28,12 @@ class InformasiController extends Controller
     {
         // dd($request->all());
         $request->validate([
-            'nama_informasi' => 'required',
+            'judul' => 'required',
+            'instansi_terlibat' => 'required',
             'jumlah' => 'required',
             'tanggal' => 'required',
             'kategori' => 'required',
-            'gambar' => 'required|mimes:png,jpg,jpeg,webp',
-            'deskripsi' => 'required'
+            'gambar' => 'required|mimes:png,jpg,jpeg,webp'
         ]);
         // dd($request->all());
 
@@ -52,7 +52,8 @@ class InformasiController extends Controller
         }
 
         Informasi::create([
-            'nama_informasi' => $request->nama_informasi,
+            'judul' => $request->judul,
+            'instansi_terlibat' => $request->instansi_terlibat,
             'jumlah' => $request->jumlah,
             'tanggal' => $request->tanggal,
             'kategori' => $request->kategori,
@@ -87,11 +88,11 @@ class InformasiController extends Controller
     public function update(Request $request, int $id)
     {
         $request->validate([
-            'nama_informasi' => 'required',
+            'judul' => 'required',
+            'instansi_terlibat' => 'required',
             'jumlah' => 'required',
             'tanggal' => 'required',
-            'gambar' => 'nullable|mimes:png,jpg,jpeg,webp',
-            'deskripsi' => 'required'
+            'gambar' => 'nullable|mimes:png,jpg,jpeg,webp'
         ]);
 
         $filename = NULL;
@@ -110,7 +111,8 @@ class InformasiController extends Controller
         }
 
 
-        $informasi->nama_informasi = $request->nama_informasi;
+        $informasi->judul = $request->judul;
+        $informasi->instansi_terlibat = $request->instansi_terlibat;
         $informasi->jumlah = $request->jumlah;
         $informasi->tanggal = $request->tanggal;
         $informasi->deskripsi = $request->deskripsi;

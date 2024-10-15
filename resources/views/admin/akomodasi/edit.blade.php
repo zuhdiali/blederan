@@ -25,7 +25,7 @@
                                             value="{{ $akomodasi->nama_akomodasi }}"
                                         />
                                         @if ($errors->has('nama_akomodasi'))
-                                        <small id="emailHelp" class="form-text text-muted">Please provide a valid information.</small>
+                                        <small id="emailHelp" class="form-text text-muted">{{ $errors->first('nama_akomodasi') }}</small>
                                         @endif
                                     </div>
                                     <div class="form-group {{$errors->has('harga') ? 'has-error has-feedback' : ''}}">
@@ -45,7 +45,7 @@
                                             />
                                         </div>
                                         @if ($errors->has('harga'))
-                                        <small id="emailHelp" class="form-text text-muted">Please provide a valid information.</small>
+                                        <small id="emailHelp" class="form-text text-muted">{{ $errors->first('harga') }}</small>
                                         @endif
                                     </div>
                                     <div class="form-group {{$errors->has('stok') ? 'has-error has-feedback' : ''}}">
@@ -61,7 +61,7 @@
                                             value="{{ $akomodasi->stok }}"
                                         />
                                         @if ($errors->has('stok'))
-                                        <small id="emailHelp" class="form-text text-muted">Please provide a valid information.</small>
+                                        <small id="emailHelp" class="form-text text-muted">{{ $errors->first('stok') }}</small>
                                         @endif
                                     </div>
                                     <div class="form-group {{$errors->has('gambar_akomodasi') ? 'has-error has-feedback' : ''}}">
@@ -74,7 +74,7 @@
                                             name="gambar_akomodasi"
                                         />
                                         @if ($errors->has('gambar_akomodasi'))
-                                        <small id="emailHelp" class="form-text text-muted">{{$error('gambar_akomodasi');}}</small>
+                                        <small id="emailHelp" class="form-text text-muted">{{ $errors->first('gambar_akomodasi') }}</small>
                                         @endif
                                     </div>
                                 </div>
@@ -90,7 +90,7 @@
                                             value="{{ $akomodasi->nama_pemilik }}"
                                         />
                                         @if ($errors->has('nama_pemilik'))
-                                        <small id="emailHelp" class="form-text text-muted">Please provide a valid information.</small>
+                                        <small id="emailHelp" class="form-text text-muted">{{ $errors->first('nama_pemilik') }}</small>
                                         @endif
                                     </div>
                                     <div class="form-group">
@@ -104,14 +104,14 @@
                                             value="{{ $akomodasi->kontak_pemilik }}"
                                         />
                                         @if ($errors->has('kontak_pemilik'))
-                                        <small id="emailHelp" class="form-text text-muted">Please provide a valid information.</small>
+                                        <small id="emailHelp" class="form-text text-muted">{{ $errors->first('kontak_pemilik') }}</small>
                                         @endif
                                     </div>
                                     <div class="form-group">
                                         <label for="deskripsi">Deskripsi Akomodasi</label>
                                         <textarea class="form-control" id="comment" rows="5" name="deskripsi" placeholder="Masukkan deskripsi akomodasi (opsional)">{{ $akomodasi->deskripsi }}</textarea>
                                         @if ($errors->has('deskripsi'))
-                                        <small id="emailHelp" class="form-text text-muted">Please provide a valid information.</small>
+                                        <small id="emailHelp" class="form-text text-muted">{{ $errors->first('deskripsi') }}</small>
                                         @endif
                                     </div>
                                 </div>

@@ -22,7 +22,7 @@ use App\Http\Controllers\InformasiController;
 Route::get('/', [MainController::class, 'index'])->name('welcome');
 
 // ******* Halaman Utama *********
-Route::get('/produk', [MainController::class, 'produk'])->name('produk');
+// Route::get('/produk', [MainController::class, 'produk'])->name('produk');
 Route::get('/kabar', [MainController::class, 'kabar'])->name('kabar');
 // Route::get('/data', [MainController::class, 'data'])->name('data');
 Route::get('/data2', [MainController::class, 'data2'])->name('data2');
@@ -30,9 +30,9 @@ Route::get('/sejarah', [MainController::class, 'sejarah'])->name('sejarah');
 Route::get('/peta', [MainController::class, 'peta'])->name('peta');
 Route::get('/publikasi', [MainController::class, 'publikasi'])->name('publikasi');
 Route::get('/download', [MainController::class, 'downloadPublikasi'])->name('download');
-Route::get('/test', [MainController::class, 'test'])->name('test');
-Route::get('/test2', [MainController::class, 'test2'])->name('test2');
-Route::get('/layout-artikel', [MainController::class, 'layoutArtikel'])->name('layout-artikel');
+// Route::get('/test', [MainController::class, 'test'])->name('test');
+// Route::get('/test2', [MainController::class, 'test2'])->name('test2');
+// Route::get('/layout-artikel', [MainController::class, 'layoutArtikel'])->name('layout-artikel');
 // ******* Halaman Utama *********
 
 // ******* Artikel Statis *********

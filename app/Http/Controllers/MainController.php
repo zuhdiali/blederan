@@ -23,14 +23,16 @@ class MainController extends Controller
         return view('welcome', compact('produks', 'akomodasis', 'eduwisatas'));
     }
 
-    public function produk()
-    {
-        return view('produk');
-    }
+    // public function produk()
+    // {
+    //     return view('produk');
+    // }
 
     public function kabar()
-    {
-        return view('kabar');
+    {   
+        $kabarTerkini = DB::table('informasis')->where('kategori', 'kabar')->orderBy('tanggal', 'desc')->limit(4)->get();
+        $kabars = DB::table('informasis')->where('kategori', 'kabar')->orderBy('tanggal', 'desc')->get();
+        return view('kabar', compact('kabarTerkini', 'kabars'));
     }
 
     public function sejarah()

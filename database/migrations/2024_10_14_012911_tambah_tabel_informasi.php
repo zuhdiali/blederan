@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('informasis', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_informasi');
+            $table->string('judul', 50);
+            $table->string('instansi_terlibat');
             $table->tinyInteger('jumlah');
             $table->date('tanggal');
             $table->string('kategori', 10);
-            $table->string('deskripsi');
+            $table->string('deskripsi')->nullable();
             $table->string('gambar');
             $table->timestamps();
         });

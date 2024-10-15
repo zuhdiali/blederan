@@ -12,7 +12,8 @@ class Informasi extends Model
     protected $table = 'informasis';
 
     protected $fillable = [
-        'nama_informasi',
+        'judul',
+        'instansi_terlibat',
         'jumlah',
         'tanggal',
         'kategori',

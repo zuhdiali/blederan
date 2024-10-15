@@ -28,25 +28,37 @@
                       <option value="eduwisata" {{ old('kategori') == 'eduwisata' ? 'selected' : '' }}>Eduwisata</option>
                     </select>
                     @if ($errors->has('kategori'))
-                    <small   class="form-text text-muted">Please provide a valid information.</small>
+                    <small class="form-text text-muted">{{ $errors->first('kategori') }}</small>
                     @endif
                   </div>
-                  <div class="form-group {{$errors->has('nama_informasi') ? 'has-error has-feedback' : ''}}">
-                    <label for="judulInformasi">Judul Kabar / Asal Pengunjung Eduwisata</label>
+                  <div class="form-group {{$errors->has('judul') ? 'has-error has-feedback' : ''}}">
+                    <label for="judulInformasi">Judul Kegiatan</label>
                     <input
                       type="text"
                       class="form-control "
                       id="judulInformasi"
-                      placeholder="Masukkan judul kabar / asal pengunjung eduwisata"
-                      name="nama_informasi"
-                      value="{{ old('nama_informasi') }}"
+                      placeholder="Masukkan judul kegiatan"
+                      name="judul"
+                      value="{{ old('judul') }}"
                     />
-                    <small class="form-text text-muted">Jika kategori kabar: Masukkan judul kabar. Jika kategori eduwisata: Masukkan asal pengunjung eduwisata</small>
-                    @if ($errors->has('nama_informasi'))
-                    <small   class="form-text text-muted">Please provide a valid information.</small>
+                    @if ($errors->has('judul'))
+                    <small class="form-text text-muted">{{ $errors->first('judul') }}</small>
                     @endif
                   </div>
-
+                  <div class="form-group {{$errors->has('instansi_terlibat') ? 'has-error has-feedback' : ''}}">
+                    <label for="isntansiTerlibat">Instansi / Kelompok Terlibat</label>
+                    <input
+                      type="text"
+                      class="form-control "
+                      id="isntansiTerlibat"
+                      placeholder="Asal instansi ... (Misal: BPS, Diskominfo, PKK)"
+                      name="instansi_terlibat"
+                      value="{{ old('instansi_terlibat') }}"
+                    />
+                    @if ($errors->has('instansi_terlibat'))
+                    <small class="form-text text-muted">{{ $errors->first('instansi_terlibat') }}</small>
+                    @endif
+                  </div>
                   <div class="form-group {{$errors->has('gambar') ? 'has-error has-feedback' : ''}}">
                     <label for="gambar">Gambar</label>
                     <br>
@@ -57,7 +69,7 @@
                       name="gambar"
                     />
                     @if ($errors->has('gambar'))
-                    <small   class="form-text text-muted">{{$error('gambar');}}</small>
+                    <small class="form-text text-muted">{{ $errors->first('gambar') }}</small>
                     @endif
                   </div>
                 </div>
@@ -72,7 +84,7 @@
                       value="{{ old('tanggal') }}"
                     />
                     @if ($errors->has('tanggal'))
-                    <small   class="form-text text-muted">Please provide a valid information.</small>
+                    <small class="form-text text-muted">{{ $errors->first('tanggal') }}</small>
                     @endif
                   </div>
                   <div class="form-group {{$errors->has('jumlah') ? 'has-error has-feedback' : ''}}">
@@ -90,21 +102,21 @@
                       />
                     </div>
                     @if ($errors->has('jumlah'))
-                    <small   class="form-text text-muted">Please provide a valid information.</small>
+                    <small class="form-text text-muted">{{ $errors->first('jumlah') }}</small>
                     @endif
                   </div>
                   <div class="form-group">
                     <label for="deskripsi">Deskripsi</label>
                     <textarea class="form-control" id="deskripsi" rows="5" name="deskripsi" placeholder="Masukkan deskripsi...">{{ old('deskripsi') }}</textarea>
                     @if ($errors->has('deskripsi'))
-                    <small   class="form-text text-muted">Please provide a valid information.</small>
+                    <small class="form-text text-muted">{{ $errors->first('deskripsi') }}</small>
                     @endif
                   </div>
                 </div>
               </div>
             </div>
             <div class="card-action">
-              <button type="submit" class="btn btn-success">Tambah Produk</button>
+              <button type="submit" class="btn btn-success">Tambah Informasi</button>
             </div>
           </form>
         </div>

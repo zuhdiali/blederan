@@ -159,7 +159,8 @@
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">Aksi</th>
-                    <th scope="col" class="sort" data-sort="name">Pengunjung</th>
+                    <th scope="col" class="sort" data-sort="name">Kegiatan</th>
+                    <th scope="col" >Instansi Terlibat</th>
                     <th scope="col">Jumlah</th>
                     <th scope="col">Tanggal</th>
                     <th scope="col">Deskripsi</th>
@@ -178,21 +179,21 @@
                           </div>
                           <div class="p-1">
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" title="Hapus">
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="{{'#exampleModal'.$eduwisata->id}}" title="Hapus">
                               <i class="icon-trash"></i>
                             </button>
                           </div>
                         </div>
                         <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="{{'exampleModal'.$eduwisata->id}}" tabindex="-1" aria-labelledby="{{'exampleModalLabel'.$eduwisata->id}}" aria-hidden="true">
                           <div class="modal-dialog">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Hapus Eduwisata</h1>
+                                <h1 class="modal-title fs-5" id="{{'exampleModalLabel'.$eduwisata->id}}">Hapus Eduwisata</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
-                                Apakah Anda yakin ingin menghapus eduwisata <strong>{{$eduwisata->nama_informasi}}</strong> ?
+                                Apakah Anda yakin ingin menghapus eduwisata <strong>{{$eduwisata->judul}}</strong> ?
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
@@ -204,7 +205,8 @@
                           </div>
                         </div>
                       </td>
-                      <th scope="row">{{$eduwisata->nama_informasi}}</th>
+                      <th scope="row">{{$eduwisata->judul}}</th>
+                      <td>{{$eduwisata->instansi_terlibat}}</td>
                       <td>{{$eduwisata->jumlah}}</td>
                       <td>{{ \Carbon\Carbon::parse($eduwisata->tanggal)->locale('id')->translatedFormat('d F Y') }}</td>
                       <td>{{$eduwisata->deskripsi}}</td>

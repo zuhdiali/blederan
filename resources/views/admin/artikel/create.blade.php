@@ -25,7 +25,7 @@
                       value="{{ old('judul') }}"
                     />
                     @if ($errors->has('judul'))
-                    <small   class="form-text text-muted">Please provide a valid information.</small>
+                    <small class="form-text text-muted">{{ $errors->first('judul') }}</small>
                     @endif
                   </div>
                   <div class="form-group {{$errors->has('penulis') ? 'has-error has-feedback' : ''}}">
@@ -41,7 +41,7 @@
                       />
                     </div>
                     @if ($errors->has('penulis'))
-                    <small   class="form-text text-muted">Please provide a valid information.</small>
+                    <small class="form-text text-muted">{{ $errors->first('penulis') }}</small>
                     @endif
                   </div>
                   <div class="form-group {{$errors->has('tanggal') ? 'has-error has-feedback' : ''}}">
@@ -55,14 +55,14 @@
                       value="{{ old('tanggal') }}"
                     />
                     @if ($errors->has('tanggal'))
-                    <small   class="form-text text-muted">Please provide a valid information.</small>
+                    <small class="form-text text-muted">{{ $errors->first('tanggal') }}</small>
                     @endif
                   </div>
                   <div class="form-group">
                     <label for="text1">Teks 1</label>
                     <textarea class="form-control" id="text1" rows="10" name="text1" placeholder="Masukkan teks...">{{ old('text1') }}</textarea>
                     @if ($errors->has('text1'))
-                    <small   class="form-text text-muted">Please provide a valid information.</small>
+                    <small class="form-text text-muted">{{ $errors->first('text1') }}</small>
                     @endif
                   </div>
                   <div class="form-group {{$errors->has('gambar1') ? 'has-error has-feedback' : ''}}">
@@ -75,7 +75,7 @@
                       name="gambar1"
                     />
                     @if ($errors->has('gambar1'))
-                    <small   class="form-text text-muted">{{$error('gambar1');}}</small>
+                    <small class="form-text text-muted">{{ $errors->first('gambar1') }}</small>
                     @endif
                   </div>
                 </div>
@@ -85,7 +85,7 @@
                     <label for="text2">Teks 2</label>
                     <textarea class="form-control" id="text2" rows="7" name="text2" placeholder="Masukkan teks...">{{ old('text2') }}</textarea>
                     @if ($errors->has('text2'))
-                    <small   class="form-text text-muted">Please provide a valid information.</small>
+                    <small class="form-text text-muted">{{ $errors->first('text2') }}</small>
                     @endif
                   </div>
                   <div class="form-group {{$errors->has('gambar2') ? 'has-error has-feedback' : ''}}">
@@ -98,14 +98,14 @@
                       name="gambar2"
                     />
                     @if ($errors->has('gambar2'))
-                    <small   class="form-text text-muted">{{$error('gambar2');}}</small>
+                    <small class="form-text text-muted">{{ $errors->first('gambar2') }}</small>
                     @endif
                   </div>
                   <div class="form-group">
                     <label for="text3">Teks 3</label>
                     <textarea class="form-control" id="text3" rows="7" name="text3" placeholder="Masukkan teks...">{{ old('text3') }}</textarea>
                     @if ($errors->has('text3'))
-                    <small   class="form-text text-muted">Please provide a valid information.</small>
+                    <small class="form-text text-muted">{{ $errors->first('text3') }}</small>
                     @endif
                   </div>
                   <div class="form-group {{$errors->has('gambar3') ? 'has-error has-feedback' : ''}}">
@@ -118,7 +118,7 @@
                       name="gambar3"
                     />
                     @if ($errors->has('gambar3'))
-                    <small   class="form-text text-muted">{{$error('gambar3');}}</small>
+                    <small class="form-text text-muted">{{ $errors->first('gambar3') }}</small>
                     @endif
                   </div>
                 </div>

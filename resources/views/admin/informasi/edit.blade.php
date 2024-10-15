@@ -20,27 +20,41 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group {{$errors->has('nama_informasi') ? 'has-error has-feedback' : ''}}">
+                                    <div class="form-group {{$errors->has('judul') ? 'has-error has-feedback' : ''}}">
                                         <label for="judulInformasi">
-                                            @if ($informasi->kategori == 'kabar')
-                                            Judul Kabar
-                                            @else
-                                            Asal Pengunjung Eduwisata
-                                            @endif
+                                           Judul Kegiatan
                                         </label>
                                         <input
                                             type="text"
                                             class="form-control "
                                             id="judulInformasi"
                                             placeholder="Masukkan judul kabar / asal pengunjung eduwisata"
-                                            name="nama_informasi"
-                                            value="{{ $informasi->nama_informasi }}"
+                                            name="judul"
+                                            value="{{ $informasi->judul }}"
                                         />
                                         
-                                        @if ($errors->has('nama_informasi'))
-                                        <small class="form-text text-muted">Please provide a valid information.</small>
+                                        @if ($errors->has('judul'))
+                                        <small class="form-text text-muted">{{ $errors->first('judul') }}</small>
                                         @endif
                                     </div>
+                                    <div class="form-group {{$errors->has('instansi_terlibat') ? 'has-error has-feedback' : ''}}">
+                                        <label for="instansi_terlibat">
+                                           Instansi / Kelompok Terlibat
+                                        </label>
+                                        <input
+                                            type="text"
+                                            class="form-control "
+                                            id="instansi_terlibat"
+                                            placeholder="Asal instansi ... (Misal: BPS, Diskominfo, PKK)"
+                                            name="instansi_terlibat"
+                                            value="{{ $informasi->instansi_terlibat }}"
+                                        />
+                                        
+                                        @if ($errors->has('instansi_terlibat'))
+                                        <small class="form-text text-muted">{{ $errors->first('instansi_terlibat') }}</small>
+                                        @endif
+                                    </div>
+
 
                                     <div class="form-group {{$errors->has('gambar') ? 'has-error has-feedback' : ''}}">
                                         <label for="gambar">Gambar</label>
@@ -52,7 +66,7 @@
                                             name="gambar"
                                         />
                                         @if ($errors->has('gambar'))
-                                        <small class="form-text text-muted">{{$error('gambar');}}</small>
+                                        <small class="form-text text-muted">{{ $errors->first('gambar') }}</small>
                                         @endif
                                     </div>
                                 </div>
@@ -67,7 +81,7 @@
                                             value="{{ $informasi->tanggal }}"
                                         />
                                         @if ($errors->has('tanggal'))
-                                        <small class="form-text text-muted">Please provide a valid information.</small>
+                                        <small class="form-text text-muted">{{ $errors->first('tanggal') }}</small>
                                         @endif
                                     </div>
                                     <div class="form-group {{$errors->has('jumlah') ? 'has-error has-feedback' : ''}}">
@@ -85,21 +99,21 @@
                                             />
                                         </div>
                                         @if ($errors->has('jumlah'))
-                                        <small class="form-text text-muted">Please provide a valid information.</small>
+                                        <small class="form-text text-muted">{{ $errors->first('jumlah') }}</small>
                                         @endif
                                     </div>
                                     <div class="form-group">
                                         <label for="deskripsi">Deskripsi</label>
                                         <textarea class="form-control" id="deskripsi" rows="5" name="deskripsi" placeholder="Masukkan deskripsi...">{{ $informasi->deskripsi }}</textarea>
                                         @if ($errors->has('deskripsi'))
-                                        <small class="form-text text-muted">Please provide a valid information.</small>
+                                        <small class="form-text text-muted">{{ $errors->first('deskripsi') }}</small>
                                         @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="card-action">
-                            <button type="submit" class="btn btn-success">Edit Produk</button>
+                            <button type="submit" class="btn btn-success">Edit Informasi</button>
                         </div>
                     </form>
                 </div>
