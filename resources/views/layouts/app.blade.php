@@ -72,7 +72,7 @@
                         <li>
 
                           <div class="dropdown">
-                            <button class="btn dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn dropdown-toggle text-white" id="button-profile" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                               Profil
                             </button>
                             <ul class="dropdown-menu">
@@ -99,7 +99,7 @@
                           </div> --}}
                         </li>
                         
-                        <li><a href="{{ route('data2') }}" class="{{ Request::path() ==  'data' ? 'active' : ''  }}">Data</a></li>
+                        <li><a href="{{ route('data2') }}" class="{{ Request::path() ==  'data2' ? 'active' : ''  }}">Data</a></li>
                         {{-- <li><a href="reservation.html">Book Yours</a></li> --}}
                         
                           @if(Auth::check())

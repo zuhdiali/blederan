@@ -209,6 +209,7 @@
                   </ul>
                 </div> --}}
               </div>
+              {{$kabars->links()}}
             </div>
           </div>
         <div class="col-lg-4">

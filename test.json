@@ -1,0 +1,98 @@
+[
+    {
+        "Kelompok_Umur": "0-4 Tahun",
+        "Laki-Laki": 41,
+        "Perempuan": 30,
+        "Jumlah": 71
+    },
+    {
+        "Kelompok_Umur": "5-9 Tahun",
+        "Laki-Laki": 143,
+        "Perempuan": 115,
+        "Jumlah": 258
+    },
+    {
+        "Kelompok_Umur": "10-14 Tahun",
+        "Laki-Laki": 155,
+        "Perempuan": 143,
+        "Jumlah": 298
+    },
+    {
+        "Kelompok_Umur": "15-19 Tahun",
+        "Laki-Laki": 139,
+        "Perempuan": 108,
+        "Jumlah": 248
+    },
+    {
+        "Kelompok_Umur": "20-24 Tahun",
+        "Laki-Laki": 138,
+        "Perempuan": 112,
+        "Jumlah": 250
+    },
+    {
+        "Kelompok_Umur": "25-29 Tahun",
+        "Laki-Laki": 128,
+        "Perempuan": 125,
+        "Jumlah": 256
+    },
+    {
+        "Kelompok_Umur": "30-34 Tahun",
+        "Laki-Laki": 119,
+        "Perempuan": 129,
+        "Jumlah": 248
+    },
+    {
+        "Kelompok_Umur": "35-39 Tahun",
+        "Laki-Laki": 136,
+        "Perempuan": 118,
+        "Jumlah": 256
+    },
+    {
+        "Kelompok_Umur": "40-44 Tahun",
+        "Laki-Laki": 130,
+        "Perempuan": 119,
+        "Jumlah": 249
+    },
+    {
+        "Kelompok_Umur": "45-49 Tahun",
+        "Laki-Laki": 116,
+        "Perempuan": 109,
+        "Jumlah": 225
+    },
+    {
+        "Kelompok_Umur": "50-54 Tahun",
+        "Laki-Laki": 107,
+        "Perempuan": 92,
+        "Jumlah": 200
+    },
+    {
+        "Kelompok_Umur": "55-59 Tahun",
+        "Laki-Laki": 91,
+        "Perempuan": 97,
+        "Jumlah": 188
+    },
+    {
+        "Kelompok_Umur": "60-64 Tahun",
+        "Laki-Laki": 76,
+        "Perempuan": 59,
+        "Jumlah": 135
+    },
+    {
+        "Kelompok_Umur": "65-69 Tahun",
+        "Laki-Laki": 51,
+        "Perempuan": 42,
+        "Jumlah": 93
+    },
+    {
+        "Kelompok_Umur": "70-74 Tahun",
+        "Laki-Laki": 40,
+        "Perempuan": 16,
+        "Jumlah": 57
+    },
+    {
+        "Kelompok_Umur": "75+ Tahun",
+        "Laki-Laki": 41,
+        "Perempuan": 36,
+        "Jumlah": 77
+    }
+]

@@ -217,6 +217,7 @@
                   @endforeach
                 </tbody>
               </table>
+              {{$akomodasis->links()}}
             </div>
           </div>
         </div>

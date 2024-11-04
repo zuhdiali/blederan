@@ -220,6 +220,7 @@
                   @endforeach
                 </tbody>
               </table>
+              {{$produks->links()}}
             </div>
           </div>
         </div>

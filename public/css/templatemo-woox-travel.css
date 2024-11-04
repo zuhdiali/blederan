@@ -2251,6 +2251,10 @@ body {
 }
 
 @media (max-width: 992px) {
+  #button-profile {
+    color: #1E1E1E !important;
+  }
+
   #section-1 .more-info {
     margin-top: 60px;
   }

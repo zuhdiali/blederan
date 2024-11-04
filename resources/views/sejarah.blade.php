@@ -20,7 +20,11 @@
             </div>
         </div>
 
-      <img src="{{asset('images/sejarah.jpg')}}" class="img-fluid pb-5 w-50" alt="image">
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="{{asset('images/sejarah.jpg')}}" class="img-fluid pb-5" alt="image">
+            </div>
+        </div>
 
             <p>
                 <strong>

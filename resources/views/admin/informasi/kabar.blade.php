@@ -217,6 +217,7 @@
                   @endforeach
                 </tbody>
               </table>
+              {{$kabars->links()}}
             </div>
           </div>
         </div>

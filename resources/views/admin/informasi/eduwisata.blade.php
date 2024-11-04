@@ -217,6 +217,7 @@
                   @endforeach
                 </tbody>
               </table>
+              {{$eduwisatas->links()}}
             </div>
           </div>
         </div>

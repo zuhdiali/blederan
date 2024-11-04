@@ -10,7 +10,7 @@ class AkomodasiController extends Controller
 {
     public function index()
     {
-        $akomodasis = Akomodasi::get();
+        $akomodasis = Akomodasi::paginate(5);
         return view('admin.akomodasi.index', compact('akomodasis'));
     }
 

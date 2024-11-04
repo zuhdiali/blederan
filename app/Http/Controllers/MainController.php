@@ -31,7 +31,7 @@ class MainController extends Controller
     public function kabar()
     {   
         $kabarTerkini = DB::table('informasis')->where('kategori', 'kabar')->orderBy('tanggal', 'desc')->limit(4)->get();
-        $kabars = DB::table('informasis')->where('kategori', 'kabar')->orderBy('tanggal', 'desc')->get();
+        $kabars = DB::table('informasis')->where('kategori', 'kabar')->orderBy('tanggal', 'desc')->paginate(3);
         return view('kabar', compact('kabarTerkini', 'kabars'));
     }
 
@@ -127,7 +127,7 @@ class MainController extends Controller
 
     public function downloadPublikasi()
     {
-        $file= public_path(). "/uploads/publikasi/Profil Desa Lengkap.pdf";
+        $file="/uploads/publikasi/Profil Desa Lengkap.pdf";
         // $file = glob(public_path('uploads/publikasi/Profil Desa Lengkap.pdf'));
         $headers = [
             'Content-Type' => 'application/pdf',

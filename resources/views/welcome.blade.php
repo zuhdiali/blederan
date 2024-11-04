@@ -433,7 +433,7 @@
             @foreach ($eduwisatas as $eduwisata)
             <div class="item">
               <div class="thumb">
-                <img src="{{asset('uploads/informasi/'.$eduwisata->gambar)}}" alt="">
+                <img src="{{ asset('uploads/informasi/' . $eduwisata->gambar) }}" alt="">
                 <div class="text w-100">
                   <h4>{{$eduwisata->instansi_terlibat}}<br></h4>
                   <div class="line-dec"></div>

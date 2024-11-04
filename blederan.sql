@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 14, 2024 at 08:59 AM
+-- Generation Time: Oct 15, 2024 at 02:43 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -97,7 +97,8 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `informasis` (
   `id` bigint UNSIGNED NOT NULL,
-  `nama_informasi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `judul` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `instansi_terlibat` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `jumlah` tinyint NOT NULL,
   `tanggal` date NOT NULL,
   `kategori` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -111,15 +112,15 @@ CREATE TABLE `informasis` (
 -- Dumping data for table `informasis`
 --
 
-INSERT INTO `informasis` (`id`, `nama_informasi`, `jumlah`, `tanggal`, `kategori`, `deskripsi`, `gambar`, `created_at`, `updated_at`) VALUES
-(1, 'BPS Kabupaten WOnosobo', 11, '2024-10-14', 'kabar', 'Pembinaan Desa Cantik', '1728880654.jpg', '2024-10-13 21:37:34', '2024-10-14 01:28:42'),
-(3, 'SD N Pagerkukuh', 40, '2024-09-21', 'eduwisata', 'Belajar tentang budidaya sayuran, main ke kandang kambing, dan melihat kolam ikan', '1728884922.jpg', '2024-10-13 22:48:42', '2024-10-14 01:19:33'),
-(4, 'SD Hafiz Quran MAF', 30, '2024-09-06', 'eduwisata', 'Outing Class', '1728885706.jpg', '2024-10-13 23:01:47', '2024-10-14 01:20:14'),
-(5, 'DLH Bandung', 50, '2024-07-17', 'eduwisata', 'Study Tour', '1728887337.jpg', '2024-10-13 23:28:57', '2024-10-13 23:28:57'),
-(6, 'BPS & Diskominfo', 32, '2024-08-01', 'eduwisata', 'Pengenalan & Pembinaan Desa Cinta Statistik', '1728887484.jpg', '2024-10-13 23:31:25', '2024-10-13 23:31:25'),
-(7, 'BPD Desa Bulurejo', 16, '2024-07-30', 'eduwisata', 'Kunjungan Kerja', '1728887606.jpg', '2024-10-13 23:33:26', '2024-10-13 23:33:26'),
-(8, 'Kab.Banyumas', 16, '2024-07-28', 'eduwisata', 'Kunjungan Belajar', '1728887688.jpg', '2024-10-13 23:34:48', '2024-10-13 23:34:48'),
-(9, 'BPS & Diskominfo', 32, '2024-08-01', 'kabar', 'Pengenalan & Pembinaan Desa Cinta Statistik', '1728894509.jpeg', '2024-10-14 01:28:29', '2024-10-14 01:28:29');
+INSERT INTO `informasis` (`id`, `judul`, `instansi_terlibat`, `jumlah`, `tanggal`, `kategori`, `deskripsi`, `gambar`, `created_at`, `updated_at`) VALUES
+(1, 'Kolaborasi untuk memberikan data yang akurat', 'BPS, Diskominfo', 11, '2024-10-08', 'kabar', 'Kolaborasi Desa Blederan, BPS Wonosobo, dan Diskominfo Wonosobo utk mewujukan basis data desa yg akurat dan terupdate 👍👍😊', '1728956038.jpg', '2024-10-13 21:37:34', '2024-10-14 18:33:58'),
+(3, 'Outing Class', 'SD N Pagerkukuh', 40, '2024-09-21', 'eduwisata', 'Belajar tentang budidaya sayuran, main ke kandang kambing, dan melihat kolam ikan', '1728884922.jpg', '2024-10-13 15:48:42', '2024-10-13 18:19:33'),
+(4, 'Outing Class', 'SD Hafiz Quran MAF', 30, '2024-09-06', 'eduwisata', '', '1728885706.jpg', '2024-10-13 16:01:47', '2024-10-13 18:20:14'),
+(5, 'Study Tour', 'DLH Bandung', 50, '2024-07-17', 'eduwisata', '', '1728887337.jpg', '2024-10-13 16:28:57', '2024-10-13 16:28:57'),
+(8, 'Kunjungan Belajar', 'Kab.Banyumas', 16, '2024-07-28', 'eduwisata', '', '1728887688.jpg', '2024-10-13 16:34:48', '2024-10-13 16:34:48'),
+(9, 'Pencanangan Desa Cantik', 'BPS, Pak Setda, Diskominfo, Bappeda', 32, '2024-08-05', 'kabar', 'Pencanangan Desa Cinta Statistik Desa Blederan Bersama Bapak Setda Wonosobo, BPS Wonosobo, Diskominfo Wonosobo, Bappeda Wonosobo dan Dinsospermades Wonosobo 👍', '1728955965.jpeg', '2024-10-14 01:28:29', '2024-10-14 18:32:45'),
+(10, 'Pertemuan TP PKK Desa Blederan', 'PKK', 25, '2024-09-19', 'kabar', 'Pertemuan TP PKK Desa Blederan 👍👍', '1728956127.jpg', '2024-10-14 18:35:27', '2024-10-14 18:35:27'),
+(11, 'Pemberdayaan Perempuan', 'LPTP', 25, '2024-09-19', 'kabar', 'Pemberdayaan perempuan di Desa Blederan Kecamatan Mojotengah Kabupaten Wonosobo \r\nTema pertemuan hari ini yaitu cara menjadi pemandu wisata untuk anak sekolah. \r\nDampingan @lptp.id \r\n @wonosobo_tangkaslestari \r\n@aqualestari \r\n@danoneindonesia', '1728956620.jpg', '2024-10-14 18:43:40', '2024-10-14 18:43:40');
 
 -- --------------------------------------------------------
 
@@ -378,7 +379,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `informasis`
 --
 ALTER TABLE `informasis`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `migrations`

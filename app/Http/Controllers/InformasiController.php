@@ -9,13 +9,13 @@ class InformasiController extends Controller
 {
     public function kabar()
     {
-        $kabars = Informasi::where('kategori', 'kabar')->orderBy('tanggal','desc')->get();
+        $kabars = Informasi::where('kategori', 'kabar')->orderBy('tanggal','desc')->paginate(5);
         return view('admin.informasi.kabar', compact('kabars'));
     }
 
     public function eduwisata()
     {
-        $eduwisatas = Informasi::where('kategori', 'eduwisata')->orderBy('tanggal','desc')->get();
+        $eduwisatas = Informasi::where('kategori', 'eduwisata')->orderBy('tanggal','desc')->paginate(5);
         return view('admin.informasi.eduwisata', compact('eduwisatas'));
     }
 
