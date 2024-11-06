@@ -17,12 +17,12 @@
             </div>
             @endif
             <div class="card">
-                <div class="card-header">Register</div>
+                <div class="card-header">Pendaftaran Pengguna Baru</div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('daftar.post') }}">
                         @csrf
                         <div class="form-group">
-                            <label for="name">Name</label>
+                            <label for="name">Nama</label>
                             <input type="text" class="form-control" id="name" name="name" required autofocus value=" {{ old('name') }}">
                             @if ($errors->has('name'))
                             <span class="text-danger">{{ $errors->first('name') }}</span>
@@ -30,7 +30,7 @@
                         </div>
                         <hr>
                         <div class="form-group">
-                            <label for="email">Email address</label>
+                            <label for="email">Email</label>
                             <input type="email" class="form-control" id="email" name="email" required value=" {{ old('email') }}">
                             @if ($errors->has('email'))
                             <span class="text-danger">{{ $errors->first('email') }}</span>
@@ -46,8 +46,11 @@
                         </div>
                         <hr>
                         <div class="form-group mb-5">
-                            <label for="password_confirmation">Confirm Password</label>
-                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
+                            <label for="password_confirmation">Konfirmasi Password</label>
+                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required placeholder="Ketikkan ulang password">
+                            @if ($errors->has('password_confirmation'))
+                            <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
+                            @endif
                         </div>
                         <hr>
                         <button type="submit" class="btn btn-primary">Register</button>

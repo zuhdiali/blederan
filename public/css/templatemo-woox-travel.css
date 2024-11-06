@@ -323,7 +323,7 @@ Header Style
 */
 
 .background-header {
-  background-color: #22b3c1 !important;
+  background-color: rgba(0,0,0,0.5) !important;
   height: 70px!important;
   position: fixed!important;
   top: 0!important;
@@ -337,7 +337,7 @@ Header Style
 }
 
 .header-area {
-  background-color: #22b3c1;
+  background-color: rgba(0,0,0,0.5);
   position: absolute;
   height: 70px;
   top: 0;
@@ -370,12 +370,12 @@ Header Style
 }
 
 .header-area .main-nav .logo img {
-  width: 159px;
-  margin-top: 15px;
+  width: 150px;
+  margin-top: 5px;
 }
 
 .background-header .main-nav .logo img {
-  width: 159px;
+  width: 150px;
 }
 
 .header-area .main-nav .nav {
@@ -614,7 +614,7 @@ Header Style
     width: 100%;
   }
   .header-area {
-    background-color: #22b3c1;
+    background-color: rgba(0,0,0,0.7);
     padding: 0px 15px;
     height: 100px;
     box-shadow: none;
@@ -1138,13 +1138,13 @@ About Page Style
 */
 
 .about-main-content {
-  margin-top: 70px;
+  /* margin-top: 70px; */
   background-image: url(/images/blederan1.jpg);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  padding: 130px 0px 200px 0px;
+  padding: 130px 0px 250px 0px;
 }
 
 .blur-bg {
@@ -1152,6 +1152,7 @@ About Page Style
   height: 100%;
   background: url(/images/blederan1.jpg) no-repeat center center fixed;
   background-size: cover;
+  /* background-color: rgba(0,0,0,0.7); */
   filter: blur(8px) brightness(80%);
   position: absolute;
   left: 0;
@@ -2186,7 +2187,13 @@ Reservation Page Style
   opacity: 0.8;
 }
 
+img.item-produk {
+  max-height: 300px;
+}
 
+img.item-akomodasi {
+  max-height: 400px;
+}
 
 /* 
 ---------------------------------------------

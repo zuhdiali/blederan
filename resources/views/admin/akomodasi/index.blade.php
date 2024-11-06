@@ -167,6 +167,7 @@
                   </tr>
                 </thead>
                 <tbody>
+                  {{$akomodasis->links()}}
                   @foreach($akomodasis as $akomodasi)
                     <tr>
                       <td>
@@ -217,7 +218,7 @@
                   @endforeach
                 </tbody>
               </table>
-              {{$akomodasis->links()}}
+
             </div>
           </div>
         </div>

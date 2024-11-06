@@ -168,6 +168,7 @@
                   </tr>
                 </thead>
                 <tbody>
+                  {{$kabars->links()}}
                   @foreach($kabars as $kabar)
                     <tr>
                       <td>
@@ -217,7 +218,7 @@
                   @endforeach
                 </tbody>
               </table>
-              {{$kabars->links()}}
+              
             </div>
           </div>
         </div>

@@ -13,7 +13,7 @@
         <div id="top-banner-1" class="banner">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption">
-              <h2>Desa Blederan:</h2>
+              <h2>Desa {{ getenv('NAMA_DESA') }}:</h2>
               <h1>Data Kependudukan</h1>
               <div class="border-button"><a href="#accordionButtonOne">Lihat Selengkapnya</a></div>
             </div>
@@ -44,7 +44,7 @@
         <div id="top-banner-2" class="banner">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption">
-              <h2>Desa Blederan:</h2>
+              <h2>Desa {{ getenv('NAMA_DESA') }}:</h2>
               <h1>Data Perumahan</h1>
               <div class="border-button"><a href="#accordionButtonTwo">Lihat Selengkapnya</a></div>
             </div>
@@ -79,7 +79,7 @@
         <div id="top-banner-3" class="banner">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption">
-              <h2>Desa Blederan:</h2>
+              <h2>Desa {{ getenv('NAMA_DESA') }}:</h2>
               <h1>Data Kesehatan</h1>
               <div class="border-button"><a href="#accordionButtonThree">Lihat Selengkapnya</a></div>
             </div>
@@ -106,7 +106,7 @@
         <div id="top-banner-4" class="banner">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption">
-              <h2>Desa Blederan:</h2>
+              <h2>Desa {{ getenv('NAMA_DESA') }}:</h2>
               <h1>Data Pendidikan</h1>
               <div class="border-button"><a href="#accordionButtonFour">Lihat Selengkapnya</a></div>
             </div>
@@ -286,7 +286,7 @@
                     <td class="text-end">77</td>
                 </tr>
                 <tr>
-                    <td scope="row" class="text-center">Blederan</td>
+                    <td scope="row" class="text-center">{{ getenv('NAMA_DESA') }}</td>
                     <td class="text-end">1.651</td>
                     <td class="text-end">1.450</td>
                     <td class="text-end">3.109</td>
@@ -340,7 +340,7 @@
                         <td class="text-end">1</td>
                     </tr>
                     <tr>
-                        <th scope="row">Blederan</th>
+                        <th scope="row">{{ getenv('NAMA_DESA') }}</th>
                         <th class="text-end">3.109</th>
                     </tr>
                 </tbody>
@@ -376,7 +376,7 @@
                         <td class="text-end">5</td>
                     </tr>
                     <tr>
-                        <th scope="row">Blederan</th>
+                        <th scope="row">{{ getenv('NAMA_DESA') }}</th>
                         <th class="text-end">3.109</th>
                     </tr>
                 </tbody>
@@ -439,7 +439,7 @@
                   <td class="text-end">0 %</td>
                 </tr>
                 <tr>
-                  <th scope="row">Blederan</th>
+                  <th scope="row">{{ getenv('NAMA_DESA') }}</th>
                   <th class="text-end">801</th>
                   <th class="text-end">100 %</th>
                 </tr>

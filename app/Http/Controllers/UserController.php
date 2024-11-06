@@ -59,4 +59,16 @@ class UserController extends Controller
         Auth::logout();
         return redirect(route('welcome'))->with("success", "Berhasil logout!");
     }
+
+    public function destroy($id)
+    {
+        $user = User::find($id);
+        if($user->email == 'admin@admin.com'){
+            return redirect(route('admin-manajemen-pengguna'))->with("error", "Tidak dapat menghapus akun admin!");
+        }
+        if ($user->delete()) {
+            return redirect(route('admin-manajemen-pengguna'))->with("success", "Pengguna berhasil dihapus!");
+        }
+        return redirect(route('admin-manajemen-pengguna'))->with("error", "Gagal menghapus pengguna!");
+    }
 }

@@ -3,6 +3,23 @@
 @section('content')
 
 <div class="container">
+  <!-- Jika ada session succes -->
+  @if (session('success'))
+  <div class="alert alert-success alert-dismissible fade show w-50 my-2 mx-5" role="alert">
+    {{ session('success') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  @endif
+  <!-- Jika ada session succes -->
+
+  <!-- Jika ada session error-->
+  @if (session('error'))
+  <div class="alert alert-warning alert-dismissible fade show w-50 my-2 mx-5" role="alert">
+    {{ session('error') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  @endif
+  <!-- Jika ada session error-->
   <div class="page-inner">
     <div
       class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4"
@@ -12,8 +29,7 @@
         <h6 class="op-7 mb-2">Kelola Pengguna yang dapat masuk ke halaman admin</h6>
       </div>
       <div class="ms-md-auto py-2 py-md-0">
-        {{-- <a href="#" class="btn btn-label-info btn-round me-2">Manage</a>
-        <a href="#" class="btn btn-primary btn-round">Add Customer</a> --}}
+        <a href="{{route('daftar')}}" class="btn btn-primary btn-round">Tambah pengguna</a>
       </div>
     </div>
     <div class="row">
@@ -150,7 +166,36 @@
                     <tr>
                       <th scope="row">{{$user->name}}</th>
                       <td>{{$user->email}}</td>
-                      <td>Aksi</td>
+                      <td>
+                        <div class="d-flex flex-column align-self-center">
+                          <div class="p-1">
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="{{'#exampleModal'.$user->id}}" title="Hapus">
+                              <i class="icon-trash"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="{{'exampleModal'.$user->id}}" tabindex="-1" aria-labelledby="{{'exampleModalLabel'.$user->id}}" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="{{'exampleModalLabel'.$user->id}}">Hapus Akomodasi</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                Apakah Anda yakin ingin menghapus pengguna <strong>{{$user->name}}</strong> ?
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
+                                <form action="{{url('admin-hapus-pengguna/'.$user->id)}}">
+                                  <button type="submit" class="btn btn-danger">Hapus Pengguna</button>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
                     </tr>
                   @endforeach
                 </tbody>

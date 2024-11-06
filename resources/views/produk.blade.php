@@ -11,7 +11,7 @@
             <div class="blur-bg"></div>
             <h4>Selamat Datang di</h4>
             <div class="line-dec"></div>
-            <h2>Desa Blederan</h2>
+            <h2>Desa {{ getenv('NAMA_DESA') }}</h2>
             <p>Desa Sayur</p>
             {{-- <div class="main-button">
               <a href="#">Tombol Dummy, bisa dihapus</a>
@@ -254,8 +254,8 @@
       <div class="row">
         <div class="col-lg-6 offset-lg-3">
           <div class="section-heading text-center">
-            <h2>Kunjungan ke Desa Blederan</h2>
-            <p>Desa Blederan sering menerima kunjungan dari berbagai pihak.</p>
+            <h2>Kunjungan ke Desa {{ getenv('NAMA_DESA') }}</h2>
+            <p>Desa {{ getenv('NAMA_DESA') }} sering menerima kunjungan dari berbagai pihak.</p>
           </div>
         </div>
       </div>

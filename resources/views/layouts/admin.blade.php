@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Desa Blederan (admin)</title>
+    <title>Desa {{ getenv('NAMA_DESA') }} (admin)</title>
     <meta
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       name="viewport"
@@ -89,7 +89,7 @@
                   <span class="sidebar-mini-icon">
                     <i class="fa fa-ellipsis-h"></i>
                   </span>
-                  <h4 class="text-section">Tentang Blederan</h4>
+                  <h4 class="text-section">Tentang {{ getenv('NAMA_DESA') }}</h4>
                 </li>
                 <li class="nav-item {{ Request::path() ==  'admin-produk' ? 'active' : ''  }}">
                     <a href="{{route('admin-produk')}}">
@@ -107,7 +107,7 @@
                   <span class="sidebar-mini-icon">
                     <i class="fa fa-ellipsis-h"></i>
                   </span>
-                  <h4 class="text-section">Informasi Blederan</h4>
+                  <h4 class="text-section">Informasi {{ getenv('NAMA_DESA') }}</h4>
                 </li>
                 <li class="nav-item {{ Request::path() ==  'admin-kabar' ? 'active' : ''  }}">
                   <a href="{{route('admin-kabar')}}">

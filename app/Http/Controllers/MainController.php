@@ -50,6 +50,11 @@ class MainController extends Controller
         return view('publikasi');
     }
 
+    public function medsos()
+    {
+        return view('medsos');
+    }
+
     public function data()
     {
         $kependudukan = DB::table('tabulasis')->where('kategori','=',1)->get();

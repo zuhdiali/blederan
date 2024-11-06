@@ -30,6 +30,7 @@ Route::get('/sejarah', [MainController::class, 'sejarah'])->name('sejarah');
 Route::get('/peta', [MainController::class, 'peta'])->name('peta');
 Route::get('/publikasi', [MainController::class, 'publikasi'])->name('publikasi');
 Route::get('/download', [MainController::class, 'downloadPublikasi'])->name('download');
+Route::get('/medsos', [MainController::class, 'medsos'])->name('medsos');
 // Route::get('/test', [MainController::class, 'test'])->name('test');
 // Route::get('/test2', [MainController::class, 'test2'])->name('test2');
 // Route::get('/layout-artikel', [MainController::class, 'layoutArtikel'])->name('layout-artikel');
@@ -55,6 +56,7 @@ Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 Route::get('/admin-dashboard', [AdminController::class, 'index'])->name('admin-dashboard');
 Route::get('/admin-manajemen-pengguna', [UserController::class, 'index'])->name('admin-manajemen-pengguna');
 Route::get('/admin-update-data', [AdminController::class, 'getDataAPI'])->name('update-data');
+Route::get('/admin-hapus-pengguna/{id}', [UserController::class, 'destroy'])->name('admin-hapus-pengguna');
 // ******* Halaman Admin *********
 
 // ******* Halaman Produk *********

@@ -169,6 +169,7 @@
                   </tr>
                 </thead>
                 <tbody>
+                  {{$produks->links()}}
                   @foreach($produks as $produk)
                     <tr>
                       <td>
@@ -220,7 +221,7 @@
                   @endforeach
                 </tbody>
               </table>
-              {{$produks->links()}}
+              
             </div>
           </div>
         </div>

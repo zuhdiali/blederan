@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col">
                 <hr>
-                <h5>Pofil Desa Blederan</h5>
+                <h5>Pofil Desa {{ getenv('NAMA_DESA') }}</h5>
                     <a href="{{route('download')}}" class="btn btn-primary mt-2">Unduh</a>
                 <hr>
             </div>

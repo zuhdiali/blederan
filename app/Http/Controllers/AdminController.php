@@ -22,7 +22,7 @@ class AdminController extends Controller
         $produks = Produk::get();
         $akomodasis = Akomodasi::get();
         $data_terakhir = Tabulasi::orderBy('tanggal', 'desc')->first();
-        $tgl_terakhir = $data_terakhir ? \Carbon\Carbon::parse($data_terakhir->tanggal)->locale('id')->translatedFormat('d F Y') : null;
+        $tgl_terakhir = $data_terakhir ? \Carbon\Carbon::parse($data_terakhir->tanggal)->locale('id')->translatedFormat('F Y') : null;
         // dd($tgl_terakhir);
 
         return view('admin.dashboard', [
@@ -69,6 +69,7 @@ class AdminController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             // 'password' => 'required|string|min:8|confirmed',
             'password' => 'required',
+            'password_confirmation' => 'required|same:password',
         ]);
 
         $user = new User;
@@ -77,7 +78,7 @@ class AdminController extends Controller
         $user->password = Hash::make($request->password);
         if ($user->save()) {
             // Auth::login($user);
-            return back()->with("success", "Akun berhasil didaftarkan!");
+            return redirect(route('admin-manajemen-pengguna'))->with("success", "Akun berhasil didaftarkan!");
         }
         return redirect(route('daftar'))->with("error", "Gagal mendaftar")->withInput();
     }
@@ -91,15 +92,19 @@ class AdminController extends Controller
     public function getDataAPI()
     {
         try {
-            $response = Http::get(env('API_URL') . '/posts/33071100142024');
+            // request ke API
+            $response = Http::withOptions([
+                'verify' => false,
+            ])->get(env('API_URL') . '/posts/33071100142024');
             $array_response = json_decode($response->body(), true);
-            // dd($array_response['data']);
+            
+            // looping insert data ke tabel tabulasi
             foreach ($array_response['data'] as $key => $value) {
                 $tabulasi = new Tabulasi;
                 $tabulasi->judul_tabel = $value['judul'];
                 $tabulasi->data = json_encode($value[0]);
                 
-                $tabulasi->tanggal = now();
+                $tabulasi->tanggal = date('Y-m-1');
                 switch ($value[1]['kategori']) {
                     case 'kependudukan':
                     $tabulasi->kategori = 1;
@@ -122,15 +127,24 @@ class AdminController extends Controller
                 }
                 $tabulasi->metadata = json_encode($value[2]['metadata']);
                 $tabulasi->id_table = $value[3];
-                $tabulasi->save();
+                Tabulasi::updateOrCreate(
+                    ['tanggal' => date('Y-m-1'),
+                    'id_table' => $value[3]], 
+                    ['tanggal' => date('Y-m-1'),
+                    'judul_tabel' => $value['judul'],
+                    'data' => json_encode($value[0]),
+                    'kategori' => $tabulasi->kategori,
+                    'metadata' => json_encode($value[2]['metadata'])]
+                );
+                // $tabulasi->save();
             }
-            return redirect(route('admin-dashboard'))->with('success', 'Data berhasil diperbarui!');
+            return redirect(route('admin-dashboard'))->with('success', 'Data berhasil diperbarui! ');
         } catch (RequestException $e) {
             Log::error('RequestException: ' . $e->getMessage());
-            return redirect(route('admin-dashboard'))->with('error', 'Gagal memperbarui data!');
+            return redirect(route('admin-dashboard'))->with('error', 'Gagal memperbarui data! '. $e->getMessage());
         } catch (\Exception $e) {
             Log::error('Exception: ' . $e->getMessage());
-            return redirect(route('admin-dashboard'))->with('error', 'Terjadi kesalahan!');
+            return redirect(route('admin-dashboard'))->with('error', 'Terjadi kesalahan! '.$e->getMessage());
         }
     }
 

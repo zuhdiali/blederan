@@ -13,8 +13,8 @@
         <div id="top-banner-1" class="banner">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption ">
-              <div class="container bg-dark rounded py-4"  style="--bs-bg-opacity: .4;">
-                <h2>Desa Blederan:</h2>
+              <div class="container bg-dark rounded py-4"  style="--bs-bg-opacity: .7;">
+                <h2>Desa {{ getenv('NAMA_DESA') }}:</h2>
                 <h1>Data Kependudukan</h1>
                 <div class="border-button"><a id="lihatSelengkapnya1" href="#accordionButtonOne">Lihat Selengkapnya</a></div>
               </div>
@@ -46,8 +46,8 @@
         <div id="top-banner-2" class="banner">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption ">
-              <div class="container bg-dark rounded py-4"  style="--bs-bg-opacity: .4;">
-                <h2>Desa Blederan:</h2>
+              <div class="container bg-dark rounded py-4"  style="--bs-bg-opacity: .7;">
+                <h2>Desa {{ getenv('NAMA_DESA') }}:</h2>
                 <h1>Data Perumahan</h1>
                 <div class="border-button"><a id="lihatSelengkapnya2" href="#accordionButtonTwo">Lihat Selengkapnya</a></div>
               </div>
@@ -83,8 +83,8 @@
         <div id="top-banner-3" class="banner">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption">
-              <div class="container bg-dark rounded py-4"  style="--bs-bg-opacity: .4;">
-                <h2>Desa Blederan:</h2>
+              <div class="container bg-dark rounded py-4"  style="--bs-bg-opacity: .7;">
+                <h2>Desa {{ getenv('NAMA_DESA') }}:</h2>
                 <h1>Data Kesehatan</h1>
                 <div class="border-button"><a id="lihatSelengkapnya3" href="#accordionButtonThree">Lihat Selengkapnya</a></div>
               </div>
@@ -112,8 +112,8 @@
         <div id="top-banner-4" class="banner">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption">
-              <div class="container bg-dark rounded py-4"  style="--bs-bg-opacity: .4;">
-                <h2>Desa Blederan:</h2>
+              <div class="container bg-dark rounded py-4"  style="--bs-bg-opacity: .7;">
+                <h2>Desa {{ getenv('NAMA_DESA') }}:</h2>
                 <h1>Data Pendidikan</h1>
                 <div class="border-button"><a id="lihatSelengkapnya4" href="#accordionButtonFour">Lihat Selengkapnya</a></div>
                 </div>

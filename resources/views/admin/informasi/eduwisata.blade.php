@@ -168,6 +168,7 @@
                   </tr>
                 </thead>
                 <tbody>
+                  {{$eduwisatas->links()}}
                   @foreach($eduwisatas as $eduwisata)
                     <tr>
                       <td>
@@ -217,7 +218,7 @@
                   @endforeach
                 </tbody>
               </table>
-              {{$eduwisatas->links()}}
+              
             </div>
           </div>
         </div>

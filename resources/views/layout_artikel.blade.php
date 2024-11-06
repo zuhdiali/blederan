@@ -13,7 +13,7 @@
         <div id="top-banner-1" class="banner">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption">
-              <h2>Kabar terkini dari Desa Blederan</h2>
+              <h2>Kabar terkini dari Desa {{ getenv('NAMA_DESA') }}</h2>
               <h1>Judul 1</h1>
               <div class="border-button"><a href="#">Baca Selengkapnya</a></div>
             </div>
@@ -42,7 +42,7 @@
         <div id="top-banner-2" class="banner">
             <div class="banner-inner-wrapper header-text">
                 <div class="main-caption">
-                  <h2>Kabar terkini dari Desa Blederan</h2>
+                  <h2>Kabar terkini dari Desa {{ getenv('NAMA_DESA') }}</h2>
                   <h1>Judul 2</h1>
                   <div class="border-button"><a href="#">Baca Selengkapnya</a></div>
                 </div>
@@ -71,7 +71,7 @@
         <div id="top-banner-3" class="banner">
             <div class="banner-inner-wrapper header-text">
                 <div class="main-caption">
-                  <h2>Kabar terkini dari Desa Blederan</h2>
+                  <h2>Kabar terkini dari Desa {{ getenv('NAMA_DESA') }}</h2>
                   <h1>Judul 3</h1>
                   <div class="border-button"><a href="#">Baca Selengkapnya</a></div>
                 </div>
@@ -100,7 +100,7 @@
         <div id="top-banner-4" class="banner">
             <div class="banner-inner-wrapper header-text">
                 <div class="main-caption">
-                  <h2>Kabar terkini dari Desa Blederan</h2>
+                  <h2>Kabar terkini dari Desa {{ getenv('NAMA_DESA') }}</h2>
                   <h1>Judul 4</h1>
                   <div class="border-button"><a href="#">Baca Selengkapnya</a></div>
                 </div>
@@ -143,7 +143,7 @@
         <div class="row">
             <div class="col-lg-5">
             <div class="section-heading">
-                <h2>Kabar Terkini Desa Blederan</h2>
+                <h2>Kabar Terkini Desa {{ getenv('NAMA_DESA') }}</h2>
                     <ul class="nav">
                         <li class="nav-item px-2 text-secondary">
                             <i class="fa fa-user"></i> Penulis
