@@ -16,6 +16,7 @@ class Informasi extends Model
         'instansi_terlibat',
         'jumlah',
         'tanggal',
+        'tanggal_selesai',
         'kategori',
         'deskripsi',
         'gambar'

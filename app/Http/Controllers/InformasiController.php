@@ -32,11 +32,14 @@ class InformasiController extends Controller
             'instansi_terlibat' => 'required',
             'jumlah' => 'required',
             'tanggal' => 'required',
+            'jam_mulai' => 'required',
+            'jam_selesai' => 'required',
             'kategori' => 'required',
-            'gambar' => 'required|mimes:png,jpg,jpeg,webp'
+            'gambar' => 'nullable|mimes:png,jpg,jpeg,webp,svg'
         ]);
-        // dd($request->all());
 
+        $tanggal = $request->tanggal . ' ' . $request->jam_mulai;
+        $tanggal_selesai = $request->tanggal . ' ' . $request->jam_selesai;
         $filename = NULL;
         $path = NULL;
 
@@ -50,25 +53,20 @@ class InformasiController extends Controller
             $path = 'uploads/informasi/';
             $file->move($path, $filename);
         }
+        else {
+            $filename = 'default_informasi.svg';
+        }
 
         Informasi::create([
             'judul' => $request->judul,
             'instansi_terlibat' => $request->instansi_terlibat,
             'jumlah' => $request->jumlah,
-            'tanggal' => $request->tanggal,
+            'tanggal' => $tanggal,
+            'tanggal_selesai' => $tanggal_selesai,
             'kategori' => $request->kategori,
             'gambar' => $filename,
             'deskripsi' => $request->deskripsi
         ]);
-
-        // if ($request->hasFile('gambar')) {
-        //     $file = $request->file('gambar');
-        //     $filename = time() . '.' . $file->getClientOriginalExtension();
-        //     $file->move('uploads/', $filename);
-        //     // $request->merge(['gambar' => $filename]);
-        // }
-        // // dd($request->all());
-        // Informasi::create($request->all());
 
         if ($request->kategori == 'kabar') {
             return redirect()->route('admin-kabar')
@@ -92,8 +90,12 @@ class InformasiController extends Controller
             'instansi_terlibat' => 'required',
             'jumlah' => 'required',
             'tanggal' => 'required',
-            'gambar' => 'nullable|mimes:png,jpg,jpeg,webp'
+            'jam_mulai' => 'required',
+            'jam_selesai' => 'required',
+            'gambar' => 'nullable|mimes:png,jpg,jpeg,webp,svg'
         ]);
+        $tanggal = $request->tanggal . ' ' . $request->jam_mulai;
+        $tanggal_selesai = $request->tanggal . ' ' . $request->jam_selesai;
 
         $filename = NULL;
         $path = NULL;
@@ -110,11 +112,11 @@ class InformasiController extends Controller
             $file->move($path, $filename);
         }
 
-
         $informasi->judul = $request->judul;
         $informasi->instansi_terlibat = $request->instansi_terlibat;
         $informasi->jumlah = $request->jumlah;
-        $informasi->tanggal = $request->tanggal;
+        $informasi->tanggal = $tanggal;
+        $informasi->tanggal_selesai = $tanggal_selesai;
         $informasi->deskripsi = $request->deskripsi;
         $informasi->save();
 
@@ -130,6 +132,12 @@ class InformasiController extends Controller
     public function destroy($id)
     {
         $informasi = Informasi::find($id);
+        if ($informasi->gambar != "default_informasi.svg") {
+            $file_path = asset('uploads/informasi/' . $informasi->gambar);
+            if (file_exists($file_path)) {
+                unlink($file_path);
+            }
+        }
         $informasi->delete();
 
         if ($informasi->kategori == 'kabar') {

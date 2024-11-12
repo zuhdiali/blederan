@@ -20,7 +20,11 @@ class MainController extends Controller
         $produks = Produk::get();
         $akomodasis = Akomodasi::get();
         $eduwisatas = Informasi::where('kategori', 'eduwisata')->get();
-        return view('welcome', compact('produks', 'akomodasis', 'eduwisatas'));
+        $eduwisatas_berlalu = Informasi::where('kategori', 'eduwisata')
+            ->where('tanggal', '<', now())
+            ->orderBy('tanggal', 'desc')
+            ->get();
+        return view('welcome', compact('produks', 'akomodasis', 'eduwisatas', 'eduwisatas_berlalu'));
     }
 
     // public function produk()

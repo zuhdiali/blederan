@@ -68,6 +68,7 @@
                       id="gambar"
                       name="gambar"
                     />
+                    <small class="form-text text-muted">Gambar bisa dikosongkan</small>
                     @if ($errors->has('gambar'))
                     <small class="form-text text-muted">{{ $errors->first('gambar') }}</small>
                     @endif
@@ -86,6 +87,46 @@
                     @if ($errors->has('tanggal'))
                     <small class="form-text text-muted">{{ $errors->first('tanggal') }}</small>
                     @endif
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group {{$errors->has('jam_mulai') ? 'has-error has-feedback' : ''}}">
+                        <label for="jam_mulai">Jam Mulai Kegiatan</label>
+                        <input
+                          type="time"
+                          class="form-control"
+                          id="jam_mulai"
+                          name="jam_mulai"
+                          @if(old('jam_mulai'))
+                          value="{{ old('jam_mulai') }}"
+                          @else
+                          value="09:00"
+                          @endif
+                        />
+                        @if ($errors->has('jam_mulai'))
+                        <small class="form-text text-muted">{{ $errors->first('jam_mulai') }}</small>
+                        @endif
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-group {{$errors->has('jam_selesai') ? 'has-error has-feedback' : ''}}">
+                        <label for="jam_selesai">Jam Selesai Kegiatan</label>
+                        <input
+                          type="time"
+                          class="form-control"
+                          id="jam_selesai"
+                          name="jam_selesai"
+                          @if(old('jam_selesai'))
+                          value="{{ old('jam_selesai') }}"
+                          @else
+                          value="12:00"
+                          @endif
+                        />
+                        @if ($errors->has('jam_selesai'))
+                        <small class="form-text text-muted">{{ $errors->first('jam_selesai') }}</small>
+                        @endif
+                      </div>
+                    </div>
                   </div>
                   <div class="form-group {{$errors->has('jumlah') ? 'has-error has-feedback' : ''}}">
                     <label for="jumlah">Jumlah</label>

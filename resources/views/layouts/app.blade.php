@@ -24,7 +24,9 @@
     <link rel="stylesheet" href="{{asset('css/custom.scss')}}">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
-    
+    <link href="{{asset('fullcalendar/packages/core/main.css')}}" rel='stylesheet' />
+    <link href="{{asset('fullcalendar/packages/daygrid/main.css')}}" rel='stylesheet' />
+
     <!--Icon Web-->
     <link rel="icon" type="image/x-icon" href="{{asset('images/logo_only.png')}}" >
 
@@ -79,27 +81,8 @@
                               <li><a class="dropdown-item text-black" href="{{route('peta')}}">Peta</a></li>
                             </ul>
                           </div>
-                          {{-- <div class="accordion" id="accordionPanelsStayOpenExample">
-                            <div class="accordion-item">
-                              <h2 class="accordion-header">
-                                <button class="accordion-button collapsed btn-outline-info" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
-                                  Profil
-                                </button>
-                              </h2>
-                              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
-                                <div class="accordion-body">
-                                  ABC
-                                  <br>
-                                  ABC
-                                </div>
-                              </div>
-                            </div>
-
-                          </div> --}}
-                        </li>
                         
                         <li><a href="{{ route('data2') }}" class="{{ Request::path() ==  'data2' ? 'active' : ''  }}">Data</a></li>
-                        {{-- <li><a href="reservation.html">Book Yours</a></li> --}}
                         
                           @if(Auth::check())
                           <li>
@@ -112,23 +95,7 @@
                           <li>  
                             <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
                           </li>
-                          {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                          Login
-                          </button> --}}
                           @endif
-                          {{-- <li>
-                            <div class="dropdown">
-                              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                                Dropdown link
-                              </a>
-                            
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                              </div>
-                            </div>
-                          </li> --}}
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -225,36 +192,17 @@
   <script src="{{asset('js/popup.js')}}"></script>
   <script src="{{asset('js/custom.js')}}"></script>
 
-  <script>
-    $(document).ready(function() {
-      // $('.dropdown').on('click', function() {
-      // if (!$(this).hasClass('show')) {
-      //   $(this).addClass('show');
-      //   $(this).find('.dropdown-menu').addClass('show');
-      // } else {
-      //   $(this).removeClass('show');
-      //   $(this).find('.dropdown-menu').removeClass('show');
-      // }
-      // });
 
-      if ($(window).width() < 991) {
-        // $('.dropdown').off('click').on('click', function(e) {
-        //   e.preventDefault();
-        //   if (!$(this).hasClass('show')) {
-        //     $(this).addClass('show');
-        //     $(this).find('.dropdown-menu').addClass('show');
-        //   } else {
-        //     $(this).removeClass('show');
-        //     $(this).find('.dropdown-menu').removeClass('show');
-        //   }
-        // });
-      }
-    });
-  </script>
   {{-- <script src="assets/js/chart-area-demo.js"></script>
   <script src="assets/js/chart-bar-demo.js"></script>
   <script src="assets/js/chart-pie-demo.js"></script> --}}
-  
+
+  <script src="{{asset('fullcalendar/packages/core/main.js')}}"> </script>
+  <script src="{{asset('fullcalendar/packages/interaction/main.js')}}"></script>
+  <script src="{{asset('fullcalendar/packages/daygrid/main.js')}}"></script>
+  <script src="{{asset('fullcalendar/packages/core/locales/id.js')}}"></script>
+
+  <script src="{{asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
   </body>
 
 </html>

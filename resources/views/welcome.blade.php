@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  
+
   <!-- ***** Main Banner Area Start ***** -->
   <div class="about-main-content">
   <div class="container">
@@ -22,7 +22,6 @@
   </div>
   </div>
   <!-- ***** Main Banner Area End ***** -->
-  
 
   <div class="cities-town">
   <div class="container">
@@ -65,7 +64,7 @@
           <li class="list-group-item list-group-item-light">
             <div class="row">
             <div class="col-5">
-              <i class="fa fa-user"></i> Pemilik:
+              <i class="fa fa-user"></i> Penjual:
             </div>
             <div class="col-7">
               <p >  {{ $produk->nama_penjual }} </p>
@@ -91,7 +90,8 @@
   </section>
   {{-- Ini <section> jangan dihapus, soalnya buat margin --}}
 
-  <div class="cities-town">
+  {{-- INI BUAT LOOPING AKOMODASI --}}
+  {{-- <div class="cities-town">
   <div class="container">
     <div class="row">
     <div class="slider-content">
@@ -141,7 +141,7 @@
           </li>
           </ul>
           <div class="main-button d-flex justify-content-center mt-2">
-          <a href="https://wa.me/62{{substr($produk->kontak_penjual,1)}}"  > <i class="fa-solid fa-phone"></i>  Hubungi Penjual</a>
+          <a href="https://wa.me/62{{substr($akomodasi->nama_pemilik,1)}}"  > <i class="fa-solid fa-phone"></i>  Hubungi Pemilik</a>
           </div>
         </div>
         @endforeach
@@ -151,14 +151,26 @@
     </div>
     </div>
   </div>
+  </div> --}}
+  {{-- INI BUAT LOOPING AKOMODASI --}}
+
+  <div class="container text-center mb-5">
+    <h2>Jadwal Eduwisata ke Desa {{ getenv('NAMA_DESA') }}</h2>
   </div>
-  
+
+  {{-- Ini buat kalender --}}
+  <div class="container">
+    {{-- <div class="card"> --}}
+      <div id='calendar'></div>
+    {{-- </div> --}}
+  </div>  
+
   <div class="weekly-offers">
   <div class="container">
     <div class="row">
     <div class="col-lg-6 offset-lg-3">
       <div class="section-heading text-center">
-      <h2>Kunjungan dan Eduwisata ke Desa {{ getenv('NAMA_DESA') }}</h2>
+      <h2>Kunjungan dan Eduwisata yang Pernah Dilakukan</h2>
       <p>Desa {{ getenv('NAMA_DESA') }} sering menerima kunjungan dari berbagai pihak.</p>
       </div>
     </div>
@@ -168,7 +180,7 @@
     <div class="row">
     <div class="col-lg-12">
       <div class="owl-weekly-offers owl-carousel">
-      @foreach ($eduwisatas as $eduwisata)
+      @foreach ($eduwisatas_berlalu as $eduwisata)
       <div class="item">
         <div class="thumb">
         <img src="{{ asset('uploads/informasi/' . $eduwisata->gambar) }}" alt="">
@@ -190,5 +202,53 @@
     </div>
   </div>
   </div>
-  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var d = new Date();
+    var m = d.getMonth()+1;
+    var y = d.getFullYear();
+    var dt ;
+      if(m<10){
+        dt = y +'-0'+m+'-01';
+        }
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      plugins: [ 'interaction', 'dayGrid' ],
+      locale: 'id',
+      defaultDate: dt,
+      editable: false,
+      eventLimit: true, // allow "more" link when too many events
+      events: [
+        @foreach ($eduwisatas as $eduwisata)
+        {
+          title : 'Kunjungan dari {{$eduwisata->instansi_terlibat}}',
+          start : '{{$eduwisata->tanggal}}',
+          end : '{{$eduwisata->tanggal_selesai}}',
+          description : '{{$eduwisata->deskripsi}}',
+          extendedProps: {
+            jumlah: '{{$eduwisata->jumlah}}',
+            jamMulai: '{{ substr($eduwisata->tanggal, 11, 5) }}',
+            jamSelesai: '{{ substr($eduwisata->tanggal_selesai, 11, 5) }}',
+          }
+        },
+        @endforeach
+
+      ],
+      eventClick: function(info) {
+        Swal.fire({
+          title: info.event.title,
+          text: "Jumlah: " + info.event.extendedProps.jumlah + " orang. " + "Jam: " + info.event.extendedProps.jamMulai + "-" + info.event.extendedProps.jamSelesai + ".",
+        });
+        // change the border color just for fun
+        info.el.style.borderColor = '#007681';
+      }
+
+    });
+
+    calendar.render();
+  });
+  console.log(new Date().toISOString().slice(0, 10));
+  console.log(new Date(new Date().getTime() + 2 * 60 * 60 * 1000).toISOString().slice(0, 19));
+    </script>
 @endsection
