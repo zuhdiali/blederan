@@ -15,7 +15,7 @@ class InformasiController extends Controller
 
     public function eduwisata()
     {
-        $eduwisatas = Informasi::where('kategori', 'eduwisata')->orderBy('tanggal','desc')->paginate(5);
+        $eduwisatas = Informasi::where('kategori', 'eduwisata')->orderBy('tanggal','desc')->get();
         return view('admin.informasi.eduwisata', compact('eduwisatas'));
     }
 
