@@ -132,7 +132,7 @@ class KabarController extends Controller
         }
 
         // $kabar->update($validatedData);
-        return redirect()->route('admin-kabar')->with('success', 'Kabar updated successfully');
+        return redirect()->route('admin-kabar')->with('success', 'Kabar berhasil diedit');
     }
 
     public function destroy($id)
@@ -142,6 +142,6 @@ class KabarController extends Controller
             return redirect()->route('admin-kabar')->with('error', 'Kabar not found');
         }
         $kabar->delete();
-        return redirect()->route('admin-kabar')->with('success', 'Kabar deleted successfully');
+        return redirect()->route('admin-kabar')->with('success', 'Kabar berhasil dihapus');
     }
 }

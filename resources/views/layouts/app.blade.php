@@ -28,7 +28,7 @@
     <link href="{{asset('fullcalendar/packages/daygrid/main.css')}}" rel='stylesheet' />
 
     <!--Icon Web-->
-    <link rel="icon" type="image/x-icon" href="{{asset('images/logo_only.png')}}" >
+    <link rel="icon" type="image/x-icon" href="{{asset('images/logo_only.svg')}}" >
 
     <!-- ChartJS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js" type="text/javascript"></script>
@@ -61,7 +61,7 @@
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="{{route('welcome')}}" class="logo">
-                        <img src="{{ asset('images/logo_blederan.png') }}" alt="">
+                        <img src="{{ asset('images/logo_desa.png') }}" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -69,9 +69,11 @@
                         <li><a href="{{ route('welcome') }}" class="{{ Request::path() ==  '/' ? 'active' : ''  }}">Beranda</a></li>
                         {{-- <li><a href="{{ route('produk') }}" class="{{ Request::path() ==  'produk' ? 'active' : ''  }}">Produk</a></li> --}}
                         <li><a href="{{ route('kabar') }}" class="{{ Request::path() ==  'kabar' ? 'active' : ''  }}">Kabar</a></li>
+                        @if(getenv('ADA_PUBLIKASI')=="1")
                         <li><a href="{{ route('publikasi') }}" class="{{ Request::path() ==  'publikasi' ? 'active' : ''  }}">Publikasi</a></li>
+                        @endif
+                        @if(getenv('ADA_PROFIL')=="1")
                         <li>
-
                           <div class="dropdown">
                             <button class="btn dropdown-toggle text-white" id="button-profile" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                               Profil
@@ -81,6 +83,8 @@
                               <li><a class="dropdown-item text-black" href="{{route('peta')}}">Peta</a></li>
                             </ul>
                           </div>
+                        </li>
+                        @endif
                         
                         <li><a href="{{ route('data2') }}" class="{{ Request::path() ==  'data2' ? 'active' : ''  }}">Data</a></li>
                         
@@ -122,48 +126,37 @@
   <div class="call-to-action">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8">
+        <div class="col">
           <h2>Ikuti Media Sosial Kami</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
+            @if(getenv('FACEBOOK_URL'))
             <div class="p-2">
               <h4>
-                <a href="https://www.facebook.com/pesona.blederan" target="_blank" class="text-white"><i class="fab fa-facebook"></i></a>
+                <a href="{{ getenv('FACEBOOK_URL') }}" target="_blank" class="text-white"><i class="fab fa-facebook"></i></a>
               </h4>
             </div>
+            @endif
+            @if(getenv('INSTAGRAM_URL'))
             <div class="p-2">
               <h4>
-                <a href="https://www.instagram.com/desa_blederan?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-white"><i class="fab fa-instagram"></i></a>
+                <a href="{{ getenv('INSTAGRAM_URL') }}" target="_blank" class="text-white"><i class="fab fa-instagram"></i></a>
               </h4>
             </div>
+            @endif
+            @if(getenv('TWITTER_URL'))
             <div class="p-2">
               <h4>
-                <a href="https://x.com/DBlederan" target="_blank" class="text-white"><i class="fab fa-twitter"></i></a>
+                <a href="{{ getenv('TWITTER_URL') }}" target="_blank" class="text-white"><i class="fab fa-twitter"></i></a>
               </h4>
             </div>
+            @endif
           </div>
-          {{-- <div class="row justify-content-md-center">
-            <div class="col">
-              <h4>
-                <a href="https://facebook.com/templatemo" target="_blank" class="text-white"><i class="fab fa-facebook"></i></a>
-              </h4>
-            </div>
-            <div class="col">
-              <h4>
-                <a href="https://facebook.com/templatemo" target="_blank" class="text-white"><i class="fab fa-facebook"></i></a>
-              </h4>
-            </div>
-            <div class="col">
-              <h4>
-                <a href="https://facebook.com/templatemo" target="_blank" class="text-white"><i class="fab fa-facebook"></i></a>
-              </h4>
-            </div>
-          </div> --}}
         </div>
-        <div class="col-lg-4">
-          {{-- <div class="border-button">
+        {{--<div class="col-lg-4">
+           <div class="border-button">
             <a href="reservation.html">Book Yours Now</a>
-          </div> --}}
-        </div>
+          </div> 
+        </div>--}}
       </div>
     </div>
   </div>

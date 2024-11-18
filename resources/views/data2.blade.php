@@ -24,18 +24,53 @@
                 <div class="col-lg-12">
                   <div class="more-info">
                     <div class="row">
-                      <div class="col-lg-4 col-sm-6 col-6">
-                        <i class="fa fa-globe"></i>
-                        <h4><span>Populasi:</span><br>3.109 orang</h4>
-                      </div>
-                      <div class="col-lg-4 col-sm-6 col-6">
-                        <i class="fa fa-user"></i>
-                        <h4><span>Suku Mayoritas (Jawa):</span><br>3.095 orang</h4>
-                      </div>
-                      <div class="col-lg-4 col-sm-6 col-6">
-                        <i class="fa fa-person-praying"></i>
-                        <h4><span>Agama Mayoritas (Islam)</span><br>3.102 orang</h4>
-                      </div>
+                      @foreach($highlight_kependudukan as $value)
+                        <?php 
+                          // Dapetin data dari json. Tanda '[0]' di akhir menunjukkan bahwa ingin mengakses array indeks pertama'
+                          $data = json_decode($value['data'])[0];
+                          $key_property = array_keys((array)$data);
+                          $judul = "";
+                          $jumlah = "";
+                          $persentase = "";
+                          $metadata = null;
+                          if(isset($value['metadata'])){
+                            $metadata = json_decode($value['metadata']);
+                          }
+                        ?>
+                          @if(count($key_property)==1)
+                            @foreach($data as $key => $val)
+                              <?php 
+                                $judul = $key;
+                                $jumlah = $val;
+                              ?>
+                            @endforeach
+                          @else
+                            @foreach($data as $key => $val)
+                              @if($key == "total")
+                                <?php $jumlah = $val ?>
+                              @elseif($key == "persentase")
+                                <?php $persentase = $val ?>
+                              @else
+                                <?php   
+                                // Baris di bawah ini buat dapetin kata "Agama "
+                                $judul = $key. " ";
+
+                                for ($i=0; $i < count($metadata); $i++) { 
+                                  if ($metadata[$i]->value === $val) {
+                                    // Baris di bawah ini untuk melengkapi kata "Agama " menjadi "Agama Islam"
+                                    $judul .= $metadata[$i]->nama;
+                                  }
+                                }
+                                ?>
+                              @endif
+                            @endforeach
+                          @endif
+                        
+                        <div class="col-lg-{{12/count($highlight_kependudukan)}} col-sm-6 col-6">
+                          <i class="fa fa-users"></i>
+                          <h4><span>{{$judul}}:</span><br>{{ $jumlah }} orang</h4>
+                        </div>  
+                      @endforeach
                     </div>
                   </div>
                 </div>
@@ -57,22 +92,53 @@
                 <div class="col-lg-12">
                   <div class="more-info">
                     <div class="row">
-                      <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-home"></i>
-                        <h4><span>Tempat Tinggal Milik Sendiri:</span><br>83,02 %</h4>
-                      </div>
-                      <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-globe"></i>
-                        <h4><span>Rumah Lantai Terluas Keramik:</span><br>50,12 %</h4>
-                      </div>
-                      <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-home"></i>
-                        <h4><span>Rumah Dinding Terluas Tembok</span><br>88,60 %</h4>
-                      </div>
-                      <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-home"></i>
-                        <h4><span>Rumah Fasilitas BAB Sendiri</span><br>81,53 %</h4>
-                      </div>
+                      @foreach($highlight_perumahan as $value)
+                        <?php 
+                          // Dapetin data dari json. Tanda '[0]' di akhir menunjukkan bahwa ingin mengakses array indeks pertama'
+                          $data = json_decode($value['data'])[0];
+                          $key_property = array_keys((array)$data);
+                          $judul = "";
+                          $jumlah = "";
+                          $persentase = "";
+                          $metadata = null;
+                          if(isset($value['metadata'])){
+                            $metadata = json_decode($value['metadata']);
+                          }
+                        ?>
+                          @if(count($key_property)==1)
+                            @foreach($data as $key => $val)
+                              <?php 
+                                $judul = $key;
+                                $jumlah = $val;
+                              ?>
+                            @endforeach
+                          @else
+                            @foreach($data as $key => $val)
+                              @if($key == "total")
+                                <?php $jumlah = $val ?>
+                              @elseif($key == "persentase")
+                                <?php $persentase = $val ?>
+                              @else
+                                <?php   
+                                // Baris di bawah ini buat dapetin kata "Agama "
+                                $judul = $key. " ";
+
+                                for ($i=0; $i < count($metadata); $i++) { 
+                                  if ($metadata[$i]->value === $val) {
+                                    // Baris di bawah ini untuk melengkapi kata "Agama " menjadi "Agama Islam"
+                                    $judul .= $metadata[$i]->nama;
+                                  }
+                                }
+                                ?>
+                              @endif
+                            @endforeach
+                          @endif
+                        
+                        <div class="col-lg-{{12/count($highlight_perumahan)}} col-sm-6 col-6">
+                          <i class="fa fa-users"></i>
+                          <h4><span>{{$judul}}:</span><br>{{ $jumlah }} orang</h4>
+                        </div>  
+                      @endforeach
                     </div>
                   </div>
                 </div>
@@ -94,14 +160,53 @@
                 <div class="col-lg-12">
                   <div class="more-info">
                     <div class="row">
-                      <div class="col-lg-6 col-sm-6 col-6">
-                        <i class="fa fa-users"></i>
-                        <h4><span>Wanita 10-49 Tahun Menggunakan Alat KB:</span><br>258 orang</h4>
-                      </div>
-                      <div class="col-lg-6 col-sm-6 col-6">
-                        <i class="fa fa-user"></i>
-                        <h4><span>Jumlah Penduduk Cacat:</span><br>29 orang</h4>
-                      </div>
+                      @foreach($highlight_kesehatan as $value)
+                        <?php 
+                          // Dapetin data dari json. Tanda '[0]' di akhir menunjukkan bahwa ingin mengakses array indeks pertama'
+                          $data = json_decode($value['data'])[0];
+                          $key_property = array_keys((array)$data);
+                          $judul = "";
+                          $jumlah = "";
+                          $persentase = "";
+                          $metadata = null;
+                          if(isset($value['metadata'])){
+                            $metadata = json_decode($value['metadata']);
+                          }
+                        ?>
+                          @if(count($key_property)==1)
+                            @foreach($data as $key => $val)
+                              <?php 
+                                $judul = $key;
+                                $jumlah = $val;
+                              ?>
+                            @endforeach
+                          @else
+                            @foreach($data as $key => $val)
+                              @if($key == "total")
+                                <?php $jumlah = $val ?>
+                              @elseif($key == "persentase")
+                                <?php $persentase = $val ?>
+                              @else
+                                <?php   
+                                // Baris di bawah ini buat dapetin kata "Agama "
+                                $judul = $key. " ";
+
+                                for ($i=0; $i < count($metadata); $i++) { 
+                                  if ($metadata[$i]->value === $val) {
+                                    // Baris di bawah ini untuk melengkapi kata "Agama " menjadi "Agama Islam"
+                                    $judul .= $metadata[$i]->nama;
+                                  }
+                                }
+                                ?>
+                              @endif
+                            @endforeach
+                          @endif
+                        
+                        <div class="col-lg-{{12/count($highlight_kesehatan)}} col-sm-6 col-6">
+                          <i class="fa fa-users"></i>
+                          <h4><span>{{$judul}}:</span><br>{{ $jumlah }} orang</h4>
+                        </div>  
+                      @endforeach
                     </div>
                   </div>
                 </div>
@@ -123,22 +228,53 @@
                 <div class="col-lg-12">
                   <div class="more-info">
                     <div class="row">
-                      <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-school"></i>
-                        <h4><span>Penduduk Tidak Bersekolah Lagi</span><br>1.825 orang</h4>
-                      </div>
-                      <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-school"></i>
-                        <h4><span>Penduduk Belum Pernah Sekolah:</span><br>93 orang</h4>
-                      </div>
-                      <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-school"></i>
-                        <h4><span>Ijazah Tertinggi SD:</span><br>1.006 orang</h4>
-                      </div>
-                      <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-school"></i>
-                        <h4><span>Ijazah Tertinggi SMP:</span><br>451 orang</h4>
-                      </div>
+                      @foreach($highlight_pendidikan as $value)
+                        <?php 
+                          // Dapetin data dari json. Tanda '[0]' di akhir menunjukkan bahwa ingin mengakses array indeks pertama'
+                          $data = json_decode($value['data'])[0];
+                          $key_property = array_keys((array)$data);
+                          $judul = "";
+                          $jumlah = "";
+                          $persentase = "";
+                          $metadata = null;
+                          if(isset($value['metadata'])){
+                            $metadata = json_decode($value['metadata']);
+                          }
+                        ?>
+                          @if(count($key_property)==1)
+                            @foreach($data as $key => $val)
+                              <?php 
+                                $judul = $key;
+                                $jumlah = $val;
+                              ?>
+                            @endforeach
+                          @else
+                            @foreach($data as $key => $val)
+                              @if($key == "total")
+                                <?php $jumlah = $val ?>
+                              @elseif($key == "persentase")
+                                <?php $persentase = $val ?>
+                              @else
+                                <?php   
+                                // Baris di bawah ini buat dapetin kata "Agama "
+                                $judul = $key. " ";
+
+                                for ($i=0; $i < count($metadata); $i++) { 
+                                  if ($metadata[$i]->value === $val) {
+                                    // Baris di bawah ini untuk melengkapi kata "Agama " menjadi "Agama Islam"
+                                    $judul .= $metadata[$i]->nama;
+                                  }
+                                }
+                                ?>
+                              @endif
+                            @endforeach
+                          @endif
+                        
+                        <div class="col-lg-{{12/count($highlight_pendidikan)}} col-sm-6 col-6">
+                          <i class="fa fa-users"></i>
+                          <h4><span>{{$judul}}:</span><br>{{ $jumlah }} orang</h4>
+                        </div>  
+                      @endforeach
                     </div>
                   </div>
                 </div>
@@ -204,7 +340,6 @@
                     </tr>
                     @foreach ($array as $item)
                     <tr>
-                      <?php $i = 0; ?>
                       @foreach ($item as $key => $val)
                       @if ($key === $array_kolom[0])
                         <td>

@@ -18,6 +18,7 @@ class Tabulasi extends Model
         'id_table',
         'tanggal',
         'kategori',
+        'highlight',
         'metadata'
     ];
 }

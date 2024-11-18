@@ -120,45 +120,21 @@
       </div>
     </div>
     <div class="row">
-      <div class="col">
-        <div class="card card-round">
+      <div class="col-md-12">
+        <div class="card">
           <div class="card-header">
-            <div class="card-head-row card-tools-still-right">
-              <div class="card-title">Daftar Akomodasi</div>
-              <div class="card-tools">
-                {{-- <div class="dropdown">
-                  <button
-                    class="btn btn-icon btn-clean me-0"
-                    type="button"
-                    id="dropdownMenuButton"
-                    data-bs-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    <i class="fas fa-ellipsis-h"></i>
-                  </button>
-                  <div
-                    class="dropdown-menu"
-                    aria-labelledby="dropdownMenuButton"
-                  >
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#"
-                      >Something else here</a
-                    >
-                  </div>
-                </div> --}}
-              </div>
-            </div>
+            <h4 class="card-title">Daftar Akomodasi</h4>
           </div>
-          <div class="card-body p-0">
+          <div class="card-body">
             <div class="table-responsive">
-              <!-- Projects table -->
-              <table class="table align-items-center mb-0">
-                <thead class="thead-light">
+              <table
+                id="basic-datatables"
+                class="display table table-striped table-hover"
+              >
+                <thead>
                   <tr>
-                    <th scope="col">Aksi</th>
-                    <th scope="col" class="sort" data-sort="name">Nama Akomodasi</th>
+                    <th style="width: 10%">Aksi</th>
+                    <th scope="col">Nama Akomodasi</th>
                     <th scope="col">Harga</th>
                     <th scope="col">Stok</th>
                     <th scope="col">Nama Pemilik</th>
@@ -166,45 +142,63 @@
                     <th scope="col">Gambar</th>
                   </tr>
                 </thead>
+                <tfoot>
+                  <tr>
+                    <th scope="col">Aksi</th>
+                    <th scope="col">Nama Akomodasi</th>
+                    <th scope="col">Harga</th>
+                    <th scope="col">Stok</th>
+                    <th scope="col">Nama Pemilik</th>
+                    <th scope="col">Kontak Pemilik</th>
+                    <th scope="col">Gambar</th>
+                  </tr>
+                </tfoot>
                 <tbody>
-                  {{$akomodasis->links()}}
                   @foreach($akomodasis as $akomodasi)
-                    <tr>
-                      <td>
-                        <div class="d-flex flex-column align-self-center">
-                          <div class="p-1">
-                            <a href="{{url('admin-edit-akomodasi', $akomodasi->id)}}" class="btn btn-primary" title="Edit">
-                              <i class="icon-pencil"></i>
-                            </a>
+                  <!-- Modal -->
+                  <tr>
+                    <div class="modal fade" id="{{'exampleModal'.$akomodasi->id}}" tabindex="-1" aria-labelledby="{{'exampleModalLabel'.$akomodasi->id}}" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="{{'exampleModalLabel'.$akomodasi->id}}">Hapus Akomodasi</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
-                          <div class="p-1">
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="{{'#exampleModal'.$akomodasi->id}}" title="Hapus">
-                              <i class="icon-trash"></i>
-                            </button>
+                          <div class="modal-body">
+                            Apakah Anda yakin ingin menghapus Akomodasi <strong>{{$akomodasi->nama_akomodasi}}</strong> ?
                           </div>
-                        </div>
-                        <!-- Modal -->
-                        <div class="modal fade" id="{{'exampleModal'.$akomodasi->id}}" tabindex="-1" aria-labelledby="{{'exampleModalLabel'.$akomodasi->id}}" aria-hidden="true">
-                          <div class="modal-dialog">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="{{'exampleModalLabel'.$akomodasi->id}}">Hapus Akomodasi</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                              </div>
-                              <div class="modal-body">
-                                Apakah Anda yakin ingin menghapus akomodasi <strong>{{$akomodasi->nama_akomodasi}}</strong> dari {{$akomodasi->nama_pemilik}}?
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
-                                <form action="{{url('admin-hapus-akomodasi/'.$akomodasi->id)}}">
-                                  <button type="submit" class="btn btn-danger">Hapus Akomodasi</button>
-                                </form>
-                              </div>
-                            </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
+                            <form action="{{url('admin-hapus-akomodasi/'.$akomodasi->id)}}">
+                              <button type="submit" class="btn btn-danger">Hapus Akomodasi</button>
+                            </form>
                           </div>
                         </div>
-                      </td>
+                      </div>
+                    </div>
+                    <td>
+                      <div class="form-button-action">
+                        <form action="{{url('admin-edit-akomodasi', $akomodasi->id)}}">
+                          <button
+                            type="submit"
+                            data-bs-toggle="tooltip"
+                            title=""
+                            class="btn btn-link btn-primary btn-lg"
+                            data-original-title="Edit Akomodasi"
+                          >
+                            <i class="fa fa-edit"></i>
+                          </button>
+                        </form>
+                        <button
+                          type="button"
+                          title=""
+                          class="btn btn-link btn-danger"
+                          data-bs-toggle="modal" data-bs-target="{{'#exampleModal'.$akomodasi->id}}" title="Hapus"
+                          data-original-title="Hapus"
+                        >
+                          <i class="fa fa-times"></i>
+                        </button>
+                      </div>
                       <th scope="row">{{$akomodasi->nama_akomodasi}}</th>
                       <td>{{$akomodasi->harga}}</td>
                       <td>{{$akomodasi->stok}}</td>
@@ -213,17 +207,15 @@
                       <td>
                         <img src="{{asset('uploads/akomodasi/'.$akomodasi->gambar_akomodasi)}}" alt="gambar akomodasi" width="100px">
                       </td>
-
-                    </tr>
+                  </tr>
                   @endforeach
                 </tbody>
               </table>
-
             </div>
           </div>
         </div>
       </div>
-      
+
     </div>
 
   </div>

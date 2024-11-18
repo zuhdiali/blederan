@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
   <!-- ***** Main Banner Area Start ***** -->
   <section id="section-1">
     <div class="content-slider">

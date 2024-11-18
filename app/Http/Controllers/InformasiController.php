@@ -9,7 +9,7 @@ class InformasiController extends Controller
 {
     public function kabar()
     {
-        $kabars = Informasi::where('kategori', 'kabar')->orderBy('tanggal','desc')->paginate(5);
+        $kabars = Informasi::where('kategori', 'kabar')->orderBy('tanggal','desc')->get();
         return view('admin.informasi.kabar', compact('kabars'));
     }
 

@@ -248,7 +248,5 @@
 
     calendar.render();
   });
-  console.log(new Date().toISOString().slice(0, 10));
-  console.log(new Date(new Date().getTime() + 2 * 60 * 60 * 1000).toISOString().slice(0, 19));
     </script>
 @endsection

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-use GuzzleHttp\Client;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Log;
 use GuzzleHttp\Exception\RequestException;
 use App\Models\User;
@@ -95,17 +95,17 @@ class AdminController extends Controller
             // request ke API
             $response = Http::withOptions([
                 'verify' => false,
-            ])->get(env('API_URL') . '/posts/33071100142024');
+            ])->get(env('API_URL') . '/posts/'. env('KODE_DESA') . date('Y'));
             $array_response = json_decode($response->body(), true);
             
             // looping insert data ke tabel tabulasi
             foreach ($array_response['data'] as $key => $value) {
                 $tabulasi = new Tabulasi;
                 $tabulasi->judul_tabel = $value['judul'];
-                $tabulasi->data = json_encode($value[0]);
+                $tabulasi->data = json_encode($value["data"]);
                 
                 $tabulasi->tanggal = date('Y-m-1');
-                switch ($value[1]['kategori']) {
+                switch ($value['kategori']) {
                     case 'kependudukan':
                     $tabulasi->kategori = 1;
                     break;
@@ -125,25 +125,35 @@ class AdminController extends Controller
                     $tabulasi->kategori = 99;
                     break;
                 }
-                $tabulasi->metadata = json_encode($value[2]['metadata']);
-                $tabulasi->id_table = $value[3];
+                if(array_key_exists('metadata', $value)) {
+                    $tabulasi->metadata = json_encode($value['metadata']);
+                }
+                else {
+                    $tabulasi->metadata = null;
+                }
+                $tabulasi->id_table = $value["id_query"]; // id_query dijadikan id_table
                 Tabulasi::updateOrCreate(
                     ['tanggal' => date('Y-m-1'),
-                    'id_table' => $value[3]], 
+                    'id_table' => $value["id_query"]], 
                     ['tanggal' => date('Y-m-1'),
-                    'judul_tabel' => $value['judul'],
-                    'data' => json_encode($value[0]),
+                    'judul_tabel' => $tabulasi->judul_tabel,
+                    'data' => $tabulasi->data,
                     'kategori' => $tabulasi->kategori,
-                    'metadata' => json_encode($value[2]['metadata'])]
+                    'metadata' => $tabulasi->metadata,
+                    'highlight' => $value['highlight']]
                 );
+                
                 // $tabulasi->save();
             }
+            // Alert::success('Sukses', 'Data berhasil diperbarui!');
             return redirect(route('admin-dashboard'))->with('success', 'Data berhasil diperbarui! ');
         } catch (RequestException $e) {
             Log::error('RequestException: ' . $e->getMessage());
+            // Alert::error('Gagal', 'Gagal memperbarui data! '. $e->getMessage());
             return redirect(route('admin-dashboard'))->with('error', 'Gagal memperbarui data! '. $e->getMessage());
         } catch (\Exception $e) {
             Log::error('Exception: ' . $e->getMessage());
+            // Alert::error('Terjadi kesalahan!', 'Terjadi kesalahan! '.$e->getMessage());
             return redirect(route('admin-dashboard'))->with('error', 'Terjadi kesalahan! '.$e->getMessage());
         }
     }

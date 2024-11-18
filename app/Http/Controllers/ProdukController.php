@@ -9,7 +9,7 @@ class ProdukController extends Controller
 {
     public function index()
     {
-        $produks = Produk::paginate(5);
+        $produks = Produk::get();
         return view('admin.produk.index', compact('produks'));
     }
 
@@ -126,6 +126,6 @@ class ProdukController extends Controller
         $produk->delete();
 
         return redirect()->route('admin-produk')
-            ->with('success', 'Produk deleted successfully');
+            ->with('success', 'Produk berhasil dihapus');
     }
 }

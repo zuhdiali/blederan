@@ -17,21 +17,21 @@
             <div class="col">
                 <hr>
                 <h5>Facebook</h5>
-                <a href="https://www.facebook.com/pesona.{{ getenv('NAMA_DESA') }}" target="_blank" class="btn btn-primary mt-2">
+                <a href="{{ getenv('FACEBOOK_URL') }}" target="_blank" class="btn btn-primary mt-2">
                     <i class="fab fa-facebook"></i>     
-                    Pesona {{ getenv('NAMA_DESA') }}
+                    {{ getenv('FACEBOOK_USERNAME') }}
                 </a>
                 <hr>
                 <h5>Instagram</h5>
-                <a href="https://www.instagram.com/desa_{{ getenv('NAMA_DESA') }}?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn btn-primary mt-2 text-white">
+                <a href="{{ getenv('INSTAGRAM_URL') }}" target="_blank" class="btn btn-primary mt-2 text-white">
                     <i class="fab fa-instagram"></i> 
-                    desa_{{ getenv('NAMA_DESA') }}
+                    {{ getenv('INSTAGRAM_USERNAME') }}
                 </a>
                 <hr>
                 <h5>Twitter</h5>
-                <a href="https://x.com/D{{ getenv('NAMA_DESA') }}" target="_blank" class="btn btn-primary mt-2 text-white">
+                <a href="{{ getenv('TWITTER_URL') }}" target="_blank" class="btn btn-primary mt-2 text-white">
                     <i class="fab fa-twitter"></i>
-                    desa_{{ getenv('NAMA_DESA') }}
+                    {{ getenv('TWITTER_USERNAME') }}
                 </a>
                 <hr>
             </div>

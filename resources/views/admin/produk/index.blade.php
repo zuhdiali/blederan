@@ -121,45 +121,21 @@
       </div>
     </div>
     <div class="row">
-      <div class="col">
-        <div class="card card-round">
+      <div class="col-md-12">
+        <div class="card">
           <div class="card-header">
-            <div class="card-head-row card-tools-still-right">
-              <div class="card-title">Daftar Produk</div>
-              <div class="card-tools">
-                {{-- <div class="dropdown">
-                  <button
-                    class="btn btn-icon btn-clean me-0"
-                    type="button"
-                    id="dropdownMenuButton"
-                    data-bs-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    <i class="fas fa-ellipsis-h"></i>
-                  </button>
-                  <div
-                    class="dropdown-menu"
-                    aria-labelledby="dropdownMenuButton"
-                  >
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#"
-                      >Something else here</a
-                    >
-                  </div>
-                </div> --}}
-              </div>
-            </div>
+            <h4 class="card-title">Daftar Produk</h4>
           </div>
-          <div class="card-body p-0">
+          <div class="card-body">
             <div class="table-responsive">
-              <!-- Projects table -->
-              <table class="table align-items-center mb-0">
-                <thead class="thead-light">
+              <table
+                id="basic-datatables"
+                class="display table table-striped table-hover"
+              >
+                <thead>
                   <tr>
-                    <th scope="col">Aksi</th>
-                    <th scope="col" class="sort" data-sort="name">Nama Produk</th>
+                    <th style="width: 10%">Aksi</th>
+                    <th scope="col">Nama Produk</th>
                     <th scope="col">Harga</th>
                     <th scope="col">Satuan</th>
                     <th scope="col">Stok</th>
@@ -168,65 +144,83 @@
                     <th scope="col">Gambar</th>
                   </tr>
                 </thead>
+                <tfoot>
+                  <tr>
+                    <th scope="col">Aksi</th>
+                    <th scope="col">Nama Produk</th>
+                    <th scope="col">Harga</th>
+                    <th scope="col">Satuan</th>
+                    <th scope="col">Stok</th>
+                    <th scope="col">Nama Penjual</th>
+                    <th scope="col">Kontak Penjual</th>
+                    <th scope="col">Gambar</th>
+                  </tr>
+                </tfoot>
                 <tbody>
-                  {{$produks->links()}}
                   @foreach($produks as $produk)
-                    <tr>
-                      <td>
-                        <div class="d-flex flex-column align-self-center">
-                          <div class="p-1">
-                            <a href="{{url('admin-edit-produk', $produk->id)}}" class="btn btn-primary" title="Edit">
-                              <i class="icon-pencil"></i>
-                            </a>
+                  <!-- Modal -->
+                  <tr>
+                    <div class="modal fade" id="{{'exampleModal'.$produk->id}}" tabindex="-1" aria-labelledby="{{'exampleModalLabel'.$produk->id}}" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="{{'exampleModalLabel'.$produk->id}}">Hapus Produk</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
-                          <div class="p-1">
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="{{'#exampleModal'.$produk->id}}" title="Hapus">
-                              <i class="icon-trash"></i>
-                            </button>
+                          <div class="modal-body">
+                            Apakah Anda yakin ingin menghapus Produk <strong>{{$produk->nama_produk}}</strong> ?
                           </div>
-                        </div>
-                        <!-- Modal -->
-                        <div class="modal fade" id="{{'exampleModal'.$produk->id}}" tabindex="-1" aria-labelledby="{{'exampleModalLabel'.$produk->id}}" aria-hidden="true">
-                          <div class="modal-dialog">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="{{'exampleModalLabel'.$produk->id}}">Hapus Produk</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                              </div>
-                              <div class="modal-body">
-                                Apakah Anda yakin ingin menghapus produk <strong>{{$produk->nama_produk}}</strong> dari {{$produk->nama_penjual}}?
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
-                                <form action="{{url('admin-hapus-produk/'.$produk->id)}}">
-                                  <button type="submit" class="btn btn-danger">Hapus Produk</button>
-                                </form>
-                              </div>
-                            </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
+                            <form action="{{url('admin-hapus-produk/'.$produk->id)}}">
+                              <button type="submit" class="btn btn-danger">Hapus Produk</button>
+                            </form>
                           </div>
                         </div>
-                      </td>
-                      <th scope="row">{{$produk->nama_produk}}</th>
-                      <td>{{$produk->harga}}</td>
-                      <td>{{$produk->satuan}}</td>
-                      <td>{{$produk->stok}}</td>
-                      <td>{{$produk->nama_penjual}}</td>
-                      <td>{{$produk->kontak_penjual}}</td>
-                      <td>
-                        <img src="{{asset('uploads/produk/'.$produk->gambar_produk)}}" alt="gambar produk" width="100px">
-                      </td>
-
-                    </tr>
+                      </div>
+                    </div>
+                    <td>
+                      <div class="form-button-action">
+                        <form action="{{url('admin-edit-produk', $produk->id)}}">
+                          <button
+                            type="submit"
+                            data-bs-toggle="tooltip"
+                            title=""
+                            class="btn btn-link btn-primary btn-lg"
+                            data-original-title="Edit Produk"
+                          >
+                            <i class="fa fa-edit"></i>
+                          </button>
+                        </form>
+                        <button
+                          type="button"
+                          title=""
+                          class="btn btn-link btn-danger"
+                          data-bs-toggle="modal" data-bs-target="{{'#exampleModal'.$produk->id}}" title="Hapus"
+                          data-original-title="Hapus"
+                        >
+                          <i class="fa fa-times"></i>
+                        </button>
+                      </div>
+                    </td>
+                    <th scope="row">{{$produk->nama_produk}}</th>
+                    <td>{{$produk->harga}}</td>
+                    <td>{{$produk->satuan}}</td>
+                    <td>{{$produk->stok}}</td>
+                    <td>{{$produk->nama_penjual}}</td>
+                    <td>{{$produk->kontak_penjual}}</td>
+                    <td>
+                      <img src="{{asset('uploads/produk/'.$produk->gambar_produk)}}" alt="gambar produk" width="100px">
+                    </td>
+                  </tr>
                   @endforeach
                 </tbody>
               </table>
-              
             </div>
           </div>
         </div>
       </div>
-      
+
     </div>
   </div>
 </div>

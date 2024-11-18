@@ -10,7 +10,7 @@ class AkomodasiController extends Controller
 {
     public function index()
     {
-        $akomodasis = Akomodasi::paginate(5);
+        $akomodasis = Akomodasi::get();
         return view('admin.akomodasi.index', compact('akomodasis'));
     }
 
@@ -113,6 +113,6 @@ class AkomodasiController extends Controller
         $akomodasi->delete();
 
         return redirect()->route('admin-akomodasi')
-            ->with('success', 'Akomodasi deleted successfully');
+            ->with('success', 'Akomodasi berhasil dihapus');
     }
 }

@@ -9,7 +9,7 @@
     />
     <link
       rel="icon"
-      href="{{asset('images/logo_only.png')}}"
+      href="{{asset('images/logo_only.svg')}}"
       type="image/x-icon"
     />
 
@@ -50,7 +50,7 @@
           <div class="logo-header" data-background-color="dark">
             <a href="{{route('admin-dashboard')}}" class="logo">
               <img
-                src="{{asset('images/logo_blederan.png')}}"
+                src="{{asset('images/logo_desa.png')}}"
                 alt="navbar brand"
                 class="navbar-brand"
                 height="45"
@@ -146,7 +146,7 @@
             <div class="logo-header" data-background-color="dark">
               <a href="index.html" class="logo">
                 <img
-                  src="{{asset('images/logo_blederan.png')}}"
+                  src="{{asset('images/logo_desa.png')}}"
                   alt="navbar brand"
                   class="navbar-brand"
                   height="20"
@@ -297,34 +297,11 @@
     <script src="{{asset('js/kaiadmin.min.js')}}"></script>
 
     <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-    <script src="assets/js/setting-demo.js"></script>
-    <script src="assets/js/demo.js"></script>
+    {{-- <script src="assets/js/setting-demo.js"></script>
+    <script src="assets/js/demo.js"></script> --}}
     <script>
-      $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
-        type: "line",
-        height: "70",
-        width: "100%",
-        lineWidth: "2",
-        lineColor: "#177dff",
-        fillColor: "rgba(23, 125, 255, 0.14)",
-      });
-
-      $("#lineChart2").sparkline([99, 125, 122, 105, 110, 124, 115], {
-        type: "line",
-        height: "70",
-        width: "100%",
-        lineWidth: "2",
-        lineColor: "#f3545d",
-        fillColor: "rgba(243, 84, 93, .14)",
-      });
-
-      $("#lineChart3").sparkline([105, 103, 123, 100, 95, 105, 115], {
-        type: "line",
-        height: "70",
-        width: "100%",
-        lineWidth: "2",
-        lineColor: "#ffa534",
-        fillColor: "rgba(255, 165, 52, .14)",
+      $(document).ready(function () {
+        $("#basic-datatables").DataTable({});
       });
     </script>
   </body>
