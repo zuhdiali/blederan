@@ -2,14 +2,14 @@
 <html lang="en">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Desa {{ getenv('NAMA_DESA') }} (admin)</title>
+    <title>Desa {{ Auth::user()->environment->nama_desa }} (admin)</title>
     <meta
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       name="viewport"
     />
     <link
       rel="icon"
-      href="{{asset('images/logo_only.svg')}}"
+      href="{{asset('images/'. Auth::user()->environment->gambar_logo )}}"
       type="image/x-icon"
     />
 
@@ -33,6 +33,10 @@
       });
     </script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kavoon&display=swap" rel="stylesheet">
+
     <!-- CSS Files -->
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" />
     <link rel="stylesheet" href="{{asset('css/plugins.min.css')}}" />
@@ -50,11 +54,16 @@
           <div class="logo-header" data-background-color="dark">
             <a href="{{route('admin-dashboard')}}" class="logo">
               <img
-                src="{{asset('images/logo_desa.png')}}"
+                src="{{asset('images/'.Auth::user()->environment->gambar_logo)}}"
                 alt="navbar brand"
                 class="navbar-brand"
                 height="45"
               />
+              <p style="
+              font-family: 'Kavoon';
+              color: {{Auth::user()->environment->warna_font_logo}};
+              "
+              class="@if (strlen(Auth::user()->environment->nama_desa)<10) fs-3 @else fs-5 @endif">{{Auth::user()->environment->nama_desa}}</p>
             </a>
             <div class="nav-toggle">
               <button class="btn btn-toggle toggle-sidebar">
@@ -74,7 +83,7 @@
           <div class="sidebar-content">
             <ul class="nav nav-secondary">
                 <li class="nav-item">
-                    <a href="{{route('welcome')}}">
+                    <a href="{{url('/', Auth::user()->id_desa)}}">
                         <i class="fas fa-arrow-left"></i>
                         <p>Beranda</p>
                     </a>
@@ -89,7 +98,7 @@
                   <span class="sidebar-mini-icon">
                     <i class="fa fa-ellipsis-h"></i>
                   </span>
-                  <h4 class="text-section">Tentang {{ getenv('NAMA_DESA') }}</h4>
+                  <h4 class="text-section">Tentang {{ Auth::user()->environment->nama_desa }}</h4>
                 </li>
                 <li class="nav-item {{ Request::path() ==  'admin-produk' ? 'active' : ''  }}">
                     <a href="{{route('admin-produk')}}">
@@ -107,7 +116,7 @@
                   <span class="sidebar-mini-icon">
                     <i class="fa fa-ellipsis-h"></i>
                   </span>
-                  <h4 class="text-section">Informasi {{ getenv('NAMA_DESA') }}</h4>
+                  <h4 class="text-section">Informasi {{ Auth::user()->environment->nama_desa }}</h4>
                 </li>
                 <li class="nav-item {{ Request::path() ==  'admin-kabar' ? 'active' : ''  }}">
                   <a href="{{route('admin-kabar')}}">
@@ -133,6 +142,18 @@
                         <p>Manajemen Pengguna</p>
                     </a>
                 </li>
+                <li class="nav-section">
+                  <span class="sidebar-mini-icon">
+                    <i class="fa fa-ellipsis-h"></i>
+                  </span>
+                  <h4 class="text-section">Konfigurasi</h4>
+                </li>
+                <li class="nav-item {{ Request::path() ==  'admin-environment' ? 'active' : ''  }}">
+                  <a href="{{route('admin-environment')}}">
+                      <i class="fas fa-cogs"></i>
+                      <p>Konfigurasi Website</p>
+                  </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -230,8 +251,8 @@
         </div>
         
 
-
         @yield('content')
+
 
         <footer class="footer">
           <div class="container-fluid d-flex justify-content-between">
@@ -302,7 +323,79 @@
     <script>
       $(document).ready(function () {
         $("#basic-datatables").DataTable({});
+
+        $("#multi-filter-select").DataTable({
+            pageLength: 5,
+            initComplete: function () {
+                // Tambahkan baris filter di bawah header
+                $("#multi-filter-select thead").append('<tr></tr>');
+                var filterRow = $("#multi-filter-select thead tr").last();
+
+                this.api()
+                    .columns()
+                    .every(function () {
+                        var column = this;
+
+                        // Tambahkan dropdown filter ke setiap kolom di baris filter
+                        var select = $('<select class="form-select"><option value=""></option></select>')
+                            .appendTo($("<th></th>").appendTo(filterRow))
+                            .on("change", function () {
+                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                                column.search(val ? "^" + val + "$" : "", true, false).draw();
+                            });
+
+                        // Isi dropdown dengan nilai unik dari kolom
+                        column
+                            .data()
+                            .unique()
+                            .sort()
+                            .each(function (d, j) {
+                                select.append('<option value="' + d + '">' + d + "</option>");
+                            });
+                    });
+            },
+        });
+        SessionSuccess.init();
       });
+
+      //== Class definition
+      var SessionSuccess = (function () {
+
+        return {
+          //== Init
+          init: function () {
+            @if(session('success'))
+              swal({
+                title: "Berhasil!",
+                text: "{{ session('success') }}",
+                type: "success",
+                buttons: {
+                  confirm: {
+                    className: "btn btn-success",
+                  },
+                },
+              });
+            @endif
+            @if(session('error'))
+              swal({
+                title: "Gagal!",
+                text: "{{ session('error') }}",
+                type: "error",
+                buttons: {
+                  confirm: {
+                    className: "btn btn-danger",
+                  },
+                },
+              });
+            @endif
+          },
+        };
+      })();
+
     </script>
+    
+
+    @yield('script')
   </body>
 </html>

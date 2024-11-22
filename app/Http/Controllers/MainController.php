@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Models\Produk;
 use App\Models\Tabulasi;
+use App\Models\Environment;
 
 class MainController extends Controller
 {
@@ -16,51 +17,66 @@ class MainController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index($id_desa)
     {
-        $produks = Produk::get();
-        $akomodasis = Akomodasi::get();
-        $eduwisatas = Informasi::where('kategori', 'eduwisata')->get();
+        $environment = Environment::where('id_desa', $id_desa)->first();
+        $produks = Produk::where('id_desa', $id_desa)->get();
+        $akomodasis = Akomodasi::where('id_desa', $id_desa)->get();
+        $eduwisatas = Informasi::where('kategori', 'eduwisata')->where('id_desa', $id_desa)->get();
         $eduwisatas_berlalu = Informasi::where('kategori', 'eduwisata')
             ->where('tanggal', '<', now())
+            ->where('id_desa', $id_desa)
             ->orderBy('tanggal', 'desc')
             ->get();
-        return view('welcome', compact('produks', 'akomodasis', 'eduwisatas', 'eduwisatas_berlalu'));
+            // dd($eduwisatas_berlalu);
+        return view('welcome', compact('produks', 'akomodasis', 'eduwisatas', 'eduwisatas_berlalu', 'id_desa', 'environment'));
     }
 
-    // public function produk()
+    // public function produk($id_desa)
     // {
     //     return view('produk');
     // }
 
-    public function kabar()
+    public function kabar($id_desa)
     {   
-        $kabarTerkini = DB::table('informasis')->where('kategori', 'kabar')->where('tanggal','<=',now())->orderBy('tanggal', 'desc')->limit(4)->get();
-        $kabars = DB::table('informasis')->where('kategori', 'kabar')->where('tanggal','<=',now())->orderBy('tanggal', 'desc')->paginate(3);
-        return view('kabar', compact('kabarTerkini', 'kabars'));
+        $environment = Environment::where('id_desa', $id_desa)->first();
+        $gambar_kabar = [];
+        array_push($gambar_kabar, $environment->bg_kabar_1);
+        // dd($gambar_kabar);
+        array_push($gambar_kabar, $environment->bg_kabar_2);
+        array_push($gambar_kabar, $environment->bg_kabar_3);
+        array_push($gambar_kabar, $environment->bg_kabar_4);
+        // dd($gambar_kabar);
+        $kabarTerkini = DB::table('informasis')->where('kategori', 'kabar')->where('tanggal','<=',now())->where('id_desa', $id_desa)->orderBy('tanggal', 'desc')->limit(4)->get();
+        $kabars = DB::table('informasis')->where('kategori', 'kabar')->where('tanggal','<=',now())->where('id_desa', $id_desa)->orderBy('tanggal', 'desc')->paginate(3);
+        return view('kabar', compact('kabarTerkini', 'kabars', 'id_desa', 'environment', 'gambar_kabar'));
     }
 
-    public function sejarah()
+    public function sejarah($id_desa)
+    {   
+        $environment = Environment::where('id_desa', $id_desa)->first();
+        return view('sejarah', compact('id_desa',  'environment'));
+    }
+
+    public function peta($id_desa)
+    {   
+        $environment = Environment::where('id_desa', $id_desa)->first();
+        return view('peta', compact('id_desa', 'environment'));
+    }
+
+    public function publikasi($id_desa)
     {
-        return view('sejarah');
+        $environment = Environment::where('id_desa', $id_desa)->first();
+        return view('publikasi', compact('id_desa', 'environment'));
     }
 
-    public function peta()
+    public function medsos($id_desa)
     {
-        return view('peta');
+        $environment = Environment::where('id_desa', $id_desa)->first();
+        return view('medsos', compact('id_desa', 'environment'));
     }
 
-    public function publikasi()
-    {
-        return view('publikasi');
-    }
-
-    public function medsos()
-    {
-        return view('medsos');
-    }
-
-    public function data()
+    public function data($id_desa)
     {
         // QUERY SEBELUMNYA
         // $kependudukan = DB::table('tabulasis as t1')
@@ -89,34 +105,23 @@ class MainController extends Controller
         ]);
     }
 
-    public function data2()
+    public function data2($id_desa)
     {
-        // $kependudukan = DB::table('tabulasis')->where('kategori','=',1)->get();
-        // $perumahan = DB::table('tabulasis')->where('kategori','=',2)->get();
-        // $kesehatan = DB::table('tabulasis')->where('kategori','=',3)->get();
-        // $pendidikan = DB::table('tabulasis')->where('kategori','=',4)->get();
-        // $pekerjaan = DB::table('tabulasis')->where('kategori','=',5)->get();
-
-        // $highlight_kependudukan = DB::table('tabulasis')->where('kategori', 1)->where('highlight', 1)->get();
-        // $highlight_perumahan = DB::table('tabulasis')->where('kategori', 2)->where('highlight', 1)->get();
-        // $highlight_kesehatan = DB::table('tabulasis')->where('kategori', 3)->where('highlight', 1)->get();
-        // $highlight_pendidikan = DB::table('tabulasis')->where('kategori', 4)->where('highlight', 1)->get();
-
-        
+        $environment = Environment::where('id_desa', $id_desa)->first();
         $categories = [1 => 'kependudukan', 2 => 'perumahan', 3 => 'kesehatan', 4 => 'pendidikan', 5 => 'pekerjaan'];
         $data = [];
         $highlight_data = [];
 
         foreach ($categories as $key => $value) {
-            $data[$value] = Tabulasi::where('kategori', $key)->where('highlight', 0)->get();
-            $highlight_data['highlight_' . $value] = Tabulasi::where('kategori', $key)->where('highlight', 1)->get();
+            $data[$value] = Tabulasi::where('kategori', $key)->where('highlight', 0)->where('id_desa', $id_desa)->get();
+            $highlight_data['highlight_' . $value] = Tabulasi::where('kategori', $key)->where('highlight', 1)->where('id_desa', $id_desa)->get();
         }
         
-        return view('data2', array_merge($data, $highlight_data));
+        return view('data2', array_merge($data, $highlight_data, ['id_desa' => $id_desa, 'environment' => $environment]));
         // return view('data2', compact('kependudukan', 'perumahan', 'kesehatan', 'pendidikan', 'pekerjaan', 'highlight_kependudukan', 'highlight_perumahan', 'highlight_kesehatan', 'highlight_pendidikan'));
     }
 
-    public function downloadPublikasi()
+    public function downloadPublikasi($id_desa)
     {
         $file="/uploads/publikasi/Profil Desa Lengkap.pdf";
         // $file = glob(public_path('uploads/publikasi/Profil Desa Lengkap.pdf'));
@@ -128,38 +133,38 @@ class MainController extends Controller
         // return view('download_publikasi', compact('files'));
     }
 
-    public function layoutArtikel()
+    public function layoutArtikel($id_desa)
     {
         return view('layout_artikel');
     }
 
-    public function desaCantik()
+    public function desaCantik($id_desa)
     {
         return view('artikels.20241003_desa_cantik');
     }
 
-    public function kampungSayur()
+    public function kampungSayur($id_desa)
     {
         return view('artikels.20241003_kampung_sayur');
     }
 
-    public function santunan()
+    public function santunan($id_desa)
     {
         return view('artikels.20241003_santunan');
     }
 
-    public function penghargaan()
+    public function penghargaan($id_desa)
     {
         return view('artikels.20241003_penghargaan');
     }
 
-    public function test()
+    public function test($id_desa)
     {
         // $user = DB::table('admins')->get();
         return view('test');
     }
 
-    public function test2()
+    public function test2($id_desa)
     {
         // $user = DB::table('admins')->get();
         return view('test2');

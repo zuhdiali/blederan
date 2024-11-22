@@ -11,11 +11,11 @@
       <div class="slider">
         <?php $i = 1; ?>
         @foreach ($kabarTerkini as $kabar)
-        <div id="top-banner-{{$i}}" class="banner">
+        <div id="top-banner-{{$i}}" class="banner" style="background: url({{asset('images/'.$gambar_kabar[$i-1])}}) no-repeat center center">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption">
               <div class="container bg-dark rounded py-4"  style="--bs-bg-opacity: .6;">
-              <h2>Kabar terkini dari Desa {{ getenv('NAMA_DESA') }}</h2>
+              <h2>Kabar terkini dari Desa {{$environment->nama_desa }}</h2>
               <h1>{{$kabar->judul}}</h1>
               {{-- <div class="border-button"><a href="{{ route('kampung-sayur')}}">Baca Selengkapnya</a></div> --}}
               </div>
@@ -46,92 +46,6 @@
         </div>
         <?php $i++; ?>
         @endforeach
-        {{-- <div id="top-banner-2" class="banner">
-            <div class="banner-inner-wrapper header-text">
-                <div class="main-caption">
-                  <div class="container bg-dark rounded py-4"  style="--bs-bg-opacity: .4;">
-                  <h2>Kabar terkini dari Desa {{ getenv('NAMA_DESA') }}</h2>
-                  <h1>Desa {{ getenv('NAMA_DESA') }} Raih Penghargaan Prokllim Lestari dari KLHK RI</h1>
-                  <div class="border-button"><a href="{{ route('penghargaan')}}">Baca Selengkapnya</a></div>
-                  </div>
-                </div>
-                <div class="container">
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="more-info">
-                        <div class="row">
-                          <div class="col-sm-6 col-6">
-                            <i class="fa fa-user"></i>
-                            <h4><span>Penulis:</span><br>Fahmi Saputra</h4>
-                          </div>
-                          <div class="col-sm-6 col-6">
-                            <i class="fa fa-calendar"></i>
-                            <h4><span>Tanggal:</span><br>3 Oktober 2024</h4>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-        </div>
-        <div id="top-banner-3" class="banner">
-            <div class="banner-inner-wrapper header-text">
-                <div class="main-caption">
-                  <div class="container bg-dark rounded py-4"  style="--bs-bg-opacity: .4;">
-                  <h2>Kabar terkini dari Desa {{ getenv('NAMA_DESA') }}</h2>
-                  <h1>Pencanangan program Desa Cantik (Desa Cinta Statistik)</h1>
-                  <div class="border-button"><a href="{{ route('desa-cantik')}}">Baca Selengkapnya</a></div>
-                  </div>
-                </div>
-                <div class="container">
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="more-info">
-                        <div class="row">
-                          <div class=" col-sm-6 col-6">
-                            <i class="fa fa-user"></i>
-                            <h4><span>Penulis:</span><br>Rizki Arifin</h4>
-                          </div>
-                          <div class=" col-sm-6 col-6">
-                            <i class="fa fa-calendar"></i>
-                            <h4><span>Tanggal:</span><br>3 Oktober 2024</h4>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-        </div>
-        <div id="top-banner-4" class="banner">
-            <div class="banner-inner-wrapper header-text">
-                <div class="main-caption">
-                  <div class="container bg-dark rounded py-4"  style="--bs-bg-opacity: .4;">
-                  <h2>Kabar terkini dari Desa {{ getenv('NAMA_DESA') }}</h2>
-                  <h1>Santunan Anak Yatim di Desa Setempat</h1>
-                  <div class="border-button"><a href="{{ route('santunan')}}">Baca Selengkapnya</a></div>
-                  </div>
-                </div>
-                <div class="container">
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="more-info">
-                        <div class="row">
-                          <div class="col-sm-6 col-6">
-                            <i class="fa fa-user"></i>
-                            <h4><span>Penulis:</span><br>Zuhdi Ali Hisyam</h4>
-                          </div>
-                          <div class="col-sm-6 col-6">
-                            <i class="fa fa-calendar"></i>
-                            <h4><span>Tanggal:</span><br>3 Oktober 2024</h4>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> --}}
       </div>
       <nav>
         <div class="controls">
@@ -150,8 +64,8 @@
       <div class="row">
         <div class="col-lg-5">
           <div class="section-heading">
-            <h2>Kabar Terkini Desa {{ getenv('NAMA_DESA') }}</h2>
-            <p>Info terkini mengenai Desa {{ getenv('NAMA_DESA') }}, Kecamatan Mojotengah, Kabupaten Wonosobo.</p>
+            <h2>Kabar Terkini Desa {{$environment->nama_desa }}</h2>
+            <p>Info terkini mengenai Desa {{$environment->nama_desa }}, Kabupaten Wonosobo.</p>
           </div>
         </div>
       </div>
@@ -216,7 +130,7 @@
             <div class="row">
               <div class="col-lg-12">
                 <div id="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5596.571297101213!2d109.91171212253252!3d-7.311868896386512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e700a8e33f22365%3A0xd8a8af392da67ea3!2sBalai%20Desa%20%2F%20Kantor%20Kepala%20Desa%20{{ getenv('NAMA_DESA') }}!5e0!3m2!1sen!2sid!4v1727836245361!5m2!1sen!2sid" width="100%" height="550px" style="border:0; border-radius: 23px; " allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5596.571297101213!2d109.91171212253252!3d-7.311868896386512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e700a8e33f22365%3A0xd8a8af392da67ea3!2sBalai%20Desa%20%2F%20Kantor%20Kepala%20Desa%20{{$environment->nama_desa }}!5e0!3m2!1sen!2sid!4v1727836245361!5m2!1sen!2sid" width="100%" height="550px" style="border:0; border-radius: 23px; " allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
               </div>
             </div>

@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Akomodasi;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 class AkomodasiController extends Controller
 {
     public function index()
     {
-        $akomodasis = Akomodasi::get();
+        $akomodasis = Akomodasi::where('id_desa', Auth::user()->id_desa)->orderBy('created_at', 'desc')->get();
         return view('admin.akomodasi.index', compact('akomodasis'));
     }
 
@@ -39,7 +39,7 @@ class AkomodasiController extends Controller
             $file = $request->file('gambar_akomodasi');
             $extension = $file->getClientOriginalExtension();
 
-            $filename = time() . '.' . $extension;
+            $filename =  Auth::user()->environment->nama_desa."_".time() . '.' . $extension;
 
             $path = 'uploads/akomodasi/';
             $file->move($path, $filename);
@@ -51,6 +51,7 @@ class AkomodasiController extends Controller
         
         Akomodasi::create([
             'nama_akomodasi' => $request->nama_akomodasi,
+            'id_desa' => Auth::user()->id_desa,
             'harga' => $request->harga,
             'satuan' => $request->satuan,
             'stok' => $request->stok,
@@ -89,13 +90,14 @@ class AkomodasiController extends Controller
             $file = $request->file('gambar_akomodasi');
             $extension = $file->getClientOriginalExtension();
 
-            $filename = time() . '.' . $extension;
+            $filename =  Auth::user()->environment->nama_desa."_".time() . '.' . $extension;
             $akomodasi->gambar_akomodasi = $filename;
             $path = 'uploads/akomodasi/';
             $file->move($path, $filename);
         }
 
         $akomodasi->nama_akomodasi = $request->nama_akomodasi;
+        $akomodasi->id_desa = Auth::user()->id_desa;
         $akomodasi->harga = $request->harga;
         $akomodasi->stok = $request->stok;
         $akomodasi->nama_pemilik = $request->nama_pemilik;

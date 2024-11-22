@@ -13,6 +13,7 @@ class Tabulasi extends Model
 
     protected $fillable = [
         'id',
+        'id_desa',
         'judul_tabel',
         'data',
         'id_table',

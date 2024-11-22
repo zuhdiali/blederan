@@ -10,11 +10,11 @@
       <input type="radio" id="banner3" class="sec-1-input" name="banner">
       <input type="radio" id="banner4" class="sec-1-input" name="banner">
       <div class="slider">
-        <div id="top-banner-1" class="banner">
+        <div id="top-banner-1" class="banner" style="background: url({{ asset('images/' . $environment->bg_data_kependudukan)}}) no-repeat center center">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption ">
               <div class="container bg-dark rounded py-4"  style="--bs-bg-opacity: .7;">
-                <h2>Desa {{ getenv('NAMA_DESA') }}:</h2>
+                <h2>Desa {{ $environment->nama_desa }}:</h2>
                 <h1>Data Kependudukan</h1>
                 <div class="border-button"><a id="lihatSelengkapnya1" href="#accordionButtonOne">Lihat Selengkapnya</a></div>
               </div>
@@ -78,11 +78,11 @@
             </div>
           </div>
         </div>
-        <div id="top-banner-2" class="banner">
+        <div id="top-banner-2" class="banner" style="background: url({{asset('images/'.$environment->bg_data_perumahan)}}) no-repeat center center">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption ">
               <div class="container bg-dark rounded py-4"  style="--bs-bg-opacity: .7;">
-                <h2>Desa {{ getenv('NAMA_DESA') }}:</h2>
+                <h2>Desa {{ $environment->nama_desa }}:</h2>
                 <h1>Data Perumahan</h1>
                 <div class="border-button"><a id="lihatSelengkapnya2" href="#accordionButtonTwo">Lihat Selengkapnya</a></div>
               </div>
@@ -146,11 +146,11 @@
             </div>
           </div>
         </div>
-        <div id="top-banner-3" class="banner">
+        <div id="top-banner-3" class="banner" style="background: url({{asset('images/'.$environment->bg_data_kesehatan)}}) no-repeat center center">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption">
               <div class="container bg-dark rounded py-4"  style="--bs-bg-opacity: .7;">
-                <h2>Desa {{ getenv('NAMA_DESA') }}:</h2>
+                <h2>Desa {{ $environment->nama_desa }}:</h2>
                 <h1>Data Kesehatan</h1>
                 <div class="border-button"><a id="lihatSelengkapnya3" href="#accordionButtonThree">Lihat Selengkapnya</a></div>
               </div>
@@ -214,11 +214,11 @@
             </div>
           </div>
         </div>
-        <div id="top-banner-4" class="banner">
+        <div id="top-banner-4" class="banner" style="background: url({{asset('images/'.$environment->bg_data_pendidikan)}}) no-repeat center center">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption">
               <div class="container bg-dark rounded py-4"  style="--bs-bg-opacity: .7;">
-                <h2>Desa {{ getenv('NAMA_DESA') }}:</h2>
+                <h2>Desa {{ $environment->nama_desa }}:</h2>
                 <h1>Data Pendidikan</h1>
                 <div class="border-button"><a id="lihatSelengkapnya4" href="#accordionButtonFour">Lihat Selengkapnya</a></div>
                 </div>
@@ -633,11 +633,11 @@
       else $('.sec-1-input').first().prop('checked', true);
     }
 
-    var bannerTimer = setInterval(bannerSwitcher, 5000);
+    var bannerTimer = setInterval(bannerSwitcher, 7000);
 
     $('nav .controls label').click(function() {
       clearInterval(bannerTimer);
-      bannerTimer = setInterval(bannerSwitcher, 5000)
+      bannerTimer = setInterval(bannerSwitcher, 7000)
     });
 
     // $(document).ready(function() {
@@ -656,55 +656,4 @@
     // });
     
   </script>
-
-  <script>
-    // var pieData = [
-    //     {
-    //         value: 20,
-    //         color:"#878BB6"
-    //     },
-    //     {
-    //         value : 40,
-    //         color : "#4ACAB4"
-    //     },
-    //     {
-    //         value : 10,
-    //         color : "#FF8153"
-    //     },
-    //     {
-    //         value : 30,
-    //         color : "#FFEA88"
-    //     }
-    // ];
-    // Get the context of the canvas element we want to select
-    //   var countries= document.getElementById("countries").getContext("2d");
-    //   new Chart(countries).Pie(pieData);
-      
-    //   var myBarChart = new Chart(ctx, {
-    //   type: 'bar',
-    //   data: {
-    //     labels: ["January", "February", "March", "April", "May", "June"],
-    //     datasets: [{
-    //       label: "Revenue",
-    //       backgroundColor: "#4e73df",
-    //       hoverBackgroundColor: "#2e59d9",
-    //       borderColor: "#4e73df",
-    //       data: [4215, 5312, 6251, 7841, 9821, 14984],
-    //     }],
-    //   },
-    //   options: {
-    //     maintainAspectRatio: false,
-    //     layout: {
-    //       padding: {
-    //         left: 10,
-    //         right: 25,
-    //         top: 25,
-    //         bottom: 0
-    //       }
-    //     },
-        
-    //   }
-    // })
-    </script>
-
 @endsection

@@ -18,7 +18,7 @@
             <div class="col">
                 <hr>
                 <h5>Pofil Desa {{ getenv('NAMA_DESA') }}</h5>
-                    <a href="{{route('download')}}" class="btn btn-primary mt-2">Unduh</a>
+                    <a href="{{url('download', $id_desa)}}" class="btn btn-primary mt-2">Unduh</a>
                 <hr>
             </div>
         </div>

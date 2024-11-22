@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col">
                 <div class="section-heading">
-                    <h2>Media Sosial Desa {{ getenv('NAMA_DESA') }}</h2>
+                    <h2>Media Sosial Desa {{ $environment->nama_desa }}</h2>
                 </div>
             </div>
         </div>
@@ -17,23 +17,29 @@
             <div class="col">
                 <hr>
                 <h5>Facebook</h5>
-                <a href="{{ getenv('FACEBOOK_URL') }}" target="_blank" class="btn btn-primary mt-2">
+                <a href="{{ $environment->facebook_url }}" target="_blank" class="btn btn-primary mt-2">
                     <i class="fab fa-facebook"></i>     
-                    {{ getenv('FACEBOOK_USERNAME') }}
+                    {{ $environment->facebook_username }}
                 </a>
                 <hr>
                 <h5>Instagram</h5>
-                <a href="{{ getenv('INSTAGRAM_URL') }}" target="_blank" class="btn btn-primary mt-2 text-white">
+                <a href="{{ $environment->instagram_url }}" target="_blank" class="btn btn-primary mt-2 text-white">
                     <i class="fab fa-instagram"></i> 
-                    {{ getenv('INSTAGRAM_USERNAME') }}
+                    {{ $environment->instagram_username }}
                 </a>
                 <hr>
                 <h5>Twitter</h5>
-                <a href="{{ getenv('TWITTER_URL') }}" target="_blank" class="btn btn-primary mt-2 text-white">
+                <a href="{{ $environment->twitter_url }}" target="_blank" class="btn btn-primary mt-2 text-white">
                     <i class="fab fa-twitter"></i>
-                    {{ getenv('TWITTER_USERNAME') }}
+                    {{ $environment->twitter_username }}
                 </a>
                 <hr>
+                <h5>Youtube</h5>
+                <a href="{{ $environment->youtube_url }}" target="_blank" class="btn btn-primary mt-2 text-white">
+                    <i class="fab fa-youtube"></i>
+                    {{ $environment->youtube_username }}
+                </a>
+                
             </div>
         </div>
 

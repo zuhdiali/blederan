@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kavoon&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Desa {{ $environment->nama_desa }}</title>
+    <title>Desa {{ getenv('NAMA_DESA') }}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
@@ -31,7 +31,7 @@
     <link href="{{asset('fullcalendar/packages/daygrid/main.css')}}" rel='stylesheet' />
 
     <!--Icon Web-->
-    <link rel="icon" type="image/x-icon" href="{{ asset('images/'.$environment->gambar_logo) }}" >
+    <link rel="icon" type="image/x-icon" href="{{asset('images/logo_only.svg')}}" >
 
     <!-- ChartJS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js" type="text/javascript"></script>
@@ -62,58 +62,53 @@
         <div class="row">
             <div class="col-12">
                 <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a href="{{url('/', $environment->id_desa)}}" class="logo">
-                      <img src="{{ asset('images/'.$environment->gambar_logo) }}" alt="logo" >
-                      <p style="
-                      font-family: 'Kavoon';
-                      color: black;"
-                      class="fs-3" id="nama_desa_logo">
-                        {{$environment->nama_desa}}
-                      </p>
+                   <!-- ***** Logo Start ***** -->
+                   <a href="#" class="logo">
+                    {{-- <img src="{{ asset('images/'.$environment->gambar_logo) }}" alt="logo" > --}}
+                    <p style="
+                    font-family: 'Kavoon';
+                    color: #00A79D;"
+                    class="fs-3" id="nama_desa_logo">
+                      Login
+                    </p>
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                        <li><a href="{{ url('/', $environment->id_desa) }}" class="{{ Request::path() ==  '/' ? 'active' : ''  }}">Beranda</a></li>
-                        {{-- <li><a href="{{ url('produk', $environment->id_desa) }}" class="{{ Request::path() ==  'produk' ? 'active' : ''  }}">Produk</a></li> --}}
-                        <li><a href="{{ url('kabar', $environment->id_desa) }}" class="{{ Request::path() ==  'kabar' ? 'active' : ''  }}">Kabar</a></li>
-                        @if($environment->ada_publikasi=="1")
-                        <li><a href="{{ url('publikasi', $environment->id_desa) }}" class="{{ Request::path() ==  'publikasi' ? 'active' : ''  }}">Publikasi</a></li>
+                    {{-- <ul class="nav">
+                        <li><a href="{{ url('/') }}" class="{{ Request::path() ==  '/' ? 'active' : ''  }}">Beranda</a></li>
+                        <li><a href="{{ url('kabar') }}" class="{{ Request::path() ==  'kabar' ? 'active' : ''  }}">Kabar</a></li>
+                        @if(getenv('ADA_PUBLIKASI')=="1")
+                        <li><a href="{{ url('publikasi') }}" class="{{ Request::path() ==  'publikasi' ? 'active' : ''  }}">Publikasi</a></li>
                         @endif
-                        @if($environment->ada_sejarah=="1" || $environment->ada_peta=="1")
+                        @if(getenv('ADA_PROFIL')=="1")
                         <li>
                           <div class="dropdown">
                             <button class="btn dropdown-toggle text-white" id="button-profile" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                               Profil
                             </button>
                             <ul class="dropdown-menu">
-                              @if($environment->ada_sejarah=="1")
-                              <li><a class="dropdown-item text-black" href="{{url('sejarah', $environment->id_desa)}}">Sejarah</a></li>
-                              @endif
-                              @if($environment->ada_peta=="1")
-                              <li><a class="dropdown-item text-black" href="{{url('peta', $environment->id_desa)}}">Peta</a></li>
-                              @endif
+                              <li><a class="dropdown-item text-black" href="{{url('sejarah')}}">Sejarah</a></li>
+                              <li><a class="dropdown-item text-black" href="{{url('peta')}}">Peta</a></li>
                             </ul>
                           </div>
                         </li>
                         @endif
                         
-                        <li><a href="{{ url('data2', $environment->id_desa) }}" class="{{ Request::path() ==  'data2' ? 'active' : ''  }}">Data</a></li>
+                        <li><a href="{{ url('data2') }}" class="{{ Request::path() ==  'data2' ? 'active' : ''  }}">Data</a></li>
                         
                           @if(Auth::check())
                           <li>
-                            <a href="{{ route('admin-dashboard') }}" class="btn btn-primary">Dashboard</a>
+                            <a href="{{ url('admin-dashboard', Auth::user()->id_desa) }}" class="btn btn-primary">Dashboard</a>
                           </li>  
                           <li>  
-                            <a href="{{ route('logout') }}" class="btn btn-danger">Logout</a>
+                            <a href="{{ url('logout', Auth::user()->id_desa) }}" class="btn btn-danger">Logout</a>
                           </li>
                           @else
                           <li>  
-                            <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
+                            <a href="{{ url('login') }}" class="btn btn-primary">Login</a>
                           </li>
                           @endif
-                    </ul>   
+                    </ul>    --}}
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
@@ -140,43 +135,21 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <h2>Ikuti Media Sosial Kami</h2>
+          <h2>Ikuti Media Sosial Pengembang Website</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            @if($environment->facebook_url)
             <div class="p-2">
               <h4>
-                <a href="{{ $environment->facebook_url }}" target="_blank" class="text-white"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100008071667807" target="_blank" class="text-white"><i class="fab fa-facebook"></i></a>
               </h4>
             </div>
-            @endif
-            @if($environment->instagram_url)
+
             <div class="p-2">
               <h4>
-                <a href="{{ $environment->instagram_url }}" target="_blank" class="text-white"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/zuhdiali_/" target="_blank" class="text-white"><i class="fab fa-instagram"></i></a>
               </h4>
             </div>
-            @endif
-            @if($environment->twitter_url)
-            <div class="p-2">
-              <h4>
-                <a href="{{ $environment->twitter_url }}" target="_blank" class="text-white"><i class="fab fa-twitter"></i></a>
-              </h4>
-            </div>
-            @endif
-            @if($environment->youtube_url)
-            <div class="p-2">
-              <h4>
-                <a href="{{ $environment->youtube_url }}" target="_blank" class="text-white"><i class="fab fa-youtube"></i></a>
-              </h4>
-            </div>
-            @endif
           </div>
         </div>
-        {{--<div class="col-lg-4">
-           <div class="border-button">
-            <a href="reservation.html">Book Yours Now</a>
-          </div> 
-        </div>--}}
       </div>
     </div>
   </div>
@@ -185,7 +158,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <p>Copyright © 2024 Desa {{ $environment->nama_desa }}.
+            <p>Copyright © 2024.
             <br>Pengembang: <a href="https://wa.me/6282328839199" target="_blank" title="Hubungi WhatsApp">Zuhdi Ali Hisyam</a>. Desain: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a></p>
           </div>
         </div>
@@ -216,11 +189,11 @@
   <script src="{{asset('fullcalendar/packages/core/locales/id.js')}}"></script>
 
   <script src="{{asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
-  <script>
+  {{-- <script>
     $(document).ready(function(){
       $('#nama_desa_logo').css('color', '{{$environment->warna_font_logo}}');
     });
-  </script>
+  </script> --}}
   </body>
 
 </html>

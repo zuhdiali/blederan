@@ -13,6 +13,7 @@ class Akomodasi extends Model
 
     protected $fillable = [
         'nama_akomodasi',
+        'id_desa',
         'harga',
         'stok',
         'gambar_akomodasi',

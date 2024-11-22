@@ -25,7 +25,7 @@
                       value="{{ old('nama_produk') }}"
                     />
                     @if ($errors->has('nama_produk'))
-                    <small id="emailHelp" class="form-text text-muted">{{ $errors->first('nama_produk') }}</small>
+                    <small  class="form-text text-muted">{{ $errors->first('nama_produk') }}</small>
                     @endif
                   </div>
                   <div class="form-group {{$errors->has('harga') ? 'has-error has-feedback' : ''}}">
@@ -45,7 +45,7 @@
                       />
                     </div>
                     @if ($errors->has('harga'))
-                    <small id="emailHelp" class="form-text text-muted">{{ $errors->first('harga') }}</small>
+                    <small  class="form-text text-muted">{{ $errors->first('harga') }}</small>
                     @endif
                   </div>
                   <div class="form-group {{$errors->has('satuan') ? 'has-error has-feedback' : ''}}">
@@ -59,7 +59,7 @@
                       value="{{ old('satuan') }}"
                     />
                     @if ($errors->has('satuan'))
-                    <small id="emailHelp" class="form-text text-muted">{{ $errors->first('satuan') }}</small>
+                    <small  class="form-text text-muted">{{ $errors->first('satuan') }}</small>
                     @endif
                   </div>
                   <div class="form-group {{$errors->has('stok') ? 'has-error has-feedback' : ''}}">
@@ -75,7 +75,7 @@
                       value="{{ old('stok') }}"
                     />
                     @if ($errors->has('stok'))
-                    <small id="emailHelp" class="form-text text-muted">{{ $errors->first('stok') }}</small>
+                    <small  class="form-text text-muted">{{ $errors->first('stok') }}</small>
                     @endif
                   </div>
                   <div class="form-group {{$errors->has('gambar_produk') ? 'has-error has-feedback' : ''}}">
@@ -88,7 +88,7 @@
                       name="gambar_produk"
                     />
                     @if ($errors->has('gambar_produk'))
-                    <small id="emailHelp" class="form-text text-muted">{{ $errors->first('gambar_produk') }}</small>
+                    <small  class="form-text text-muted">{{ $errors->first('gambar_produk') }}</small>
                     @endif
                   </div>
                 </div>
@@ -104,7 +104,7 @@
                       value="{{ old('nama_penjual') }}"
                     />
                     @if ($errors->has('nama_penjual'))
-                    <small id="emailHelp" class="form-text text-muted">{{ $errors->first('nama_penjual') }}</small>
+                    <small  class="form-text text-muted">{{ $errors->first('nama_penjual') }}</small>
                     @endif
                   </div>
                   <div class="form-group">
@@ -118,14 +118,14 @@
                       value="{{ old('kontak_penjual') }}"
                     />
                     @if ($errors->has('kontak_penjual'))
-                    <small id="emailHelp" class="form-text text-muted">{{ $errors->first('kontak_penjual') }}</small>
+                    <small  class="form-text text-muted">{{ $errors->first('kontak_penjual') }}</small>
                     @endif
                   </div>
                   <div class="form-group">
                     <label for="deskripsi">Deskripsi Produk</label>
                     <textarea class="form-control" id="comment" rows="5" name="deskripsi" placeholder="Masukkan deskripsi produk (opsional)">{{ old('deskripsi') }}</textarea>
                     @if ($errors->has('deskripsi'))
-                    <small id="emailHelp" class="form-text text-muted">{{ $errors->first('deskripsi') }}</small>
+                    <small  class="form-text text-muted">{{ $errors->first('deskripsi') }}</small>
                     @endif
                   </div>
                 </div>

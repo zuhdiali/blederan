@@ -13,15 +13,16 @@ use App\Models\Akomodasi;
 use App\Models\Tabulasi;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Environment;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        $users = User::get();
-        $produks = Produk::get();
-        $akomodasis = Akomodasi::get();
-        $data_terakhir = Tabulasi::orderBy('tanggal', 'desc')->first();
+        $users = User::where('id_desa', Auth::user()->id_desa)->get();
+        $produks = Produk::where('id_desa', Auth::user()->id_desa)->get();
+        $akomodasis = Akomodasi::where('id_desa', Auth::user()->id_desa)->get();
+        $data_terakhir = Tabulasi::where('id_desa', Auth::user()->id_desa)->orderBy('tanggal', 'desc')->first();
         $tgl_terakhir = $data_terakhir ? \Carbon\Carbon::parse($data_terakhir->tanggal)->locale('id')->translatedFormat('F Y') : null;
         // dd($tgl_terakhir);
 
@@ -31,11 +32,6 @@ class AdminController extends Controller
             'jumlah_akomodasi' => count($akomodasis),
             'tgl_terakhir' => $tgl_terakhir
         ]);
-    }
-
-    public function forms()
-    {
-        return view('admin.forms');
     }
 
     public function login()
@@ -59,7 +55,8 @@ class AdminController extends Controller
 
     public function daftar()
     {
-        return view('auth.daftar');
+        $desas = Environment::select('id_desa', 'nama_desa')->where('id_desa', '!=', '999999')->get();
+        return view('auth.daftar', compact('desas'));
     }
 
     public function daftarPost(Request $request)
@@ -73,6 +70,17 @@ class AdminController extends Controller
         ]);
 
         $user = new User;
+
+        // Jika yang login adalah superadmin, maka bisa memilih desa. Jika bukan, maka desa yang dipilih adalah desa yang login
+        if(Auth::user()->id_desa == '999999') {
+            $request->validate([
+                'id_desa' => 'required',
+            ]);
+            $user->id_desa = $request->id_desa;
+        } else {
+            $user->id_desa = Auth::user()->id_desa;
+        }
+
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
@@ -85,8 +93,31 @@ class AdminController extends Controller
 
     public function logout()
     {
+        $id_desa = Auth::user()->id_desa;
         Auth::logout();
-        return redirect(route('welcome'))->with("success", "Berhasil logout!");
+        return redirect(url('/', $id_desa))->with("success", "Berhasil logout!");
+    }
+
+    public function resetPassword($id)
+    {
+        $user = User::where('id', $id)->first();
+        $user->desa = Environment::where('id_desa', $user->id_desa)->first();
+        return view('auth.reset-password', compact('user'));
+    }
+
+    public function resetPasswordPost(Request $request, $id)
+    {
+        $request->validate([
+            'password' => 'required',
+            'password_confirmation' => 'required|same:password',
+        ]);
+
+        $user = User::where('id', $id)->first();
+        $user->password = Hash::make($request->password);
+        if ($user->save()) {
+            return redirect(route('admin-manajemen-pengguna'))->with("success", "Kata sandi berhasil diubah!");
+        }
+        return redirect(route('reset-password', $id))->with("error", "Gagal mengubah kata sandi")->withInput();
     }
 
     public function getDataAPI()
@@ -95,7 +126,7 @@ class AdminController extends Controller
             // request ke API
             $response = Http::withOptions([
                 'verify' => false,
-            ])->get(env('API_URL') . '/posts/'. env('KODE_DESA') . date('Y'));
+            ])->get(env('API_URL') . '/posts/3307'. Auth::user()->id_desa . date('Y'));
             $array_response = json_decode($response->body(), true);
             
             // looping insert data ke tabel tabulasi
@@ -134,7 +165,8 @@ class AdminController extends Controller
                 $tabulasi->id_table = $value["id_query"]; // id_query dijadikan id_table
                 Tabulasi::updateOrCreate(
                     ['tanggal' => date('Y-m-1'),
-                    'id_table' => $value["id_query"]], 
+                    'id_table' => $value["id_query"],
+                    'id_desa' => Auth::user()->id_desa], 
                     ['tanggal' => date('Y-m-1'),
                     'judul_tabel' => $tabulasi->judul_tabel,
                     'data' => $tabulasi->data,

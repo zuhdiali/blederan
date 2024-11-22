@@ -3,24 +3,6 @@
 @section('content')
 
 <div class="container">
-    <!-- Jika ada session succes -->
-    @if (session('success'))
-    <div class="alert alert-success alert-dismissible fade show w-50 my-2 mx-5" role="alert">
-      {{ session('success') }}
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    @endif
-    <!-- Jika ada session succes -->
-  
-    <!-- Jika ada session error-->
-    @if (session('error'))
-    <div class="alert alert-warning alert-dismissible fade show w-50 my-2 mx-5" role="alert">
-      {{ session('error') }}
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    @endif
-    <!-- Jika ada session error-->
-  
   <div class="page-inner">
     <div
       class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4"

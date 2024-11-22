@@ -3,18 +3,18 @@
 @section('content')
 
   <!-- ***** Main Banner Area Start ***** -->
-  <div class="about-main-content">
+  <div class="about-main-content" style="background-image: url({{asset('images/'.$environment->bg_utama)}})">
   <div class="container">
     <div class="row">
     <div class="col-lg-12">
       <div class="content">
-      <div class="blur-bg"></div>
+      <div class="blur-bg" style="background: url({{asset('images/'.$environment->bg_utama)}}) no-repeat center center fixed"></div>
       {{-- <h4>Selamat Datang di</h4> --}}
-      <h2>Selamat Datang di Desa {{ getenv('NAMA_DESA') }}</h2>
+      <h2>Selamat Datang di Desa {{ $environment->nama_desa }}</h2>
       <div class="line-dec"></div>
-      <p>{{getenv('TAGLINE')}}</p>
+      <p>{{$environment->tagline}}</p>
       <div class="main-button">
-        <a href="{{route('medsos')}}"><i class="fa-solid fa-link"></i>  Media Sosial Desa {{ getenv('NAMA_DESA') }}</a>
+        <a href="{{ url('medsos/', $id_desa) }}"><i class="fa-solid fa-link"></i>  Media Sosial Desa {{ $environment->nama_desa }}</a>
       </div>
       </div>
     </div>
@@ -23,75 +23,78 @@
   </div>
   <!-- ***** Main Banner Area End ***** -->
 
+  @if($environment->ada_produk)
   <div class="cities-town">
-  <div class="container">
-    <div class="row">
-    <div class="slider-content">
+    <div class="container">
       <div class="row">
-      <div class="col-lg-12">
-        <h2>Produk <em>Minggu Ini</em></h2>
-      </div>
-      <div class="col-lg-12">
-        <div class="owl-cites-town owl-carousel">
-        @foreach ($produks as $produk)
-        <div class="item">
-          <div class="thumb">
-          <img class="item-produk" src="{{ asset('uploads/produk/' . $produk->gambar_produk) }}" alt="{{ $produk->nama_produk }}" >
-          <h4>{{ $produk->nama_produk }}</h4>
+      <div class="slider-content">
+        <div class="row">
+        <div class="col-lg-12">
+          <h2>Produk <em>Minggu Ini</em></h2>
+        </div>
+        <div class="col-lg-12">
+          <div class="owl-cites-town owl-carousel">
+          @foreach ($produks as $produk)
+          <div class="item">
+            <div class="thumb">
+            <img class="item-produk" src="{{ asset('uploads/produk/' . $produk->gambar_produk) }}" alt="{{ $produk->nama_produk }}" >
+            <h4>{{ $produk->nama_produk }}</h4>
+            </div>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item list-group-item-light">
+              <div class="row">
+              <div class="col">
+                <i class="fa-solid fa-money-bill-wave"></i>
+                Harga:
+              </div>
+              <div class="col">
+                <p class="text-end"> Rp {{ number_format($produk->harga, 0, ',', '.') }} </p>
+              </div>
+              </div>
+            </li>
+            <li class="list-group-item list-group-item-light">
+              <div class="row">
+              <div class="col">
+                <i class="fa fa-box"></i> Stok:
+              </div>
+              <div class="col">
+                <p class="text-end">  {{ $produk->stok }} </p>
+              </div>
+              </div>
+            </li>
+            <li class="list-group-item list-group-item-light">
+              <div class="row">
+              <div class="col-5">
+                <i class="fa fa-user"></i> Penjual:
+              </div>
+              <div class="col-7">
+                <p >  {{ $produk->nama_penjual }} </p>
+              </div>
+              </div>
+            </li>
+            </ul>
+            <div class="main-button d-flex justify-content-center mt-2">
+            <a href="https://wa.me/62{{substr($produk->kontak_penjual,1)}}" > <i class="fa-solid fa-phone"></i>  Hubungi Penjual</a>
+            </div>
           </div>
-          <ul class="list-group list-group-flush">
-          <li class="list-group-item list-group-item-light">
-            <div class="row">
-            <div class="col">
-              <i class="fa-solid fa-money-bill-wave"></i>
-              Harga:
-            </div>
-            <div class="col">
-              <p class="text-end"> Rp {{ number_format($produk->harga, 0, ',', '.') }} </p>
-            </div>
-            </div>
-          </li>
-          <li class="list-group-item list-group-item-light">
-            <div class="row">
-            <div class="col">
-              <i class="fa fa-box"></i> Stok:
-            </div>
-            <div class="col">
-              <p class="text-end">  {{ $produk->stok }} </p>
-            </div>
-            </div>
-          </li>
-          <li class="list-group-item list-group-item-light">
-            <div class="row">
-            <div class="col-5">
-              <i class="fa fa-user"></i> Penjual:
-            </div>
-            <div class="col-7">
-              <p >  {{ $produk->nama_penjual }} </p>
-            </div>
-            </div>
-          </li>
-          </ul>
-          <div class="main-button d-flex justify-content-center mt-2">
-          <a href="https://wa.me/62{{substr($produk->kontak_penjual,1)}}" > <i class="fa-solid fa-phone"></i>  Hubungi Penjual</a>
+          @endforeach
           </div>
         </div>
-        @endforeach
         </div>
       </div>
       </div>
     </div>
-    </div>
   </div>
-  </div>
+  @endif
+  {{-- ELSE DI SINI --}}
 
   {{-- Ini <section> jangan dihapus, soalnya buat margin --}}
   <section>
   </section>
   {{-- Ini <section> jangan dihapus, soalnya buat margin --}}
 
-  {{-- INI BUAT LOOPING AKOMODASI --}}
-  {{-- <div class="cities-town">
+  @if($environment->ada_akomodasi)
+  <div class="cities-town">
   <div class="container">
     <div class="row">
     <div class="slider-content">
@@ -151,27 +154,33 @@
     </div>
     </div>
   </div>
-  </div> --}}
-  {{-- INI BUAT LOOPING AKOMODASI --}}
+  </div>
+  @endif
+  {{-- ELSE DI SINI --}}
 
+  @if($environment->ada_jadwal)
   <div class="container text-center mb-5">
-    <h2>Jadwal Eduwisata ke Desa {{ getenv('NAMA_DESA') }}</h2>
+    <h2>Jadwal Eduwisata ke Desa {{ $environment->nama_desa }}</h2>
   </div>
 
   {{-- Ini buat kalender --}}
   <div class="container">
     {{-- <div class="card"> --}}
-      <div id='calendar'></div>
+    <div id='calendar'></div>
     {{-- </div> --}}
   </div>  
+  @endif
+  {{-- ELSE DI SINI --}}
 
-  <div class="weekly-offers">
+
+@if($environment->ada_eduwisata)
+<div class="weekly-offers">
   <div class="container">
     <div class="row">
     <div class="col-lg-6 offset-lg-3">
       <div class="section-heading text-center">
       <h2>Kunjungan dan Eduwisata yang Pernah Dilakukan</h2>
-      <p>Desa {{ getenv('NAMA_DESA') }} sering menerima kunjungan dari berbagai pihak.</p>
+      <p>Desa {{ $environment->nama_desa }} sering menerima kunjungan dari berbagai pihak.</p>
       </div>
     </div>
     </div>
@@ -201,7 +210,10 @@
     </div>
     </div>
   </div>
-  </div>
+</div>
+@endif
+  {{-- ELSE DI SINI --}}
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');

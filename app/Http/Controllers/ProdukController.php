@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produk;
+use Illuminate\Support\Facades\Auth;
 
 class ProdukController extends Controller
 {
     public function index()
     {
-        $produks = Produk::get();
+        $produks = Produk::where('id_desa', Auth::user()->id_desa)->orderBy('created_at', 'desc')->get();
         return view('admin.produk.index', compact('produks'));
     }
 
@@ -39,7 +40,7 @@ class ProdukController extends Controller
             $file = $request->file('gambar_produk');
             $extension = $file->getClientOriginalExtension();
 
-            $filename = time() . '.' . $extension;
+            $filename =  Auth::user()->environment->nama_desa."_".time() . '.' . $extension;
 
             $path = 'uploads/produk/';
             $file->move($path, $filename);
@@ -47,6 +48,7 @@ class ProdukController extends Controller
 
         Produk::create([
             'nama_produk' => $request->nama_produk,
+            'id_desa' => Auth::user()->id_desa,
             'harga' => $request->harga,
             'satuan' => $request->satuan,
             'stok' => $request->stok,
@@ -96,7 +98,7 @@ class ProdukController extends Controller
             $file = $request->file('gambar_produk');
             $extension = $file->getClientOriginalExtension();
 
-            $filename = time() . '.' . $extension;
+            $filename =  Auth::user()->environment->nama_desa."_".time() . '.' . $extension;
             $produk->gambar_produk = $filename;
             $path = 'uploads/produk/';
             $file->move($path, $filename);
@@ -107,6 +109,7 @@ class ProdukController extends Controller
         }
 
         $produk->nama_produk = $request->nama_produk;
+        $produk->id_desa = Auth::user()->id_desa;
         $produk->harga = $request->harga;
         $produk->satuan = $request->satuan;
         $produk->stok = $request->stok;

@@ -4,18 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Informasi;
+use Illuminate\Support\Facades\Auth;
 
 class InformasiController extends Controller
 {
     public function kabar()
     {
-        $kabars = Informasi::where('kategori', 'kabar')->orderBy('tanggal','desc')->get();
+        $kabars = Informasi::where('kategori', 'kabar')->where('id_desa', Auth::user()->id_desa)->orderBy('tanggal','desc')->get();
         return view('admin.informasi.kabar', compact('kabars'));
     }
 
     public function eduwisata()
     {
-        $eduwisatas = Informasi::where('kategori', 'eduwisata')->orderBy('tanggal','desc')->get();
+        $eduwisatas = Informasi::where('kategori', 'eduwisata')->where('id_desa', Auth::user()->id_desa)->orderBy('tanggal','desc')->get();
         return view('admin.informasi.eduwisata', compact('eduwisatas'));
     }
 
@@ -48,7 +49,7 @@ class InformasiController extends Controller
             $file = $request->file('gambar');
             $extension = $file->getClientOriginalExtension();
 
-            $filename = time() . '.' . $extension;
+            $filename = Auth::user()->environment->nama_desa."_".time() . '.' . $extension;
 
             $path = 'uploads/informasi/';
             $file->move($path, $filename);
@@ -59,6 +60,7 @@ class InformasiController extends Controller
 
         Informasi::create([
             'judul' => $request->judul,
+            'id_desa' => Auth::user()->id_desa,
             'instansi_terlibat' => $request->instansi_terlibat,
             'jumlah' => $request->jumlah,
             'tanggal' => $tanggal,
@@ -106,13 +108,14 @@ class InformasiController extends Controller
             $file = $request->file('gambar');
             $extension = $file->getClientOriginalExtension();
 
-            $filename = time() . '.' . $extension;
+            $filename =  Auth::user()->environment->nama_desa."_".time() . '.' . $extension;
             $informasi->gambar = $filename;
             $path = 'uploads/informasi/';
             $file->move($path, $filename);
         }
 
         $informasi->judul = $request->judul;
+        $informasi->id_desa = Auth::user()->id_desa;
         $informasi->instansi_terlibat = $request->instansi_terlibat;
         $informasi->jumlah = $request->jumlah;
         $informasi->tanggal = $tanggal;
@@ -132,6 +135,7 @@ class InformasiController extends Controller
     public function destroy($id)
     {
         $informasi = Informasi::find($id);
+        $kategori = $informasi->kategori;
         if ($informasi->gambar != "default_informasi.svg") {
             $file_path = asset('uploads/informasi/' . $informasi->gambar);
             if (file_exists($file_path)) {
@@ -140,7 +144,7 @@ class InformasiController extends Controller
         }
         $informasi->delete();
 
-        if ($informasi->kategori == 'kabar') {
+        if ($kategori == 'kabar') {
             return redirect()->route('admin-kabar')
                 ->with('success', 'Kabar berhasil dihapus.');
         } else {
