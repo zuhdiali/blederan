@@ -30,10 +30,10 @@
                         </div>
                         <hr>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required value=" {{ old('email') }}">
-                            @if ($errors->has('email'))
-                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                            <label for="username">Username</label>
+                            <input type="username" class="form-control" id="username" name="username" required value=" {{ old('username') }}">
+                            @if ($errors->has('username'))
+                            <span class="text-danger">{{ $errors->first('username') }}</span>
                             @endif
                         </div>
                         <hr>
@@ -59,7 +59,7 @@
                             <select class="form-control" id="id_desa" name="id_desa" required>
                                 <option value="">---- Klik Di Sini Untuk Memilih Desa ----</option>
                                 @foreach($desas as $desa)
-                                    <option value="{{ $desa->id_desa }}" {{ old('id_desa') == $desa->id_desa ? 'selected' : '' }}>{{ $desa->nama_desa }}</option>
+                                    <option value="{{ $desa->id_desa }}" {{ old('id_desa') == $desa->id_desa ? 'selected' : '' }}>{{ $desa->nama_kecamatan}} - {{ $desa->nama_desa }}</option>
                                 @endforeach
                             </select>
                             @if ($errors->has('id_desa'))

@@ -30,10 +30,10 @@
                         </div>
                         <hr>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required value=" {{ $user->email }}" disabled>
-                            @if ($errors->has('email'))
-                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                            <label for="username">Username</label>
+                            <input type="username" class="form-control" id="username" name="username" required value=" {{ $user->username }}" disabled>
+                            @if ($errors->has('username'))
+                            <span class="text-danger">{{ $errors->first('username') }}</span>
                             @endif
                         </div>
                         <hr>

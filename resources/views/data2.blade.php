@@ -10,7 +10,7 @@
       <input type="radio" id="banner3" class="sec-1-input" name="banner">
       <input type="radio" id="banner4" class="sec-1-input" name="banner">
       <div class="slider">
-        <div id="top-banner-1" class="banner" style="background: url({{ asset('images/' . $environment->bg_data_kependudukan)}}) no-repeat center center">
+        <div id="top-banner-1" class="banner" style="background: url({{ asset('images/' . $environment->bg_data_kependudukan)}}) no-repeat center center; background-size:cover">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption ">
               <div class="container bg-dark rounded py-4"  style="--bs-bg-opacity: .7;">
@@ -78,7 +78,7 @@
             </div>
           </div>
         </div>
-        <div id="top-banner-2" class="banner" style="background: url({{asset('images/'.$environment->bg_data_perumahan)}}) no-repeat center center">
+        <div id="top-banner-2" class="banner" style="background: url({{asset('images/'.$environment->bg_data_perumahan)}}) no-repeat center center; background-size:cover">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption ">
               <div class="container bg-dark rounded py-4"  style="--bs-bg-opacity: .7;">
@@ -146,7 +146,7 @@
             </div>
           </div>
         </div>
-        <div id="top-banner-3" class="banner" style="background: url({{asset('images/'.$environment->bg_data_kesehatan)}}) no-repeat center center">
+        <div id="top-banner-3" class="banner" style="background: url({{asset('images/'.$environment->bg_data_kesehatan)}}) no-repeat center center; background-size:cover">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption">
               <div class="container bg-dark rounded py-4"  style="--bs-bg-opacity: .7;">
@@ -214,7 +214,7 @@
             </div>
           </div>
         </div>
-        <div id="top-banner-4" class="banner" style="background: url({{asset('images/'.$environment->bg_data_pendidikan)}}) no-repeat center center">
+        <div id="top-banner-4" class="banner" style="background: url({{asset('images/'.$environment->bg_data_pendidikan)}}) no-repeat center center; background-size:cover">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption">
               <div class="container bg-dark rounded py-4"  style="--bs-bg-opacity: .7;">
@@ -312,55 +312,90 @@
             @foreach ($kependudukan as $data)
                 <?php 
                   $array = json_decode($data->data); 
-                  $kolom = $array[0]; 
-                  $metadata = json_decode($data->metadata);
                 ?>
-
                 <!-- ***** TABEL ***** -->
                 <br>
                 <hr>
                 <h5>{{$data->judul_tabel}}</h5>
-                <table class="table table-striped-columns table-light">
-                  <thead>
-                    <tr>
-                    <?php $array_kolom = [] ?>
-                    @foreach ($kolom as $key => $val)
-                    <th scope="col" rowspan="2" class="text-center">{{str_replace("_"," ",$key)}} </th>
-                    <?php array_push($array_kolom, $key) ?>
-                    @endforeach
-                  </tr>
-                    
-                  <hr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      @for($i = 0; $i < count($array_kolom); $i++)
-                        <td class="text-center">({{($i)+1}})</td>
-                      @endfor
-                    </tr>
-                    @foreach ($array as $item)
-                    <tr>
-                      @foreach ($item as $key => $val)
-                      @if ($key === $array_kolom[0])
-                        <td>
-                          <?php 
-                          for ($i=0; $i < count($metadata); $i++) { 
-                            if ($metadata[$i]->value === $val) {
-                              echo $metadata[$i]->nama;
-                            }
-                          }
-                        ?>
-                        </td>
-                      @else
-                        <td class="text-end">{{$val}}</td>
-                      @endif
+                @if($data->id_query !=0)
+                  <?php
+                  
+                    $kolom = $array[0]; 
+                    $metadata = json_decode($data->metadata);
+                  ?>
+                  
+                  <table class="table table-striped-columns table-light">
+                    <thead>
+                      <tr>
+                      <?php $array_kolom = [] ?>
+                      @foreach ($kolom as $key => $val)
+                      <th scope="col" rowspan="2" class="text-center">{{str_replace("_"," ",$key)}} </th>
+                      <?php array_push($array_kolom, $key) ?>
                       @endforeach
                     </tr>
-                        
+                      
+                    <hr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        @for($i = 0; $i < count($array_kolom); $i++)
+                          <td class="text-center">({{($i)+1}})</td>
+                        @endfor
+                      </tr>
+                      @foreach ($array as $item)
+                      <tr>
+                        @foreach ($item as $key => $val)
+                        @if ($key === $array_kolom[0])
+                          <td>
+                            <?php 
+                            for ($i=0; $i < count($metadata); $i++) { 
+                              if ($metadata[$i]->value === $val) {
+                                echo $metadata[$i]->nama;
+                              }
+                            }
+                          ?>
+                          </td>
+                        @else
+                          <td class="text-end">{{$val}}</td>
+                        @endif
+                        @endforeach
+                      </tr>
+                          
 
-                    @endforeach
-                  </tbody>
-                </table>
+                      @endforeach
+                    </tbody>
+                  </table>
+                @else 
+                  <table class="table table-striped-columns table-light">
+                    <thead>
+                      <tr>
+                        <th>Kelompok Umur</th>
+                        <th>Laki-Laki</th>
+                        <th>Perempuan</th>
+                        <th>Jumlah</th>
+                      </tr>
+                    <hr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center">(1)</td>
+                        <td class="text-center">(2)</td>
+                        <td class="text-center">(3)</td>
+                        <td class="text-center">(4)</td>
+                      </tr>
+                      @foreach ($array as $key => $val)
+                        <tr>
+                          {{-- {{$val_asli = json_decode(json_encode($val));}} --}}
+                          {{-- {{dd($val);}} --}}
+                          <td>{{$key}}</td>
+                          <td class="text-end">{{$val->{'1'} }}</td>
+                          <td class="text-end">{{$val->{'2'} }}</td>
+                          <td class="text-end">{{$val->jumlah}}</td>
+                        </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
+                @endif
             @endforeach
           </div>
         </div>

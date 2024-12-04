@@ -13,9 +13,9 @@
             <form method="POST" action="{{ route('login.post') }}">
               @csrf
               <div class="mb-3">
-                <label for="email" class="form-label">Alamat Email</label>
-                <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required
-                  autocomplete="email" autofocus placeholder="contoh@gmail.com">
+                <label for="username" class="form-label">Username</label>
+                <input type="username" class="form-control" id="username" name="username" value="{{ old('username') }}" required
+                  autocomplete="username" autofocus placeholder="Masukkan username di sini">
               </div>
               <div class="mb-3">
                 <label for="password" class="form-label">Kata Sandi</label>

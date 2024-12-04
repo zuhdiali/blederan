@@ -30,6 +30,7 @@ Route::get('/peta/{id_desa}', [MainController::class, 'peta'])->name('peta');
 Route::get('/publikasi/{id_desa}', [MainController::class, 'publikasi'])->name('publikasi');
 Route::get('/download/{id_desa}', [MainController::class, 'downloadPublikasi'])->name('download');
 Route::get('/medsos/{id_desa}', [MainController::class, 'medsos'])->name('medsos');
+Route::get('/admin-update-data', [AdminController::class, 'getDataAPI'])->name('update-data');
 // Route::get('/test/{id_desa}', [MainController::class, 'test'])->name('test');
 // Route::get('/test2/{id_desa}', [MainController::class, 'test2'])->name('test2');
 // Route::get('/layout-artikel/{id_desa}', [MainController::class, 'layoutArtikel'])->name('layout-artikel');
@@ -59,7 +60,6 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/admin-dashboard', [AdminController::class, 'index'])->name('admin-dashboard');
     Route::get('/admin-manajemen-pengguna', [UserController::class, 'index'])->name('admin-manajemen-pengguna');
-    Route::get('/admin-update-data', [AdminController::class, 'getDataAPI'])->name('update-data');
     Route::get('/admin-hapus-pengguna/{id}', [UserController::class, 'destroy'])->name('admin-hapus-pengguna');
 });
 // ******* Halaman Admin *********

@@ -118,7 +118,7 @@
                   <tr>
                     <th style="width: 10%">Aksi</th>
                     <th scope="col">Nama Pengguna</th>
-                    <th scope="col">Email</th>
+                    <th scope="col">Username</th>
                     <th scope="col">Desa</th>
                   </tr>
                 </thead>
@@ -170,7 +170,7 @@
                       </div>
                     </td>
                     <th scope="row">{{$user->name}}</th>
-                    <td>{{$user->email}}</td>
+                    <td>{{$user->username}}</td>
                     <td>{{$user->desa->nama_desa}}</td>
                   </tr>
                   @endforeach

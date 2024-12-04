@@ -68,80 +68,96 @@ class EnvironmentController extends Controller
 
         if($request->hasFile('gambar_logo')){
             $gambar_logo = $request->file('gambar_logo');
-            $gambar_logo_name = $request->nama_desa."_".time()."_".$gambar_logo->getClientOriginalName();
-            $gambar_logo->move('assets/images', $gambar_logo_name);
+            $gambar_logo_name = str_replace(" ", "_", $request->nama_desa)."_".time()."_".str_replace(" ", "_", $gambar_logo->getClientOriginalName());
+            $gambar_logo->move('images', $gambar_logo_name);
         } else {
             $gambar_logo_name = $environment->gambar_logo;
         }
 
+        if($request->hasFile('gambar_sejarah')){
+            $gambar_sejarah = $request->file('gambar_sejarah');
+            $gambar_sejarah_name = str_replace(" ", "_", $request->nama_desa)."_".time()."_".str_replace(" ", "_", $gambar_sejarah->getClientOriginalName());
+            $gambar_sejarah->move('images', $gambar_sejarah_name);
+        } else {
+            $gambar_sejarah_name = $environment->gambar_sejarah;
+        }
+
+        if($request->hasFile('gambar_peta')){
+            $gambar_peta = $request->file('gambar_peta');
+            $gambar_peta_name = str_replace(" ", "_", $request->nama_desa)."_".time()."_".str_replace(" ", "_", $gambar_peta->getClientOriginalName());
+            $gambar_peta->move('images', $gambar_peta_name);
+        } else {
+            $gambar_peta_name = $environment->gambar_peta;
+        }
+
         if($request->hasFile('bg_utama')){
             $bg_utama = $request->file('bg_utama');
-            $bg_utama_name = $request->nama_desa."_".time()."_".$bg_utama->getClientOriginalName();
-            $bg_utama->move('assets/images', $bg_utama_name);
+            $bg_utama_name = str_replace(" ", "_", $request->nama_desa)."_".time()."_".str_replace(" ", "_", $bg_utama->getClientOriginalName());
+            $bg_utama->move('images', $bg_utama_name);
         } else {
             $bg_utama_name = $environment->bg_utama;
         }
 
         if($request->hasFile('bg_kabar_1')){
             $bg_kabar_1 = $request->file('bg_kabar_1');
-            $bg_kabar_1_name = $request->nama_desa."_".time()."_".$bg_kabar_1->getClientOriginalName();
-            $bg_kabar_1->move('assets/images', $bg_kabar_1_name);
+            $bg_kabar_1_name = str_replace(" ", "_", $request->nama_desa)."_".time()."_".str_replace(" ", "_", $bg_kabar_1->getClientOriginalName());
+            $bg_kabar_1->move('images', $bg_kabar_1_name);
         } else {
             $bg_kabar_1_name = $environment->bg_kabar_1;
         }
 
         if($request->hasFile('bg_kabar_2')){
             $bg_kabar_2 = $request->file('bg_kabar_2');
-            $bg_kabar_2_name = $request->nama_desa."_".time()."_".$bg_kabar_2->getClientOriginalName();
-            $bg_kabar_2->move('assets/images', $bg_kabar_2_name);
+            $bg_kabar_2_name = str_replace(" ", "_", $request->nama_desa)."_".time()."_".str_replace(" ", "_", $bg_kabar_2->getClientOriginalName());
+            $bg_kabar_2->move('images', $bg_kabar_2_name);
         } else {
             $bg_kabar_2_name = $environment->bg_kabar_2;
         }
 
         if($request->hasFile('bg_kabar_3')){
             $bg_kabar_3 = $request->file('bg_kabar_3');
-            $bg_kabar_3_name = $request->nama_desa."_".time()."_".$bg_kabar_3->getClientOriginalName();
-            $bg_kabar_3->move('assets/images', $bg_kabar_3_name);
+            $bg_kabar_3_name = str_replace(" ", "_", $request->nama_desa)."_".time()."_".str_replace(" ", "_", $bg_kabar_3->getClientOriginalName());
+            $bg_kabar_3->move('images', $bg_kabar_3_name);
         } else {
             $bg_kabar_3_name = $environment->bg_kabar_3;
         }
 
         if($request->hasFile('bg_kabar_4')){
             $bg_kabar_4 = $request->file('bg_kabar_4');
-            $bg_kabar_4_name = $request->nama_desa."_".time()."_".$bg_kabar_4->getClientOriginalName();
-            $bg_kabar_4->move('assets/images', $bg_kabar_4_name);
+            $bg_kabar_4_name = str_replace(" ", "_", $request->nama_desa)."_".time()."_".str_replace(" ", "_", $bg_kabar_4->getClientOriginalName());
+            $bg_kabar_4->move('images', $bg_kabar_4_name);
         } else {
             $bg_kabar_4_name = $environment->bg_kabar_4;
         }
 
         if($request->hasFile('bg_data_kependudukan')){
             $bg_data_kependudukan = $request->file('bg_data_kependudukan');
-            $bg_data_kependudukan_name = $request->nama_desa."_".time()."_".$bg_data_kependudukan->getClientOriginalName();
-            $bg_data_kependudukan->move('assets/images', $bg_data_kependudukan_name);
+            $bg_data_kependudukan_name = str_replace(" ", "_", $request->nama_desa)."_".time()."_".str_replace(" ", "_", $bg_data_kependudukan->getClientOriginalName());
+            $bg_data_kependudukan->move('images', $bg_data_kependudukan_name);
         } else {
             $bg_data_kependudukan_name = $environment->bg_data_kependudukan;
         }
 
         if($request->hasFile('bg_data_perumahan')){
             $bg_data_perumahan = $request->file('bg_data_perumahan');
-            $bg_data_perumahan_name = $request->nama_desa."_".time()."_".$bg_data_perumahan->getClientOriginalName();
-            $bg_data_perumahan->move('assets/images', $bg_data_perumahan_name);
+            $bg_data_perumahan_name = str_replace(" ", "_", $request->nama_desa)."_".time()."_".str_replace(" ", "_", $bg_data_perumahan->getClientOriginalName());
+            $bg_data_perumahan->move('images', $bg_data_perumahan_name);
         } else {
             $bg_data_perumahan_name = $environment->bg_data_perumahan;
         }
 
         if($request->hasFile('bg_data_kesehatan')){
             $bg_data_kesehatan = $request->file('bg_data_kesehatan');
-            $bg_data_kesehatan_name = $request->nama_desa."_".time()."_".$bg_data_kesehatan->getClientOriginalName();
-            $bg_data_kesehatan->move('assets/images', $bg_data_kesehatan_name);
+            $bg_data_kesehatan_name = str_replace(" ", "_", $request->nama_desa)."_".time()."_".str_replace(" ", "_", $bg_data_kesehatan->getClientOriginalName());
+            $bg_data_kesehatan->move('images', $bg_data_kesehatan_name);
         } else {
             $bg_data_kesehatan_name = $environment->bg_data_kesehatan;
         }
 
         if($request->hasFile('bg_data_pendidikan')){
             $bg_data_pendidikan = $request->file('bg_data_pendidikan');
-            $bg_data_pendidikan_name = $request->nama_desa."_".time()."_".$bg_data_pendidikan->getClientOriginalName();
-            $bg_data_pendidikan->move('assets/images', $bg_data_pendidikan_name);
+            $bg_data_pendidikan_name = str_replace(" ", "_", $request->nama_desa)."_".time()."_".str_replace(" ", "_", $bg_data_pendidikan->getClientOriginalName());
+            $bg_data_pendidikan->move('images', $bg_data_pendidikan_name);
         } else {
             $bg_data_pendidikan_name = $environment->bg_data_pendidikan;
         }
@@ -153,8 +169,10 @@ class EnvironmentController extends Controller
             'warna_font_logo' => $request->warna_font_logo,
             'ada_sejarah' => $request->ada_sejarah,
             'sejarah' => $request->sejarah,
+            'gambar_sejarah' => $gambar_sejarah_name,
             'ada_peta' => $request->ada_peta,
             'peta' => $request->peta,
+            'gambar_peta' => $gambar_peta_name,
             'ada_publikasi' => $request->ada_publikasi,
             'ada_akomodasi' => $request->ada_akomodasi,
             'ada_produk' => $request->ada_produk,

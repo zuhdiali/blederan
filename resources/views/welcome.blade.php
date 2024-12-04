@@ -14,7 +14,7 @@
       <div class="line-dec"></div>
       <p>{{$environment->tagline}}</p>
       <div class="main-button">
-        <a href="{{ url('medsos/', $id_desa) }}"><i class="fa-solid fa-link"></i>  Media Sosial Desa {{ $environment->nama_desa }}</a>
+        <a href="{{ url('medsos', $id_desa) }}"><i class="fa-solid fa-link"></i>  Media Sosial Desa {{ $environment->nama_desa }}</a>
       </div>
       </div>
     </div>

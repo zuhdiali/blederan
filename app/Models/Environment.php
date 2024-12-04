@@ -13,14 +13,17 @@ class Environment extends Model
 
     protected $fillable = [
         'nama_desa',
+        'nama_kecamatan',
         'id_desa',
         'tagline',
         'gambar_logo',
         'warna_font_logo',
         'ada_sejarah',
         'sejarah',
+        'gambar_sejarah',
         'ada_peta',
         'peta',
+        'gambar_peta',
         'ada_publikasi',
         'ada_akomodasi',
         'ada_produk',

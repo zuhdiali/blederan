@@ -41,21 +41,21 @@ class AdminController extends Controller
 
     public function loginPost(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended('/admin-dashboard')->with("success", "Berhasil login! Selamat datang " . Auth::user()->name . "!");
         }
 
         return back()->withErrors([
-            'email' => 'Email atau kata sandi salah.',
-            'password' => 'Email atau kata sandi salah.',
+            'username' => 'Username atau kata sandi salah.',
+            'password' => 'Username atau kata sandi salah.',
         ])->withInput();
     }
 
     public function daftar()
     {
-        $desas = Environment::select('id_desa', 'nama_desa')->where('id_desa', '!=', '999999')->get();
+        $desas = Environment::select('id_desa', 'nama_desa', 'nama_kecamatan')->where('id_desa', '!=', '999999')->orderby('id_desa')->get();
         return view('auth.daftar', compact('desas'));
     }
 
@@ -63,7 +63,7 @@ class AdminController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'username' => 'required|string|max:255|unique:users',
             // 'password' => 'required|string|min:8|confirmed',
             'password' => 'required',
             'password_confirmation' => 'required|same:password',
@@ -82,7 +82,7 @@ class AdminController extends Controller
         }
 
         $user->name = $request->name;
-        $user->email = $request->email;
+        $user->username = $request->username;
         $user->password = Hash::make($request->password);
         if ($user->save()) {
             // Auth::login($user);

@@ -26,14 +26,14 @@ class UserController extends Controller
 
     // public function loginPost(Request $request)
     // {
-    //     $credentials = $request->only('email', 'password');
+    //     $credentials = $request->only('username', 'password');
     //     if (Auth::attempt($credentials)) {
     //         $request->session()->regenerate();
     //         return redirect()->intended('/')->with("success", "Berhasil login! Selamat datang " . Auth::user()->name . "!");
     //     }
 
     //     return back()->withErrors([
-    //         'email' => 'The provided credentials do not match our records.',
+    //         'username' => 'The provided credentials do not match our records.',
     //     ])->withInput();
     // }
 
@@ -46,14 +46,14 @@ class UserController extends Controller
     // {
     //     $request->validate([
     //         'name' => 'required|string|max:255',
-    //         'email' => 'required|string|email|max:255|unique:users',
+    //         'username' => 'required|string|username|max:255|unique:users',
     //         // 'password' => 'required|string|min:8|confirmed',
     //         'password' => 'required',
     //     ]);
 
     //     $user = new User;
     //     $user->name = $request->name;
-    //     $user->email = $request->email;
+    //     $user->username = $request->username;
     //     $user->password = Hash::make($request->password);
     //     if ($user->save()) {
     //         // Auth::login($user);
@@ -71,7 +71,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
-        if($user->email == 'admin@admin.com'){
+        if($user->username == 'admin'){
             return redirect(route('admin-manajemen-pengguna'))->with("error", "Tidak dapat menghapus akun admin!");
         }
         if ($user->delete()) {

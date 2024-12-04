@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Akomodasi;
 use App\Models\Informasi;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Http;
 
+use Illuminate\Support\Carbon;
+use Illuminate\Http\Client\RequestException;
 use App\Models\Produk;
 use App\Models\Tabulasi;
 use App\Models\Environment;
@@ -47,8 +51,8 @@ class MainController extends Controller
         array_push($gambar_kabar, $environment->bg_kabar_3);
         array_push($gambar_kabar, $environment->bg_kabar_4);
         // dd($gambar_kabar);
-        $kabarTerkini = DB::table('informasis')->where('kategori', 'kabar')->where('tanggal','<=',now())->where('id_desa', $id_desa)->orderBy('tanggal', 'desc')->limit(4)->get();
-        $kabars = DB::table('informasis')->where('kategori', 'kabar')->where('tanggal','<=',now())->where('id_desa', $id_desa)->orderBy('tanggal', 'desc')->paginate(3);
+        $kabarTerkini = DB::table('informasis')->where('kategori', 'kabar')->whereDate('tanggal','<=',Carbon::today()->toDateString())->where('id_desa', $id_desa)->orderBy('tanggal', 'desc')->limit(4)->get();
+        $kabars = DB::table('informasis')->where('kategori', 'kabar')->whereDate('tanggal','<=',Carbon::today()->toDateString())->where('id_desa', $id_desa)->orderBy('tanggal', 'desc')->paginate(3);
         return view('kabar', compact('kabarTerkini', 'kabars', 'id_desa', 'environment', 'gambar_kabar'));
     }
 
@@ -113,12 +117,24 @@ class MainController extends Controller
         $highlight_data = [];
 
         foreach ($categories as $key => $value) {
-            $data[$value] = Tabulasi::where('kategori', $key)->where('highlight', 0)->where('id_desa', $id_desa)->get();
-            $highlight_data['highlight_' . $value] = Tabulasi::where('kategori', $key)->where('highlight', 1)->where('id_desa', $id_desa)->get();
+            $data[$value] = Tabulasi::where('kategori', $key)->where('highlight', 0)->where('id_desa', $id_desa)->orderBy('tanggal', 'desc')->whereRaw("tanggal like '%".  date('Y-m')."%'")->get();
+            $highlight_data['highlight_' . $value] = Tabulasi::where('kategori', $key)->where('highlight', 1)->where('id_desa', $id_desa)->whereRaw("tanggal like '%".  date('Y-m')."%'")->get();
         }
-        
+        $response = array_merge($data, $highlight_data, ['id_desa' => $id_desa, 'environment' => $environment]);
+        if (count($response['kependudukan']) == 0) {
+            $this->getDataAPI($id_desa);
+            $categories = [1 => 'kependudukan', 2 => 'perumahan', 3 => 'kesehatan', 4 => 'pendidikan', 5 => 'pekerjaan'];
+            $data = [];
+            $highlight_data = [];
+    
+            foreach ($categories as $key => $value) {
+                $data[$value] = Tabulasi::where('kategori', $key)->where('highlight', 0)->where('id_desa', $id_desa)->orderBy('tanggal', 'desc')->whereRaw("tanggal like '%".  date('Y-m')."%'")->get();
+                $highlight_data['highlight_' . $value] = Tabulasi::where('kategori', $key)->where('highlight', 1)->where('id_desa', $id_desa)->whereRaw("tanggal like '%".  date('Y-m')."%'")->get();
+            }
+            return view('data2', array_merge($data, $highlight_data, ['id_desa' => $id_desa, 'environment' => $environment]));
+        } 
+        // dd(array_merge($data, $highlight_data, ['id_desa' => $id_desa, 'environment' => $environment]));
         return view('data2', array_merge($data, $highlight_data, ['id_desa' => $id_desa, 'environment' => $environment]));
-        // return view('data2', compact('kependudukan', 'perumahan', 'kesehatan', 'pendidikan', 'pekerjaan', 'highlight_kependudukan', 'highlight_perumahan', 'highlight_kesehatan', 'highlight_pendidikan'));
     }
 
     public function downloadPublikasi($id_desa)
@@ -169,4 +185,76 @@ class MainController extends Controller
         // $user = DB::table('admins')->get();
         return view('test2');
     }
+
+    public function getDataAPI($id_desa)
+    {
+        $environment = Environment::where('id_desa', $id_desa)->first();
+        try {
+            // request ke API
+            $response = Http::withOptions([
+                'verify' => false,
+            ])->get(env('API_URL') . '/posts/3307'. $id_desa . date('Y'));
+            $array_response = json_decode($response->body(), true);
+            
+            // looping insert data ke tabel tabulasi
+            foreach ($array_response['data'] as $key => $value) {
+                $tabulasi = new Tabulasi;
+                $tabulasi->judul_tabel = $value['judul'];
+                $tabulasi->data = json_encode($value["data"]);
+                
+                $tabulasi->tanggal = date('Y-m-1');
+                switch ($value['kategori']) {
+                    case 'kependudukan':
+                    $tabulasi->kategori = 1;
+                    break;
+                    case 'perumahan':
+                    $tabulasi->kategori = 2;
+                    break;
+                    case 'kesehatan':
+                    $tabulasi->kategori = 3;
+                    break;
+                    case 'pendidikan':
+                    $tabulasi->kategori = 4;
+                    break;
+                    case 'pekerjaan':
+                    $tabulasi->kategori = 5;
+                    break;
+                    default:
+                    $tabulasi->kategori = 99;
+                    break;
+                }
+                if(array_key_exists('metadata', $value)) {
+                    $tabulasi->metadata = json_encode($value['metadata']);
+                }
+                else {
+                    $tabulasi->metadata = null;
+                }
+                $tabulasi->id_table = $value["id_query"]; // id_query dijadikan id_table
+                Tabulasi::updateOrCreate(
+                    ['tanggal' => date('Y-m-1'),
+                    'id_table' => $value["id_query"],
+                    'id_desa' => $id_desa], 
+                    ['tanggal' => date('Y-m-1'),
+                    'judul_tabel' => $tabulasi->judul_tabel,
+                    'data' => $tabulasi->data,
+                    'kategori' => $tabulasi->kategori,
+                    'metadata' => $tabulasi->metadata,
+                    'highlight' => $value['highlight']]
+                );
+                
+                // $tabulasi->save();
+            }
+            // Alert::success('Sukses', 'Data berhasil diperbarui!');
+            // return view('data2', compact('id_desa', 'environment'));
+        } catch (RequestException $e) {
+            Log::error('RequestException: ' . $e->getMessage());
+            // Alert::error('Gagal', 'Gagal memperbarui data! '. $e->getMessage());
+            // return view('data2', compact('id_desa', 'environment'))->with('error', 'Terjadi kesalahan! '.$e->getMessage());;
+        } catch (\Exception $e) {
+            Log::error('Exception: ' . $e->getMessage());
+            // Alert::error('Terjadi kesalahan!', 'Terjadi kesalahan! '.$e->getMessage());
+            // return view('data2', compact('id_desa', 'environment'))->with('error', 'Terjadi kesalahan! '.$e->getMessage());
+        }
+    }
+
 }

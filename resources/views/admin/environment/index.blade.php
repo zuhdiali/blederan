@@ -35,7 +35,7 @@
                   @endif
                 </div>
               </div>
-              <hr />
+
               <div class="mb-3 row form-group {{$errors->has('tagline') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="tagline" class="form-label"><h5>Tagline</h5></label>
@@ -47,7 +47,9 @@
                   @endif
                 </div>
               </div>
+
               <hr />
+
               <div class="mb-3 row form-group {{$errors->has('gambar_logo') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="gambar_logo" class="form-label"><h5>Gambar Logo</h5></label>
@@ -68,7 +70,7 @@
                   </div>
                 </div>
               </div>
-              <hr />
+              
               <div class="mb-3 row form-group {{$errors->has('warna_font_logo') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="warna_font_logo" class="form-label"><h5>Warna Font di Logo</h5></label>
@@ -80,7 +82,9 @@
                   @endif
                 </div>
               </div>
+
               <hr />
+
               <div class="mb-3 row form-group {{$errors->has('ada_sejarah') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="ada_sejarah" class="form-label"><h5>Ketersediaan Sejarah</h5></label>
@@ -95,7 +99,45 @@
                   @endif
                 </div>
               </div>
+
+              <div class="mb-3 row form-group {{$errors->has('sejarah') ? 'has-error has-feedback' : ''}}">
+                <div class="col-md-3">
+                  <label for="sejarah" class="form-label"><h5>Teks Sejarah</h5></label>
+                  <div>
+                    Cara mengonversi teks bisa dilihat <a href="https://youtu.be/-MWJliIdeqQ" target="_blank" rel="noopener noreferrer">di sini.</a><br />
+                  </div>
+                </div>
+                <div class="col-md-9">
+                  <textarea class="form-control editable-textarea" id="sejarah" name="sejarah" rows="5" required>{!! $environment->sejarah !!}</textarea>
+                  @if ($errors->has('sejarah'))
+                    <small  class="form-text text-muted">{{ $errors->first('sejarah') }}</small>
+                  @endif
+                </div>
+              </div>
+              
+              <div class="mb-3 row form-group {{$errors->has('gambar_sejarah') ? 'has-error has-feedback' : ''}}">
+                <div class="col-md-3">
+                  <label for="gambar_sejarah" class="form-label"><h5>Gambar di Halaman Sejarah</h5></label>
+                </div>
+                <div class="col-md-9">
+                  <div class="row">
+                    <div class="col-md-4">
+                      Gambar saat ini:
+                      <img src="{{asset('images/'.$environment->gambar_sejarah)}}" alt="Logo Saat Ini" height="50" />
+                    </div>
+                    <div class="col-md-8">
+                      Silakan unggah gambar baru jika ingin mengganti gambar sejarah.
+                      <input type="file" class="form-control" id="gambar_sejarah" name="gambar_sejarah" />
+                      @if ($errors->has('gambar_sejarah'))
+                        <small  class="form-text text-muted">{{ $errors->first('gambar_sejarah') }}</small>
+                      @endif
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <hr />
+
               <div class="mb-3 row form-group {{$errors->has('ada_peta') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="ada_peta" class="form-label"><h5>Ketersediaan Peta</h5></label>
@@ -110,7 +152,45 @@
                   @endif
                 </div>
               </div>
+              
+              <div class="mb-3 row form-group {{$errors->has('peta') ? 'has-error has-feedback' : ''}}">
+                <div class="col-md-3">
+                  <label for="peta" class="form-label"><h5>Teks Peta</h5></label>
+                  <div>
+                    Cara mengonversi teks bisa dilihat <a href="https://youtu.be/-MWJliIdeqQ" target="_blank" rel="noopener noreferrer">di sini.</a><br />
+                  </div>
+                </div>
+                <div class="col-md-9">
+                  <textarea class="form-control editable-textarea" id="peta" name="peta" rows="5" required>{!! $environment->peta !!}</textarea>
+                  @if ($errors->has('peta'))
+                    <small  class="form-text text-muted">{{ $errors->first('peta') }}</small>
+                  @endif
+                </div>
+              </div>
+              
+              <div class="mb-3 row form-group {{$errors->has('gambar_peta') ? 'has-error has-feedback' : ''}}">
+                <div class="col-md-3">
+                  <label for="gambar_peta" class="form-label"><h5>Gambar di Halaman Peta</h5></label>
+                </div>
+                <div class="col-md-9">
+                  <div class="row">
+                    <div class="col-md-4">
+                      Gambar saat ini:
+                      <img src="{{asset('images/'.$environment->gambar_peta)}}" alt="Gambar peta" height="50" />
+                    </div>
+                    <div class="col-md-8">
+                      Silakan unggah gambar baru jika ingin mengganti gambar peta.
+                      <input type="file" class="form-control" id="gambar_peta" name="gambar_peta" />
+                      @if ($errors->has('gambar_peta'))
+                        <small  class="form-text text-muted">{{ $errors->first('gambar_peta') }}</small>
+                      @endif
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <hr />
+
               <div class="mb-3 row form-group {{$errors->has('ada_publikasi') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="ada_publikasi" class="form-label"><h5>Ketersediaan Publikasi</h5></label>
@@ -125,7 +205,7 @@
                   @endif
                 </div>
               </div>
-              <hr />
+              
               <div class="mb-3 row form-group {{$errors->has('ada_akomodasi') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="ada_akomodasi" class="form-label"><h5>Ketersediaan Akomodasi</h5></label>
@@ -140,7 +220,7 @@
                   @endif
                 </div>
               </div>
-              <hr />
+              
               <div class="mb-3 row form-group {{$errors->has('ada_produk') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="ada_produk" class="form-label"><h5>Ketersediaan Produk</h5></label>
@@ -155,7 +235,7 @@
                   @endif
                 </div>
               </div>
-              <hr />
+              
               <div class="mb-3 row form-group {{$errors->has('ada_eduwisata') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="ada_eduwisata" class="form-label"><h5>Ketersediaan Eduwisata</h5></label>
@@ -170,7 +250,7 @@
                   @endif
                 </div>
               </div>
-              <hr />
+              
               <div class="mb-3 row form-group {{$errors->has('ada_jadwal') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="ada_jadwal" class="form-label"><h5>Ketersediaan Jadwal Eduwisata</h5></label>
@@ -185,31 +265,9 @@
                   @endif
                 </div>
               </div>
+
               <hr />
-              <div class="mb-3 row form-group {{$errors->has('sejarah') ? 'has-error has-feedback' : ''}}">
-                <div class="col-md-3">
-                  <label for="sejarah" class="form-label"><h5>Teks Sejarah</h5></label>
-                </div>
-                <div class="col-md-9">
-                  <textarea class="form-control" id="sejarah" name="sejarah" rows="5" required>{{ $environment->sejarah }}</textarea>
-                  @if ($errors->has('sejarah'))
-                    <small  class="form-text text-muted">{{ $errors->first('sejarah') }}</small>
-                  @endif
-                </div>
-              </div>
-              <hr />
-              <div class="mb-3 row form-group {{$errors->has('peta') ? 'has-error has-feedback' : ''}}">
-                <div class="col-md-3">
-                  <label for="peta" class="form-label"><h5>Teks Peta</h5></label>
-                </div>
-                <div class="col-md-9">
-                  <textarea class="form-control" id="peta" name="peta" rows="5" required>{{ $environment->peta }}</textarea>
-                  @if ($errors->has('peta'))
-                    <small  class="form-text text-muted">{{ $errors->first('peta') }}</small>
-                  @endif
-                </div>
-              </div>
-              <hr />
+
               <div class="mb-3 row form-group {{$errors->has('facebook_username') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="facebook_username" class="form-label"><h5>Facebook Username</h5></label>
@@ -221,7 +279,7 @@
                   @endif
                 </div>
               </div>
-              <hr />
+              
               <div class="mb-3 row form-group {{$errors->has('facebook_url') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="facebook_url" class="form-label"><h5>Facebook URL</h5></label>
@@ -233,7 +291,9 @@
                   @endif
                 </div>
               </div>
+
               <hr />
+
               <div class="mb-3 row form-group {{$errors->has('instagram_username') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="instagram_username" class="form-label"><h5>Instagram Username</h5></label>
@@ -245,7 +305,7 @@
                   @endif
                 </div>
               </div>
-              <hr />
+              
               <div class="mb-3 row form-group {{$errors->has('instagram_url') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="instagram_url" class="form-label"><h5>Instagram URL</h5></label>
@@ -257,7 +317,9 @@
                   @endif
                 </div>
               </div>
+
               <hr />
+
               <div class="mb-3 row form-group {{$errors->has('twitter_username') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="twitter_username" class="form-label"><h5>Twitter Username</h5></label>
@@ -269,7 +331,7 @@
                   @endif
                 </div>
               </div>
-              <hr />
+              
               <div class="mb-3 row form-group {{$errors->has('twitter_url') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="twitter_url" class="form-label"><h5>Twitter URL</h5></label>
@@ -281,7 +343,9 @@
                   @endif
                 </div>
               </div>
+
               <hr />
+
               <div class="mb-3 row form-group {{$errors->has('youtube_username') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="youtube_username" class="form-label"><h5>Youtube Username</h5></label>
@@ -293,7 +357,7 @@
                   @endif
                 </div>
               </div>
-              <hr />
+              
               <div class="mb-3 row form-group {{$errors->has('youtube_url') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="youtube_url" class="form-label"><h5>Youtube URL</h5></label>
@@ -305,10 +369,17 @@
                   @endif
                 </div>
               </div>
+
               <hr />
+
               <div class="mb-3 row form-group {{$errors->has('maps_desa') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
-                  <label for="maps_desa" class="form-label"><h5>Google Maps Embed Wilayah Desa</h5></label>
+                  <div>
+                    <label for="maps_desa" class="form-label"><h5>Google Maps Embed Wilayah Desa</h5></label>
+                  </div>
+                  <div>
+                    Cara mendapatkan embed Google Maps bisa dilihat <a href="https://youtu.be/NqEOHiqGGho?si=xaygQo9K-uqXg3F-" target="_blank" rel="noopener noreferrer">di sini.</a><br />
+                  </div>
                 </div>
                 <div class="col-md-9">
                   <textarea class="form-control" id="maps_desa" name="maps_desa" rows="4" required>{{ $environment->maps_desa }}</textarea>
@@ -317,10 +388,13 @@
                   @endif
                 </div>
               </div>
-              <hr />
+              
               <div class="mb-3 row form-group {{$errors->has('maps_kantor_desa') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="maps_kantor_desa" class="form-label"><h5>Google Maps Embed Kantor Desa</h5></label>
+                  <div>
+                    Cara mendapatkan embed Google Maps bisa dilihat <a href="https://youtu.be/NqEOHiqGGho?si=xaygQo9K-uqXg3F-" target="_blank" rel="noopener noreferrer">di sini.</a><br />
+                  </div>
                 </div>
                 <div class="col-md-9">
                   <textarea class="form-control" id="maps_kantor_desa" name="maps_kantor_desa" rows="4"  required>{{ $environment->maps_kantor_desa }}</textarea>
@@ -329,7 +403,9 @@
                   @endif
                 </div>
               </div>
+
               <hr />
+
               <div class="mb-3 row form-group {{$errors->has('bg_utama') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="bg_utama" class="form-label"><h5>Background Utama</h5></label>
@@ -338,10 +414,10 @@
                   <div class="row">
                     <div class="col-md-4">
                       Gambar saat ini:
-                      <img src="{{asset('images/'.$environment->bg_utama)}}" alt="Logo Saat Ini" height="50" />
+                      <img src="{{asset('images/'.$environment->bg_utama)}}" alt="Gambar Saat Ini" height="50" />
                     </div>
                     <div class="col-md-8">
-                      Silakan unggah gambar baru jika ingin mengganti gambar logo.
+                      Silakan unggah gambar baru jika ingin mengganti gambar background utama.
                       <input type="file" class="form-control" id="bg_utama" name="bg_utama" />
                       @if ($errors->has('bg_utama'))
                         <small  class="form-text text-muted">{{ $errors->first('bg_utama') }}</small>
@@ -350,7 +426,9 @@
                   </div>
                 </div>
               </div>
+
               <hr />
+
               <div class="mb-3 row form-group {{$errors->has('bg_kabar_1') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="bg_kabar_1" class="form-label"><h5>Background Kabar 1</h5></label>
@@ -359,10 +437,10 @@
                   <div class="row">
                     <div class="col-md-4">
                       Gambar saat ini:
-                      <img src="{{asset('images/'.$environment->bg_kabar_1)}}" alt="Logo Saat Ini" height="50" />
+                      <img src="{{asset('images/'.$environment->bg_kabar_1)}}" alt="Gambar kabar 1" height="50" />
                     </div>
                     <div class="col-md-8">
-                      Silakan unggah gambar baru jika ingin mengganti gambar logo.
+                      Silakan unggah gambar baru jika ingin mengganti gambar kabar 1.
                       <input type="file" class="form-control" id="bg_kabar_1" name="bg_kabar_1" />
                       @if ($errors->has('bg_kabar_1'))
                         <small  class="form-text text-muted">{{ $errors->first('bg_kabar_1') }}</small>
@@ -371,7 +449,7 @@
                   </div>
                 </div>
               </div>
-              <hr />
+              
               <div class="mb-3 row form-group {{$errors->has('bg_kabar_2') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="bg_kabar_2" class="form-label"><h5>Background Kabar 2</h5></label>
@@ -380,10 +458,10 @@
                   <div class="row">
                     <div class="col-md-4">
                       Gambar saat ini:
-                      <img src="{{asset('images/'.$environment->bg_kabar_2)}}" alt="Logo Saat Ini" height="50" />
+                      <img src="{{asset('images/'.$environment->bg_kabar_2)}}" alt="Gambar kabar 2" height="50" />
                     </div>
                     <div class="col-md-8">
-                      Silakan unggah gambar baru jika ingin mengganti gambar logo.
+                      Silakan unggah gambar baru jika ingin mengganti gambar kabar 2.
                       <input type="file" class="form-control" id="bg_kabar_2" name="bg_kabar_2" />
                       @if ($errors->has('bg_kabar_2'))
                         <small  class="form-text text-muted">{{ $errors->first('bg_kabar_2') }}</small>
@@ -392,7 +470,7 @@
                   </div>
                 </div>
               </div>
-              <hr />
+              
               <div class="mb-3 row form-group {{$errors->has('bg_kabar_3') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="bg_kabar_3" class="form-label"><h5>Background Kabar 3</h5></label>
@@ -401,10 +479,10 @@
                   <div class="row">
                     <div class="col-md-4">
                       Gambar saat ini:
-                      <img src="{{asset('images/'.$environment->bg_kabar_3)}}" alt="Logo Saat Ini" height="50" />
+                      <img src="{{asset('images/'.$environment->bg_kabar_3)}}" alt="Gambar kabar 3" height="50" />
                     </div>
                     <div class="col-md-8">
-                      Silakan unggah gambar baru jika ingin mengganti gambar logo.
+                      Silakan unggah gambar baru jika ingin mengganti gambar kabar 3.
                       <input type="file" class="form-control" id="bg_kabar_3" name="bg_kabar_3" />
                       @if ($errors->has('bg_kabar_3'))
                         <small  class="form-text text-muted">{{ $errors->first('bg_kabar_3') }}</small>
@@ -413,7 +491,7 @@
                   </div>
                 </div>
               </div>
-              <hr />
+              
               <div class="mb-3 row form-group {{$errors->has('bg_kabar_4') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="bg_kabar_4" class="form-label"><h5>Background Kabar 4</h5></label>
@@ -422,10 +500,10 @@
                   <div class="row">
                     <div class="col-md-4">
                       Gambar saat ini:
-                      <img src="{{asset('images/'.$environment->bg_kabar_4)}}" alt="Logo Saat Ini" height="50" />
+                      <img src="{{asset('images/'.$environment->bg_kabar_4)}}" alt="Gambar kabar 4" height="50" />
                     </div>
                     <div class="col-md-8">
-                      Silakan unggah gambar baru jika ingin mengganti gambar logo.
+                      Silakan unggah gambar baru jika ingin mengganti gambar kabar 4.
                       <input type="file" class="form-control" id="bg_kabar_4" name="bg_kabar_4" value="{{ $environment->bg_kabar_4 }}">
                       @if ($errors->has('bg_kabar_4'))
                         <small  class="form-text text-muted">{{ $errors->first('bg_kabar_4') }}</small>
@@ -434,7 +512,9 @@
                   </div>
                 </div>
               </div>
+
               <hr />
+              
               <div class="mb-3 row form-group {{$errors->has('bg_data_kependudukan') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="bg_data_kependudukan" class="form-label"><h5>Background Data Kependudukan</h5></label>
@@ -443,10 +523,10 @@
                   <div class="row">
                     <div class="col-md-4">
                       Gambar saat ini:
-                      <img src="{{asset('images/'.$environment->bg_data_kependudukan)}}" alt="Logo Saat Ini" height="50" />
+                      <img src="{{asset('images/'.$environment->bg_data_kependudukan)}}" alt="Gambar data kependudukan" height="50" />
                     </div>
                     <div class="col-md-8">
-                      Silakan unggah gambar baru jika ingin mengganti gambar logo.
+                      Silakan unggah gambar baru jika ingin mengganti gambar kependudukan.
                       <input type="file" class="form-control" id="bg_data_kependudukan" name="bg_data_kependudukan" >
                       @if ($errors->has('bg_data_kependudukan'))
                         <small  class="form-text text-muted">{{ $errors->first('bg_data_kependudukan') }}</small>
@@ -455,7 +535,7 @@
                   </div>
                 </div>
               </div>
-              <hr />
+              
               <div class="mb-3 row form-group {{$errors->has('bg_data_perumahan') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="bg_data_perumahan" class="form-label"><h5>Background Data Perumahan</h5></label>
@@ -464,10 +544,10 @@
                   <div class="row">
                     <div class="col-md-4">
                       Gambar saat ini:
-                      <img src="{{asset('images/'.$environment->bg_data_perumahan)}}" alt="Logo Saat Ini" height="50" />
+                      <img src="{{asset('images/'.$environment->bg_data_perumahan)}}" alt="Gambar data perumahan" height="50" />
                     </div>
                     <div class="col-md-8">
-                      Silakan unggah gambar baru jika ingin mengganti gambar logo.
+                      Silakan unggah gambar baru jika ingin mengganti gambar perumahan.
                       <input type="file" class="form-control" id="bg_data_perumahan" name="bg_data_perumahan" />
                       @if ($errors->has('bg_data_perumahan'))
                         <small  class="form-text text-muted">{{ $errors->first('bg_data_perumahan') }}</small>
@@ -476,7 +556,7 @@
                   </div>
                 </div>
               </div>
-              <hr />
+              
               <div class="mb-3 row form-group {{$errors->has('bg_data_kesehatan') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="bg_data_kesehatan" class="form-label"><h5>Background Data Kesehatan</h5></label>
@@ -485,10 +565,10 @@
                   <div class="row">
                     <div class="col-md-4">
                       Gambar saat ini:
-                      <img src="{{asset('images/'.$environment->bg_data_kesehatan)}}" alt="Logo Saat Ini" height="50" />
+                      <img src="{{asset('images/'.$environment->bg_data_kesehatan)}}" alt="Gambar data kesehatan" height="50" />
                     </div>
                     <div class="col-md-8">
-                      Silakan unggah gambar baru jika ingin mengganti gambar logo.
+                      Silakan unggah gambar baru jika ingin mengganti gambar data kesehatan.
                       <input type="file" class="form-control" id="bg_data_kesehatan" name="bg_data_kesehatan" />
                       @if ($errors->has('bg_data_kesehatan'))
                         <small  class="form-text text-muted">{{ $errors->first('bg_data_kesehatan') }}</small>
@@ -497,7 +577,7 @@
                   </div>
                 </div>
               </div>
-              <hr />
+              
               <div class="mb-3 row form-group {{$errors->has('bg_data_pendidikan') ? 'has-error has-feedback' : ''}}">
                 <div class="col-md-3">
                   <label for="bg_data_pendidikan" class="form-label"><h5>Background Data Pendidikan</h5></label>
@@ -506,10 +586,10 @@
                   <div class="row">
                     <div class="col-md-4">
                       Gambar saat ini:
-                      <img src="{{asset('images/'.$environment->bg_data_pendidikan)}}" alt="Logo Saat Ini" height="50" />
+                      <img src="{{asset('images/'.$environment->bg_data_pendidikan)}}" alt="Gambar data pendidikan" height="50" />
                     </div>
                     <div class="col-md-8">
-                      Silakan unggah gambar baru jika ingin mengganti gambar logo.
+                      Silakan unggah gambar baru jika ingin mengganti gambar data pendidikan.
                       <input type="file" class="form-control" id="bg_data_pendidikan" name="bg_data_pendidikan" />
                       @if ($errors->has('bg_data_pendidikan'))
                         <small  class="form-text text-muted">{{ $errors->first('bg_data_pendidikan') }}</small>
@@ -518,7 +598,9 @@
                   </div>
                 </div>
               </div>
+
               <hr />
+
               <button type="button" class="btn btn-primary" id="konfirmasi-update">Perbarui Website</button>
             </form>
         </div>
@@ -676,6 +758,8 @@
 
 @section('script')
 <script>
+
+
   //== Class definition
   var SweetAlert2Demo = (function () {
     //== Demos

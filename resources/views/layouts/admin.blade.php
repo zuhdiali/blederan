@@ -226,7 +226,7 @@
                           </div>
                           <div class="u-text">
                             <h4>{{Auth::user()->name}}</h4>
-                            <p class="text-muted">{{Auth::user()->email}}</p>
+                            <p class="text-muted">{{Auth::user()->username}}</p>
                             {{-- <a
                               href="profile.html"
                               class="btn btn-xs btn-secondary btn-sm"
@@ -392,10 +392,9 @@
           },
         };
       })();
-
+        
     </script>
     
-
     @yield('script')
   </body>
 </html>
