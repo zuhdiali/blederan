@@ -104,16 +104,12 @@ class ProdukController extends Controller
             $file->move($path, $filename);
         }
 
-        if ($filename == NULL) {
-            $filename = 'default.jpg';
-        }
 
         $produk->nama_produk = $request->nama_produk;
         $produk->id_desa = Auth::user()->id_desa;
         $produk->harga = $request->harga;
         $produk->satuan = $request->satuan;
         $produk->stok = $request->stok;
-        // $produk->gambar_produk = $filename;
         $produk->nama_penjual = $request->nama_penjual;
         $produk->kontak_penjual = $request->kontak_penjual;
         $produk->deskripsi = $request->deskripsi;

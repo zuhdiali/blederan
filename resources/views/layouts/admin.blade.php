@@ -112,6 +112,12 @@
                       <p>Akomodasi</p>
                   </a>
                 </li>
+                <li class="nav-item {{ Request::path() ==  'admin-publikasi' ? 'active' : ''  }}">
+                  <a href="{{route('admin-publikasi')}}">
+                      <i class="fas fa-book"></i>
+                      <p>Publikasi</p>
+                  </a>
+                </li>
                 <li class="nav-section">
                   <span class="sidebar-mini-icon">
                     <i class="fa fa-ellipsis-h"></i>

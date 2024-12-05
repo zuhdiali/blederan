@@ -13,9 +13,17 @@ use Illuminate\Http\Client\RequestException;
 use App\Models\Produk;
 use App\Models\Tabulasi;
 use App\Models\Environment;
+use App\Models\Publikasi;
 
 class MainController extends Controller
 {
+    public function landing()
+    {
+        $environments = Environment::where('id_desa', '<>', 999999)->get();
+        $kecamatans = Environment::select('nama_kecamatan')->where('nama_kecamatan', '<>', 'Dummy')->distinct()->orderBy('nama_kecamatan')->get();
+        $desas = Environment::selectRaw('Distinct(nama_desa), id_desa, nama_kecamatan')->where('id_desa', '<>', 999999)->orderBy('nama_desa')->get();
+        return view('index', compact('environments', 'kecamatans', 'desas'));
+    }
     /**
      * Show the application dashboard.
      *
@@ -71,7 +79,8 @@ class MainController extends Controller
     public function publikasi($id_desa)
     {
         $environment = Environment::where('id_desa', $id_desa)->first();
-        return view('publikasi', compact('id_desa', 'environment'));
+        $publikasis = Publikasi::where('id_desa', $id_desa)->get();
+        return view('publikasi', compact('id_desa', 'environment', 'publikasis'));
     }
 
     public function medsos($id_desa)

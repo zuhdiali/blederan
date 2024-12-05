@@ -1850,7 +1850,7 @@ Deals Page Style
 */
 
 .page-heading {
-  background-image: url(../images/heading-bg.jpg);
+  /* background-image: url(../images/heading-bg.jpg); */
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1883,8 +1883,7 @@ Deals Page Style
 
 .search-form #search-form {
   background-color: #22b3c1;
-  border-bottom-left-radius: 23px;
-  border-bottom-right-radius: 23px;
+  border-radius: 23px;
   padding: 35px 60px;
 }
 

@@ -140,7 +140,7 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <h2>Ikuti Media Sosial Kami</h2>
+          <h2>Ikuti Media Sosial Desa</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
             @if($environment->facebook_url)
             <div class="p-2">
@@ -185,8 +185,10 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <p>Copyright © 2024 Desa {{ $environment->nama_desa }}.
-            <br>Pengembang: <a href="https://wa.me/6282328839199" target="_blank" title="Hubungi WhatsApp">Zuhdi Ali Hisyam</a>. Desain: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a></p>
+            {{-- FOOTER INI DILARANG DIUBAH --}}
+            <p>Copyright © 2024 <a href="http://wonosobokab.bps.go.id" target="_blank" rel="noopener noreferrer">BPS Wonosobo</a>.
+            <br>Pengembang:   <a href="https://wa.me/6282328839199" target="_blank" title="Hubungi WhatsApp">Zuhdi Ali Hisyam</a>. Desain: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a></p>
+            {{-- FOOTER INI DILARANG DIUBAH --}}
           </div>
         </div>
       </div>

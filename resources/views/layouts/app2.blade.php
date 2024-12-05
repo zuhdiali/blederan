@@ -135,7 +135,7 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <h2>Ikuti Media Sosial Pengembang Website</h2>
+          <h4>Ikuti Media Sosial Pengembang Website</h4>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <div class="p-2">
               <h4>

@@ -8,6 +8,7 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\AkomodasiController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\EnvironmentController;
+use App\Http\Controllers\PublikasiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,16 +22,16 @@ use App\Http\Controllers\EnvironmentController;
 
 
 // ******* Halaman Utama *********
-// Route::get('/produk/{id_desa}', [MainController::class, 'produk'])->name('produk');
+Route::get('/', [MainController::class, 'landing'])->name('landing');
 Route::get('/kabar/{id_desa}', [MainController::class, 'kabar'])->name('kabar');
 // Route::get('/data/{id_desa}', [MainController::class, 'data'])->name('data');
 Route::get('/data2/{id_desa}', [MainController::class, 'data2'])->name('data2');
 Route::get('/sejarah/{id_desa}', [MainController::class, 'sejarah'])->name('sejarah');
 Route::get('/peta/{id_desa}', [MainController::class, 'peta'])->name('peta');
 Route::get('/publikasi/{id_desa}', [MainController::class, 'publikasi'])->name('publikasi');
-Route::get('/download/{id_desa}', [MainController::class, 'downloadPublikasi'])->name('download');
 Route::get('/medsos/{id_desa}', [MainController::class, 'medsos'])->name('medsos');
 Route::get('/admin-update-data', [AdminController::class, 'getDataAPI'])->name('update-data');
+Route::get('/admin-download-publikasi/{id}', [PublikasiController::class, 'download'])->name('admin-download-publikasi');
 // Route::get('/test/{id_desa}', [MainController::class, 'test'])->name('test');
 // Route::get('/test2/{id_desa}', [MainController::class, 'test2'])->name('test2');
 // Route::get('/layout-artikel/{id_desa}', [MainController::class, 'layoutArtikel'])->name('layout-artikel');
@@ -109,5 +110,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin-hapus-informasi/{id}', [InformasiController::class, 'destroy'])->name('admin-hapus-informasi');
 });
 // ******* Halaman Informasi *********
+
+// ******* Halaman Publikasi *********
+Route::middleware('auth')->group(function () {
+    Route::get('/admin-publikasi', [PublikasiController::class, 'index'])->name('admin-publikasi');
+    Route::get('/admin-tambah-publikasi', [PublikasiController::class, 'create'])->name('admin-tambah-publikasi');
+    Route::post('/admin-simpan-publikasi', [PublikasiController::class, 'store'])->name('admin-simpan-publikasi');
+    Route::get('/admin-edit-publikasi/{id}', [PublikasiController::class, 'edit'])->name('admin-edit-publikasi');
+    Route::post('/admin-update-publikasi/{id}', [PublikasiController::class, 'update'])->name('admin-update-publikasi');
+    Route::get('/admin-hapus-publikasi/{id}', [PublikasiController::class, 'destroy'])->name('admin-hapus-publikasi');
+    
+});
+// ******* Halaman Publikasi *********
 
 Route::get('/{id_desa}', [MainController::class, 'index'])->name('welcome');
